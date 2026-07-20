@@ -15,11 +15,13 @@ At the end, you get a readiness score out of 100 and a downloadable HTML report 
 ## Key Features
 
 - Checks your document against real EU MDR regulatory clauses
+- Highlights every issue directly in your document's text, color-coded by severity (Critical/High/Medium/Low) — no digging through a separate findings list to find where a problem actually is
+- Expand any highlighted issue to see the guideline clause, explanation, and suggested fix, then apply it with one click — the correction is re-verified against the guideline clause before it's written into the document
 - Groups issues into categories like Risk Management, Clinical Evaluation, Post-Market Surveillance, and more
 - Scores the document from 0 to 100 based on how many gaps were found
 - Shows AI confidence level for each finding
 - Generates a clean, downloadable audit report in HTML format
-- Simple, modern web interface — no technical knowledge required to use
+- Runs entirely on your own machine via a local Ollama model — no API key, no rate limits, nothing sent over the network
 
 ---
 
@@ -43,8 +45,8 @@ These steps assume you have Python installed on your machine (version 3.9 or hig
 If you haven't already, download the project to your local machine:
 
 ```bash
-git clone https://github.com/AyanMujawar/Invictus_NLP.git
-cd Invictus_NLP
+git clone https://github.com/ommundada16/ai_compliance_checker_ethosh-ignite-.git
+cd ai_compliance_checker_ethosh-ignite-
 ```
 
 **Step 2 — Create a virtual environment**
