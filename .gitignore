@@ -2,5 +2,6 @@ venv/
 __pycache__/
 .env
 *.npy
-data/
+data/*
+!data/guideline.pdf
 report.json
