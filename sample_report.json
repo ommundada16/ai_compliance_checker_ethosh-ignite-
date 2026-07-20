@@ -1,0 +1,88 @@
+{
+  "document_name": "Double J Stent - Clinical Evaluation Report",
+  "readiness_score": 60,
+  "summary": "9 potential MDR compliance issues identified.",
+  "findings": [
+    {
+      "violating_statement": "Incomplete post-market clinical follow-up (PMCF) plan details.",
+      "guideline_clause": "MDR Article 89",
+      "category": "Post Market Surveillance",
+      "severity": "High",
+      "explanation": "The current submission fails to provide specific timelines for the long-term safety data collection of the Double J Stent. Article 89 requires a continuous process that updates the clinical evaluation throughout the life cycle of the device.",
+      "confidence": 0.90,
+      "suggested_correction": "Append a detailed schedule to Annex 3 outlining specific data collection milestones at 12, 24, and 36-month post-implantation intervals."
+    },
+    {
+      "violating_statement": "Discrepancy in equivalence data for predicate device stent diameter.",
+      "guideline_clause": "Annex XIV, Part A",
+      "category": "Equivalence",
+      "severity": "Medium",
+      "explanation": "The technical comparison table lists a 7Fr diameter for the predicate, but the original manufacturer's IFU indicates a tolerance range not reflected in your equivalence assessment.",
+      "confidence": 0.82,
+      "suggested_correction": "Update the equivalence assessment to document the tolerance range for the predicate device diameter."
+    },
+    {
+      "violating_statement": "Risk control measure ID referencing error in Table 5.2.",
+      "guideline_clause": "ISO 14971",
+      "category": "Risk Management",
+      "severity": "Low",
+      "explanation": "Minor typographical error: 'RCM-102' is used instead of 'RCM-120'. This does not impact safety but affects cross-referencing integrity.",
+      "confidence": 0.95,
+      "suggested_correction": "Correct the risk control measure ID reference in Table 5.2 from 'RCM-102' to 'RCM-120'."
+    },
+    {
+      "violating_statement": "Lack of systematic literature review details.",
+      "guideline_clause": "Annex XIV, Part A, Sec 1(a)",
+      "category": "Clinical Evaluation",
+      "severity": "Medium",
+      "explanation": "The clinical evaluation plan does not document the search terms, databases, or selection criteria used for the systematic literature review.",
+      "confidence": 0.85,
+      "suggested_correction": "Incorporate a detailed literature search protocol including databases (e.g., MEDLINE/PubMed, Embase) and specific search strings."
+    },
+    {
+      "violating_statement": "Insufficient justification for relying on non-clinical data.",
+      "guideline_clause": "MDR Article 61(10)",
+      "category": "Clinical Evaluation",
+      "severity": "Medium",
+      "explanation": "The justification for not conducting clinical investigations relies on historical use but does not present robust pre-clinical performance data.",
+      "confidence": 0.80,
+      "suggested_correction": "Provide additional bench testing and animal study summaries to justify the reliance on non-clinical data."
+    },
+    {
+      "violating_statement": "Vague definition of device target population.",
+      "guideline_clause": "Annex XIV, Section 1",
+      "category": "Clinical Evaluation",
+      "severity": "Low",
+      "explanation": "The patient population description mentions 'adult patients' but does not specify age range limits or exclusion criteria.",
+      "confidence": 0.88,
+      "suggested_correction": "Define target groups and specific clinical indications more precisely in Section 1.2."
+    },
+    {
+      "violating_statement": "Missing qualification records of clinical evaluator.",
+      "guideline_clause": "MDR Article 61(12)",
+      "category": "Clinical Evaluation",
+      "severity": "Low",
+      "explanation": "The curriculum vitae or qualifications of the clinical evaluator are referenced but not appended to the report.",
+      "confidence": 0.79,
+      "suggested_correction": "Append the evaluator's CV and declaration of interest to the final clinical evaluation report."
+    },
+    {
+      "violating_statement": "No defined methodology for statistical increases in incident frequency.",
+      "guideline_clause": "MDR Article 84",
+      "category": "Post Market Surveillance",
+      "severity": "Medium",
+      "explanation": "The PMS plan refers to trend reporting but does not define the threshold or statistical method to identify significant increases in incident frequency.",
+      "confidence": 0.81,
+      "suggested_correction": "Define clear statistical methods (e.g., Poisson distribution thresholds) for triggering trend reporting."
+    },
+    {
+      "violating_statement": "Inconsistent PMS report update frequency.",
+      "guideline_clause": "MDR Article 85",
+      "category": "Post Market Surveillance",
+      "severity": "Low",
+      "explanation": "The plan states PMS reports are updated 'as needed' instead of the required annual updates for Class IIa/IIb devices.",
+      "confidence": 0.87,
+      "suggested_correction": "Revise the update cycle in Section 4.1 to mandate at least annual updates to the PMS report."
+    }
+  ]
+}
