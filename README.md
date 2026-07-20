@@ -108,12 +108,14 @@ Once the server starts, Streamlit will automatically open the app in your defaul
 | `report.py` | HTML report generation |
 | `schema.py` | Data models for findings and reports |
 | `data/guideline.pdf` | The EU MDR 2017/745 regulation text (bundled), used as the compliance reference |
+| `data/source_file.pdf` | A sample Clinical Evaluation Report (bundled) you can upload to try the tool immediately |
 
 ---
 
 ## Notes
 
 - `data/guideline.pdf` is included in this repo (it's the official EU MDR 2017/745 text from the Official Journal of the European Union, i.e. public legislation) so the audit works out of the box with no setup step for it.
+- `data/source_file.pdf` is a sample CER (provided as hackathon sample data) you can upload right away to see the tool in action without needing your own report.
 - The document view currently audits 5-10 pages at a time (chosen via a slider on the upload screen) rather than a full report, to keep local inference time reasonable.
 - Front-matter pages (cover, table of contents, abbreviations/glossary, revision history) are detected automatically and skipped entirely -- they don't count toward your page slider at all. "N pages" always means N pages of real content, scanned from wherever it actually starts in the PDF (even if that's non-contiguous, e.g. an abbreviations page appears again later in the document).
 - If you see a connection error during an audit, make sure the Ollama app/service is actually running and that you've pulled the model named in `OLLAMA_MODEL`.

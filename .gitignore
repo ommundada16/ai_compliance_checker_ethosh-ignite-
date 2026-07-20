@@ -4,4 +4,5 @@ __pycache__/
 *.npy
 data/*
 !data/guideline.pdf
+!data/source_file.pdf
 report.json
