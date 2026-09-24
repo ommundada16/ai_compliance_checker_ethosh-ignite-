@@ -1,0 +1,4432 @@
+{
+  "system": "v1_baseline",
+  "description": "fixed 800w/100w chunking, all-MiniLM-L6-v2 dense-only, top-k cosine",
+  "config": {
+    "words_per_chunk": 800,
+    "overlap": 100,
+    "model": "sentence-transformers/all-MiniLM-L6-v2",
+    "chunks": 145,
+    "guideline_words": 101193
+  },
+  "gold": {
+    "passages": 68,
+    "clauses": 1320,
+    "clauses_located": 1320
+  },
+  "encoder_truncation": {
+    "embedded_words_per_chunk": 106,
+    "chunk_words": 800,
+    "fraction_of_chunk_embedded": 0.1325,
+    "clauses_ever_embedded": 334,
+    "clauses_total": 1320,
+    "gold_primary_reachable": 65,
+    "gold_primary_total": 147,
+    "recall_ceiling": 0.4422,
+    "note": "all-MiniLM-L6-v2 accepts 256 word-pieces. Dense regulatory English exceeds that well before 800 words, so the tail of every chunk is truncated before embedding. recall_ceiling is the highest Recall any top-k over this index could reach: the remaining clauses were never encoded, so no value of k can retrieve them."
+  },
+  "timing": {
+    "index_seconds": 2.45,
+    "mean_query_ms": 10.88,
+    "total_seconds": 19.6
+  },
+  "summary": {
+    "1": {
+      "recall": 0.0,
+      "precision": 0.0,
+      "ndcg": 0.0022563673122658274,
+      "context_precision": 0.002888655462184874,
+      "mrr": 0.0,
+      "map": 0.0,
+      "hit_rate": 0.0,
+      "mean_clauses_returned": 11.426470588235293,
+      "mean_context_words": 800.0
+    },
+    "3": {
+      "recall": 0.029411764705882353,
+      "precision": 0.0021725910232266166,
+      "ndcg": 0.013124612242261444,
+      "context_precision": 0.003992212829888527,
+      "mrr": 0.006465714940947139,
+      "map": 0.0032328574704735694,
+      "hit_rate": 0.058823529411764705,
+      "mean_clauses_returned": 30.985294117647058,
+      "mean_context_words": 2400.0
+    },
+    "5": {
+      "recall": 0.058823529411764705,
+      "precision": 0.0027232949264849606,
+      "ndcg": 0.022437179483324285,
+      "context_precision": 0.005747778539497105,
+      "mrr": 0.008446871039750297,
+      "map": 0.004891884717736111,
+      "hit_rate": 0.10294117647058823,
+      "mean_clauses_returned": 47.75,
+      "mean_context_words": 4000.0
+    },
+    "10": {
+      "recall": 0.1323529411764706,
+      "precision": 0.002610417731828546,
+      "ndcg": 0.040246934281072594,
+      "context_precision": 0.0058097290765543996,
+      "mrr": 0.01031955600110206,
+      "map": 0.006061653902426932,
+      "hit_rate": 0.23529411764705882,
+      "mean_clauses_returned": 92.11764705882354,
+      "mean_context_words": 8000.0
+    }
+  },
+  "per_query": [
+    {
+      "passage_id": "CER.1.2#1",
+      "section": "1.2",
+      "n_primary": 3,
+      "chunks": [
+        6,
+        3,
+        4,
+        112,
+        36,
+        7,
+        13,
+        138,
+        0,
+        109
+      ],
+      "top_score": 0.736947238445282,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 0,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 0,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 14,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 30,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.1.2#2",
+      "section": "1.2",
+      "n_primary": 3,
+      "chunks": [
+        79,
+        6,
+        138,
+        129,
+        61,
+        8,
+        118,
+        128,
+        109,
+        4
+      ],
+      "top_score": 0.6886756420135498,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 13,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 21,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 47,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 53,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.2.1",
+      "section": "2.1",
+      "n_primary": 1,
+      "chunks": [
+        118,
+        115,
+        127,
+        64,
+        140,
+        128,
+        138,
+        129,
+        134,
+        1
+      ],
+      "top_score": 0.46808022260665894,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 0,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 5,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 27,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 49,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.2.2",
+      "section": "2.2",
+      "n_primary": 1,
+      "chunks": [
+        115,
+        101,
+        118,
+        127,
+        27,
+        43,
+        126,
+        7,
+        50,
+        36
+      ],
+      "top_score": 0.493684858083725,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 4,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 12,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 26,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 68,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.2.3",
+      "section": "2.3",
+      "n_primary": 1,
+      "chunks": [
+        35,
+        101,
+        33,
+        104,
+        31,
+        32,
+        116,
+        133,
+        103,
+        34
+      ],
+      "top_score": 0.5379719734191895,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 18,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 46,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 63,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 115,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.2.4",
+      "section": "2.4",
+      "n_primary": 2,
+      "chunks": [
+        96,
+        97,
+        137,
+        52,
+        16,
+        134,
+        135,
+        98,
+        48,
+        118
+      ],
+      "top_score": 0.2906467318534851,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 28,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 46,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 61,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.5,
+          "precision": 0.008620689655172414,
+          "ndcg": 0.08527525251322651,
+          "context_precision": 0.008620689655172414,
+          "mrr": 0.01098901098901099,
+          "map": 0.005494505494505495,
+          "hit_rate": 1.0,
+          "clauses_returned": 109,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.2.5",
+      "section": "2.5",
+      "n_primary": 2,
+      "chunks": [
+        96,
+        52,
+        134,
+        137,
+        29,
+        115,
+        120,
+        97,
+        32,
+        53
+      ],
+      "top_score": 0.42566585540771484,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 28,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 53,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 66,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 114,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.2.6",
+      "section": "2.6",
+      "n_primary": 2,
+      "chunks": [
+        97,
+        114,
+        48,
+        115,
+        86,
+        98,
+        96,
+        138,
+        43,
+        134
+      ],
+      "top_score": 0.3599874973297119,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 17,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 40,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.5,
+          "precision": 0.01818181818181818,
+          "ndcg": 0.09807064166579121,
+          "context_precision": 0.01818181818181818,
+          "mrr": 0.02,
+          "map": 0.01,
+          "hit_rate": 1.0,
+          "clauses_returned": 53,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 1.0,
+          "precision": 0.015625,
+          "ndcg": 0.1907870405138645,
+          "context_precision": 0.015625,
+          "mrr": 0.02,
+          "map": 0.025873015873015874,
+          "hit_rate": 1.0,
+          "clauses_returned": 122,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.2.7#1",
+      "section": "2.7",
+      "n_primary": 2,
+      "chunks": [
+        97,
+        86,
+        96,
+        115,
+        101,
+        127,
+        32,
+        134,
+        98,
+        130
+      ],
+      "top_score": 0.3452182710170746,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 17,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 52,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 64,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.5,
+          "precision": 0.008264462809917356,
+          "ndcg": 0.08337274148114646,
+          "context_precision": 0.008264462809917356,
+          "mrr": 0.009900990099009901,
+          "map": 0.0049504950495049506,
+          "hit_rate": 1.0,
+          "clauses_returned": 117,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.2.7#2",
+      "section": "2.7",
+      "n_primary": 2,
+      "chunks": [
+        97,
+        118,
+        98,
+        135,
+        130,
+        115,
+        128,
+        52,
+        89,
+        101
+      ],
+      "top_score": 0.34863215684890747,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 17,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.5,
+          "precision": 0.03125,
+          "ndcg": 0.1157181864263805,
+          "context_precision": 0.03125,
+          "mrr": 0.037037037037037035,
+          "map": 0.018518518518518517,
+          "hit_rate": 1.0,
+          "clauses_returned": 32,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.5,
+          "precision": 0.01818181818181818,
+          "ndcg": 0.1157181864263805,
+          "context_precision": 0.01818181818181818,
+          "mrr": 0.037037037037037035,
+          "map": 0.018518518518518517,
+          "hit_rate": 1.0,
+          "clauses_returned": 55,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.5,
+          "precision": 0.011494252873563218,
+          "ndcg": 0.1452203234797054,
+          "context_precision": 0.022988505747126436,
+          "mrr": 0.037037037037037035,
+          "map": 0.018518518518518517,
+          "hit_rate": 1.0,
+          "clauses_returned": 87,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.2.8",
+      "section": "2.8",
+      "n_primary": 2,
+      "chunks": [
+        97,
+        96,
+        16,
+        30,
+        120,
+        138,
+        130,
+        53,
+        86,
+        115
+      ],
+      "top_score": 0.27510780096054077,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 17,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 42,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 62,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.5,
+          "precision": 0.009009009009009009,
+          "ndcg": 0.08355072447451387,
+          "context_precision": 0.009009009009009009,
+          "mrr": 0.01,
+          "map": 0.005,
+          "hit_rate": 1.0,
+          "clauses_returned": 107,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.2.9",
+      "section": "2.9",
+      "n_primary": 2,
+      "chunks": [
+        95,
+        96,
+        32,
+        97,
+        128,
+        140,
+        135,
+        88,
+        130,
+        89
+      ],
+      "top_score": 0.4370190501213074,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.10834265593797102,
+          "context_precision": 0.07142857142857142,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 14,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.10834265593797102,
+          "context_precision": 0.017543859649122806,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 54,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.10834265593797102,
+          "context_precision": 0.013333333333333334,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 68,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.13591113327256296,
+          "context_precision": 0.015873015873015872,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 118,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.2.10",
+      "section": "2.10",
+      "n_primary": 2,
+      "chunks": [
+        97,
+        95,
+        96,
+        32,
+        88,
+        140,
+        16,
+        86,
+        135,
+        128
+      ],
+      "top_score": 0.4666425287723541,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 17,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.5,
+          "precision": 0.01694915254237288,
+          "ndcg": 0.12871532817644848,
+          "context_precision": 0.01694915254237288,
+          "mrr": 0.05263157894736842,
+          "map": 0.02631578947368421,
+          "hit_rate": 1.0,
+          "clauses_returned": 52,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.5,
+          "precision": 0.011627906976744186,
+          "ndcg": 0.12871532817644848,
+          "context_precision": 0.011627906976744186,
+          "mrr": 0.05263157894736842,
+          "map": 0.02631578947368421,
+          "hit_rate": 1.0,
+          "clauses_returned": 79,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.5,
+          "precision": 0.00819672131147541,
+          "ndcg": 0.15757078383760303,
+          "context_precision": 0.01639344262295082,
+          "mrr": 0.05263157894736842,
+          "map": 0.02631578947368421,
+          "hit_rate": 1.0,
+          "clauses_returned": 115,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.2.11",
+      "section": "2.11",
+      "n_primary": 1,
+      "chunks": [
+        60,
+        139,
+        63,
+        128,
+        138,
+        55,
+        61,
+        7,
+        52,
+        89
+      ],
+      "top_score": 0.5082486867904663,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 13,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 50,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 55,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 113,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.2.12",
+      "section": "2.12",
+      "n_primary": 2,
+      "chunks": [
+        115,
+        96,
+        130,
+        127,
+        97,
+        29,
+        52,
+        138,
+        134,
+        32
+      ],
+      "top_score": 0.2461685687303543,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 4,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 43,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 57,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 113,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.2.13",
+      "section": "2.13",
+      "n_primary": 2,
+      "chunks": [
+        97,
+        52,
+        32,
+        126,
+        115,
+        96,
+        138,
+        127,
+        134,
+        120
+      ],
+      "top_score": 0.347006618976593,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 17,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 46,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 53,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 103,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.2.14",
+      "section": "2.14",
+      "n_primary": 2,
+      "chunks": [
+        130,
+        97,
+        96,
+        127,
+        52,
+        138,
+        115,
+        128,
+        29,
+        134
+      ],
+      "top_score": 0.28078693151474,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 11,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 52,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 67,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 99,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.2.15",
+      "section": "2.15",
+      "n_primary": 2,
+      "chunks": [
+        97,
+        52,
+        115,
+        138,
+        130,
+        96,
+        127,
+        98,
+        134,
+        118
+      ],
+      "top_score": 0.29014575481414795,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 17,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 35,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 54,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 105,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.2.17",
+      "section": "2.17",
+      "n_primary": 2,
+      "chunks": [
+        96,
+        32,
+        52,
+        138,
+        30,
+        29,
+        98,
+        134,
+        118,
+        89
+      ],
+      "top_score": 0.3474726974964142,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 28,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 57,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 79,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 117,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.2.18",
+      "section": "2.18",
+      "n_primary": 2,
+      "chunks": [
+        32,
+        95,
+        134,
+        88,
+        48,
+        96,
+        115,
+        22,
+        135,
+        133
+      ],
+      "top_score": 0.5232763886451721,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 15,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 40,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.03438833124193005,
+          "context_precision": 0.015384615384615385,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 65,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.03438833124193005,
+          "context_precision": 0.007462686567164179,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 127,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.2.19",
+      "section": "2.19",
+      "n_primary": 2,
+      "chunks": [
+        52,
+        138,
+        97,
+        118,
+        53,
+        134,
+        96,
+        32,
+        128,
+        30
+      ],
+      "top_score": 0.4746420979499817,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 14,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 39,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 49,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 114,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.3.1",
+      "section": "3.1",
+      "n_primary": 2,
+      "chunks": [
+        52,
+        118,
+        128,
+        138,
+        139,
+        18,
+        127,
+        140,
+        63,
+        126
+      ],
+      "top_score": 0.45084425806999207,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 14,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 15,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 42,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.5,
+          "precision": 0.013157894736842105,
+          "ndcg": 0.12996217484327713,
+          "context_precision": 0.02631578947368421,
+          "mrr": 0.0196078431372549,
+          "map": 0.00980392156862745,
+          "hit_rate": 1.0,
+          "clauses_returned": 72,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.3.2",
+      "section": "3.2",
+      "n_primary": 2,
+      "chunks": [
+        32,
+        134,
+        115,
+        96,
+        118,
+        127,
+        139,
+        22,
+        133,
+        138
+      ],
+      "top_score": 0.4684545397758484,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 15,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 30,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 58,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.5,
+          "precision": 0.008695652173913044,
+          "ndcg": 0.10620417280826637,
+          "context_precision": 0.017391304347826087,
+          "mrr": 0.011494252873563218,
+          "map": 0.005747126436781609,
+          "hit_rate": 1.0,
+          "clauses_returned": 110,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.3.3",
+      "section": "3.3",
+      "n_primary": 2,
+      "chunks": [
+        52,
+        118,
+        128,
+        63,
+        13,
+        140,
+        139,
+        4,
+        138,
+        60
+      ],
+      "top_score": 0.5996521711349487,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 14,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 15,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 32,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.5,
+          "precision": 0.011494252873563218,
+          "ndcg": 0.1392174426198124,
+          "context_precision": 0.022988505747126436,
+          "mrr": 0.02631578947368421,
+          "map": 0.013157894736842105,
+          "hit_rate": 1.0,
+          "clauses_returned": 83,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.3.4",
+      "section": "3.4",
+      "n_primary": 1,
+      "chunks": [
+        4,
+        13,
+        118,
+        18,
+        140,
+        52,
+        3,
+        6,
+        138,
+        63
+      ],
+      "top_score": 0.5697489380836487,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 0,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 3,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 1.0,
+          "precision": 0.06666666666666667,
+          "ndcg": 0.2993252171525384,
+          "context_precision": 0.13333333333333333,
+          "mrr": 0.09090909090909091,
+          "map": 0.09090909090909091,
+          "hit_rate": 1.0,
+          "clauses_returned": 15,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 1.0,
+          "precision": 0.0196078431372549,
+          "ndcg": 0.2993252171525384,
+          "context_precision": 0.0392156862745098,
+          "mrr": 0.09090909090909091,
+          "map": 0.09090909090909091,
+          "hit_rate": 1.0,
+          "clauses_returned": 51,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.3.5",
+      "section": "3.5",
+      "n_primary": 3,
+      "chunks": [
+        96,
+        32,
+        30,
+        52,
+        115,
+        138,
+        29,
+        98,
+        134,
+        97
+      ],
+      "top_score": 0.2991298735141754,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 28,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 57,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 75,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 129,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.3.6",
+      "section": "3.6",
+      "n_primary": 1,
+      "chunks": [
+        118,
+        127,
+        138,
+        52,
+        134,
+        115,
+        128,
+        96,
+        97,
+        98
+      ],
+      "top_score": 0.29113805294036865,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 0,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 9,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 34,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 95,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.3.7",
+      "section": "3.7",
+      "n_primary": 2,
+      "chunks": [
+        97,
+        138,
+        52,
+        134,
+        96,
+        118,
+        128,
+        32,
+        115,
+        53
+      ],
+      "top_score": 0.4052329361438751,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 17,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 39,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 74,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.5,
+          "precision": 0.009174311926605505,
+          "ndcg": 0.11098815442052085,
+          "context_precision": 0.01834862385321101,
+          "mrr": 0.00980392156862745,
+          "map": 0.004901960784313725,
+          "hit_rate": 1.0,
+          "clauses_returned": 104,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.3.8",
+      "section": "3.8",
+      "n_primary": 2,
+      "chunks": [
+        96,
+        32,
+        98,
+        118,
+        97,
+        134,
+        48,
+        89,
+        115,
+        86
+      ],
+      "top_score": 0.3235633671283722,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 28,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 58,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 71,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.050309332216903056,
+          "context_precision": 0.01680672268907563,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 115,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.3.9",
+      "section": "3.9",
+      "n_primary": 2,
+      "chunks": [
+        97,
+        32,
+        118,
+        96,
+        115,
+        127,
+        52,
+        98,
+        130,
+        134
+      ],
+      "top_score": 0.2474714070558548,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 17,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 32,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 60,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 112,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.4.1",
+      "section": "4.1",
+      "n_primary": 2,
+      "chunks": [
+        138,
+        134,
+        13,
+        4,
+        6,
+        128,
+        129,
+        118,
+        29,
+        52
+      ],
+      "top_score": 0.7074426412582397,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 8,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 22,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 22,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 47,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.4.2.1#1",
+      "section": "4.2.1",
+      "n_primary": 2,
+      "chunks": [
+        138,
+        118,
+        98,
+        128,
+        134,
+        86,
+        32,
+        97,
+        79,
+        96
+      ],
+      "top_score": 0.6297698616981506,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 8,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 23,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 35,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 115,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.4.2.1#2",
+      "section": "4.2.1",
+      "n_primary": 2,
+      "chunks": [
+        118,
+        128,
+        43,
+        126,
+        78,
+        138,
+        45,
+        32,
+        115,
+        97
+      ],
+      "top_score": 0.30990350246429443,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 0,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 12,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 32,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 91,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.4.2#1",
+      "section": "4.2",
+      "n_primary": 2,
+      "chunks": [
+        97,
+        115,
+        32,
+        52,
+        134,
+        127,
+        96,
+        118,
+        126,
+        138
+      ],
+      "top_score": 0.25381165742874146,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 17,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 36,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 61,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 97,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.4.2#2",
+      "section": "4.2",
+      "n_primary": 2,
+      "chunks": [
+        32,
+        96,
+        36,
+        115,
+        43,
+        127,
+        139,
+        7,
+        30,
+        126
+      ],
+      "top_score": 0.2538069486618042,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 15,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 57,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 72,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 113,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.4.2#3",
+      "section": "4.2",
+      "n_primary": 2,
+      "chunks": [
+        118,
+        52,
+        115,
+        134,
+        138,
+        139,
+        127,
+        7,
+        10,
+        128
+      ],
+      "top_score": 0.43107733130455017,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 0,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 18,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 37,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 58,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.4.2.1",
+      "section": "4.2.1",
+      "n_primary": 2,
+      "chunks": [
+        96,
+        86,
+        98,
+        118,
+        130,
+        89,
+        138,
+        134,
+        97,
+        60
+      ],
+      "top_score": 0.37443211674690247,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 28,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 54,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 65,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 115,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.4.2.2",
+      "section": "4.2.2",
+      "n_primary": 2,
+      "chunks": [
+        8,
+        48,
+        52,
+        129,
+        47,
+        134,
+        115,
+        138,
+        128,
+        120
+      ],
+      "top_score": 0.49830323457717896,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 0,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.5,
+          "precision": 0.037037037037037035,
+          "ndcg": 0.23958467719708867,
+          "context_precision": 0.037037037037037035,
+          "mrr": 0.25,
+          "map": 0.125,
+          "hit_rate": 1.0,
+          "clauses_returned": 27,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.5,
+          "precision": 0.02127659574468085,
+          "ndcg": 0.23958467719708867,
+          "context_precision": 0.02127659574468085,
+          "mrr": 0.25,
+          "map": 0.125,
+          "hit_rate": 1.0,
+          "clauses_returned": 45,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.5,
+          "precision": 0.012987012987012988,
+          "ndcg": 0.23958467719708867,
+          "context_precision": 0.012987012987012988,
+          "mrr": 0.25,
+          "map": 0.125,
+          "hit_rate": 1.0,
+          "clauses_returned": 75,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.4.3",
+      "section": "4.3",
+      "n_primary": 2,
+      "chunks": [
+        118,
+        127,
+        115,
+        96,
+        138,
+        52,
+        134,
+        101,
+        139,
+        140
+      ],
+      "top_score": 0.42928797006607056,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 0,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 5,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 41,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.5,
+          "precision": 0.009259259259259259,
+          "ndcg": 0.1113416383015627,
+          "context_precision": 0.018518518518518517,
+          "mrr": 0.01,
+          "map": 0.005,
+          "hit_rate": 1.0,
+          "clauses_returned": 104,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.4.3.1",
+      "section": "4.3.1",
+      "n_primary": 2,
+      "chunks": [
+        118,
+        98,
+        127,
+        79,
+        101,
+        60,
+        36,
+        138,
+        22,
+        115
+      ],
+      "top_score": 0.6035737991333008,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 0,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.5,
+          "precision": 0.0625,
+          "ndcg": 0.1608062983790299,
+          "context_precision": 0.0625,
+          "mrr": 0.1,
+          "map": 0.05,
+          "hit_rate": 1.0,
+          "clauses_returned": 16,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.5,
+          "precision": 0.02702702702702703,
+          "ndcg": 0.1608062983790299,
+          "context_precision": 0.02702702702702703,
+          "mrr": 0.1,
+          "map": 0.05,
+          "hit_rate": 1.0,
+          "clauses_returned": 37,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.5,
+          "precision": 0.010752688172043012,
+          "ndcg": 0.1608062983790299,
+          "context_precision": 0.010752688172043012,
+          "mrr": 0.1,
+          "map": 0.05,
+          "hit_rate": 1.0,
+          "clauses_returned": 93,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.4.3.1.1#1",
+      "section": "4.3.1.1",
+      "n_primary": 1,
+      "chunks": [
+        96,
+        118,
+        98,
+        86,
+        89,
+        70,
+        130,
+        129,
+        138,
+        32
+      ],
+      "top_score": 0.4697112739086151,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 28,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.04580091427439404,
+          "context_precision": 0.023255813953488372,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 43,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.08712509305427588,
+          "context_precision": 0.03389830508474576,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 59,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.08712509305427588,
+          "context_precision": 0.019801980198019802,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 100,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.4.3.1.1#2",
+      "section": "4.3.1.1",
+      "n_primary": 1,
+      "chunks": [
+        118,
+        96,
+        89,
+        98,
+        134,
+        129,
+        139,
+        130,
+        70,
+        127
+      ],
+      "top_score": 0.465432345867157,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 0,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.04841525078636038,
+          "context_precision": 0.030303030303030304,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 33,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.09275617688302709,
+          "context_precision": 0.03389830508474576,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 59,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.09275617688302709,
+          "context_precision": 0.0196078431372549,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 101,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.4.3.1.2",
+      "section": "4.3.1.2",
+      "n_primary": 2,
+      "chunks": [
+        118,
+        115,
+        138,
+        127,
+        32,
+        52,
+        98,
+        134,
+        22,
+        101
+      ],
+      "top_score": 0.5080517530441284,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 0,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 12,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 28,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.5,
+          "precision": 0.010752688172043012,
+          "ndcg": 0.08993790063202615,
+          "context_precision": 0.010752688172043012,
+          "mrr": 0.019230769230769232,
+          "map": 0.009615384615384616,
+          "hit_rate": 1.0,
+          "clauses_returned": 93,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.4.3.2.1",
+      "section": "4.3.2.1",
+      "n_primary": 2,
+      "chunks": [
+        137,
+        96,
+        16,
+        118,
+        53,
+        52,
+        32,
+        97,
+        127,
+        115
+      ],
+      "top_score": 0.367348849773407,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 5,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 34,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.5,
+          "precision": 0.022222222222222223,
+          "ndcg": 0.09493770834241891,
+          "context_precision": 0.022222222222222223,
+          "mrr": 0.023809523809523808,
+          "map": 0.011904761904761904,
+          "hit_rate": 1.0,
+          "clauses_returned": 45,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.5,
+          "precision": 0.010416666666666666,
+          "ndcg": 0.09493770834241891,
+          "context_precision": 0.010416666666666666,
+          "mrr": 0.023809523809523808,
+          "map": 0.011904761904761904,
+          "hit_rate": 1.0,
+          "clauses_returned": 91,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.4.3.2.2#1",
+      "section": "4.3.2.2",
+      "n_primary": 3,
+      "chunks": [
+        101,
+        118,
+        140,
+        22,
+        6,
+        13,
+        63,
+        139,
+        4,
+        10
+      ],
+      "top_score": 0.5563401579856873,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.04509032129610523,
+          "context_precision": 0.125,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 8,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.04509032129610523,
+          "context_precision": 0.05263157894736842,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 19,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.04509032129610523,
+          "context_precision": 0.027777777777777776,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 36,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.04509032129610523,
+          "context_precision": 0.013157894736842105,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 76,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.4.3.2.2#2",
+      "section": "4.3.2.2",
+      "n_primary": 3,
+      "chunks": [
+        32,
+        96,
+        115,
+        127,
+        118,
+        126,
+        101,
+        36,
+        52,
+        128
+      ],
+      "top_score": 0.3322395086288452,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 15,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 47,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 48,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0216089016903721,
+          "context_precision": 0.011363636363636364,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 88,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.4.3.2.2#3",
+      "section": "4.3.2.2",
+      "n_primary": 3,
+      "chunks": [
+        32,
+        7,
+        45,
+        118,
+        128,
+        98,
+        115,
+        64,
+        4,
+        138
+      ],
+      "top_score": 0.42001771926879883,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 15,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 30,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 31,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 69,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.4.3.2.2#4",
+      "section": "4.3.2.2",
+      "n_primary": 3,
+      "chunks": [
+        22,
+        95,
+        32,
+        50,
+        101,
+        10,
+        63,
+        137,
+        24,
+        4
+      ],
+      "top_score": 0.44797560572624207,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 17,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 46,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.020867569113046165,
+          "context_precision": 0.014705882352941176,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 68,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.020867569113046165,
+          "context_precision": 0.01020408163265306,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 98,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.4.3.2.2#5",
+      "section": "4.3.2.2",
+      "n_primary": 3,
+      "chunks": [
+        118,
+        63,
+        60,
+        127,
+        76,
+        140,
+        115,
+        43,
+        101,
+        64
+      ],
+      "top_score": 0.419219970703125,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 0,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 27,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 37,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.020652421348112862,
+          "context_precision": 0.012195121951219513,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 81,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.4.3.2.2#6",
+      "section": "4.3.2.2",
+      "n_primary": 3,
+      "chunks": [
+        118,
+        127,
+        115,
+        140,
+        63,
+        64,
+        128,
+        36,
+        60,
+        69
+      ],
+      "top_score": 0.5159462690353394,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 0,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 5,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 30,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 82,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.4.5.1",
+      "section": "4.5.1",
+      "n_primary": 2,
+      "chunks": [
+        138,
+        6,
+        4,
+        128,
+        22,
+        18,
+        79,
+        127,
+        118,
+        28
+      ],
+      "top_score": 0.5909672975540161,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 8,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 8,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 26,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 60,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.4.5.2#1",
+      "section": "4.5.2",
+      "n_primary": 3,
+      "chunks": [
+        127,
+        115,
+        138,
+        118,
+        43,
+        128,
+        36,
+        126,
+        79,
+        52
+      ],
+      "top_score": 0.3770109713077545,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 1,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 13,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 24,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 69,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.4.5.2#2",
+      "section": "4.5.2",
+      "n_primary": 3,
+      "chunks": [
+        43,
+        127,
+        118,
+        64,
+        128,
+        115,
+        78,
+        10,
+        36,
+        68
+      ],
+      "top_score": 0.2848663926124573,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 11,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 12,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 24,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 76,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.4.5.2#3",
+      "section": "4.5.2",
+      "n_primary": 3,
+      "chunks": [
+        127,
+        118,
+        43,
+        138,
+        36,
+        32,
+        64,
+        115,
+        141,
+        10
+      ],
+      "top_score": 0.31216028332710266,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 1,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 12,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 34,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 80,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.4.5.2#4",
+      "section": "4.5.2",
+      "n_primary": 3,
+      "chunks": [
+        32,
+        7,
+        64,
+        30,
+        78,
+        10,
+        29,
+        142,
+        138,
+        4
+      ],
+      "top_score": 0.3047773241996765,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 15,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 26,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 57,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 83,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.4.5.2#5",
+      "section": "4.5.2",
+      "n_primary": 3,
+      "chunks": [
+        36,
+        138,
+        32,
+        75,
+        127,
+        115,
+        118,
+        96,
+        128,
+        43
+      ],
+      "top_score": 0.4381949305534363,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 14,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 37,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 47,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 91,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.4.5",
+      "section": "4.5",
+      "n_primary": 2,
+      "chunks": [
+        138,
+        18,
+        139,
+        22,
+        63,
+        27,
+        118,
+        36,
+        50,
+        4
+      ],
+      "top_score": 0.6799554824829102,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 8,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 28,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 59,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 100,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.4.5.1#1",
+      "section": "4.5.1",
+      "n_primary": 2,
+      "chunks": [
+        138,
+        128,
+        118,
+        18,
+        10,
+        4,
+        7,
+        29,
+        63,
+        30
+      ],
+      "top_score": 0.45292001962661743,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 8,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 9,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 10,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 45,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.4.5.1#2",
+      "section": "4.5.1",
+      "n_primary": 2,
+      "chunks": [
+        96,
+        32,
+        118,
+        64,
+        127,
+        115,
+        139,
+        36,
+        128,
+        101
+      ],
+      "top_score": 0.3302772343158722,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 28,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 43,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 55,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 105,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.4.5.2",
+      "section": "4.5.2",
+      "n_primary": 3,
+      "chunks": [
+        96,
+        52,
+        118,
+        128,
+        32,
+        130,
+        97,
+        138,
+        98,
+        134
+      ],
+      "top_score": 0.24122191965579987,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 28,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 42,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 58,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 116,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.4.5.3#1",
+      "section": "4.5.3",
+      "n_primary": 3,
+      "chunks": [
+        118,
+        138,
+        36,
+        128,
+        4,
+        98,
+        43,
+        101,
+        127,
+        79
+      ],
+      "top_score": 0.44877615571022034,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 0,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 22,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 23,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 71,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.4.5.3#2",
+      "section": "4.5.3",
+      "n_primary": 3,
+      "chunks": [
+        115,
+        127,
+        32,
+        118,
+        96,
+        128,
+        16,
+        126,
+        45,
+        36
+      ],
+      "top_score": 0.24136312305927277,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 4,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 20,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 48,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 82,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.4.5.3#3",
+      "section": "4.5.3",
+      "n_primary": 3,
+      "chunks": [
+        138,
+        22,
+        85,
+        4,
+        75,
+        63,
+        118,
+        18,
+        128,
+        52
+      ],
+      "top_score": 0.573227047920227,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 8,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 32,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 41,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 71,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.4.5.3#4",
+      "section": "4.5.3",
+      "n_primary": 3,
+      "chunks": [
+        36,
+        75,
+        22,
+        127,
+        115,
+        138,
+        45,
+        64,
+        85,
+        50
+      ],
+      "top_score": 0.40415698289871216,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 14,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 40,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 45,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 100,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.4.5.4#1",
+      "section": "4.5.4",
+      "n_primary": 2,
+      "chunks": [
+        118,
+        127,
+        52,
+        115,
+        139,
+        10,
+        32,
+        140,
+        134,
+        126
+      ],
+      "top_score": 0.39525628089904785,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 0,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 15,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 42,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 82,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.4.5.4#2",
+      "section": "4.5.4",
+      "n_primary": 2,
+      "chunks": [
+        138,
+        52,
+        96,
+        118,
+        29,
+        134,
+        127,
+        128,
+        115,
+        98
+      ],
+      "top_score": 0.33041906356811523,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 8,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 50,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 58,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 90,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.4.5.4#3",
+      "section": "4.5.4",
+      "n_primary": 2,
+      "chunks": [
+        118,
+        52,
+        139,
+        140,
+        128,
+        60,
+        127,
+        50,
+        63,
+        64
+      ],
+      "top_score": 0.5299793481826782,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 0,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 37,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 49,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 101,
+          "context_words": 8000
+        }
+      }
+    },
+    {
+      "passage_id": "CER.4.5.4#4",
+      "section": "4.5.4",
+      "n_primary": 2,
+      "chunks": [
+        32,
+        115,
+        127,
+        118,
+        52,
+        10,
+        64,
+        134,
+        96,
+        89
+      ],
+      "top_score": 0.24444031715393066,
+      "metrics": {
+        "1": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 15,
+          "context_words": 800
+        },
+        "3": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 20,
+          "context_words": 2400
+        },
+        "5": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 34,
+          "context_words": 4000
+        },
+        "10": {
+          "recall": 0.0,
+          "precision": 0.0,
+          "ndcg": 0.0,
+          "context_precision": 0.0,
+          "mrr": 0.0,
+          "map": 0.0,
+          "hit_rate": 0.0,
+          "clauses_returned": 89,
+          "context_words": 8000
+        }
+      }
+    }
+  ]
+}
