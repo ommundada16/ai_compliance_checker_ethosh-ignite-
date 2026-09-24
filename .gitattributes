@@ -1,0 +1,27 @@
+# core.autocrlf=true is set globally on the dev machine, which makes line-ending
+# handling depend on git's binary-detection heuristic. Declare intent explicitly
+# instead -- a heuristic that is right today can silently corrupt a PDF tomorrow.
+
+# Normalise text to LF in the repository, checkout native.
+* text=auto eol=lf
+
+# Windows-only scripts keep CRLF.
+*.bat   text eol=crlf
+*.cmd   text eol=crlf
+*.ps1   text eol=crlf
+
+# Never touch these.
+*.pdf   binary
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.ico   binary
+*.npy   binary
+*.onnx  binary
+*.woff  binary
+*.woff2 binary
+
+# Evaluation outputs are committed and diffed by humans; keep them readable.
+eval_data/**/*.json  text eol=lf
+eval_data/**/*.jsonl text eol=lf
