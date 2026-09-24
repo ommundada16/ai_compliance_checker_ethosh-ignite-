@@ -153,7 +153,7 @@ def main() -> int:
         ranked: list[str] = []
         words_at_k: list[int] = []
         words = 0
-        for rank, hit in enumerate(hits, start=1):
+        for hit in hits:
             ranked.extend(coverage[hit.chunk_index])
             lo, hi = chunk_word_range(hit.chunk_index, V1_WORDS_PER_CHUNK, V1_OVERLAP)
             words += min(hi, total_words) - lo
