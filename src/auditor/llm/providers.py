@@ -81,72 +81,87 @@ class GroqProvider(JSONProvider):
 
 
 class OllamaProvider(JSONProvider):
-    """A local model over Ollama's OpenAI-compatible endpoint.
+    """A local model over Ollama's NATIVE /api/chat endpoint.
 
-    Unmetered and offline, which is what makes it the right floor for a long
-    batch: slower per call, but it cannot run out of quota halfway through.
+    Unmetered and offline, which makes it the right floor for a long batch:
+    slower per call, but it cannot run out of quota halfway through.
 
-    `think=False` is passed through for reasoning models (qwen3). Left on, they
-    spend the token budget on a <think> block and can return nothing parseable;
-    base.parse_json_payload strips the block defensively, but not emitting it
-    is cheaper and more reliable.
+    Native rather than the OpenAI-compatible shim, for one concrete reason.
+    Reasoning models (qwen3) emit a thinking block before their answer, and
+    Ollama routes it to a separate `thinking` field. Through the OpenAI shim
+    the `think` option is silently dropped, so qwen3:4b burns the entire token
+    budget on reasoning and returns finish_reason="length" with EMPTY content
+    -- measured at 2000 completion tokens and not one character of output. The
+    native endpoint honours think=False and returns the answer.
+
+    Measured on this machine (4 GB VRAM):
+        qwen3:4b      ~20s   think=False required, else empty
+        llama3.1:8b   ~16s   4.92 GB, spills to CPU
+
+    No SDK: stdlib urllib, so nothing transitive has to be present.
     """
 
     name = "ollama"
 
-    def __init__(self, model: str = "qwen3:4b",
-                 base_url: str = "http://localhost:11434/v1",
+    def __init__(self, model: str = "llama3.1:8b",
+                 base_url: str = "http://localhost:11434",
                  timeout: int = 300, think: bool = False) -> None:
-        from openai import OpenAI
-
         self.model = model
         self.think = think
-        # Ollama ignores the key but the client requires a non-empty string.
-        self._client = OpenAI(api_key="ollama", base_url=base_url, timeout=timeout)
+        self.timeout = timeout
+        # Accept an OpenAI-style base_url and strip the shim suffix, so a
+        # .env written for the compat endpoint keeps working.
+        self.base_url = base_url.rstrip("/")
+        if self.base_url.endswith("/v1"):
+            self.base_url = self.base_url[:-3]
 
     def complete_json(self, system, prompt, max_tokens=1024, temperature=0.0) -> JSONResult:
-        started = time.time()
-        kwargs = {}
-        if not self.think:
-            kwargs["extra_body"] = {"think": False}
-        try:
-            response = self._client.chat.completions.create(
-                model=self.model,
-                messages=[{"role": "system", "content": system},
-                          {"role": "user", "content": prompt}],
-                temperature=temperature,
-                max_tokens=max_tokens,
-                response_format={"type": "json_object"},
-                **kwargs,
-            )
-        except Exception as exc:  # noqa: BLE001
-            message = str(exc)
-            # Not every Ollama build accepts `think`; retry once without it
-            # rather than failing over to a slower backend for a flag.
-            if "think" in message.lower() and kwargs:
-                try:
-                    response = self._client.chat.completions.create(
-                        model=self.model,
-                        messages=[{"role": "system", "content": system},
-                                  {"role": "user", "content": prompt}],
-                        temperature=temperature,
-                        max_tokens=max_tokens,
-                        response_format={"type": "json_object"},
-                    )
-                except Exception as inner:  # noqa: BLE001
-                    raise _classify(inner) from inner
-            else:
-                raise _classify(exc) from exc
+        import json as _json
+        import urllib.error
+        import urllib.request
 
-        usage = getattr(response, "usage", None)
+        body = {
+            "model": self.model,
+            "messages": [{"role": "system", "content": system},
+                         {"role": "user", "content": prompt}],
+            "stream": False,
+            "format": "json",
+            "think": self.think,
+            "options": {"temperature": temperature, "num_predict": max_tokens},
+        }
+        request = urllib.request.Request(
+            f"{self.base_url}/api/chat",
+            data=_json.dumps(body).encode("utf-8"),
+            headers={"Content-Type": "application/json"},
+        )
+        started = time.time()
+        try:
+            with urllib.request.urlopen(request, timeout=self.timeout) as response:
+                payload = _json.load(response)
+        except urllib.error.HTTPError as exc:
+            detail = exc.read().decode("utf-8", "replace")[:300]
+            raise _classify(RuntimeError(f"{exc.code} {detail}")) from exc
+        except Exception as exc:  # noqa: BLE001
+            raise _classify(exc) from exc
+
+        message = payload.get("message", {})
+        content = message.get("content", "")
+        if not content and message.get("thinking"):
+            # think=False was not honoured (older Ollama). Say so plainly --
+            # this failure is otherwise indistinguishable from a bad prompt.
+            raise ValueError(
+                f"{self.model} returned only a reasoning block "
+                f"({len(message['thinking'])} chars) and no content; "
+                "this Ollama build appears to ignore think=False"
+            )
         return JSONResult(
-            data=parse_json_payload(response.choices[0].message.content or ""),
+            data=parse_json_payload(content),
             provider=self.name,
             model=self.model,
             usage=Usage(
-                getattr(usage, "prompt_tokens", 0) or 0,
-                getattr(usage, "completion_tokens", 0) or 0,
-                getattr(usage, "total_tokens", 0) or 0,
+                payload.get("prompt_eval_count", 0) or 0,
+                payload.get("eval_count", 0) or 0,
+                (payload.get("prompt_eval_count", 0) or 0) + (payload.get("eval_count", 0) or 0),
             ),
             latency_s=time.time() - started,
         )
