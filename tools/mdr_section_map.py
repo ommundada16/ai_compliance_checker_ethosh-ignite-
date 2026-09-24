@@ -242,11 +242,21 @@ SECTION_MAP: dict[str, dict] = {
                      "investigations sits in Article 61(6), with the justification "
                      "duty in 61(7).",
     },
-    "4.2.1": {
+    # The CER numbers several distinct sections identically; the parser
+    # disambiguates later occurrences with a "~2" suffix. These are genuinely
+    # different topics and are mapped separately rather than collapsed.
+    "4.2.1": {          # p40 -- Equivalency Comparison
         "primary": ["Art.61.5", "Annex.XIV.A.3"],
         "secondary": ["Art.61.4"],
-        "rationale": "Equivalence conclusion is tested against Article 61(5) and "
+        "rationale": "Equivalence comparison is tested against Article 61(5) and "
+                     "the technical, biological and clinical characteristics in "
                      "Annex XIV Part A s3.",
+    },
+    "4.2.1~2": {        # p46 -- Equivalency Conclusion
+        "primary": ["Art.61.5", "Annex.XIV.A.3"],
+        "secondary": ["Art.61.4", "Annex.XIV.A.1.e"],
+        "rationale": "The equivalence conclusion rests on the same Article 61(5) "
+                     "and Annex XIV Part A s3 test as the comparison that precedes it.",
     },
     "4.2.2": {
         "primary": ["Art.52.1", "Annex.II.1"],
@@ -298,13 +308,26 @@ SECTION_MAP: dict[str, dict] = {
         "rationale": "Data analysis is the Annex XIV Part A s1(e) obligation to reach "
                      "conclusions on safety, performance and benefit-risk.",
     },
-    "4.5.1": {
+    "4.5.1": {          # p64 -- Appraisal method and criteria
+        "primary": ["Annex.XIV.A.1.c", "Art.61.3"],
+        "secondary": ["Annex.XIV.A.2"],
+        "rationale": "Appraisal method is the Annex XIV Part A s1(c) duty to evaluate "
+                     "clinical data for suitability, within the methodologically sound "
+                     "procedure Article 61(3) requires.",
+    },
+    "4.5.1~2": {        # p75 -- Requirement on safety
         "primary": ["Annex.I.1", "Annex.I.8"],
         "secondary": ["Art.61.1"],
         "rationale": "Safety requirement maps to the Annex I s1 general obligation and "
                      "s8 risk minimisation.",
     },
-    "4.5.2": {
+    "4.5.2": {          # p67 -- Appraisal of selected articles
+        "primary": ["Annex.XIV.A.1.c", "Art.61.3.a"],
+        "secondary": ["Annex.XIV.A.2", "Annex.XIV.A.1.b"],
+        "rationale": "Appraising selected literature is the Annex XIV Part A s1(c) "
+                     "appraisal step applied to the Article 61(3)(a) literature review.",
+    },
+    "4.5.2~2": {        # p78 -- Overall Safety and Performance analysis
         "primary": ["Annex.I.1", "Art.61.1", "Annex.XIV.A.1.e"],
         "secondary": ["Annex.I.8"],
         "rationale": "Overall safety and performance analysis is the central Article "
