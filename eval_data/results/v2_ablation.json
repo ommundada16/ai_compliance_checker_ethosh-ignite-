@@ -13,63 +13,63 @@
       "system": "v2_dense",
       "summary": {
         "1": {
-          "recall": 0.05612745098039216,
-          "precision": 0.14705882352941177,
-          "ndcg": 0.1519607843137255,
-          "context_precision": 0.16176470588235295,
-          "mrr": 0.14705882352941177,
-          "map": 0.05612745098039216,
-          "hit_rate": 0.14705882352941177,
-          "scope_recall": 0.07107843137254902,
+          "recall": 0.048666666666666664,
+          "precision": 0.13333333333333333,
+          "ndcg": 0.13777777777777778,
+          "context_precision": 0.14666666666666667,
+          "mrr": 0.13333333333333333,
+          "map": 0.048666666666666664,
+          "hit_rate": 0.13333333333333333,
+          "scope_recall": 0.06222222222222223,
           "mean_clauses_returned": 1.0,
-          "mean_context_words": 578.4411764705883
+          "mean_context_words": 647.2533333333333
         },
         "3": {
-          "recall": 0.0670081731322666,
-          "precision": 0.06862745098039215,
-          "ndcg": 0.09972911044649414,
-          "context_precision": 0.08823529411764706,
-          "mrr": 0.1593137254901961,
-          "map": 0.0654149559367126,
-          "hit_rate": 0.17647058823529413,
-          "scope_recall": 0.09068627450980393,
+          "recall": 0.07186518808436616,
+          "precision": 0.07111111111111111,
+          "ndcg": 0.09737617864780618,
+          "context_precision": 0.08888888888888888,
+          "mrr": 0.15555555555555556,
+          "map": 0.06264289338261941,
+          "hit_rate": 0.18666666666666668,
+          "scope_recall": 0.09333333333333334,
           "mean_clauses_returned": 3.0,
-          "mean_context_words": 1562.8529411764705
+          "mean_context_words": 1599.9866666666667
         },
         "5": {
-          "recall": 0.07782750086335904,
-          "precision": 0.058823529411764705,
-          "ndcg": 0.1047806294232559,
-          "context_precision": 0.0823529411764706,
-          "mrr": 0.1696078431372549,
-          "map": 0.06883932568461174,
-          "hit_rate": 0.22058823529411764,
-          "scope_recall": 0.11764705882352941,
+          "recall": 0.09150187238771713,
+          "precision": 0.06666666666666667,
+          "ndcg": 0.11008714199919334,
+          "context_precision": 0.09866666666666667,
+          "mrr": 0.17422222222222222,
+          "map": 0.06787111207750478,
+          "hit_rate": 0.26666666666666666,
+          "scope_recall": 0.13777777777777778,
           "mean_clauses_returned": 5.0,
-          "mean_context_words": 2409.926470588235
+          "mean_context_words": 2398.1066666666666
         },
         "10": {
-          "recall": 0.11224113434179511,
-          "precision": 0.05,
-          "ndcg": 0.12145107522934649,
-          "context_precision": 0.07794117647058824,
-          "mrr": 0.19257119514472457,
-          "map": 0.07515234587365156,
-          "hit_rate": 0.38235294117647056,
-          "scope_recall": 0.2034313725490196,
+          "recall": 0.1257652951365609,
+          "precision": 0.052000000000000005,
+          "ndcg": 0.12140074033147881,
+          "context_precision": 0.07733333333333334,
+          "mrr": 0.190010582010582,
+          "map": 0.0739865871072376,
+          "hit_rate": 0.38666666666666666,
+          "scope_recall": 0.22222222222222224,
           "mean_clauses_returned": 10.0,
-          "mean_context_words": 3978.1323529411766
+          "mean_context_words": 3851.6133333333332
         }
       },
       "budget_recall": {
-        "200": 0.03284313725490196,
-        "400": 0.06484593837535015,
-        "800": 0.06652213125788974,
-        "2400": 0.0689731116500466,
-        "4000": 0.10656473183634849
+        "200": 0.034222222222222216,
+        "400": 0.05657142857142857,
+        "800": 0.05809117678493114,
+        "2400": 0.06747389283431385,
+        "4000": 0.12453132077758655
       },
       "timing": {
-        "mean_query_ms": 264.24
+        "mean_query_ms": 338.62
       },
       "per_query": [
         {
@@ -208,7 +208,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 1,
-              "context_words": 265
+              "context_words": 138
             },
             "3": {
               "recall": 0.0,
@@ -286,26 +286,26 @@
             "5": {
               "recall": 0.0,
               "precision": 0.0,
-              "ndcg": 0.0,
-              "context_precision": 0.0,
+              "ndcg": 0.08703245752405495,
+              "context_precision": 0.2,
               "mrr": 0.0,
               "map": 0.0,
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 838
+              "context_words": 175
             },
             "10": {
               "recall": 0.0,
               "precision": 0.0,
-              "ndcg": 0.04820998182892456,
+              "ndcg": 0.06581686446496138,
               "context_precision": 0.1,
               "mrr": 0.0,
               "map": 0.0,
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 2427
+              "context_words": 1841
             }
           },
           "budget_recall": {
@@ -342,7 +342,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 895
+              "context_words": 691
             },
             "5": {
               "recall": 0.0,
@@ -354,7 +354,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 1045
+              "context_words": 1464
             },
             "10": {
               "recall": 0.0,
@@ -513,7 +513,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 1,
-              "context_words": 205
+              "context_words": 2053
             },
             "3": {
               "recall": 0.0,
@@ -525,7 +525,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 799
+              "context_words": 2587
             },
             "5": {
               "recall": 0.0,
@@ -542,14 +542,14 @@
             "10": {
               "recall": 0.0,
               "precision": 0.0,
-              "ndcg": 0.04927649697181754,
-              "context_precision": 0.2,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
               "mrr": 0.0,
               "map": 0.0,
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 4349
+              "context_words": 6001
             }
           },
           "budget_recall": {
@@ -586,7 +586,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 1126
+              "context_words": 1704
             },
             "5": {
               "recall": 0.0,
@@ -598,19 +598,19 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 2266
+              "context_words": 4946
             },
             "10": {
-              "recall": 0.037037037037037035,
-              "precision": 0.1,
-              "ndcg": 0.07336392209936006,
-              "context_precision": 0.1,
-              "mrr": 0.14285714285714285,
-              "map": 0.005291005291005291,
-              "hit_rate": 1.0,
-              "scope_recall": 0.5,
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 5967
+              "context_words": 6488
             }
           },
           "budget_recall": {
@@ -635,7 +635,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 1,
-              "context_words": 180
+              "context_words": 228
             },
             "3": {
               "recall": 0.0,
@@ -647,39 +647,39 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 655
+              "context_words": 1746
             },
             "5": {
-              "recall": 0.0,
-              "precision": 0.0,
-              "ndcg": 0.0,
-              "context_precision": 0.0,
-              "mrr": 0.0,
-              "map": 0.0,
-              "hit_rate": 0.0,
-              "scope_recall": 0.0,
+              "recall": 0.037037037037037035,
+              "precision": 0.2,
+              "ndcg": 0.14606834984270647,
+              "context_precision": 0.2,
+              "mrr": 0.25,
+              "map": 0.009259259259259259,
+              "hit_rate": 1.0,
+              "scope_recall": 0.5,
               "clauses_returned": 5,
-              "context_words": 1462
+              "context_words": 2546
             },
             "10": {
-              "recall": 0.0,
-              "precision": 0.0,
-              "ndcg": 0.0,
-              "context_precision": 0.0,
-              "mrr": 0.0,
-              "map": 0.0,
-              "hit_rate": 0.0,
-              "scope_recall": 0.0,
+              "recall": 0.037037037037037035,
+              "precision": 0.1,
+              "ndcg": 0.09478836436955079,
+              "context_precision": 0.1,
+              "mrr": 0.25,
+              "map": 0.009259259259259259,
+              "hit_rate": 1.0,
+              "scope_recall": 0.5,
               "clauses_returned": 10,
-              "context_words": 4238
+              "context_words": 3218
             }
           },
           "budget_recall": {
             "200": 0.0,
             "400": 0.0,
             "800": 0.0,
-            "2400": 0.0,
-            "4000": 0.0
+            "2400": 0.037037037037037035,
+            "4000": 0.037037037037037035
           }
         },
         {
@@ -1415,7 +1415,7 @@
           }
         },
         {
-          "passage_id": "CER.3.2",
+          "passage_id": "CER.3.2#1",
           "section": "3.2",
           "metrics": {
             "1": {
@@ -1440,7 +1440,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 2786
+              "context_words": 2704
             },
             "5": {
               "recall": 0.0,
@@ -1452,7 +1452,68 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 3333
+              "context_words": 3120
+            },
+            "10": {
+              "recall": 0.06666666666666667,
+              "precision": 0.1,
+              "ndcg": 0.07839826897867534,
+              "context_precision": 0.1,
+              "mrr": 0.16666666666666666,
+              "map": 0.01111111111111111,
+              "hit_rate": 1.0,
+              "scope_recall": 0.5,
+              "clauses_returned": 10,
+              "context_words": 4391
+            }
+          },
+          "budget_recall": {
+            "200": 0.0,
+            "400": 0.0,
+            "800": 0.0,
+            "2400": 0.0,
+            "4000": 0.06666666666666667
+          }
+        },
+        {
+          "passage_id": "CER.3.2#2",
+          "section": "3.2",
+          "metrics": {
+            "1": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
+              "clauses_returned": 1,
+              "context_words": 443
+            },
+            "3": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
+              "clauses_returned": 3,
+              "context_words": 2325
+            },
+            "5": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
+              "clauses_returned": 5,
+              "context_words": 2767
             },
             "10": {
               "recall": 0.0,
@@ -1464,7 +1525,68 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 6126
+              "context_words": 4225
+            }
+          },
+          "budget_recall": {
+            "200": 0.0,
+            "400": 0.0,
+            "800": 0.0,
+            "2400": 0.0,
+            "4000": 0.0
+          }
+        },
+        {
+          "passage_id": "CER.3.2#3",
+          "section": "3.2",
+          "metrics": {
+            "1": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
+              "clauses_returned": 1,
+              "context_words": 275
+            },
+            "3": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
+              "clauses_returned": 3,
+              "context_words": 878
+            },
+            "5": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
+              "clauses_returned": 5,
+              "context_words": 992
+            },
+            "10": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
+              "clauses_returned": 10,
+              "context_words": 3349
             }
           },
           "budget_recall": {
@@ -1708,7 +1830,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 6195
+              "context_words": 6649
             }
           },
           "budget_recall": {
@@ -1769,7 +1891,7 @@
               "hit_rate": 1.0,
               "scope_recall": 0.5,
               "clauses_returned": 10,
-              "context_words": 5077
+              "context_words": 5700
             }
           },
           "budget_recall": {
@@ -1794,7 +1916,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 1,
-              "context_words": 205
+              "context_words": 2053
             },
             "3": {
               "recall": 0.0,
@@ -1806,7 +1928,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 2496
+              "context_words": 2320
             },
             "5": {
               "recall": 0.0,
@@ -1818,7 +1940,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 3117
+              "context_words": 2703
             },
             "10": {
               "recall": 0.0,
@@ -1830,7 +1952,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 4010
+              "context_words": 4068
             }
           },
           "budget_recall": {
@@ -1989,7 +2111,7 @@
               "hit_rate": 1.0,
               "scope_recall": 0.5,
               "clauses_returned": 3,
-              "context_words": 934
+              "context_words": 359
             },
             "5": {
               "recall": 0.5,
@@ -2001,7 +2123,7 @@
               "hit_rate": 1.0,
               "scope_recall": 0.5,
               "clauses_returned": 5,
-              "context_words": 1566
+              "context_words": 1210
             },
             "10": {
               "recall": 0.5,
@@ -2013,7 +2135,7 @@
               "hit_rate": 1.0,
               "scope_recall": 0.5,
               "clauses_returned": 10,
-              "context_words": 5322
+              "context_words": 4894
             }
           },
           "budget_recall": {
@@ -2029,59 +2151,59 @@
           "section": "4.2.1",
           "metrics": {
             "1": {
-              "recall": 0.5,
-              "precision": 1.0,
-              "ndcg": 1.0,
-              "context_precision": 1.0,
-              "mrr": 1.0,
-              "map": 0.5,
-              "hit_rate": 1.0,
-              "scope_recall": 0.5,
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
               "clauses_returned": 1,
-              "context_words": 265
+              "context_words": 379
             },
             "3": {
-              "recall": 0.5,
-              "precision": 0.3333333333333333,
-              "ndcg": 0.5562983930884396,
-              "context_precision": 0.3333333333333333,
-              "mrr": 1.0,
-              "map": 0.5,
-              "hit_rate": 1.0,
-              "scope_recall": 0.5,
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 1833
+              "context_words": 2351
             },
             "5": {
-              "recall": 0.5,
-              "precision": 0.2,
-              "ndcg": 0.5562983930884396,
-              "context_precision": 0.2,
-              "mrr": 1.0,
-              "map": 0.5,
-              "hit_rate": 1.0,
-              "scope_recall": 0.5,
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 2919
+              "context_words": 2691
             },
             "10": {
               "recall": 0.5,
               "precision": 0.1,
-              "ndcg": 0.6099004925481163,
-              "context_precision": 0.2,
-              "mrr": 1.0,
-              "map": 0.5,
+              "ndcg": 0.1674625028592927,
+              "context_precision": 0.1,
+              "mrr": 0.1111111111111111,
+              "map": 0.05555555555555555,
               "hit_rate": 1.0,
               "scope_recall": 0.5,
               "clauses_returned": 10,
-              "context_words": 3999
+              "context_words": 4286
             }
           },
           "budget_recall": {
             "200": 0.0,
-            "400": 0.5,
-            "800": 0.5,
-            "2400": 0.5,
+            "400": 0.0,
+            "800": 0.0,
+            "2400": 0.0,
             "4000": 0.5
           }
         },
@@ -2269,8 +2391,8 @@
           }
         },
         {
-          "passage_id": "CER.4.2.1",
-          "section": "4.2.1",
+          "passage_id": "CER.4.2.1~2",
+          "section": "4.2.1~2",
           "metrics": {
             "1": {
               "recall": 0.5,
@@ -2299,7 +2421,7 @@
             "5": {
               "recall": 0.5,
               "precision": 0.2,
-              "ndcg": 0.5562983930884396,
+              "ndcg": 0.515157140670655,
               "context_precision": 0.2,
               "mrr": 1.0,
               "map": 0.5,
@@ -2311,7 +2433,7 @@
             "10": {
               "recall": 0.5,
               "precision": 0.1,
-              "ndcg": 0.5562983930884396,
+              "ndcg": 0.515157140670655,
               "context_precision": 0.1,
               "mrr": 1.0,
               "map": 0.5,
@@ -2553,16 +2675,16 @@
               "context_words": 3210
             },
             "10": {
-              "recall": 0.0,
-              "precision": 0.0,
-              "ndcg": 0.0,
-              "context_precision": 0.0,
-              "mrr": 0.0,
-              "map": 0.0,
-              "hit_rate": 0.0,
-              "scope_recall": 0.0,
+              "recall": 0.07692307692307693,
+              "precision": 0.1,
+              "ndcg": 0.0636207881989517,
+              "context_precision": 0.1,
+              "mrr": 0.1,
+              "map": 0.007692307692307693,
+              "hit_rate": 1.0,
+              "scope_recall": 1.0,
               "clauses_returned": 10,
-              "context_words": 4054
+              "context_words": 4092
             }
           },
           "budget_recall": {
@@ -2587,7 +2709,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 1,
-              "context_words": 2053
+              "context_words": 225
             },
             "3": {
               "recall": 0.0,
@@ -2599,7 +2721,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 2800
+              "context_words": 2398
             },
             "5": {
               "recall": 0.0,
@@ -2611,19 +2733,19 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 3270
+              "context_words": 2587
             },
             "10": {
-              "recall": 0.07692307692307693,
-              "precision": 0.1,
-              "ndcg": 0.07336392209936006,
-              "context_precision": 0.1,
-              "mrr": 0.14285714285714285,
-              "map": 0.010989010989010988,
-              "hit_rate": 1.0,
-              "scope_recall": 1.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 4319
+              "context_words": 3689
             }
           },
           "budget_recall": {
@@ -2631,7 +2753,7 @@
             "400": 0.0,
             "800": 0.0,
             "2400": 0.0,
-            "4000": 0.07692307692307693
+            "4000": 0.0
           }
         },
         {
@@ -2672,19 +2794,19 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 3234
+              "context_words": 3194
             },
             "10": {
               "recall": 0.0,
               "precision": 0.0,
-              "ndcg": 0.0,
-              "context_precision": 0.0,
+              "ndcg": 0.021206929399650572,
+              "context_precision": 0.1,
               "mrr": 0.0,
               "map": 0.0,
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 4822
+              "context_words": 4564
             }
           },
           "budget_recall": {
@@ -2770,7 +2892,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 1,
-              "context_words": 138
+              "context_words": 329
             },
             "3": {
               "recall": 0.0,
@@ -2782,7 +2904,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 427
+              "context_words": 548
             },
             "5": {
               "recall": 0.0,
@@ -2794,7 +2916,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 2809
+              "context_words": 894
             },
             "10": {
               "recall": 0.0,
@@ -2806,7 +2928,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 4516
+              "context_words": 3084
             }
           },
           "budget_recall": {
@@ -2843,31 +2965,31 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 2438
+              "context_words": 2359
             },
             "5": {
               "recall": 0.0,
               "precision": 0.0,
-              "ndcg": 0.0,
-              "context_precision": 0.0,
+              "ndcg": 0.053652664646244,
+              "context_precision": 0.2,
               "mrr": 0.0,
               "map": 0.0,
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 2695
+              "context_words": 2579
             },
             "10": {
               "recall": 0.0,
               "precision": 0.0,
-              "ndcg": 0.03582622045929986,
+              "ndcg": 0.043933493004032285,
               "context_precision": 0.1,
               "mrr": 0.0,
               "map": 0.0,
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 3458
+              "context_words": 3086
             }
           },
           "budget_recall": {
@@ -2904,31 +3026,31 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 2780
+              "context_words": 2395
             },
             "5": {
               "recall": 0.0,
               "precision": 0.0,
-              "ndcg": 0.0,
-              "context_precision": 0.0,
+              "ndcg": 0.053652664646244,
+              "context_precision": 0.2,
               "mrr": 0.0,
               "map": 0.0,
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 3218
+              "context_words": 2682
             },
             "10": {
               "recall": 0.0,
               "precision": 0.0,
-              "ndcg": 0.0,
-              "context_precision": 0.0,
+              "ndcg": 0.043933493004032285,
+              "context_precision": 0.1,
               "mrr": 0.0,
               "map": 0.0,
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 5103
+              "context_words": 4258
             }
           },
           "budget_recall": {
@@ -2953,7 +3075,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 1,
-              "context_words": 87
+              "context_words": 592
             },
             "3": {
               "recall": 0.0,
@@ -2965,7 +3087,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 627
+              "context_words": 766
             },
             "5": {
               "recall": 0.0,
@@ -2977,7 +3099,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 1097
+              "context_words": 1175
             },
             "10": {
               "recall": 0.0,
@@ -2989,7 +3111,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 3459
+              "context_words": 2168
             }
           },
           "budget_recall": {
@@ -3014,7 +3136,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 1,
-              "context_words": 2053
+              "context_words": 275
             },
             "3": {
               "recall": 0.0,
@@ -3026,7 +3148,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 2438
+              "context_words": 582
             },
             "5": {
               "recall": 0.0,
@@ -3038,7 +3160,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 3269
+              "context_words": 972
             },
             "10": {
               "recall": 0.0,
@@ -3050,7 +3172,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 4316
+              "context_words": 1348
             }
           },
           "budget_recall": {
@@ -3080,7 +3202,68 @@
             "3": {
               "recall": 0.0,
               "precision": 0.0,
-              "ndcg": 0.0986939703219551,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
+              "clauses_returned": 3,
+              "context_words": 2387
+            },
+            "5": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
+              "clauses_returned": 5,
+              "context_words": 2842
+            },
+            "10": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.03418690251480878,
+              "context_precision": 0.1,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
+              "clauses_returned": 10,
+              "context_words": 3926
+            }
+          },
+          "budget_recall": {
+            "200": 0.0,
+            "400": 0.0,
+            "800": 0.0,
+            "2400": 0.0,
+            "4000": 0.0
+          }
+        },
+        {
+          "passage_id": "CER.4.3.2.2#7",
+          "section": "4.3.2.2",
+          "metrics": {
+            "1": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
+              "clauses_returned": 1,
+              "context_words": 138
+            },
+            "3": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.07821312100379275,
               "context_precision": 0.3333333333333333,
               "mrr": 0.0,
               "map": 0.0,
@@ -3092,26 +3275,26 @@
             "5": {
               "recall": 0.0,
               "precision": 0.0,
-              "ndcg": 0.08750372712995078,
+              "ndcg": 0.06934506308715421,
               "context_precision": 0.2,
               "mrr": 0.0,
               "map": 0.0,
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 2426
+              "context_words": 2924
             },
             "10": {
-              "recall": 0.3333333333333333,
-              "precision": 0.1,
-              "ndcg": 0.19301197873352136,
-              "context_precision": 0.2,
-              "mrr": 0.16666666666666666,
-              "map": 0.05555555555555555,
-              "hit_rate": 1.0,
-              "scope_recall": 0.3333333333333333,
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.05678321597055935,
+              "context_precision": 0.1,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 3425
+              "context_words": 4008
             }
           },
           "budget_recall": {
@@ -3119,11 +3302,72 @@
             "400": 0.0,
             "800": 0.0,
             "2400": 0.0,
-            "4000": 0.3333333333333333
+            "4000": 0.0
           }
         },
         {
-          "passage_id": "CER.4.5.1",
+          "passage_id": "CER.4.3.2.2#8",
+          "section": "4.3.2.2",
+          "metrics": {
+            "1": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
+              "clauses_returned": 1,
+              "context_words": 24
+            },
+            "3": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
+              "clauses_returned": 3,
+              "context_words": 2152
+            },
+            "5": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
+              "clauses_returned": 5,
+              "context_words": 2359
+            },
+            "10": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
+              "clauses_returned": 10,
+              "context_words": 2996
+            }
+          },
+          "budget_recall": {
+            "200": 0.0,
+            "400": 0.0,
+            "800": 0.0,
+            "2400": 0.0,
+            "4000": 0.0
+          }
+        },
+        {
+          "passage_id": "CER.4.5.1#1",
           "section": "4.5.1",
           "metrics": {
             "1": {
@@ -3148,7 +3392,68 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 2395
+              "context_words": 2405
+            },
+            "5": {
+              "recall": 0.2,
+              "precision": 0.2,
+              "ndcg": 0.14606834984270647,
+              "context_precision": 0.2,
+              "mrr": 0.25,
+              "map": 0.05,
+              "hit_rate": 1.0,
+              "scope_recall": 0.5,
+              "clauses_returned": 5,
+              "context_words": 3236
+            },
+            "10": {
+              "recall": 0.4,
+              "precision": 0.2,
+              "ndcg": 0.23855887546064256,
+              "context_precision": 0.2,
+              "mrr": 0.25,
+              "map": 0.09444444444444444,
+              "hit_rate": 1.0,
+              "scope_recall": 1.0,
+              "clauses_returned": 10,
+              "context_words": 4097
+            }
+          },
+          "budget_recall": {
+            "200": 0.0,
+            "400": 0.0,
+            "800": 0.0,
+            "2400": 0.0,
+            "4000": 0.4
+          }
+        },
+        {
+          "passage_id": "CER.4.5.1#2",
+          "section": "4.5.1",
+          "metrics": {
+            "1": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
+              "clauses_returned": 1,
+              "context_words": 2053
+            },
+            "3": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
+              "clauses_returned": 3,
+              "context_words": 2610
             },
             "5": {
               "recall": 0.0,
@@ -3160,19 +3465,19 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 3364
+              "context_words": 3103
             },
             "10": {
               "recall": 0.0,
               "precision": 0.0,
-              "ndcg": 0.0558208342864309,
-              "context_precision": 0.1,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
               "mrr": 0.0,
               "map": 0.0,
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 4217
+              "context_words": 3808
             }
           },
           "budget_recall": {
@@ -3200,48 +3505,48 @@
               "context_words": 2053
             },
             "3": {
-              "recall": 0.0,
-              "precision": 0.0,
-              "ndcg": 0.0,
-              "context_precision": 0.0,
-              "mrr": 0.0,
-              "map": 0.0,
-              "hit_rate": 0.0,
-              "scope_recall": 0.0,
+              "recall": 0.5,
+              "precision": 0.3333333333333333,
+              "ndcg": 0.35098520806348704,
+              "context_precision": 0.3333333333333333,
+              "mrr": 0.5,
+              "map": 0.25,
+              "hit_rate": 1.0,
+              "scope_recall": 0.5,
               "clauses_returned": 3,
               "context_words": 2395
             },
             "5": {
-              "recall": 0.3333333333333333,
+              "recall": 0.5,
               "precision": 0.2,
-              "ndcg": 0.1700834227832046,
+              "ndcg": 0.325027967813913,
               "context_precision": 0.2,
-              "mrr": 0.2,
-              "map": 0.06666666666666667,
+              "mrr": 0.5,
+              "map": 0.25,
               "hit_rate": 1.0,
-              "scope_recall": 0.3333333333333333,
+              "scope_recall": 0.5,
               "clauses_returned": 5,
               "context_words": 2747
             },
             "10": {
-              "recall": 0.3333333333333333,
+              "recall": 0.5,
               "precision": 0.1,
-              "ndcg": 0.1700834227832046,
+              "ndcg": 0.325027967813913,
               "context_precision": 0.1,
-              "mrr": 0.2,
-              "map": 0.06666666666666667,
+              "mrr": 0.5,
+              "map": 0.25,
               "hit_rate": 1.0,
-              "scope_recall": 0.3333333333333333,
+              "scope_recall": 0.5,
               "clauses_returned": 10,
-              "context_words": 3763
+              "context_words": 3695
             }
           },
           "budget_recall": {
             "200": 0.0,
             "400": 0.0,
             "800": 0.0,
-            "2400": 0.0,
-            "4000": 0.3333333333333333
+            "2400": 0.5,
+            "4000": 0.5
           }
         },
         {
@@ -3273,28 +3578,28 @@
               "context_words": 2561
             },
             "5": {
-              "recall": 0.0,
-              "precision": 0.0,
-              "ndcg": 0.0,
-              "context_precision": 0.0,
-              "mrr": 0.0,
-              "map": 0.0,
-              "hit_rate": 0.0,
-              "scope_recall": 0.0,
+              "recall": 0.5,
+              "precision": 0.2,
+              "ndcg": 0.19928998603536255,
+              "context_precision": 0.2,
+              "mrr": 0.2,
+              "map": 0.1,
+              "hit_rate": 1.0,
+              "scope_recall": 0.5,
               "clauses_returned": 5,
-              "context_words": 3024
+              "context_words": 2916
             },
             "10": {
-              "recall": 0.0,
-              "precision": 0.0,
-              "ndcg": 0.0,
-              "context_precision": 0.0,
-              "mrr": 0.0,
-              "map": 0.0,
-              "hit_rate": 0.0,
-              "scope_recall": 0.0,
+              "recall": 0.5,
+              "precision": 0.1,
+              "ndcg": 0.19928998603536255,
+              "context_precision": 0.1,
+              "mrr": 0.2,
+              "map": 0.1,
+              "hit_rate": 1.0,
+              "scope_recall": 0.5,
               "clauses_returned": 10,
-              "context_words": 4316
+              "context_words": 3570
             }
           },
           "budget_recall": {
@@ -3302,7 +3607,7 @@
             "400": 0.0,
             "800": 0.0,
             "2400": 0.0,
-            "4000": 0.0
+            "4000": 0.5
           }
         },
         {
@@ -3319,7 +3624,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 1,
-              "context_words": 129
+              "context_words": 2053
             },
             "3": {
               "recall": 0.0,
@@ -3355,7 +3660,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 3367
+              "context_words": 3591
             }
           },
           "budget_recall": {
@@ -3392,7 +3697,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 795
+              "context_words": 660
             },
             "5": {
               "recall": 0.0,
@@ -3404,7 +3709,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 1076
+              "context_words": 2891
             },
             "10": {
               "recall": 0.0,
@@ -3444,6 +3749,67 @@
               "context_words": 379
             },
             "3": {
+              "recall": 0.5,
+              "precision": 0.3333333333333333,
+              "ndcg": 0.2781491965442198,
+              "context_precision": 0.3333333333333333,
+              "mrr": 0.3333333333333333,
+              "map": 0.16666666666666666,
+              "hit_rate": 1.0,
+              "scope_recall": 0.5,
+              "clauses_returned": 3,
+              "context_words": 2509
+            },
+            "5": {
+              "recall": 0.5,
+              "precision": 0.2,
+              "ndcg": 0.2575785703353275,
+              "context_precision": 0.2,
+              "mrr": 0.3333333333333333,
+              "map": 0.16666666666666666,
+              "hit_rate": 1.0,
+              "scope_recall": 0.5,
+              "clauses_returned": 5,
+              "context_words": 3160
+            },
+            "10": {
+              "recall": 0.5,
+              "precision": 0.1,
+              "ndcg": 0.2575785703353275,
+              "context_precision": 0.1,
+              "mrr": 0.3333333333333333,
+              "map": 0.16666666666666666,
+              "hit_rate": 1.0,
+              "scope_recall": 0.5,
+              "clauses_returned": 10,
+              "context_words": 4889
+            }
+          },
+          "budget_recall": {
+            "200": 0.0,
+            "400": 0.0,
+            "800": 0.0,
+            "2400": 0.0,
+            "4000": 0.5
+          }
+        },
+        {
+          "passage_id": "CER.4.5.2#6",
+          "section": "4.5.2",
+          "metrics": {
+            "1": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
+              "clauses_returned": 1,
+              "context_words": 75
+            },
+            "3": {
               "recall": 0.0,
               "precision": 0.0,
               "ndcg": 0.0,
@@ -3453,7 +3819,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 2579
+              "context_words": 2257
             },
             "5": {
               "recall": 0.0,
@@ -3465,19 +3831,19 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 2785
+              "context_words": 2587
             },
             "10": {
-              "recall": 0.3333333333333333,
+              "recall": 0.5,
               "precision": 0.1,
-              "ndcg": 0.13869705740320093,
+              "ndcg": 0.14891380939438262,
               "context_precision": 0.1,
-              "mrr": 0.125,
-              "map": 0.041666666666666664,
+              "mrr": 0.1,
+              "map": 0.05,
               "hit_rate": 1.0,
-              "scope_recall": 0.3333333333333333,
+              "scope_recall": 0.5,
               "clauses_returned": 10,
-              "context_words": 4547
+              "context_words": 3221
             }
           },
           "budget_recall": {
@@ -3485,7 +3851,7 @@
             "400": 0.0,
             "800": 0.0,
             "2400": 0.0,
-            "4000": 0.3333333333333333
+            "4000": 0.5
           }
         },
         {
@@ -3550,8 +3916,8 @@
           }
         },
         {
-          "passage_id": "CER.4.5.1#1",
-          "section": "4.5.1",
+          "passage_id": "CER.4.5.1~2#1",
+          "section": "4.5.1~2",
           "metrics": {
             "1": {
               "recall": 0.0,
@@ -3575,31 +3941,31 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 2965
+              "context_words": 2259
             },
             "5": {
               "recall": 0.0,
               "precision": 0.0,
-              "ndcg": 0.0,
-              "context_precision": 0.0,
+              "ndcg": 0.07173519834210915,
+              "context_precision": 0.2,
               "mrr": 0.0,
               "map": 0.0,
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 3796
+              "context_words": 3150
             },
             "10": {
               "recall": 0.0,
               "precision": 0.0,
-              "ndcg": 0.0,
-              "context_precision": 0.0,
+              "ndcg": 0.07173519834210915,
+              "context_precision": 0.1,
               "mrr": 0.0,
               "map": 0.0,
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 4982
+              "context_words": 4568
             }
           },
           "budget_recall": {
@@ -3611,8 +3977,8 @@
           }
         },
         {
-          "passage_id": "CER.4.5.1#2",
-          "section": "4.5.1",
+          "passage_id": "CER.4.5.1~2#2",
+          "section": "4.5.1~2",
           "metrics": {
             "1": {
               "recall": 0.0,
@@ -3624,7 +3990,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 1,
-              "context_words": 783
+              "context_words": 2053
             },
             "3": {
               "recall": 0.0,
@@ -3648,7 +4014,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 3455
+              "context_words": 3791
             },
             "10": {
               "recall": 0.0,
@@ -3660,7 +4026,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 4610
+              "context_words": 6029
             }
           },
           "budget_recall": {
@@ -3672,8 +4038,8 @@
           }
         },
         {
-          "passage_id": "CER.4.5.2",
-          "section": "4.5.2",
+          "passage_id": "CER.4.5.2~2",
+          "section": "4.5.2~2",
           "metrics": {
             "1": {
               "recall": 0.0,
@@ -3758,31 +4124,31 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 2259
+              "context_words": 471
             },
             "5": {
-              "recall": 0.0,
-              "precision": 0.0,
-              "ndcg": 0.0,
-              "context_precision": 0.0,
-              "mrr": 0.0,
-              "map": 0.0,
-              "hit_rate": 0.0,
-              "scope_recall": 0.0,
+              "recall": 0.3333333333333333,
+              "precision": 0.2,
+              "ndcg": 0.160957993938732,
+              "context_precision": 0.2,
+              "mrr": 0.2,
+              "map": 0.06666666666666667,
+              "hit_rate": 1.0,
+              "scope_recall": 0.3333333333333333,
               "clauses_returned": 5,
-              "context_words": 2776
+              "context_words": 2661
             },
             "10": {
               "recall": 0.3333333333333333,
               "precision": 0.1,
-              "ndcg": 0.12524966424266723,
+              "ndcg": 0.160957993938732,
               "context_precision": 0.1,
-              "mrr": 0.1111111111111111,
-              "map": 0.037037037037037035,
+              "mrr": 0.2,
+              "map": 0.06666666666666667,
               "hit_rate": 1.0,
               "scope_recall": 0.3333333333333333,
               "clauses_returned": 10,
-              "context_words": 4279
+              "context_words": 3393
             }
           },
           "budget_recall": {
@@ -3790,7 +4156,7 @@
             "400": 0.0,
             "800": 0.0,
             "2400": 0.0,
-            "4000": 0.0
+            "4000": 0.3333333333333333
           }
         },
         {
@@ -3819,7 +4185,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 923
+              "context_words": 1177
             },
             "5": {
               "recall": 0.0,
@@ -3831,7 +4197,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 1749
+              "context_words": 1492
             },
             "10": {
               "recall": 0.0,
@@ -3843,7 +4209,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 4649
+              "context_words": 2310
             }
           },
           "budget_recall": {
@@ -3880,7 +4246,7 @@
               "hit_rate": 1.0,
               "scope_recall": 0.3333333333333333,
               "clauses_returned": 3,
-              "context_words": 399
+              "context_words": 1095
             },
             "5": {
               "recall": 0.3333333333333333,
@@ -3892,7 +4258,7 @@
               "hit_rate": 1.0,
               "scope_recall": 0.3333333333333333,
               "clauses_returned": 5,
-              "context_words": 485
+              "context_words": 3277
             },
             "10": {
               "recall": 0.3333333333333333,
@@ -3904,7 +4270,7 @@
               "hit_rate": 1.0,
               "scope_recall": 0.3333333333333333,
               "clauses_returned": 10,
-              "context_words": 2092
+              "context_words": 4532
             }
           },
           "budget_recall": {
@@ -3929,7 +4295,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 1,
-              "context_words": 205
+              "context_words": 379
             },
             "3": {
               "recall": 0.0,
@@ -3941,7 +4307,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 1117
+              "context_words": 2637
             },
             "5": {
               "recall": 0.0,
@@ -3953,19 +4319,19 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 3348
+              "context_words": 2944
             },
             "10": {
-              "recall": 0.3333333333333333,
-              "precision": 0.1,
-              "ndcg": 0.1482072591726213,
-              "context_precision": 0.1,
-              "mrr": 0.16666666666666666,
-              "map": 0.05555555555555555,
-              "hit_rate": 1.0,
-              "scope_recall": 0.3333333333333333,
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 4204
+              "context_words": 4771
             }
           },
           "budget_recall": {
@@ -3973,7 +4339,68 @@
             "400": 0.0,
             "800": 0.0,
             "2400": 0.0,
-            "4000": 0.3333333333333333
+            "4000": 0.0
+          }
+        },
+        {
+          "passage_id": "CER.4.5.3#5",
+          "section": "4.5.3",
+          "metrics": {
+            "1": {
+              "recall": 0.3333333333333333,
+              "precision": 1.0,
+              "ndcg": 1.0,
+              "context_precision": 1.0,
+              "mrr": 1.0,
+              "map": 0.3333333333333333,
+              "hit_rate": 1.0,
+              "scope_recall": 0.3333333333333333,
+              "clauses_returned": 1,
+              "context_words": 107
+            },
+            "3": {
+              "recall": 0.3333333333333333,
+              "precision": 0.3333333333333333,
+              "ndcg": 0.4692787260227565,
+              "context_precision": 0.3333333333333333,
+              "mrr": 1.0,
+              "map": 0.3333333333333333,
+              "hit_rate": 1.0,
+              "scope_recall": 0.3333333333333333,
+              "clauses_returned": 3,
+              "context_words": 357
+            },
+            "5": {
+              "recall": 0.3333333333333333,
+              "precision": 0.2,
+              "ndcg": 0.41607037852292533,
+              "context_precision": 0.2,
+              "mrr": 1.0,
+              "map": 0.3333333333333333,
+              "hit_rate": 1.0,
+              "scope_recall": 0.3333333333333333,
+              "clauses_returned": 5,
+              "context_words": 563
+            },
+            "10": {
+              "recall": 0.6666666666666666,
+              "precision": 0.2,
+              "ndcg": 0.5363416902266726,
+              "context_precision": 0.2,
+              "mrr": 1.0,
+              "map": 0.39999999999999997,
+              "hit_rate": 1.0,
+              "scope_recall": 0.6666666666666666,
+              "clauses_returned": 10,
+              "context_words": 3031
+            }
+          },
+          "budget_recall": {
+            "200": 0.3333333333333333,
+            "400": 0.3333333333333333,
+            "800": 0.3333333333333333,
+            "2400": 0.3333333333333333,
+            "4000": 0.6666666666666666
           }
         },
         {
@@ -4051,7 +4478,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 1,
-              "context_words": 138
+              "context_words": 129
             },
             "3": {
               "recall": 0.0,
@@ -4075,7 +4502,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 2617
+              "context_words": 2509
             },
             "10": {
               "recall": 0.0,
@@ -4112,7 +4539,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 1,
-              "context_words": 138
+              "context_words": 2053
             },
             "3": {
               "recall": 0.0,
@@ -4124,7 +4551,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 2713
+              "context_words": 3268
             },
             "5": {
               "recall": 0.0,
@@ -4148,7 +4575,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 4843
+              "context_words": 5356
             }
           },
           "budget_recall": {
@@ -4185,7 +4612,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 2393
+              "context_words": 2340
             },
             "5": {
               "recall": 0.0,
@@ -4197,7 +4624,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 3352
+              "context_words": 3272
             },
             "10": {
               "recall": 0.0,
@@ -4209,7 +4636,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 4098
+              "context_words": 4317
             }
           },
           "budget_recall": {
@@ -4226,63 +4653,63 @@
       "system": "v2_hybrid",
       "summary": {
         "1": {
-          "recall": 0.032983193277310925,
-          "precision": 0.10294117647058823,
-          "ndcg": 0.10294117647058823,
-          "context_precision": 0.10294117647058823,
-          "mrr": 0.10294117647058823,
-          "map": 0.032983193277310925,
-          "hit_rate": 0.10294117647058823,
-          "scope_recall": 0.049019607843137254,
+          "recall": 0.027682539682539684,
+          "precision": 0.09333333333333334,
+          "ndcg": 0.09333333333333334,
+          "context_precision": 0.09333333333333334,
+          "mrr": 0.09333333333333334,
+          "map": 0.027682539682539684,
+          "hit_rate": 0.09333333333333334,
+          "scope_recall": 0.042222222222222223,
           "mean_clauses_returned": 1.0,
-          "mean_context_words": 1375.8823529411766
+          "mean_context_words": 1361.04
         },
         "3": {
-          "recall": 0.04047619047619048,
-          "precision": 0.053921568627450976,
-          "ndcg": 0.07018655028500452,
-          "context_precision": 0.058823529411764705,
-          "mrr": 0.11519607843137254,
-          "map": 0.03760504201680672,
-          "hit_rate": 0.1323529411764706,
-          "scope_recall": 0.06372549019607843,
+          "recall": 0.045587301587301586,
+          "precision": 0.057777777777777775,
+          "ndcg": 0.07028387097852654,
+          "context_precision": 0.062222222222222213,
+          "mrr": 0.11555555555555555,
+          "map": 0.036687830687830686,
+          "hit_rate": 0.14666666666666667,
+          "scope_recall": 0.06666666666666667,
           "mean_clauses_returned": 3.0,
-          "mean_context_words": 2789.1029411764707
+          "mean_context_words": 2682.5333333333333
         },
         "5": {
-          "recall": 0.06372485616005058,
-          "precision": 0.05588235294117647,
-          "ndcg": 0.07942269133058139,
-          "context_precision": 0.06470588235294118,
-          "mrr": 0.13872549019607844,
-          "map": 0.04387514552394911,
-          "hit_rate": 0.23529411764705882,
-          "scope_recall": 0.125,
+          "recall": 0.05764045078169372,
+          "precision": 0.05066666666666667,
+          "ndcg": 0.07355368977633815,
+          "context_precision": 0.061333333333333344,
+          "mrr": 0.1308888888888889,
+          "map": 0.040167596329178254,
+          "hit_rate": 0.21333333333333335,
+          "scope_recall": 0.10666666666666667,
           "mean_clauses_returned": 5.0,
-          "mean_context_words": 3765.3382352941176
+          "mean_context_words": 3662.2
         },
         "10": {
-          "recall": 0.1110742194859812,
-          "precision": 0.04852941176470588,
-          "ndcg": 0.09793738945270988,
-          "context_precision": 0.06911764705882353,
-          "mrr": 0.1612628384687208,
-          "map": 0.051947183161184914,
-          "hit_rate": 0.39705882352941174,
-          "scope_recall": 0.20833333333333331,
+          "recall": 0.09591716887716617,
+          "precision": 0.04533333333333334,
+          "ndcg": 0.0881348252314841,
+          "context_precision": 0.064,
+          "mrr": 0.15105820105820106,
+          "map": 0.04688101910763996,
+          "hit_rate": 0.36,
+          "scope_recall": 0.19555555555555554,
           "mean_clauses_returned": 10.0,
-          "mean_context_words": 6207.088235294118
+          "mean_context_words": 6044.173333333333
         }
       },
       "budget_recall": {
-        "200": 0.0021008403361344537,
-        "400": 0.03175770308123249,
-        "800": 0.032983193277310925,
-        "2400": 0.04587665574704458,
-        "4000": 0.07643046080729606
+        "200": 0.006349206349206349,
+        "400": 0.026571428571428572,
+        "800": 0.03434920634920635,
+        "2400": 0.04159483454398709,
+        "4000": 0.06520958171124566
       },
       "timing": {
-        "mean_query_ms": 288.05
+        "mean_query_ms": 353.04
       },
       "per_query": [
         {
@@ -4445,7 +4872,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 3456
+              "context_words": 3357
             },
             "10": {
               "recall": 0.0,
@@ -4482,7 +4909,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 1,
-              "context_words": 329
+              "context_words": 773
             },
             "3": {
               "recall": 0.0,
@@ -4494,7 +4921,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 3434
+              "context_words": 2056
             },
             "5": {
               "recall": 0.0,
@@ -4506,7 +4933,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 4736
+              "context_words": 2476
             },
             "10": {
               "recall": 0.0,
@@ -4518,7 +4945,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 6014
+              "context_words": 5658
             }
           },
           "budget_recall": {
@@ -4567,7 +4994,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 4025
+              "context_words": 3913
             },
             "10": {
               "recall": 0.0,
@@ -4579,7 +5006,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 5338
+              "context_words": 5203
             }
           },
           "budget_recall": {
@@ -4743,19 +5170,19 @@
             "5": {
               "recall": 0.0,
               "precision": 0.0,
-              "ndcg": 0.04373502583744727,
-              "context_precision": 0.2,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
               "mrr": 0.0,
               "map": 0.0,
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 4332
+              "context_words": 4783
             },
             "10": {
               "recall": 0.0,
               "precision": 0.0,
-              "ndcg": 0.028381039213873666,
+              "ndcg": 0.024454640699786683,
               "context_precision": 0.1,
               "mrr": 0.0,
               "map": 0.0,
@@ -4787,7 +5214,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 1,
-              "context_words": 592
+              "context_words": 1189
             },
             "3": {
               "recall": 0.0,
@@ -4823,7 +5250,7 @@
               "hit_rate": 1.0,
               "scope_recall": 0.5,
               "clauses_returned": 10,
-              "context_words": 7059
+              "context_words": 6507
             }
           },
           "budget_recall": {
@@ -4848,7 +5275,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 1,
-              "context_words": 2053
+              "context_words": 1189
             },
             "3": {
               "recall": 0.0,
@@ -4860,7 +5287,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 4025
+              "context_words": 2200
             },
             "5": {
               "recall": 0.0,
@@ -4872,19 +5299,19 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 4875
+              "context_words": 2575
             },
             "10": {
-              "recall": 0.0,
-              "precision": 0.0,
-              "ndcg": 0.0,
-              "context_precision": 0.0,
-              "mrr": 0.0,
-              "map": 0.0,
-              "hit_rate": 0.0,
-              "scope_recall": 0.0,
+              "recall": 0.07407407407407407,
+              "precision": 0.2,
+              "ndcg": 0.1396181455537491,
+              "context_precision": 0.2,
+              "mrr": 0.14285714285714285,
+              "map": 0.013521457965902409,
+              "hit_rate": 1.0,
+              "scope_recall": 0.5,
               "clauses_returned": 10,
-              "context_words": 8818
+              "context_words": 5913
             }
           },
           "budget_recall": {
@@ -4892,7 +5319,7 @@
             "400": 0.0,
             "800": 0.0,
             "2400": 0.0,
-            "4000": 0.0
+            "4000": 0.037037037037037035
           }
         },
         {
@@ -5628,7 +6055,7 @@
           }
         },
         {
-          "passage_id": "CER.3.2",
+          "passage_id": "CER.3.2#1",
           "section": "3.2",
           "metrics": {
             "1": {
@@ -5653,7 +6080,68 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 3329
+              "context_words": 2786
+            },
+            "5": {
+              "recall": 0.06666666666666667,
+              "precision": 0.2,
+              "ndcg": 0.14606834984270647,
+              "context_precision": 0.2,
+              "mrr": 0.25,
+              "map": 0.016666666666666666,
+              "hit_rate": 1.0,
+              "scope_recall": 0.5,
+              "clauses_returned": 5,
+              "context_words": 3631
+            },
+            "10": {
+              "recall": 0.06666666666666667,
+              "precision": 0.1,
+              "ndcg": 0.09478836436955079,
+              "context_precision": 0.1,
+              "mrr": 0.25,
+              "map": 0.016666666666666666,
+              "hit_rate": 1.0,
+              "scope_recall": 0.5,
+              "clauses_returned": 10,
+              "context_words": 7150
+            }
+          },
+          "budget_recall": {
+            "200": 0.0,
+            "400": 0.0,
+            "800": 0.0,
+            "2400": 0.0,
+            "4000": 0.06666666666666667
+          }
+        },
+        {
+          "passage_id": "CER.3.2#2",
+          "section": "3.2",
+          "metrics": {
+            "1": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
+              "clauses_returned": 1,
+              "context_words": 693
+            },
+            "3": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
+              "clauses_returned": 3,
+              "context_words": 2157
             },
             "5": {
               "recall": 0.0,
@@ -5665,7 +6153,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 4233
+              "context_words": 4421
             },
             "10": {
               "recall": 0.0,
@@ -5677,7 +6165,68 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 7420
+              "context_words": 6656
+            }
+          },
+          "budget_recall": {
+            "200": 0.0,
+            "400": 0.0,
+            "800": 0.0,
+            "2400": 0.0,
+            "4000": 0.0
+          }
+        },
+        {
+          "passage_id": "CER.3.2#3",
+          "section": "3.2",
+          "metrics": {
+            "1": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
+              "clauses_returned": 1,
+              "context_words": 2053
+            },
+            "3": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
+              "clauses_returned": 3,
+              "context_words": 3399
+            },
+            "5": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
+              "clauses_returned": 5,
+              "context_words": 4434
+            },
+            "10": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
+              "clauses_returned": 10,
+              "context_words": 6372
             }
           },
           "budget_recall": {
@@ -5885,7 +6434,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 1,
-              "context_words": 2053
+              "context_words": 1189
             },
             "3": {
               "recall": 0.0,
@@ -5897,7 +6446,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 3621
+              "context_words": 3798
             },
             "5": {
               "recall": 0.0,
@@ -6019,7 +6568,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 2954
+              "context_words": 3186
             },
             "5": {
               "recall": 0.0,
@@ -6031,19 +6580,19 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 4011
+              "context_words": 3923
             },
             "10": {
-              "recall": 0.0,
-              "precision": 0.0,
-              "ndcg": 0.0,
-              "context_precision": 0.0,
-              "mrr": 0.0,
-              "map": 0.0,
-              "hit_rate": 0.0,
-              "scope_recall": 0.0,
+              "recall": 0.5,
+              "precision": 0.1,
+              "ndcg": 0.17171904689021833,
+              "context_precision": 0.1,
+              "mrr": 0.14285714285714285,
+              "map": 0.07142857142857142,
+              "hit_rate": 1.0,
+              "scope_recall": 0.5,
               "clauses_returned": 10,
-              "context_words": 5539
+              "context_words": 5362
             }
           },
           "budget_recall": {
@@ -6202,7 +6751,7 @@
               "hit_rate": 1.0,
               "scope_recall": 0.5,
               "clauses_returned": 3,
-              "context_words": 2046
+              "context_words": 1976
             },
             "5": {
               "recall": 0.5,
@@ -6214,7 +6763,7 @@
               "hit_rate": 1.0,
               "scope_recall": 0.5,
               "clauses_returned": 5,
-              "context_words": 4621
+              "context_words": 4358
             },
             "10": {
               "recall": 0.5,
@@ -6226,7 +6775,7 @@
               "hit_rate": 1.0,
               "scope_recall": 0.5,
               "clauses_returned": 10,
-              "context_words": 8060
+              "context_words": 5874
             }
           },
           "budget_recall": {
@@ -6242,24 +6791,24 @@
           "section": "4.2.1",
           "metrics": {
             "1": {
-              "recall": 0.5,
-              "precision": 1.0,
-              "ndcg": 1.0,
-              "context_precision": 1.0,
-              "mrr": 1.0,
-              "map": 0.5,
-              "hit_rate": 1.0,
-              "scope_recall": 0.5,
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
               "clauses_returned": 1,
-              "context_words": 265
+              "context_words": 379
             },
             "3": {
               "recall": 0.5,
               "precision": 0.3333333333333333,
-              "ndcg": 0.5562983930884396,
+              "ndcg": 0.35098520806348704,
               "context_precision": 0.3333333333333333,
-              "mrr": 1.0,
-              "map": 0.5,
+              "mrr": 0.5,
+              "map": 0.25,
               "hit_rate": 1.0,
               "scope_recall": 0.5,
               "clauses_returned": 3,
@@ -6268,31 +6817,31 @@
             "5": {
               "recall": 0.5,
               "precision": 0.2,
-              "ndcg": 0.5562983930884396,
+              "ndcg": 0.35098520806348704,
               "context_precision": 0.2,
-              "mrr": 1.0,
-              "map": 0.5,
+              "mrr": 0.5,
+              "map": 0.25,
               "hit_rate": 1.0,
               "scope_recall": 0.5,
               "clauses_returned": 5,
-              "context_words": 2432
+              "context_words": 4666
             },
             "10": {
               "recall": 0.5,
               "precision": 0.1,
-              "ndcg": 0.6223508883533551,
-              "context_precision": 0.2,
-              "mrr": 1.0,
-              "map": 0.5,
+              "ndcg": 0.35098520806348704,
+              "context_precision": 0.1,
+              "mrr": 0.5,
+              "map": 0.25,
               "hit_rate": 1.0,
               "scope_recall": 0.5,
               "clauses_returned": 10,
-              "context_words": 4020
+              "context_words": 7513
             }
           },
           "budget_recall": {
             "200": 0.0,
-            "400": 0.5,
+            "400": 0.0,
             "800": 0.5,
             "2400": 0.5,
             "4000": 0.5
@@ -6482,8 +7031,8 @@
           }
         },
         {
-          "passage_id": "CER.4.2.1",
-          "section": "4.2.1",
+          "passage_id": "CER.4.2.1~2",
+          "section": "4.2.1~2",
           "metrics": {
             "1": {
               "recall": 0.5,
@@ -6512,7 +7061,7 @@
             "5": {
               "recall": 0.5,
               "precision": 0.2,
-              "ndcg": 0.5562983930884396,
+              "ndcg": 0.515157140670655,
               "context_precision": 0.2,
               "mrr": 1.0,
               "map": 0.5,
@@ -6524,7 +7073,7 @@
             "10": {
               "recall": 0.5,
               "precision": 0.1,
-              "ndcg": 0.5562983930884396,
+              "ndcg": 0.515157140670655,
               "context_precision": 0.1,
               "mrr": 1.0,
               "map": 0.5,
@@ -6775,7 +7324,7 @@
               "hit_rate": 1.0,
               "scope_recall": 1.0,
               "clauses_returned": 10,
-              "context_words": 5939
+              "context_words": 4812
             }
           },
           "budget_recall": {
@@ -6812,31 +7361,31 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 2840
+              "context_words": 3167
             },
             "5": {
-              "recall": 0.07692307692307693,
-              "precision": 0.2,
-              "ndcg": 0.1312050775123418,
-              "context_precision": 0.2,
-              "mrr": 0.2,
-              "map": 0.015384615384615385,
-              "hit_rate": 1.0,
-              "scope_recall": 1.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 3358
+              "context_words": 3786
             },
             "10": {
               "recall": 0.07692307692307693,
               "precision": 0.1,
-              "ndcg": 0.085143117641621,
+              "ndcg": 0.06625422345438904,
               "context_precision": 0.1,
-              "mrr": 0.2,
-              "map": 0.015384615384615385,
+              "mrr": 0.1111111111111111,
+              "map": 0.008547008547008546,
               "hit_rate": 1.0,
               "scope_recall": 1.0,
               "clauses_returned": 10,
-              "context_words": 5066
+              "context_words": 5163
             }
           },
           "budget_recall": {
@@ -6844,7 +7393,7 @@
             "400": 0.0,
             "800": 0.0,
             "2400": 0.0,
-            "4000": 0.07692307692307693
+            "4000": 0.0
           }
         },
         {
@@ -6873,7 +7422,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 2954
+              "context_words": 3329
             },
             "5": {
               "recall": 0.0,
@@ -6897,7 +7446,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 7530
+              "context_words": 7163
             }
           },
           "budget_recall": {
@@ -6983,7 +7532,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 1,
-              "context_words": 2053
+              "context_words": 329
             },
             "3": {
               "recall": 0.0,
@@ -7007,7 +7556,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 3916
+              "context_words": 4751
             },
             "10": {
               "recall": 0.0,
@@ -7019,7 +7568,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 6216
+              "context_words": 6486
             }
           },
           "budget_recall": {
@@ -7056,7 +7605,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 2781
+              "context_words": 2984
             },
             "5": {
               "recall": 0.0,
@@ -7068,7 +7617,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 4235
+              "context_words": 4056
             },
             "10": {
               "recall": 0.0,
@@ -7080,7 +7629,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 6421
+              "context_words": 7512
             }
           },
           "budget_recall": {
@@ -7117,7 +7666,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 2904
+              "context_words": 3065
             },
             "5": {
               "recall": 0.0,
@@ -7129,7 +7678,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 3916
+              "context_words": 4280
             },
             "10": {
               "recall": 0.0,
@@ -7141,7 +7690,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 9019
+              "context_words": 8793
             }
           },
           "budget_recall": {
@@ -7166,7 +7715,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 1,
-              "context_words": 275
+              "context_words": 167
             },
             "3": {
               "recall": 0.0,
@@ -7178,7 +7727,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 2920
+              "context_words": 519
             },
             "5": {
               "recall": 0.0,
@@ -7190,7 +7739,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 3390
+              "context_words": 1276
             },
             "10": {
               "recall": 0.0,
@@ -7202,7 +7751,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 6717
+              "context_words": 2877
             }
           },
           "budget_recall": {
@@ -7227,7 +7776,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 1,
-              "context_words": 2053
+              "context_words": 275
             },
             "3": {
               "recall": 0.0,
@@ -7239,7 +7788,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 2904
+              "context_words": 745
             },
             "5": {
               "recall": 0.0,
@@ -7251,7 +7800,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 4189
+              "context_words": 1602
             },
             "10": {
               "recall": 0.0,
@@ -7263,7 +7812,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 7949
+              "context_words": 3769
             }
           },
           "budget_recall": {
@@ -7300,7 +7849,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 3085
+              "context_words": 3329
             },
             "5": {
               "recall": 0.0,
@@ -7312,19 +7861,19 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 4194
+              "context_words": 3863
             },
             "10": {
-              "recall": 0.3333333333333333,
-              "precision": 0.1,
-              "ndcg": 0.10747866137789958,
-              "context_precision": 0.1,
-              "mrr": 0.125,
-              "map": 0.041666666666666664,
-              "hit_rate": 1.0,
-              "scope_recall": 0.3333333333333333,
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 5552
+              "context_words": 7987
             }
           },
           "budget_recall": {
@@ -7336,7 +7885,129 @@
           }
         },
         {
-          "passage_id": "CER.4.5.1",
+          "passage_id": "CER.4.3.2.2#7",
+          "section": "4.3.2.2",
+          "metrics": {
+            "1": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
+              "clauses_returned": 1,
+              "context_words": 2053
+            },
+            "3": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
+              "clauses_returned": 3,
+              "context_words": 2904
+            },
+            "5": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
+              "clauses_returned": 5,
+              "context_words": 3936
+            },
+            "10": {
+              "recall": 0.3333333333333333,
+              "precision": 0.1,
+              "ndcg": 0.1135664319411187,
+              "context_precision": 0.1,
+              "mrr": 0.14285714285714285,
+              "map": 0.047619047619047616,
+              "hit_rate": 1.0,
+              "scope_recall": 0.3333333333333333,
+              "clauses_returned": 10,
+              "context_words": 4910
+            }
+          },
+          "budget_recall": {
+            "200": 0.0,
+            "400": 0.0,
+            "800": 0.0,
+            "2400": 0.0,
+            "4000": 0.0
+          }
+        },
+        {
+          "passage_id": "CER.4.3.2.2#8",
+          "section": "4.3.2.2",
+          "metrics": {
+            "1": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
+              "clauses_returned": 1,
+              "context_words": 2053
+            },
+            "3": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
+              "clauses_returned": 3,
+              "context_words": 3118
+            },
+            "5": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.053652664646244,
+              "context_precision": 0.2,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
+              "clauses_returned": 5,
+              "context_words": 3408
+            },
+            "10": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.043933493004032285,
+              "context_precision": 0.1,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
+              "clauses_returned": 10,
+              "context_words": 4477
+            }
+          },
+          "budget_recall": {
+            "200": 0.0,
+            "400": 0.0,
+            "800": 0.0,
+            "2400": 0.0,
+            "4000": 0.0
+          }
+        },
+        {
+          "passage_id": "CER.4.5.1#1",
           "section": "4.5.1",
           "metrics": {
             "1": {
@@ -7361,7 +8032,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 3186
+              "context_words": 3022
             },
             "5": {
               "recall": 0.0,
@@ -7378,14 +8049,75 @@
             "10": {
               "recall": 0.0,
               "precision": 0.0,
-              "ndcg": 0.0660524952649153,
-              "context_precision": 0.1,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
               "mrr": 0.0,
               "map": 0.0,
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 7899
+              "context_words": 7108
+            }
+          },
+          "budget_recall": {
+            "200": 0.0,
+            "400": 0.0,
+            "800": 0.0,
+            "2400": 0.0,
+            "4000": 0.0
+          }
+        },
+        {
+          "passage_id": "CER.4.5.1#2",
+          "section": "4.5.1",
+          "metrics": {
+            "1": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
+              "clauses_returned": 1,
+              "context_words": 2053
+            },
+            "3": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
+              "clauses_returned": 3,
+              "context_words": 2710
+            },
+            "5": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
+              "clauses_returned": 5,
+              "context_words": 3705
+            },
+            "10": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
+              "clauses_returned": 10,
+              "context_words": 6087
             }
           },
           "budget_recall": {
@@ -7422,7 +8154,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 3186
+              "context_words": 2710
             },
             "5": {
               "recall": 0.0,
@@ -7437,16 +8169,16 @@
               "context_words": 3679
             },
             "10": {
-              "recall": 0.3333333333333333,
-              "precision": 0.1,
-              "ndcg": 0.14655308996296207,
-              "context_precision": 0.1,
-              "mrr": 0.14285714285714285,
-              "map": 0.047619047619047616,
-              "hit_rate": 1.0,
-              "scope_recall": 0.3333333333333333,
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 5236
+              "context_words": 5939
             }
           },
           "budget_recall": {
@@ -7495,7 +8227,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 3986
+              "context_words": 3447
             },
             "10": {
               "recall": 0.0,
@@ -7507,7 +8239,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 6829
+              "context_words": 5803
             }
           },
           "budget_recall": {
@@ -7556,19 +8288,19 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 3679
+              "context_words": 3447
             },
             "10": {
-              "recall": 0.3333333333333333,
-              "precision": 0.1,
-              "ndcg": 0.15660979181308693,
-              "context_precision": 0.1,
-              "mrr": 0.16666666666666666,
-              "map": 0.05555555555555555,
-              "hit_rate": 1.0,
-              "scope_recall": 0.3333333333333333,
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 5447
+              "context_words": 5535
             }
           },
           "budget_recall": {
@@ -7576,7 +8308,7 @@
             "400": 0.0,
             "800": 0.0,
             "2400": 0.0,
-            "4000": 0.3333333333333333
+            "4000": 0.0
           }
         },
         {
@@ -7593,7 +8325,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 1,
-              "context_words": 379
+              "context_words": 2053
             },
             "3": {
               "recall": 0.0,
@@ -7605,7 +8337,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 2710
+              "context_words": 2954
             },
             "5": {
               "recall": 0.0,
@@ -7617,7 +8349,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 3702
+              "context_words": 3986
             },
             "10": {
               "recall": 0.0,
@@ -7629,7 +8361,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 5924
+              "context_words": 5875
             }
           },
           "budget_recall": {
@@ -7666,7 +8398,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 3212
+              "context_words": 2954
             },
             "5": {
               "recall": 0.0,
@@ -7681,16 +8413,77 @@
               "context_words": 4488
             },
             "10": {
-              "recall": 0.3333333333333333,
-              "precision": 0.1,
-              "ndcg": 0.13869705740320093,
-              "context_precision": 0.1,
-              "mrr": 0.125,
-              "map": 0.041666666666666664,
-              "hit_rate": 1.0,
-              "scope_recall": 0.3333333333333333,
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
               "clauses_returned": 10,
               "context_words": 5939
+            }
+          },
+          "budget_recall": {
+            "200": 0.0,
+            "400": 0.0,
+            "800": 0.0,
+            "2400": 0.0,
+            "4000": 0.0
+          }
+        },
+        {
+          "passage_id": "CER.4.5.2#6",
+          "section": "4.5.2",
+          "metrics": {
+            "1": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
+              "clauses_returned": 1,
+              "context_words": 2053
+            },
+            "3": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
+              "clauses_returned": 3,
+              "context_words": 2985
+            },
+            "5": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
+              "clauses_returned": 5,
+              "context_words": 4321
+            },
+            "10": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
+              "clauses_returned": 10,
+              "context_words": 5439
             }
           },
           "budget_recall": {
@@ -7763,8 +8556,69 @@
           }
         },
         {
-          "passage_id": "CER.4.5.1#1",
-          "section": "4.5.1",
+          "passage_id": "CER.4.5.1~2#1",
+          "section": "4.5.1~2",
+          "metrics": {
+            "1": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
+              "clauses_returned": 1,
+              "context_words": 2053
+            },
+            "3": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
+              "clauses_returned": 3,
+              "context_words": 3186
+            },
+            "5": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.07173519834210915,
+              "context_precision": 0.2,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
+              "clauses_returned": 5,
+              "context_words": 3845
+            },
+            "10": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.07173519834210915,
+              "context_precision": 0.1,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
+              "clauses_returned": 10,
+              "context_words": 5817
+            }
+          },
+          "budget_recall": {
+            "200": 0.0,
+            "400": 0.0,
+            "800": 0.0,
+            "2400": 0.0,
+            "4000": 0.0
+          }
+        },
+        {
+          "passage_id": "CER.4.5.1~2#2",
+          "section": "4.5.1~2",
           "metrics": {
             "1": {
               "recall": 0.0,
@@ -7800,7 +8654,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 3993
+              "context_words": 4155
             },
             "10": {
               "recall": 0.0,
@@ -7812,7 +8666,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 6029
+              "context_words": 6582
             }
           },
           "budget_recall": {
@@ -7824,69 +8678,8 @@
           }
         },
         {
-          "passage_id": "CER.4.5.1#2",
-          "section": "4.5.1",
-          "metrics": {
-            "1": {
-              "recall": 0.0,
-              "precision": 0.0,
-              "ndcg": 0.0,
-              "context_precision": 0.0,
-              "mrr": 0.0,
-              "map": 0.0,
-              "hit_rate": 0.0,
-              "scope_recall": 0.0,
-              "clauses_returned": 1,
-              "context_words": 2053
-            },
-            "3": {
-              "recall": 0.0,
-              "precision": 0.0,
-              "ndcg": 0.0,
-              "context_precision": 0.0,
-              "mrr": 0.0,
-              "map": 0.0,
-              "hit_rate": 0.0,
-              "scope_recall": 0.0,
-              "clauses_returned": 3,
-              "context_words": 2860
-            },
-            "5": {
-              "recall": 0.0,
-              "precision": 0.0,
-              "ndcg": 0.0,
-              "context_precision": 0.0,
-              "mrr": 0.0,
-              "map": 0.0,
-              "hit_rate": 0.0,
-              "scope_recall": 0.0,
-              "clauses_returned": 5,
-              "context_words": 3791
-            },
-            "10": {
-              "recall": 0.0,
-              "precision": 0.0,
-              "ndcg": 0.0,
-              "context_precision": 0.0,
-              "mrr": 0.0,
-              "map": 0.0,
-              "hit_rate": 0.0,
-              "scope_recall": 0.0,
-              "clauses_returned": 10,
-              "context_words": 7602
-            }
-          },
-          "budget_recall": {
-            "200": 0.0,
-            "400": 0.0,
-            "800": 0.0,
-            "2400": 0.0,
-            "4000": 0.0
-          }
-        },
-        {
-          "passage_id": "CER.4.5.2",
-          "section": "4.5.2",
+          "passage_id": "CER.4.5.2~2",
+          "section": "4.5.2~2",
           "metrics": {
             "1": {
               "recall": 0.0,
@@ -7974,28 +8767,28 @@
               "context_words": 3186
             },
             "5": {
-              "recall": 0.3333333333333333,
-              "precision": 0.2,
-              "ndcg": 0.1791917585385473,
-              "context_precision": 0.2,
-              "mrr": 0.25,
-              "map": 0.08333333333333333,
-              "hit_rate": 1.0,
-              "scope_recall": 0.3333333333333333,
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 3588
+              "context_words": 3666
             },
             "10": {
-              "recall": 0.3333333333333333,
-              "precision": 0.1,
-              "ndcg": 0.1791917585385473,
-              "context_precision": 0.1,
-              "mrr": 0.25,
-              "map": 0.08333333333333333,
-              "hit_rate": 1.0,
-              "scope_recall": 0.3333333333333333,
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 7447
+              "context_words": 7438
             }
           },
           "budget_recall": {
@@ -8003,7 +8796,7 @@
             "400": 0.0,
             "800": 0.0,
             "2400": 0.0,
-            "4000": 0.3333333333333333
+            "4000": 0.0
           }
         },
         {
@@ -8020,7 +8813,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 1,
-              "context_words": 2053
+              "context_words": 177
             },
             "3": {
               "recall": 0.0,
@@ -8032,7 +8825,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 2752
+              "context_words": 1234
             },
             "5": {
               "recall": 0.0,
@@ -8044,7 +8837,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 4628
+              "context_words": 2609
             },
             "10": {
               "recall": 0.0,
@@ -8056,7 +8849,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 6084
+              "context_words": 8187
             }
           },
           "budget_recall": {
@@ -8081,50 +8874,50 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 1,
-              "context_words": 215
+              "context_words": 2053
             },
             "3": {
-              "recall": 0.0,
-              "precision": 0.0,
-              "ndcg": 0.0,
-              "context_precision": 0.0,
-              "mrr": 0.0,
-              "map": 0.0,
-              "hit_rate": 0.0,
-              "scope_recall": 0.0,
+              "recall": 0.3333333333333333,
+              "precision": 0.3333333333333333,
+              "ndcg": 0.23463936301137825,
+              "context_precision": 0.3333333333333333,
+              "mrr": 0.3333333333333333,
+              "map": 0.1111111111111111,
+              "hit_rate": 1.0,
+              "scope_recall": 0.3333333333333333,
               "clauses_returned": 3,
-              "context_words": 1783
+              "context_words": 2539
             },
             "5": {
               "recall": 0.3333333333333333,
               "precision": 0.2,
-              "ndcg": 0.1791917585385473,
+              "ndcg": 0.20803518926146267,
               "context_precision": 0.2,
-              "mrr": 0.25,
-              "map": 0.08333333333333333,
+              "mrr": 0.3333333333333333,
+              "map": 0.1111111111111111,
               "hit_rate": 1.0,
               "scope_recall": 0.3333333333333333,
               "clauses_returned": 5,
-              "context_words": 3943
+              "context_words": 3508
             },
             "10": {
               "recall": 0.3333333333333333,
               "precision": 0.1,
-              "ndcg": 0.1791917585385473,
+              "ndcg": 0.20803518926146267,
               "context_precision": 0.1,
-              "mrr": 0.25,
-              "map": 0.08333333333333333,
+              "mrr": 0.3333333333333333,
+              "map": 0.1111111111111111,
               "hit_rate": 1.0,
               "scope_recall": 0.3333333333333333,
               "clauses_returned": 10,
-              "context_words": 8309
+              "context_words": 6546
             }
           },
           "budget_recall": {
             "200": 0.0,
             "400": 0.0,
             "800": 0.0,
-            "2400": 0.3333333333333333,
+            "2400": 0.0,
             "4000": 0.3333333333333333
           }
         },
@@ -8154,7 +8947,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 3186
+              "context_words": 3024
             },
             "5": {
               "recall": 0.0,
@@ -8166,7 +8959,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 3641
+              "context_words": 4056
             },
             "10": {
               "recall": 0.0,
@@ -8178,7 +8971,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 6149
+              "context_words": 8333
             }
           },
           "budget_recall": {
@@ -8187,6 +8980,67 @@
             "800": 0.0,
             "2400": 0.0,
             "4000": 0.0
+          }
+        },
+        {
+          "passage_id": "CER.4.5.3#5",
+          "section": "4.5.3",
+          "metrics": {
+            "1": {
+              "recall": 0.3333333333333333,
+              "precision": 1.0,
+              "ndcg": 1.0,
+              "context_precision": 1.0,
+              "mrr": 1.0,
+              "map": 0.3333333333333333,
+              "hit_rate": 1.0,
+              "scope_recall": 0.3333333333333333,
+              "clauses_returned": 1,
+              "context_words": 107
+            },
+            "3": {
+              "recall": 0.3333333333333333,
+              "precision": 0.3333333333333333,
+              "ndcg": 0.4692787260227565,
+              "context_precision": 0.3333333333333333,
+              "mrr": 1.0,
+              "map": 0.3333333333333333,
+              "hit_rate": 1.0,
+              "scope_recall": 0.3333333333333333,
+              "clauses_returned": 3,
+              "context_words": 2337
+            },
+            "5": {
+              "recall": 0.3333333333333333,
+              "precision": 0.2,
+              "ndcg": 0.41607037852292533,
+              "context_precision": 0.2,
+              "mrr": 1.0,
+              "map": 0.3333333333333333,
+              "hit_rate": 1.0,
+              "scope_recall": 0.3333333333333333,
+              "clauses_returned": 5,
+              "context_words": 3165
+            },
+            "10": {
+              "recall": 0.3333333333333333,
+              "precision": 0.1,
+              "ndcg": 0.41607037852292533,
+              "context_precision": 0.1,
+              "mrr": 1.0,
+              "map": 0.3333333333333333,
+              "hit_rate": 1.0,
+              "scope_recall": 0.3333333333333333,
+              "clauses_returned": 10,
+              "context_words": 6059
+            }
+          },
+          "budget_recall": {
+            "200": 0.3333333333333333,
+            "400": 0.3333333333333333,
+            "800": 0.3333333333333333,
+            "2400": 0.3333333333333333,
+            "4000": 0.3333333333333333
           }
         },
         {
@@ -8288,7 +9142,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 3828
+              "context_words": 3993
             },
             "10": {
               "recall": 0.0,
@@ -8300,7 +9154,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 6813
+              "context_words": 6800
             }
           },
           "budget_recall": {
@@ -8361,7 +9215,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 8033
+              "context_words": 8484
             }
           },
           "budget_recall": {
@@ -8398,7 +9252,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 3136
+              "context_words": 2966
             },
             "5": {
               "recall": 0.0,
@@ -8410,7 +9264,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 3553
+              "context_words": 3475
             },
             "10": {
               "recall": 0.0,
@@ -8422,7 +9276,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 5496
+              "context_words": 5016
             }
           },
           "budget_recall": {
@@ -8439,63 +9293,63 @@
       "system": "v2_rerank",
       "summary": {
         "1": {
-          "recall": 0.029418831156487166,
-          "precision": 0.1323529411764706,
-          "ndcg": 0.1568627450980392,
-          "context_precision": 0.20588235294117646,
-          "mrr": 0.1323529411764706,
-          "map": 0.029418831156487166,
-          "hit_rate": 0.1323529411764706,
-          "scope_recall": 0.07107843137254902,
+          "recall": 0.04040146864361009,
+          "precision": 0.14666666666666667,
+          "ndcg": 0.1688888888888889,
+          "context_precision": 0.21333333333333335,
+          "mrr": 0.14666666666666667,
+          "map": 0.04040146864361009,
+          "hit_rate": 0.14666666666666667,
+          "scope_recall": 0.08,
           "mean_clauses_returned": 1.0,
-          "mean_context_words": 203.63235294117646
+          "mean_context_words": 165.16
         },
         "3": {
-          "recall": 0.07721058876076996,
-          "precision": 0.11274509803921567,
-          "ndcg": 0.14102648171442173,
-          "context_precision": 0.16176470588235295,
-          "mrr": 0.19362745098039214,
-          "map": 0.05128948848305202,
-          "hit_rate": 0.27941176470588236,
-          "scope_recall": 0.1519607843137255,
+          "recall": 0.0948437733159376,
+          "precision": 0.12,
+          "ndcg": 0.15345451017324532,
+          "context_precision": 0.17777777777777776,
+          "mrr": 0.2111111111111111,
+          "map": 0.06450436889319984,
+          "hit_rate": 0.30666666666666664,
+          "scope_recall": 0.16444444444444445,
           "mean_clauses_returned": 3.0,
-          "mean_context_words": 776.6470588235294
+          "mean_context_words": 673.1733333333333
         },
         "5": {
-          "recall": 0.07966448139947713,
-          "precision": 0.0823529411764706,
-          "ndcg": 0.1302547640735666,
-          "context_precision": 0.12352941176470589,
-          "mrr": 0.1995098039215686,
-          "map": 0.052686604468445544,
-          "hit_rate": 0.3088235294117647,
-          "scope_recall": 0.16666666666666669,
+          "recall": 0.11351308041947654,
+          "precision": 0.096,
+          "ndcg": 0.15032561798279884,
+          "context_precision": 0.14400000000000002,
+          "mrr": 0.22777777777777777,
+          "map": 0.06908466763353688,
+          "hit_rate": 0.38666666666666666,
+          "scope_recall": 0.2,
           "mean_clauses_returned": 5.0,
-          "mean_context_words": 1514.235294117647
+          "mean_context_words": 1456.0266666666666
         },
         "10": {
-          "recall": 0.11879009849614681,
-          "precision": 0.06029411764705883,
-          "ndcg": 0.1325516118510725,
-          "context_precision": 0.09264705882352942,
-          "mrr": 0.2109593837535014,
-          "map": 0.05977314262617611,
-          "hit_rate": 0.39705882352941174,
-          "scope_recall": 0.2156862745098039,
+          "recall": 0.15045705872387585,
+          "precision": 0.06666666666666667,
+          "ndcg": 0.1526425832628395,
+          "context_precision": 0.1,
+          "mrr": 0.2403809523809524,
+          "map": 0.07600771533891014,
+          "hit_rate": 0.48,
+          "scope_recall": 0.26222222222222225,
           "mean_clauses_returned": 10.0,
-          "mean_context_words": 3963.3676470588234
+          "mean_context_words": 3836.653333333333
         }
       },
       "budget_recall": {
-        "200": 0.03918821836342473,
-        "400": 0.06104109145710665,
-        "800": 0.09451734796467247,
-        "2400": 0.10408421614320565,
-        "4000": 0.11388813771183309
+        "200": 0.053703490822344595,
+        "400": 0.08018342909394954,
+        "800": 0.11053523499414254,
+        "2400": 0.12632030658712373,
+        "4000": 0.1437903920572092
       },
       "timing": {
-        "mean_query_ms": 8281.61
+        "mean_query_ms": 14060.92
       },
       "per_query": [
         {
@@ -8646,7 +9500,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 2083
+              "context_words": 492
             },
             "5": {
               "recall": 0.0,
@@ -8658,7 +9512,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 3102
+              "context_words": 3067
             },
             "10": {
               "recall": 0.0,
@@ -8670,7 +9524,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 4655
+              "context_words": 6477
             }
           },
           "budget_recall": {
@@ -8707,7 +9561,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 268
+              "context_words": 313
             },
             "5": {
               "recall": 0.0,
@@ -8719,19 +9573,19 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 810
+              "context_words": 364
             },
             "10": {
               "recall": 0.0,
               "precision": 0.0,
-              "ndcg": 0.05443630426557507,
+              "ndcg": 0.04600401404045722,
               "context_precision": 0.1,
               "mrr": 0.0,
               "map": 0.0,
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 4013
+              "context_words": 530
             }
           },
           "budget_recall": {
@@ -8768,7 +9622,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 682
+              "context_words": 377
             },
             "5": {
               "recall": 0.0,
@@ -8780,7 +9634,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 1141
+              "context_words": 473
             },
             "10": {
               "recall": 0.0,
@@ -8792,7 +9646,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 3032
+              "context_words": 1331
             }
           },
           "budget_recall": {
@@ -8932,50 +9786,50 @@
             "1": {
               "recall": 0.0,
               "precision": 0.0,
-              "ndcg": 0.3333333333333333,
-              "context_precision": 1.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
               "mrr": 0.0,
               "map": 0.0,
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 1,
-              "context_words": 17
+              "context_words": 265
             },
             "3": {
               "recall": 0.0,
               "precision": 0.0,
-              "ndcg": 0.1564262420075855,
-              "context_precision": 0.3333333333333333,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
               "mrr": 0.0,
               "map": 0.0,
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 333
+              "context_words": 869
             },
             "5": {
               "recall": 0.0,
               "precision": 0.0,
-              "ndcg": 0.15678842759531933,
-              "context_precision": 0.4,
-              "mrr": 0.0,
-              "map": 0.0,
-              "hit_rate": 0.0,
-              "scope_recall": 0.0,
-              "clauses_returned": 5,
-              "context_words": 965
-            },
-            "10": {
-              "recall": 0.0,
-              "precision": 0.0,
-              "ndcg": 0.10174496131323373,
+              "ndcg": 0.04868944994756882,
               "context_precision": 0.2,
               "mrr": 0.0,
               "map": 0.0,
               "hit_rate": 0.0,
               "scope_recall": 0.0,
+              "clauses_returned": 5,
+              "context_words": 1728
+            },
+            "10": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.031596121456516926,
+              "context_precision": 0.1,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 1894
+              "context_words": 3179
             }
           },
           "budget_recall": {
@@ -8991,60 +9845,60 @@
           "section": "2.7",
           "metrics": {
             "1": {
-              "recall": 0.037037037037037035,
-              "precision": 1.0,
-              "ndcg": 1.0,
-              "context_precision": 1.0,
-              "mrr": 1.0,
-              "map": 0.037037037037037035,
-              "hit_rate": 1.0,
-              "scope_recall": 0.5,
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
               "clauses_returned": 1,
-              "context_words": 34
+              "context_words": 329
             },
             "3": {
-              "recall": 0.037037037037037035,
-              "precision": 0.3333333333333333,
-              "ndcg": 0.4692787260227565,
-              "context_precision": 0.3333333333333333,
-              "mrr": 1.0,
-              "map": 0.037037037037037035,
-              "hit_rate": 1.0,
-              "scope_recall": 0.5,
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 470
+              "context_words": 1280
             },
             "5": {
               "recall": 0.037037037037037035,
               "precision": 0.2,
-              "ndcg": 0.3391602052736162,
+              "ndcg": 0.14606834984270647,
               "context_precision": 0.2,
-              "mrr": 1.0,
-              "map": 0.037037037037037035,
+              "mrr": 0.25,
+              "map": 0.009259259259259259,
               "hit_rate": 1.0,
               "scope_recall": 0.5,
               "clauses_returned": 5,
-              "context_words": 1064
+              "context_words": 2337
             },
             "10": {
-              "recall": 0.07407407407407407,
-              "precision": 0.2,
-              "ndcg": 0.2984900352767555,
-              "context_precision": 0.2,
-              "mrr": 1.0,
-              "map": 0.04938271604938271,
+              "recall": 0.037037037037037035,
+              "precision": 0.1,
+              "ndcg": 0.09478836436955079,
+              "context_precision": 0.1,
+              "mrr": 0.25,
+              "map": 0.009259259259259259,
               "hit_rate": 1.0,
-              "scope_recall": 1.0,
+              "scope_recall": 0.5,
               "clauses_returned": 10,
-              "context_words": 4551
+              "context_words": 5233
             }
           },
           "budget_recall": {
-            "200": 0.037037037037037035,
-            "400": 0.037037037037037035,
-            "800": 0.037037037037037035,
-            "2400": 0.07407407407407407,
-            "4000": 0.07407407407407407
+            "200": 0.0,
+            "400": 0.0,
+            "800": 0.0,
+            "2400": 0.037037037037037035,
+            "4000": 0.037037037037037035
           }
         },
         {
@@ -9061,7 +9915,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 1,
-              "context_words": 46
+              "context_words": 270
             },
             "3": {
               "recall": 0.0,
@@ -9073,31 +9927,31 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 450
+              "context_words": 1555
             },
             "5": {
-              "recall": 0.037037037037037035,
-              "precision": 0.2,
-              "ndcg": 0.1312050775123418,
-              "context_precision": 0.2,
-              "mrr": 0.2,
-              "map": 0.007407407407407408,
-              "hit_rate": 1.0,
-              "scope_recall": 0.5,
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 1065
+              "context_words": 1868
             },
             "10": {
               "recall": 0.037037037037037035,
               "precision": 0.1,
-              "ndcg": 0.085143117641621,
+              "ndcg": 0.07336392209936006,
               "context_precision": 0.1,
-              "mrr": 0.2,
-              "map": 0.007407407407407408,
+              "mrr": 0.14285714285714285,
+              "map": 0.005291005291005291,
               "hit_rate": 1.0,
               "scope_recall": 0.5,
               "clauses_returned": 10,
-              "context_words": 5347
+              "context_words": 3923
             }
           },
           "budget_recall": {
@@ -9841,7 +10695,7 @@
           }
         },
         {
-          "passage_id": "CER.3.2",
+          "passage_id": "CER.3.2#1",
           "section": "3.2",
           "metrics": {
             "1": {
@@ -9854,7 +10708,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 1,
-              "context_words": 1189
+              "context_words": 2053
             },
             "3": {
               "recall": 0.0,
@@ -9866,7 +10720,68 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 1552
+              "context_words": 2809
+            },
+            "5": {
+              "recall": 0.06666666666666667,
+              "precision": 0.2,
+              "ndcg": 0.1312050775123418,
+              "context_precision": 0.2,
+              "mrr": 0.2,
+              "map": 0.013333333333333334,
+              "hit_rate": 1.0,
+              "scope_recall": 0.5,
+              "clauses_returned": 5,
+              "context_words": 3068
+            },
+            "10": {
+              "recall": 0.06666666666666667,
+              "precision": 0.1,
+              "ndcg": 0.085143117641621,
+              "context_precision": 0.1,
+              "mrr": 0.2,
+              "map": 0.013333333333333334,
+              "hit_rate": 1.0,
+              "scope_recall": 0.5,
+              "clauses_returned": 10,
+              "context_words": 4951
+            }
+          },
+          "budget_recall": {
+            "200": 0.0,
+            "400": 0.0,
+            "800": 0.0,
+            "2400": 0.0,
+            "4000": 0.06666666666666667
+          }
+        },
+        {
+          "passage_id": "CER.3.2#2",
+          "section": "3.2",
+          "metrics": {
+            "1": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
+              "clauses_returned": 1,
+              "context_words": 167
+            },
+            "3": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
+              "clauses_returned": 3,
+              "context_words": 1524
             },
             "5": {
               "recall": 0.0,
@@ -9878,7 +10793,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 1936
+              "context_words": 2721
             },
             "10": {
               "recall": 0.0,
@@ -9890,7 +10805,68 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 3992
+              "context_words": 6120
+            }
+          },
+          "budget_recall": {
+            "200": 0.0,
+            "400": 0.0,
+            "800": 0.0,
+            "2400": 0.0,
+            "4000": 0.0
+          }
+        },
+        {
+          "passage_id": "CER.3.2#3",
+          "section": "3.2",
+          "metrics": {
+            "1": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
+              "clauses_returned": 1,
+              "context_words": 10
+            },
+            "3": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
+              "clauses_returned": 3,
+              "context_words": 41
+            },
+            "5": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
+              "clauses_returned": 5,
+              "context_words": 327
+            },
+            "10": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
+              "clauses_returned": 10,
+              "context_words": 2552
             }
           },
           "budget_recall": {
@@ -10098,7 +11074,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 1,
-              "context_words": 177
+              "context_words": 265
             },
             "3": {
               "recall": 0.0,
@@ -10110,7 +11086,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 635
+              "context_words": 463
             },
             "5": {
               "recall": 0.0,
@@ -10122,7 +11098,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 1556
+              "context_words": 1255
             },
             "10": {
               "recall": 0.0,
@@ -10134,7 +11110,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 3283
+              "context_words": 5219
             }
           },
           "budget_recall": {
@@ -10171,7 +11147,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 404
+              "context_words": 352
             },
             "5": {
               "recall": 0.0,
@@ -10183,7 +11159,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 1574
+              "context_words": 2037
             },
             "10": {
               "recall": 0.5,
@@ -10195,7 +11171,7 @@
               "hit_rate": 1.0,
               "scope_recall": 0.5,
               "clauses_returned": 10,
-              "context_words": 3748
+              "context_words": 4115
             }
           },
           "budget_recall": {
@@ -10211,60 +11187,60 @@
           "section": "3.8",
           "metrics": {
             "1": {
-              "recall": 0.0,
-              "precision": 0.0,
-              "ndcg": 0.0,
-              "context_precision": 0.0,
-              "mrr": 0.0,
-              "map": 0.0,
-              "hit_rate": 0.0,
-              "scope_recall": 0.0,
+              "recall": 0.5,
+              "precision": 1.0,
+              "ndcg": 1.0,
+              "context_precision": 1.0,
+              "mrr": 1.0,
+              "map": 0.5,
+              "hit_rate": 1.0,
+              "scope_recall": 0.5,
               "clauses_returned": 1,
-              "context_words": 119
+              "context_words": 137
             },
             "3": {
-              "recall": 0.0,
-              "precision": 0.0,
-              "ndcg": 0.0,
-              "context_precision": 0.0,
-              "mrr": 0.0,
-              "map": 0.0,
-              "hit_rate": 0.0,
-              "scope_recall": 0.0,
+              "recall": 0.5,
+              "precision": 0.3333333333333333,
+              "ndcg": 0.5562983930884396,
+              "context_precision": 0.3333333333333333,
+              "mrr": 1.0,
+              "map": 0.5,
+              "hit_rate": 1.0,
+              "scope_recall": 0.5,
               "clauses_returned": 3,
-              "context_words": 426
+              "context_words": 444
             },
             "5": {
-              "recall": 0.0,
-              "precision": 0.0,
-              "ndcg": 0.0,
-              "context_precision": 0.0,
-              "mrr": 0.0,
-              "map": 0.0,
-              "hit_rate": 0.0,
-              "scope_recall": 0.0,
+              "recall": 0.5,
+              "precision": 0.2,
+              "ndcg": 0.515157140670655,
+              "context_precision": 0.2,
+              "mrr": 1.0,
+              "map": 0.5,
+              "hit_rate": 1.0,
+              "scope_recall": 0.5,
               "clauses_returned": 5,
-              "context_words": 841
+              "context_words": 886
             },
             "10": {
-              "recall": 0.0,
-              "precision": 0.0,
-              "ndcg": 0.0,
-              "context_precision": 0.0,
-              "mrr": 0.0,
-              "map": 0.0,
-              "hit_rate": 0.0,
-              "scope_recall": 0.0,
+              "recall": 0.5,
+              "precision": 0.1,
+              "ndcg": 0.515157140670655,
+              "context_precision": 0.1,
+              "mrr": 1.0,
+              "map": 0.5,
+              "hit_rate": 1.0,
+              "scope_recall": 0.5,
               "clauses_returned": 10,
-              "context_words": 3129
+              "context_words": 3393
             }
           },
           "budget_recall": {
-            "200": 0.0,
-            "400": 0.0,
-            "800": 0.0,
-            "2400": 0.0,
-            "4000": 0.0
+            "200": 0.5,
+            "400": 0.5,
+            "800": 0.5,
+            "2400": 0.5,
+            "4000": 0.5
           }
         },
         {
@@ -10415,7 +11391,7 @@
               "hit_rate": 1.0,
               "scope_recall": 0.5,
               "clauses_returned": 3,
-              "context_words": 482
+              "context_words": 628
             },
             "5": {
               "recall": 0.5,
@@ -10427,7 +11403,7 @@
               "hit_rate": 1.0,
               "scope_recall": 0.5,
               "clauses_returned": 5,
-              "context_words": 764
+              "context_words": 1111
             },
             "10": {
               "recall": 0.5,
@@ -10439,7 +11415,7 @@
               "hit_rate": 1.0,
               "scope_recall": 0.5,
               "clauses_returned": 10,
-              "context_words": 4670
+              "context_words": 4214
             }
           },
           "budget_recall": {
@@ -10476,7 +11452,7 @@
               "hit_rate": 1.0,
               "scope_recall": 0.5,
               "clauses_returned": 3,
-              "context_words": 2854
+              "context_words": 1669
             },
             "5": {
               "recall": 0.5,
@@ -10488,7 +11464,7 @@
               "hit_rate": 1.0,
               "scope_recall": 0.5,
               "clauses_returned": 5,
-              "context_words": 3416
+              "context_words": 3933
             },
             "10": {
               "recall": 0.5,
@@ -10500,7 +11476,7 @@
               "hit_rate": 1.0,
               "scope_recall": 0.5,
               "clauses_returned": 10,
-              "context_words": 7202
+              "context_words": 6942
             }
           },
           "budget_recall": {
@@ -10695,8 +11671,8 @@
           }
         },
         {
-          "passage_id": "CER.4.2.1",
-          "section": "4.2.1",
+          "passage_id": "CER.4.2.1~2",
+          "section": "4.2.1~2",
           "metrics": {
             "1": {
               "recall": 0.0,
@@ -10725,7 +11701,7 @@
             "5": {
               "recall": 0.5,
               "precision": 0.2,
-              "ndcg": 0.2781491965442198,
+              "ndcg": 0.2575785703353275,
               "context_precision": 0.2,
               "mrr": 0.3333333333333333,
               "map": 0.16666666666666666,
@@ -10737,7 +11713,7 @@
             "10": {
               "recall": 0.5,
               "precision": 0.1,
-              "ndcg": 0.2781491965442198,
+              "ndcg": 0.2575785703353275,
               "context_precision": 0.1,
               "mrr": 0.3333333333333333,
               "map": 0.16666666666666666,
@@ -10957,38 +11933,38 @@
             "3": {
               "recall": 0.07692307692307693,
               "precision": 0.3333333333333333,
-              "ndcg": 0.2960819109658653,
+              "ndcg": 0.23463936301137825,
               "context_precision": 0.3333333333333333,
-              "mrr": 0.5,
-              "map": 0.038461538461538464,
+              "mrr": 0.3333333333333333,
+              "map": 0.02564102564102564,
               "hit_rate": 1.0,
               "scope_recall": 1.0,
               "clauses_returned": 3,
-              "context_words": 774
+              "context_words": 715
             },
             "5": {
               "recall": 0.07692307692307693,
               "precision": 0.2,
-              "ndcg": 0.21398626473452756,
+              "ndcg": 0.1695801026368081,
               "context_precision": 0.2,
-              "mrr": 0.5,
-              "map": 0.038461538461538464,
+              "mrr": 0.3333333333333333,
+              "map": 0.02564102564102564,
               "hit_rate": 1.0,
               "scope_recall": 1.0,
               "clauses_returned": 5,
-              "context_words": 3052
+              "context_words": 1269
             },
             "10": {
               "recall": 0.07692307692307693,
               "precision": 0.1,
-              "ndcg": 0.13886244387355454,
+              "ndcg": 0.11004588314904008,
               "context_precision": 0.1,
-              "mrr": 0.5,
-              "map": 0.038461538461538464,
+              "mrr": 0.3333333333333333,
+              "map": 0.02564102564102564,
               "hit_rate": 1.0,
               "scope_recall": 1.0,
               "clauses_returned": 10,
-              "context_words": 4798
+              "context_words": 4615
             }
           },
           "budget_recall": {
@@ -11013,7 +11989,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 1,
-              "context_words": 142
+              "context_words": 138
             },
             "3": {
               "recall": 0.0,
@@ -11025,7 +12001,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 622
+              "context_words": 377
             },
             "5": {
               "recall": 0.0,
@@ -11037,19 +12013,19 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 1898
+              "context_words": 2088
             },
             "10": {
-              "recall": 0.0,
-              "precision": 0.0,
-              "ndcg": 0.0,
-              "context_precision": 0.0,
-              "mrr": 0.0,
-              "map": 0.0,
-              "hit_rate": 0.0,
-              "scope_recall": 0.0,
+              "recall": 0.07692307692307693,
+              "precision": 0.1,
+              "ndcg": 0.0636207881989517,
+              "context_precision": 0.1,
+              "mrr": 0.1,
+              "map": 0.007692307692307693,
+              "hit_rate": 1.0,
+              "scope_recall": 1.0,
               "clauses_returned": 10,
-              "context_words": 3618
+              "context_words": 3541
             }
           },
           "budget_recall": {
@@ -11057,7 +12033,7 @@
             "400": 0.0,
             "800": 0.0,
             "2400": 0.0,
-            "4000": 0.0
+            "4000": 0.07692307692307693
           }
         },
         {
@@ -11079,38 +12055,38 @@
             "3": {
               "recall": 0.0,
               "precision": 0.0,
-              "ndcg": 0.07821312100379275,
+              "ndcg": 0.0986939703219551,
               "context_precision": 0.3333333333333333,
               "mrr": 0.0,
               "map": 0.0,
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 387
+              "context_words": 523
             },
             "5": {
               "recall": 0.0,
               "precision": 0.0,
-              "ndcg": 0.10521615082650485,
+              "ndcg": 0.12001820485907802,
               "context_precision": 0.4,
               "mrr": 0.0,
               "map": 0.0,
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 915
+              "context_words": 964
             },
             "10": {
               "recall": 0.0,
               "precision": 0.0,
-              "ndcg": 0.06827808250619696,
+              "ndcg": 0.07788360274770177,
               "context_precision": 0.2,
               "mrr": 0.0,
               "map": 0.0,
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 2895
+              "context_words": 5116
             }
           },
           "budget_recall": {
@@ -11220,7 +12196,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 2283
+              "context_words": 2252
             },
             "10": {
               "recall": 0.0,
@@ -11232,7 +12208,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 4867
+              "context_words": 3353
             }
           },
           "budget_recall": {
@@ -11257,7 +12233,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 1,
-              "context_words": 92
+              "context_words": 265
             },
             "3": {
               "recall": 0.0,
@@ -11269,7 +12245,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 562
+              "context_words": 2208
             },
             "5": {
               "recall": 0.0,
@@ -11281,19 +12257,19 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 2531
+              "context_words": 5354
             },
             "10": {
               "recall": 0.0,
               "precision": 0.0,
-              "ndcg": 0.0,
-              "context_precision": 0.0,
+              "ndcg": 0.03418690251480878,
+              "context_precision": 0.1,
               "mrr": 0.0,
               "map": 0.0,
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 6426
+              "context_words": 9528
             }
           },
           "budget_recall": {
@@ -11311,50 +12287,50 @@
             "1": {
               "recall": 0.0,
               "precision": 0.0,
-              "ndcg": 0.0,
-              "context_precision": 0.0,
+              "ndcg": 0.3333333333333333,
+              "context_precision": 1.0,
               "mrr": 0.0,
               "map": 0.0,
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 1,
-              "context_words": 1189
+              "context_words": 76
             },
             "3": {
               "recall": 0.0,
               "precision": 0.0,
-              "ndcg": 0.0,
-              "context_precision": 0.0,
+              "ndcg": 0.23463936301137825,
+              "context_precision": 0.6666666666666666,
               "mrr": 0.0,
               "map": 0.0,
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 1468
+              "context_words": 296
             },
             "5": {
               "recall": 0.0,
               "precision": 0.0,
-              "ndcg": 0.0,
-              "context_precision": 0.0,
+              "ndcg": 0.20803518926146267,
+              "context_precision": 0.4,
               "mrr": 0.0,
               "map": 0.0,
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 2118
+              "context_words": 523
             },
             "10": {
               "recall": 0.0,
               "precision": 0.0,
-              "ndcg": 0.0,
-              "context_precision": 0.0,
+              "ndcg": 0.17034964791167806,
+              "context_precision": 0.2,
               "mrr": 0.0,
               "map": 0.0,
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 6068
+              "context_words": 1734
             }
           },
           "budget_recall": {
@@ -11379,7 +12355,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 1,
-              "context_words": 42
+              "context_words": 25
             },
             "3": {
               "recall": 0.0,
@@ -11391,7 +12367,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 744
+              "context_words": 141
             },
             "5": {
               "recall": 0.0,
@@ -11403,7 +12379,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 1019
+              "context_words": 353
             },
             "10": {
               "recall": 0.0,
@@ -11415,7 +12391,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 3950
+              "context_words": 1614
             }
           },
           "budget_recall": {
@@ -11440,7 +12416,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 1,
-              "context_words": 138
+              "context_words": 31
             },
             "3": {
               "recall": 0.0,
@@ -11452,7 +12428,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 369
+              "context_words": 68
             },
             "5": {
               "recall": 0.0,
@@ -11464,7 +12440,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 594
+              "context_words": 120
             },
             "10": {
               "recall": 0.0,
@@ -11476,7 +12452,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 2497
+              "context_words": 1099
             }
           },
           "budget_recall": {
@@ -11501,7 +12477,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 1,
-              "context_words": 278
+              "context_words": 329
             },
             "3": {
               "recall": 0.0,
@@ -11513,7 +12489,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 602
+              "context_words": 721
             },
             "5": {
               "recall": 0.0,
@@ -11525,19 +12501,19 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 3133
+              "context_words": 1994
             },
             "10": {
               "recall": 0.0,
               "precision": 0.0,
-              "ndcg": 0.03582622045929986,
-              "context_precision": 0.1,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
               "mrr": 0.0,
               "map": 0.0,
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 5792
+              "context_words": 5343
             }
           },
           "budget_recall": {
@@ -11549,8 +12525,8 @@
           }
         },
         {
-          "passage_id": "CER.4.5.1",
-          "section": "4.5.1",
+          "passage_id": "CER.4.3.2.2#7",
+          "section": "4.3.2.2",
           "metrics": {
             "1": {
               "recall": 0.0,
@@ -11562,7 +12538,68 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 1,
-              "context_words": 265
+              "context_words": 92
+            },
+            "3": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.07821312100379275,
+              "context_precision": 0.3333333333333333,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
+              "clauses_returned": 3,
+              "context_words": 230
+            },
+            "5": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.06934506308715421,
+              "context_precision": 0.2,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
+              "clauses_returned": 5,
+              "context_words": 1313
+            },
+            "10": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.05678321597055935,
+              "context_precision": 0.1,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
+              "clauses_returned": 10,
+              "context_words": 4955
+            }
+          },
+          "budget_recall": {
+            "200": 0.0,
+            "400": 0.0,
+            "800": 0.0,
+            "2400": 0.0,
+            "4000": 0.0
+          }
+        },
+        {
+          "passage_id": "CER.4.3.2.2#8",
+          "section": "4.3.2.2",
+          "metrics": {
+            "1": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
+              "clauses_returned": 1,
+              "context_words": 41
             },
             "3": {
               "recall": 0.0,
@@ -11574,7 +12611,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 2456
+              "context_words": 1313
             },
             "5": {
               "recall": 0.0,
@@ -11586,7 +12623,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 3663
+              "context_words": 3382
             },
             "10": {
               "recall": 0.0,
@@ -11598,7 +12635,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 6283
+              "context_words": 8260
             }
           },
           "budget_recall": {
@@ -11607,6 +12644,128 @@
             "800": 0.0,
             "2400": 0.0,
             "4000": 0.0
+          }
+        },
+        {
+          "passage_id": "CER.4.5.1#1",
+          "section": "4.5.1",
+          "metrics": {
+            "1": {
+              "recall": 0.2,
+              "precision": 1.0,
+              "ndcg": 1.0,
+              "context_precision": 1.0,
+              "mrr": 1.0,
+              "map": 0.2,
+              "hit_rate": 1.0,
+              "scope_recall": 0.5,
+              "clauses_returned": 1,
+              "context_words": 18
+            },
+            "3": {
+              "recall": 0.2,
+              "precision": 0.3333333333333333,
+              "ndcg": 0.4692787260227565,
+              "context_precision": 0.3333333333333333,
+              "mrr": 1.0,
+              "map": 0.2,
+              "hit_rate": 1.0,
+              "scope_recall": 0.5,
+              "clauses_returned": 3,
+              "context_words": 225
+            },
+            "5": {
+              "recall": 0.2,
+              "precision": 0.2,
+              "ndcg": 0.3391602052736162,
+              "context_precision": 0.2,
+              "mrr": 1.0,
+              "map": 0.2,
+              "hit_rate": 1.0,
+              "scope_recall": 0.5,
+              "clauses_returned": 5,
+              "context_words": 968
+            },
+            "10": {
+              "recall": 0.4,
+              "precision": 0.2,
+              "ndcg": 0.4347077376709619,
+              "context_precision": 0.2,
+              "mrr": 1.0,
+              "map": 0.2571428571428571,
+              "hit_rate": 1.0,
+              "scope_recall": 1.0,
+              "clauses_returned": 10,
+              "context_words": 4780
+            }
+          },
+          "budget_recall": {
+            "200": 0.2,
+            "400": 0.2,
+            "800": 0.2,
+            "2400": 0.4,
+            "4000": 0.4
+          }
+        },
+        {
+          "passage_id": "CER.4.5.1#2",
+          "section": "4.5.1",
+          "metrics": {
+            "1": {
+              "recall": 0.2,
+              "precision": 1.0,
+              "ndcg": 1.0,
+              "context_precision": 1.0,
+              "mrr": 1.0,
+              "map": 0.2,
+              "hit_rate": 1.0,
+              "scope_recall": 0.5,
+              "clauses_returned": 1,
+              "context_words": 77
+            },
+            "3": {
+              "recall": 0.2,
+              "precision": 0.3333333333333333,
+              "ndcg": 0.4692787260227565,
+              "context_precision": 0.3333333333333333,
+              "mrr": 1.0,
+              "map": 0.2,
+              "hit_rate": 1.0,
+              "scope_recall": 0.5,
+              "clauses_returned": 3,
+              "context_words": 848
+            },
+            "5": {
+              "recall": 0.2,
+              "precision": 0.2,
+              "ndcg": 0.3391602052736162,
+              "context_precision": 0.2,
+              "mrr": 1.0,
+              "map": 0.2,
+              "hit_rate": 1.0,
+              "scope_recall": 0.5,
+              "clauses_returned": 5,
+              "context_words": 5252
+            },
+            "10": {
+              "recall": 0.2,
+              "precision": 0.1,
+              "ndcg": 0.3260308032532214,
+              "context_precision": 0.1,
+              "mrr": 1.0,
+              "map": 0.2,
+              "hit_rate": 1.0,
+              "scope_recall": 0.5,
+              "clauses_returned": 10,
+              "context_words": 7052
+            }
+          },
+          "budget_recall": {
+            "200": 0.2,
+            "400": 0.2,
+            "800": 0.2,
+            "2400": 0.2,
+            "4000": 0.2
           }
         },
         {
@@ -11623,7 +12782,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 1,
-              "context_words": 2053
+              "context_words": 92
             },
             "3": {
               "recall": 0.0,
@@ -11635,31 +12794,31 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 3702
+              "context_words": 359
             },
             "5": {
-              "recall": 0.0,
-              "precision": 0.0,
-              "ndcg": 0.0,
-              "context_precision": 0.0,
-              "mrr": 0.0,
-              "map": 0.0,
-              "hit_rate": 0.0,
-              "scope_recall": 0.0,
+              "recall": 0.5,
+              "precision": 0.2,
+              "ndcg": 0.19928998603536255,
+              "context_precision": 0.2,
+              "mrr": 0.2,
+              "map": 0.1,
+              "hit_rate": 1.0,
+              "scope_recall": 0.5,
               "clauses_returned": 5,
-              "context_words": 4127
+              "context_words": 2489
             },
             "10": {
-              "recall": 0.0,
-              "precision": 0.0,
-              "ndcg": 0.0,
-              "context_precision": 0.0,
-              "mrr": 0.0,
-              "map": 0.0,
-              "hit_rate": 0.0,
-              "scope_recall": 0.0,
+              "recall": 0.5,
+              "precision": 0.1,
+              "ndcg": 0.19928998603536255,
+              "context_precision": 0.1,
+              "mrr": 0.2,
+              "map": 0.1,
+              "hit_rate": 1.0,
+              "scope_recall": 0.5,
               "clauses_returned": 10,
-              "context_words": 5375
+              "context_words": 4544
             }
           },
           "budget_recall": {
@@ -11667,7 +12826,7 @@
             "400": 0.0,
             "800": 0.0,
             "2400": 0.0,
-            "4000": 0.0
+            "4000": 0.5
           }
         },
         {
@@ -11684,7 +12843,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 1,
-              "context_words": 18
+              "context_words": 92
             },
             "3": {
               "recall": 0.0,
@@ -11696,7 +12855,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 411
+              "context_words": 509
             },
             "5": {
               "recall": 0.0,
@@ -11708,27 +12867,27 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 617
+              "context_words": 784
             },
             "10": {
-              "recall": 0.3333333333333333,
-              "precision": 0.1,
-              "ndcg": 0.13869705740320093,
-              "context_precision": 0.1,
-              "mrr": 0.125,
-              "map": 0.041666666666666664,
-              "hit_rate": 1.0,
-              "scope_recall": 0.3333333333333333,
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 1599
+              "context_words": 2382
             }
           },
           "budget_recall": {
             "200": 0.0,
             "400": 0.0,
             "800": 0.0,
-            "2400": 0.3333333333333333,
-            "4000": 0.3333333333333333
+            "2400": 0.0,
+            "4000": 0.0
           }
         },
         {
@@ -11757,7 +12916,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 247
+              "context_words": 194
             },
             "5": {
               "recall": 0.0,
@@ -11769,27 +12928,27 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 506
+              "context_words": 415
             },
             "10": {
-              "recall": 0.3333333333333333,
-              "precision": 0.1,
-              "ndcg": 0.14655308996296207,
-              "context_precision": 0.1,
-              "mrr": 0.14285714285714285,
-              "map": 0.047619047619047616,
-              "hit_rate": 1.0,
-              "scope_recall": 0.3333333333333333,
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 4002
+              "context_words": 1204
             }
           },
           "budget_recall": {
             "200": 0.0,
             "400": 0.0,
-            "800": 0.3333333333333333,
-            "2400": 0.3333333333333333,
-            "4000": 0.3333333333333333
+            "800": 0.0,
+            "2400": 0.0,
+            "4000": 0.0
           }
         },
         {
@@ -11797,64 +12956,125 @@
           "section": "4.5.2",
           "metrics": {
             "1": {
-              "recall": 0.3333333333333333,
-              "precision": 1.0,
-              "ndcg": 1.0,
-              "context_precision": 1.0,
-              "mrr": 1.0,
-              "map": 0.3333333333333333,
-              "hit_rate": 1.0,
-              "scope_recall": 0.3333333333333333,
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
               "clauses_returned": 1,
               "context_words": 137
             },
             "3": {
-              "recall": 0.3333333333333333,
-              "precision": 0.3333333333333333,
-              "ndcg": 0.4692787260227565,
-              "context_precision": 0.3333333333333333,
-              "mrr": 1.0,
-              "map": 0.3333333333333333,
-              "hit_rate": 1.0,
-              "scope_recall": 0.3333333333333333,
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
               "clauses_returned": 3,
               "context_words": 427
             },
             "5": {
-              "recall": 0.3333333333333333,
-              "precision": 0.2,
-              "ndcg": 0.4396592698888862,
-              "context_precision": 0.2,
-              "mrr": 1.0,
-              "map": 0.3333333333333333,
-              "hit_rate": 1.0,
-              "scope_recall": 0.3333333333333333,
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 612
+              "context_words": 607
             },
             "10": {
-              "recall": 0.3333333333333333,
-              "precision": 0.1,
-              "ndcg": 0.4396592698888862,
-              "context_precision": 0.1,
-              "mrr": 1.0,
-              "map": 0.3333333333333333,
-              "hit_rate": 1.0,
-              "scope_recall": 0.3333333333333333,
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 2411
+              "context_words": 1663
             }
           },
           "budget_recall": {
-            "200": 0.3333333333333333,
-            "400": 0.3333333333333333,
-            "800": 0.3333333333333333,
-            "2400": 0.3333333333333333,
-            "4000": 0.3333333333333333
+            "200": 0.0,
+            "400": 0.0,
+            "800": 0.0,
+            "2400": 0.0,
+            "4000": 0.0
           }
         },
         {
           "passage_id": "CER.4.5.2#5",
+          "section": "4.5.2",
+          "metrics": {
+            "1": {
+              "recall": 0.5,
+              "precision": 1.0,
+              "ndcg": 1.0,
+              "context_precision": 1.0,
+              "mrr": 1.0,
+              "map": 0.5,
+              "hit_rate": 1.0,
+              "scope_recall": 0.5,
+              "clauses_returned": 1,
+              "context_words": 77
+            },
+            "3": {
+              "recall": 0.5,
+              "precision": 0.3333333333333333,
+              "ndcg": 0.5562983930884396,
+              "context_precision": 0.3333333333333333,
+              "mrr": 1.0,
+              "map": 0.5,
+              "hit_rate": 1.0,
+              "scope_recall": 0.5,
+              "clauses_returned": 3,
+              "context_words": 335
+            },
+            "5": {
+              "recall": 0.5,
+              "precision": 0.2,
+              "ndcg": 0.515157140670655,
+              "context_precision": 0.2,
+              "mrr": 1.0,
+              "map": 0.5,
+              "hit_rate": 1.0,
+              "scope_recall": 0.5,
+              "clauses_returned": 5,
+              "context_words": 611
+            },
+            "10": {
+              "recall": 0.5,
+              "precision": 0.1,
+              "ndcg": 0.515157140670655,
+              "context_precision": 0.1,
+              "mrr": 1.0,
+              "map": 0.5,
+              "hit_rate": 1.0,
+              "scope_recall": 0.5,
+              "clauses_returned": 10,
+              "context_words": 3746
+            }
+          },
+          "budget_recall": {
+            "200": 0.5,
+            "400": 0.5,
+            "800": 0.5,
+            "2400": 0.5,
+            "4000": 0.5
+          }
+        },
+        {
+          "passage_id": "CER.4.5.2#6",
           "section": "4.5.2",
           "metrics": {
             "1": {
@@ -11867,7 +13087,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 1,
-              "context_words": 77
+              "context_words": 178
             },
             "3": {
               "recall": 0.0,
@@ -11879,7 +13099,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 557
+              "context_words": 1143
             },
             "5": {
               "recall": 0.0,
@@ -11891,19 +13111,19 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 906
+              "context_words": 2929
             },
             "10": {
-              "recall": 0.0,
-              "precision": 0.0,
-              "ndcg": 0.0,
-              "context_precision": 0.0,
-              "mrr": 0.0,
-              "map": 0.0,
-              "hit_rate": 0.0,
-              "scope_recall": 0.0,
+              "recall": 0.5,
+              "precision": 0.1,
+              "ndcg": 0.1625139839069565,
+              "context_precision": 0.1,
+              "mrr": 0.125,
+              "map": 0.0625,
+              "hit_rate": 1.0,
+              "scope_recall": 0.5,
               "clauses_returned": 10,
-              "context_words": 3797
+              "context_words": 6406
             }
           },
           "budget_recall": {
@@ -11976,8 +13196,8 @@
           }
         },
         {
-          "passage_id": "CER.4.5.1#1",
-          "section": "4.5.1",
+          "passage_id": "CER.4.5.1~2#1",
+          "section": "4.5.1~2",
           "metrics": {
             "1": {
               "recall": 0.0,
@@ -11989,7 +13209,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 1,
-              "context_words": 77
+              "context_words": 92
             },
             "3": {
               "recall": 0.0,
@@ -12001,31 +13221,31 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 852
+              "context_words": 434
             },
             "5": {
               "recall": 0.0,
               "precision": 0.0,
-              "ndcg": 0.0,
-              "context_precision": 0.0,
+              "ndcg": 0.07986155906569621,
+              "context_precision": 0.2,
               "mrr": 0.0,
               "map": 0.0,
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 1402
+              "context_words": 1264
             },
             "10": {
               "recall": 0.0,
               "precision": 0.0,
-              "ndcg": 0.061810932565382185,
+              "ndcg": 0.07986155906569621,
               "context_precision": 0.1,
               "mrr": 0.0,
               "map": 0.0,
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 4671
+              "context_words": 2717
             }
           },
           "budget_recall": {
@@ -12037,8 +13257,8 @@
           }
         },
         {
-          "passage_id": "CER.4.5.1#2",
-          "section": "4.5.1",
+          "passage_id": "CER.4.5.1~2#2",
+          "section": "4.5.1~2",
           "metrics": {
             "1": {
               "recall": 0.0,
@@ -12050,43 +13270,43 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 1,
-              "context_words": 522
+              "context_words": 152
             },
             "3": {
               "recall": 0.0,
               "precision": 0.0,
-              "ndcg": 0.0,
-              "context_precision": 0.0,
+              "ndcg": 0.11699506935449569,
+              "context_precision": 0.3333333333333333,
               "mrr": 0.0,
               "map": 0.0,
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 1283
+              "context_words": 559
             },
             "5": {
               "recall": 0.0,
               "precision": 0.0,
-              "ndcg": 0.0,
-              "context_precision": 0.0,
+              "ndcg": 0.11699506935449569,
+              "context_precision": 0.2,
               "mrr": 0.0,
               "map": 0.0,
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 2820
+              "context_words": 1017
             },
             "10": {
               "recall": 0.0,
               "precision": 0.0,
-              "ndcg": 0.0,
-              "context_precision": 0.0,
+              "ndcg": 0.11699506935449569,
+              "context_precision": 0.1,
               "mrr": 0.0,
               "map": 0.0,
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 6606
+              "context_words": 4221
             }
           },
           "budget_recall": {
@@ -12098,8 +13318,8 @@
           }
         },
         {
-          "passage_id": "CER.4.5.2",
-          "section": "4.5.2",
+          "passage_id": "CER.4.5.2~2",
+          "section": "4.5.2~2",
           "metrics": {
             "1": {
               "recall": 0.0,
@@ -12184,39 +13404,39 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 547
+              "context_words": 424
             },
             "5": {
-              "recall": 0.0,
-              "precision": 0.0,
-              "ndcg": 0.0,
-              "context_precision": 0.0,
-              "mrr": 0.0,
-              "map": 0.0,
-              "hit_rate": 0.0,
-              "scope_recall": 0.0,
+              "recall": 0.3333333333333333,
+              "precision": 0.2,
+              "ndcg": 0.160957993938732,
+              "context_precision": 0.2,
+              "mrr": 0.2,
+              "map": 0.06666666666666667,
+              "hit_rate": 1.0,
+              "scope_recall": 0.3333333333333333,
               "clauses_returned": 5,
-              "context_words": 3163
+              "context_words": 669
             },
             "10": {
-              "recall": 0.0,
-              "precision": 0.0,
-              "ndcg": 0.0,
-              "context_precision": 0.0,
-              "mrr": 0.0,
-              "map": 0.0,
-              "hit_rate": 0.0,
-              "scope_recall": 0.0,
+              "recall": 0.6666666666666666,
+              "precision": 0.2,
+              "ndcg": 0.29964812011304043,
+              "context_precision": 0.2,
+              "mrr": 0.2,
+              "map": 0.1619047619047619,
+              "hit_rate": 1.0,
+              "scope_recall": 0.6666666666666666,
               "clauses_returned": 10,
-              "context_words": 5024
+              "context_words": 2351
             }
           },
           "budget_recall": {
             "200": 0.0,
             "400": 0.0,
-            "800": 0.0,
-            "2400": 0.0,
-            "4000": 0.0
+            "800": 0.3333333333333333,
+            "2400": 0.6666666666666666,
+            "4000": 0.6666666666666666
           }
         },
         {
@@ -12245,7 +13465,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 296
+              "context_words": 314
             },
             "5": {
               "recall": 0.0,
@@ -12257,9 +13477,34 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 923
+              "context_words": 1484
             },
             "10": {
+              "recall": 0.3333333333333333,
+              "precision": 0.1,
+              "ndcg": 0.1482072591726213,
+              "context_precision": 0.1,
+              "mrr": 0.16666666666666666,
+              "map": 0.05555555555555555,
+              "hit_rate": 1.0,
+              "scope_recall": 0.3333333333333333,
+              "clauses_returned": 10,
+              "context_words": 4072
+            }
+          },
+          "budget_recall": {
+            "200": 0.0,
+            "400": 0.0,
+            "800": 0.0,
+            "2400": 0.3333333333333333,
+            "4000": 0.3333333333333333
+          }
+        },
+        {
+          "passage_id": "CER.4.5.3#3",
+          "section": "4.5.3",
+          "metrics": {
+            "1": {
               "recall": 0.0,
               "precision": 0.0,
               "ndcg": 0.0,
@@ -12268,20 +13513,56 @@
               "map": 0.0,
               "hit_rate": 0.0,
               "scope_recall": 0.0,
+              "clauses_returned": 1,
+              "context_words": 105
+            },
+            "3": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "ndcg": 0.0,
+              "context_precision": 0.0,
+              "mrr": 0.0,
+              "map": 0.0,
+              "hit_rate": 0.0,
+              "scope_recall": 0.0,
+              "clauses_returned": 3,
+              "context_words": 397
+            },
+            "5": {
+              "recall": 0.3333333333333333,
+              "precision": 0.2,
+              "ndcg": 0.160957993938732,
+              "context_precision": 0.2,
+              "mrr": 0.2,
+              "map": 0.06666666666666667,
+              "hit_rate": 1.0,
+              "scope_recall": 0.3333333333333333,
+              "clauses_returned": 5,
+              "context_words": 742
+            },
+            "10": {
+              "recall": 0.3333333333333333,
+              "precision": 0.1,
+              "ndcg": 0.160957993938732,
+              "context_precision": 0.1,
+              "mrr": 0.2,
+              "map": 0.06666666666666667,
+              "hit_rate": 1.0,
+              "scope_recall": 0.3333333333333333,
               "clauses_returned": 10,
-              "context_words": 4730
+              "context_words": 3116
             }
           },
           "budget_recall": {
             "200": 0.0,
             "400": 0.0,
-            "800": 0.0,
-            "2400": 0.0,
-            "4000": 0.0
+            "800": 0.3333333333333333,
+            "2400": 0.3333333333333333,
+            "4000": 0.3333333333333333
           }
         },
         {
-          "passage_id": "CER.4.5.3#3",
+          "passage_id": "CER.4.5.3#4",
           "section": "4.5.3",
           "metrics": {
             "1": {
@@ -12306,7 +13587,7 @@
               "hit_rate": 1.0,
               "scope_recall": 0.3333333333333333,
               "clauses_returned": 3,
-              "context_words": 277
+              "context_words": 228
             },
             "5": {
               "recall": 0.3333333333333333,
@@ -12318,31 +13599,31 @@
               "hit_rate": 1.0,
               "scope_recall": 0.3333333333333333,
               "clauses_returned": 5,
-              "context_words": 513
+              "context_words": 572
             },
             "10": {
-              "recall": 0.6666666666666666,
-              "precision": 0.2,
-              "ndcg": 0.4107184405624736,
-              "context_precision": 0.2,
+              "recall": 0.3333333333333333,
+              "precision": 0.1,
+              "ndcg": 0.2625111813898523,
+              "context_precision": 0.1,
               "mrr": 0.5,
-              "map": 0.27777777777777773,
+              "map": 0.16666666666666666,
               "hit_rate": 1.0,
-              "scope_recall": 0.6666666666666666,
+              "scope_recall": 0.3333333333333333,
               "clauses_returned": 10,
-              "context_words": 1493
+              "context_words": 4030
             }
           },
           "budget_recall": {
             "200": 0.0,
             "400": 0.3333333333333333,
-            "800": 0.6666666666666666,
-            "2400": 0.6666666666666666,
-            "4000": 0.6666666666666666
+            "800": 0.3333333333333333,
+            "2400": 0.3333333333333333,
+            "4000": 0.3333333333333333
           }
         },
         {
-          "passage_id": "CER.4.5.3#4",
+          "passage_id": "CER.4.5.3#5",
           "section": "4.5.3",
           "metrics": {
             "1": {
@@ -12355,51 +13636,51 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 1,
-              "context_words": 105
+              "context_words": 45
             },
             "3": {
-              "recall": 0.0,
-              "precision": 0.0,
-              "ndcg": 0.0,
-              "context_precision": 0.0,
-              "mrr": 0.0,
-              "map": 0.0,
-              "hit_rate": 0.0,
-              "scope_recall": 0.0,
+              "recall": 0.3333333333333333,
+              "precision": 0.3333333333333333,
+              "ndcg": 0.2960819109658653,
+              "context_precision": 0.3333333333333333,
+              "mrr": 0.5,
+              "map": 0.16666666666666666,
+              "hit_rate": 1.0,
+              "scope_recall": 0.3333333333333333,
               "clauses_returned": 3,
-              "context_words": 1387
+              "context_words": 161
             },
             "5": {
-              "recall": 0.0,
-              "precision": 0.0,
-              "ndcg": 0.0,
-              "context_precision": 0.0,
-              "mrr": 0.0,
-              "map": 0.0,
-              "hit_rate": 0.0,
-              "scope_recall": 0.0,
+              "recall": 0.3333333333333333,
+              "precision": 0.2,
+              "ndcg": 0.2625111813898523,
+              "context_precision": 0.2,
+              "mrr": 0.5,
+              "map": 0.16666666666666666,
+              "hit_rate": 1.0,
+              "scope_recall": 0.3333333333333333,
               "clauses_returned": 5,
-              "context_words": 1893
+              "context_words": 280
             },
             "10": {
               "recall": 0.3333333333333333,
               "precision": 0.1,
-              "ndcg": 0.12027131170374726,
+              "ndcg": 0.2625111813898523,
               "context_precision": 0.1,
-              "mrr": 0.1,
-              "map": 0.03333333333333333,
+              "mrr": 0.5,
+              "map": 0.16666666666666666,
               "hit_rate": 1.0,
               "scope_recall": 0.3333333333333333,
               "clauses_returned": 10,
-              "context_words": 5251
+              "context_words": 932
             }
           },
           "budget_recall": {
-            "200": 0.0,
-            "400": 0.0,
-            "800": 0.0,
-            "2400": 0.0,
-            "4000": 0.0
+            "200": 0.3333333333333333,
+            "400": 0.3333333333333333,
+            "800": 0.3333333333333333,
+            "2400": 0.3333333333333333,
+            "4000": 0.3333333333333333
           }
         },
         {
@@ -12480,48 +13761,48 @@
               "context_words": 107
             },
             "3": {
-              "recall": 0.0,
-              "precision": 0.0,
-              "ndcg": 0.0,
-              "context_precision": 0.0,
-              "mrr": 0.0,
-              "map": 0.0,
-              "hit_rate": 0.0,
-              "scope_recall": 0.0,
+              "recall": 0.5,
+              "precision": 0.3333333333333333,
+              "ndcg": 0.2781491965442198,
+              "context_precision": 0.3333333333333333,
+              "mrr": 0.3333333333333333,
+              "map": 0.16666666666666666,
+              "hit_rate": 1.0,
+              "scope_recall": 0.5,
               "clauses_returned": 3,
-              "context_words": 272
+              "context_words": 326
             },
             "5": {
-              "recall": 0.0,
-              "precision": 0.0,
-              "ndcg": 0.0,
-              "context_precision": 0.0,
-              "mrr": 0.0,
-              "map": 0.0,
-              "hit_rate": 0.0,
-              "scope_recall": 0.0,
+              "recall": 0.5,
+              "precision": 0.2,
+              "ndcg": 0.24153350098894139,
+              "context_precision": 0.2,
+              "mrr": 0.3333333333333333,
+              "map": 0.16666666666666666,
+              "hit_rate": 1.0,
+              "scope_recall": 0.5,
               "clauses_returned": 5,
-              "context_words": 2463
+              "context_words": 2499
             },
             "10": {
-              "recall": 0.0,
-              "precision": 0.0,
-              "ndcg": 0.0,
-              "context_precision": 0.0,
-              "mrr": 0.0,
-              "map": 0.0,
-              "hit_rate": 0.0,
-              "scope_recall": 0.0,
+              "recall": 0.5,
+              "precision": 0.1,
+              "ndcg": 0.2284312957394642,
+              "context_precision": 0.1,
+              "mrr": 0.3333333333333333,
+              "map": 0.16666666666666666,
+              "hit_rate": 1.0,
+              "scope_recall": 0.5,
               "clauses_returned": 10,
-              "context_words": 4648
+              "context_words": 3592
             }
           },
           "budget_recall": {
             "200": 0.0,
-            "400": 0.0,
-            "800": 0.0,
-            "2400": 0.0,
-            "4000": 0.0
+            "400": 0.5,
+            "800": 0.5,
+            "2400": 0.5,
+            "4000": 0.5
           }
         },
         {
@@ -12538,7 +13819,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 1,
-              "context_words": 535
+              "context_words": 205
             },
             "3": {
               "recall": 0.0,
@@ -12550,7 +13831,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 1845
+              "context_words": 2052
             },
             "5": {
               "recall": 0.0,
@@ -12562,7 +13843,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 4678
+              "context_words": 2860
             },
             "10": {
               "recall": 0.0,
@@ -12574,7 +13855,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 8023
+              "context_words": 6603
             }
           },
           "budget_recall": {
@@ -12599,7 +13880,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 1,
-              "context_words": 110
+              "context_words": 139
             },
             "3": {
               "recall": 0.0,
@@ -12611,7 +13892,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 3,
-              "context_words": 272
+              "context_words": 331
             },
             "5": {
               "recall": 0.0,
@@ -12623,7 +13904,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 5,
-              "context_words": 530
+              "context_words": 598
             },
             "10": {
               "recall": 0.0,
@@ -12635,7 +13916,7 @@
               "hit_rate": 0.0,
               "scope_recall": 0.0,
               "clauses_returned": 10,
-              "context_words": 2493
+              "context_words": 4325
             }
           },
           "budget_recall": {
