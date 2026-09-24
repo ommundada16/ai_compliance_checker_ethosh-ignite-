@@ -41,3 +41,6 @@ frontend/.vite/
 Thumbs.db
 .idea/
 .vscode/
+
+# derived cache, rebuilt on demand from clauses.jsonl + the PDF
+eval_data/.span_cache.json
