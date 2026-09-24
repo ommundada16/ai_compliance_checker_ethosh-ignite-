@@ -70,8 +70,8 @@ function HighlightedText({
   );
 }
 
-function FindingCard({ finding, id, active, onSelect }: {
-  finding: Finding; id: string; active: boolean; onSelect: () => void;
+function FindingCard({ finding, active, onSelect }: {
+  finding: Finding; active: boolean; onSelect: () => void;
 }) {
   return (
     <div
@@ -182,7 +182,6 @@ export default function PassageView({ passageId }: { passageId: string }) {
             return (
               <FindingCard
                 key={id}
-                id={id}
                 finding={finding}
                 active={activeId === id}
                 onSelect={() => setActiveId(activeId === id ? null : id)}
