@@ -80,7 +80,13 @@ SECTION_MAP: dict[str, dict] = {
                      "performance-as-intended requirement it must support.",
     },
     "2.5": {
-        "primary": ["Art.51.1", "Annex.VIII.1"],
+        # Annex.VIII, not Annex.VIII.1. The rationale below always said "the
+        # Annex VIII rules", but Annex.VIII.1 in the corpus is specifically
+        # "DURATION OF USE". The rule that actually classifies a ureteral stent
+        # is Annex.VIII.5 (invasive devices), so a retriever returning the
+        # correct classification rule was being scored as wrong. The scope ID
+        # covers the whole annex, which is what was meant.
+        "primary": ["Art.51.1", "Annex.VIII"],
         "secondary": ["Art.52.1"],
         "rationale": "Classification is governed by Article 51 and the Annex VIII "
                      "rules; it determines the conformity assessment route.",

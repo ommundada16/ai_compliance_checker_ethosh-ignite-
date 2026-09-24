@@ -39,6 +39,7 @@ from auditor.baselines.v1_retriever import (  # noqa: E402
     chunk_text_v1,
     extract_text_v1,
 )
+from auditor.evaluation.gold import load_gold, scope_recall  # noqa: E402
 from auditor.evaluation.metrics import (  # noqa: E402
     aggregate,
     average_precision,
@@ -134,16 +135,19 @@ def main() -> int:
 
     print("[6/6] scoring against the gold set ...")
     passages = {p["passage_id"]: p for p in load_jsonl(PROJECT_ROOT / "eval_data" / "passages.jsonl")}
-    gold = load_jsonl(PROJECT_ROOT / "eval_data" / "gold_retrieval.jsonl")
+    gold = load_gold(
+        PROJECT_ROOT / "eval_data" / "gold_retrieval.jsonl",
+        PROJECT_ROOT / "eval_data" / "clauses.jsonl",
+    )
 
     max_k = max(args.k)
     per_query: list[dict] = []
     query_seconds = 0.0
 
     for g in gold:
-        passage = passages[g["passage_id"]]
-        grades = {cid: int(grade) for cid, grade in g["labels"].items()}
-        primary = {cid for cid, grade in grades.items() if grade == 2}
+        passage = passages[g.passage_id]
+        grades = g.labels
+        primary = g.primary
 
         t0 = time.time()
         hits = retriever.search(passage["text"], k=max_k)
@@ -160,8 +164,8 @@ def main() -> int:
             words_at_k.append(words)
 
         row = {
-            "passage_id": g["passage_id"],
-            "section": g["section"],
+            "passage_id": g.passage_id,
+            "section": g.section,
             "n_primary": len(primary),
             "chunks": [h.chunk_index for h in hits],
             "top_score": hits[0].score if hits else 0.0,
@@ -182,6 +186,8 @@ def main() -> int:
                 "mrr": reciprocal_rank(ranked_k, primary),
                 "map": average_precision(ranked_k, primary),
                 "hit_rate": hit_rate_at_k(ranked_k, primary, k=len(ranked_k) or 1),
+                "scope_recall": scope_recall(ranked_k, g.primary_scopes,
+                                             k=len(ranked_k) or 1),
                 "clauses_returned": len(set(ranked_k)),
                 "context_words": words_at_k[k - 1] if k <= len(words_at_k) else words,
             }
@@ -193,7 +199,7 @@ def main() -> int:
         summary[key] = {
             metric: aggregate([q["metrics"][key][metric] for q in per_query])["mean"]
             for metric in ("recall", "precision", "ndcg", "context_precision",
-                           "mrr", "map", "hit_rate")
+                           "mrr", "map", "hit_rate", "scope_recall")
         }
         summary[key]["mean_clauses_returned"] = aggregate(
             [q["metrics"][key]["clauses_returned"] for q in per_query]
@@ -205,10 +211,10 @@ def main() -> int:
     reachable = sum(
         1
         for g in gold
-        for cid, grade in g["labels"].items()
+        for cid, grade in g.labels.items()
         if grade == 2 and cid in visible_clauses
     )
-    total_primary = sum(1 for g in gold for grade in g["labels"].values() if grade == 2)
+    total_primary = sum(1 for g in gold for grade in g.labels.values() if grade == 2)
 
     result = {
         "system": "v1_baseline",
@@ -258,14 +264,13 @@ def main() -> int:
     print("=" * 78)
     print("v1 BASELINE".center(78))
     print("=" * 78)
-    hdr = f"{'chunks':>6} {'clauses':>8} {'words':>7} {'Recall':>8} {'nDCG':>8} {'MRR':>8} {'CtxP':>8}"
+    hdr = f"{'chunks':>6} {'clauses':>8} {'words':>7} {'Recall':>8} {'ScopeR':>8} {'nDCG':>8} {'MRR':>8}"
     print(hdr)
     print("-" * 78)
     for k in args.k:
         s = summary[str(k)]
         print(f"{k:>6} {s['mean_clauses_returned']:>8.1f} {s['mean_context_words']:>7.0f} "
-              f"{s['recall']:>8.3f} {s['ndcg']:>8.3f} {s['mrr']:>8.3f} "
-              f"{s['context_precision']:>8.3f}")
+              f"{s['recall']:>8.3f} {s['scope_recall']:>8.3f} {s['ndcg']:>8.3f} {s['mrr']:>8.3f}")
     print("-" * 78)
     print(f"encoder reads {window_words}/{V1_WORDS_PER_CHUNK} words per chunk "
           f"({100 * window_words / V1_WORDS_PER_CHUNK:.0f}%); "

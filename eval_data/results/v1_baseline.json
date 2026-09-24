@@ -19,58 +19,62 @@
     "fraction_of_chunk_embedded": 0.1325,
     "clauses_ever_embedded": 334,
     "clauses_total": 1320,
-    "gold_primary_reachable": 65,
-    "gold_primary_total": 147,
-    "recall_ceiling": 0.4422,
+    "gold_primary_reachable": 238,
+    "gold_primary_total": 764,
+    "recall_ceiling": 0.3115,
     "note": "all-MiniLM-L6-v2 accepts 256 word-pieces. Dense regulatory English exceeds that well before 800 words, so the tail of every chunk is truncated before embedding. recall_ceiling is the highest Recall any top-k over this index could reach: the remaining clauses were never encoded, so no value of k can retrieve them."
   },
   "timing": {
-    "index_seconds": 2.38,
-    "mean_query_ms": 9.9,
+    "index_seconds": 2.29,
+    "mean_query_ms": 10.84,
     "total_seconds": 23.1
   },
   "summary": {
     "1": {
-      "recall": 0.0,
-      "precision": 0.0,
-      "ndcg": 0.0022563673122658274,
-      "context_precision": 0.002888655462184874,
-      "mrr": 0.0,
-      "map": 0.0,
-      "hit_rate": 0.0,
+      "recall": 0.01822591069680192,
+      "precision": 0.058823529411764705,
+      "ndcg": 0.06465092530150748,
+      "context_precision": 0.0779936974789916,
+      "mrr": 0.058823529411764705,
+      "map": 0.01822591069680192,
+      "hit_rate": 0.058823529411764705,
+      "scope_recall": 0.029411764705882353,
       "mean_clauses_returned": 11.426470588235293,
       "mean_context_words": 800.0
     },
     "3": {
-      "recall": 0.029411764705882353,
-      "precision": 0.0021725910232266166,
-      "ndcg": 0.013124612242261444,
-      "context_precision": 0.003992212829888527,
-      "mrr": 0.006465714940947139,
-      "map": 0.0032328574704735694,
-      "hit_rate": 0.058823529411764705,
+      "recall": 0.03594333369222653,
+      "precision": 0.04084275662625211,
+      "ndcg": 0.05904390162097489,
+      "context_precision": 0.06559146772747237,
+      "mrr": 0.06502234993614303,
+      "map": 0.026623750141465966,
+      "hit_rate": 0.11764705882352941,
+      "scope_recall": 0.0661764705882353,
       "mean_clauses_returned": 30.985294117647058,
       "mean_context_words": 2400.0
     },
     "5": {
-      "recall": 0.058823529411764705,
-      "precision": 0.0027232949264849606,
-      "ndcg": 0.022437179483324285,
-      "context_precision": 0.005747778539497105,
-      "mrr": 0.008446871039750297,
-      "map": 0.004891884717736111,
-      "hit_rate": 0.10294117647058823,
+      "recall": 0.05683322811153271,
+      "precision": 0.029488401564497665,
+      "ndcg": 0.06441556740432863,
+      "context_precision": 0.0589303224452794,
+      "mrr": 0.06727088571409058,
+      "map": 0.028111252834851014,
+      "hit_rate": 0.17647058823529413,
+      "scope_recall": 0.11029411764705882,
       "mean_clauses_returned": 47.75,
       "mean_context_words": 4000.0
     },
     "10": {
-      "recall": 0.1323529411764706,
-      "precision": 0.002610417731828546,
-      "ndcg": 0.040246934281072594,
-      "context_precision": 0.0058097290765543996,
-      "mrr": 0.01031955600110206,
-      "map": 0.006061653902426932,
-      "hit_rate": 0.23529411764705882,
+      "recall": 0.1217306207603485,
+      "precision": 0.02968140481487218,
+      "ndcg": 0.09035717451061218,
+      "context_precision": 0.04853368299214518,
+      "mrr": 0.06914357067544234,
+      "map": 0.036152239486194705,
+      "hit_rate": 0.3088235294117647,
+      "scope_recall": 0.19117647058823528,
       "mean_clauses_returned": 92.11764705882354,
       "mean_context_words": 8000.0
     }
@@ -79,7 +83,7 @@
     {
       "passage_id": "CER.1.2#1",
       "section": "1.2",
-      "n_primary": 3,
+      "n_primary": 7,
       "chunks": [
         6,
         3,
@@ -102,6 +106,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 0,
           "context_words": 800
         },
@@ -113,6 +118,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 0,
           "context_words": 2400
         },
@@ -124,6 +130,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 14,
           "context_words": 4000
         },
@@ -135,6 +142,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 30,
           "context_words": 8000
         }
@@ -143,7 +151,7 @@
     {
       "passage_id": "CER.1.2#2",
       "section": "1.2",
-      "n_primary": 3,
+      "n_primary": 7,
       "chunks": [
         79,
         6,
@@ -166,6 +174,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 13,
           "context_words": 800
         },
@@ -177,6 +186,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 21,
           "context_words": 2400
         },
@@ -188,6 +198,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 47,
           "context_words": 4000
         },
@@ -199,6 +210,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 53,
           "context_words": 8000
         }
@@ -207,7 +219,7 @@
     {
       "passage_id": "CER.2.1",
       "section": "2.1",
-      "n_primary": 1,
+      "n_primary": 14,
       "chunks": [
         118,
         115,
@@ -230,6 +242,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 0,
           "context_words": 800
         },
@@ -241,6 +254,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 5,
           "context_words": 2400
         },
@@ -252,6 +266,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 27,
           "context_words": 4000
         },
@@ -263,6 +278,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 49,
           "context_words": 8000
         }
@@ -294,6 +310,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 4,
           "context_words": 800
         },
@@ -305,6 +322,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 12,
           "context_words": 2400
         },
@@ -316,6 +334,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 26,
           "context_words": 4000
         },
@@ -327,6 +346,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 68,
           "context_words": 8000
         }
@@ -335,7 +355,7 @@
     {
       "passage_id": "CER.2.3",
       "section": "2.3",
-      "n_primary": 1,
+      "n_primary": 14,
       "chunks": [
         35,
         101,
@@ -358,6 +378,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 18,
           "context_words": 800
         },
@@ -369,6 +390,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 46,
           "context_words": 2400
         },
@@ -380,6 +402,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 63,
           "context_words": 4000
         },
@@ -391,6 +414,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 115,
           "context_words": 8000
         }
@@ -399,7 +423,7 @@
     {
       "passage_id": "CER.2.4",
       "section": "2.4",
-      "n_primary": 2,
+      "n_primary": 15,
       "chunks": [
         96,
         97,
@@ -422,6 +446,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 28,
           "context_words": 800
         },
@@ -433,6 +458,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 46,
           "context_words": 2400
         },
@@ -444,17 +470,19 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 61,
           "context_words": 4000
         },
         "10": {
-          "recall": 0.5,
-          "precision": 0.008620689655172414,
-          "ndcg": 0.08527525251322651,
-          "context_precision": 0.008620689655172414,
+          "recall": 0.3333333333333333,
+          "precision": 0.04310344827586207,
+          "ndcg": 0.1282469445675987,
+          "context_precision": 0.04310344827586207,
           "mrr": 0.01098901098901099,
-          "map": 0.005494505494505495,
+          "map": 0.010611653495410047,
           "hit_rate": 1.0,
+          "scope_recall": 0.5,
           "clauses_returned": 109,
           "context_words": 8000
         }
@@ -463,7 +491,7 @@
     {
       "passage_id": "CER.2.5",
       "section": "2.5",
-      "n_primary": 2,
+      "n_primary": 12,
       "chunks": [
         96,
         52,
@@ -486,6 +514,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 28,
           "context_words": 800
         },
@@ -497,6 +526,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 53,
           "context_words": 2400
         },
@@ -508,6 +538,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 66,
           "context_words": 4000
         },
@@ -519,6 +550,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 114,
           "context_words": 8000
         }
@@ -527,7 +559,7 @@
     {
       "passage_id": "CER.2.6",
       "section": "2.6",
-      "n_primary": 2,
+      "n_primary": 15,
       "chunks": [
         97,
         114,
@@ -550,6 +582,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 17,
           "context_words": 800
         },
@@ -561,28 +594,31 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 40,
           "context_words": 2400
         },
         "5": {
-          "recall": 0.5,
+          "recall": 0.06666666666666667,
           "precision": 0.01818181818181818,
-          "ndcg": 0.09807064166579121,
+          "ndcg": 0.025825664517785497,
           "context_precision": 0.01818181818181818,
           "mrr": 0.02,
-          "map": 0.01,
+          "map": 0.0013333333333333333,
           "hit_rate": 1.0,
+          "scope_recall": 0.5,
           "clauses_returned": 53,
           "context_words": 4000
         },
         "10": {
-          "recall": 1.0,
-          "precision": 0.015625,
-          "ndcg": 0.1907870405138645,
-          "context_precision": 0.015625,
+          "recall": 0.4,
+          "precision": 0.046875,
+          "ndcg": 0.14684954966780367,
+          "context_precision": 0.046875,
           "mrr": 0.02,
-          "map": 0.025873015873015874,
+          "map": 0.02153477687158548,
           "hit_rate": 1.0,
+          "scope_recall": 1.0,
           "clauses_returned": 122,
           "context_words": 8000
         }
@@ -591,7 +627,7 @@
     {
       "passage_id": "CER.2.7#1",
       "section": "2.7",
-      "n_primary": 2,
+      "n_primary": 27,
       "chunks": [
         97,
         86,
@@ -614,6 +650,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 17,
           "context_words": 800
         },
@@ -625,6 +662,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 52,
           "context_words": 2400
         },
@@ -636,17 +674,19 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 64,
           "context_words": 4000
         },
         "10": {
-          "recall": 0.5,
-          "precision": 0.008264462809917356,
-          "ndcg": 0.08337274148114646,
-          "context_precision": 0.008264462809917356,
+          "recall": 0.18518518518518517,
+          "precision": 0.04132231404958678,
+          "ndcg": 0.08453400423979578,
+          "context_precision": 0.04132231404958678,
           "mrr": 0.009900990099009901,
-          "map": 0.0049504950495049506,
+          "map": 0.005329633194240394,
           "hit_rate": 1.0,
+          "scope_recall": 0.5,
           "clauses_returned": 117,
           "context_words": 8000
         }
@@ -655,7 +695,7 @@
     {
       "passage_id": "CER.2.7#2",
       "section": "2.7",
-      "n_primary": 2,
+      "n_primary": 27,
       "chunks": [
         97,
         118,
@@ -678,39 +718,43 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 17,
           "context_words": 800
         },
         "3": {
-          "recall": 0.5,
-          "precision": 0.03125,
-          "ndcg": 0.1157181864263805,
-          "context_precision": 0.03125,
+          "recall": 0.18518518518518517,
+          "precision": 0.15625,
+          "ndcg": 0.11517332497017223,
+          "context_precision": 0.15625,
           "mrr": 0.037037037037037035,
-          "map": 0.018518518518518517,
+          "map": 0.018414671940451613,
           "hit_rate": 1.0,
+          "scope_recall": 0.5,
           "clauses_returned": 32,
           "context_words": 2400
         },
         "5": {
-          "recall": 0.5,
-          "precision": 0.01818181818181818,
-          "ndcg": 0.1157181864263805,
-          "context_precision": 0.01818181818181818,
+          "recall": 0.18518518518518517,
+          "precision": 0.09090909090909091,
+          "ndcg": 0.11517332497017223,
+          "context_precision": 0.09090909090909091,
           "mrr": 0.037037037037037035,
-          "map": 0.018518518518518517,
+          "map": 0.018414671940451613,
           "hit_rate": 1.0,
+          "scope_recall": 0.5,
           "clauses_returned": 55,
           "context_words": 4000
         },
         "10": {
-          "recall": 0.5,
-          "precision": 0.011494252873563218,
-          "ndcg": 0.1452203234797054,
-          "context_precision": 0.022988505747126436,
+          "recall": 0.25925925925925924,
+          "precision": 0.08045977011494253,
+          "ndcg": 0.16939446369258604,
+          "context_precision": 0.11494252873563218,
           "mrr": 0.037037037037037035,
-          "map": 0.018518518518518517,
+          "map": 0.024788940946299562,
           "hit_rate": 1.0,
+          "scope_recall": 1.0,
           "clauses_returned": 87,
           "context_words": 8000
         }
@@ -719,7 +763,7 @@
     {
       "passage_id": "CER.2.8",
       "section": "2.8",
-      "n_primary": 2,
+      "n_primary": 15,
       "chunks": [
         97,
         96,
@@ -742,6 +786,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 17,
           "context_words": 800
         },
@@ -753,6 +798,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 42,
           "context_words": 2400
         },
@@ -764,17 +810,19 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 62,
           "context_words": 4000
         },
         "10": {
-          "recall": 0.5,
+          "recall": 0.06666666666666667,
           "precision": 0.009009009009009009,
-          "ndcg": 0.08355072447451387,
+          "ndcg": 0.02527226257408965,
           "context_precision": 0.009009009009009009,
           "mrr": 0.01,
-          "map": 0.005,
+          "map": 0.0006666666666666666,
           "hit_rate": 1.0,
+          "scope_recall": 0.5,
           "clauses_returned": 107,
           "context_words": 8000
         }
@@ -783,7 +831,7 @@
     {
       "passage_id": "CER.2.9",
       "section": "2.9",
-      "n_primary": 2,
+      "n_primary": 15,
       "chunks": [
         95,
         96,
@@ -801,44 +849,48 @@
         "1": {
           "recall": 0.0,
           "precision": 0.0,
-          "ndcg": 0.10834265593797102,
-          "context_precision": 0.07142857142857142,
+          "ndcg": 0.2739299006017829,
+          "context_precision": 0.9285714285714286,
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 14,
           "context_words": 800
         },
         "3": {
           "recall": 0.0,
           "precision": 0.0,
-          "ndcg": 0.10834265593797102,
-          "context_precision": 0.017543859649122806,
+          "ndcg": 0.3834223307992677,
+          "context_precision": 0.6666666666666666,
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 54,
           "context_words": 2400
         },
         "5": {
           "recall": 0.0,
           "precision": 0.0,
-          "ndcg": 0.10834265593797102,
-          "context_precision": 0.013333333333333334,
+          "ndcg": 0.419810569441458,
+          "context_precision": 0.68,
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 68,
           "context_words": 4000
         },
         "10": {
           "recall": 0.0,
           "precision": 0.0,
-          "ndcg": 0.13591113327256296,
-          "context_precision": 0.015873015873015872,
+          "ndcg": 0.42538565897445185,
+          "context_precision": 0.4126984126984127,
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 118,
           "context_words": 8000
         }
@@ -847,7 +899,7 @@
     {
       "passage_id": "CER.2.10",
       "section": "2.10",
-      "n_primary": 2,
+      "n_primary": 73,
       "chunks": [
         97,
         95,
@@ -863,46 +915,50 @@
       "top_score": 0.4666425287723541,
       "metrics": {
         "1": {
-          "recall": 0.0,
-          "precision": 0.0,
-          "ndcg": 0.0,
-          "context_precision": 0.0,
-          "mrr": 0.0,
-          "map": 0.0,
-          "hit_rate": 0.0,
+          "recall": 0.2328767123287671,
+          "precision": 1.0,
+          "ndcg": 1.0,
+          "context_precision": 1.0,
+          "mrr": 1.0,
+          "map": 0.2328767123287671,
+          "hit_rate": 1.0,
+          "scope_recall": 0.5,
           "clauses_returned": 17,
           "context_words": 800
         },
         "3": {
-          "recall": 0.5,
-          "precision": 0.01694915254237288,
-          "ndcg": 0.12871532817644848,
-          "context_precision": 0.01694915254237288,
-          "mrr": 0.05263157894736842,
-          "map": 0.02631578947368421,
+          "recall": 0.6986301369863014,
+          "precision": 0.864406779661017,
+          "ndcg": 0.9006254738228918,
+          "context_precision": 0.864406779661017,
+          "mrr": 1.0,
+          "map": 0.6843433442123129,
           "hit_rate": 1.0,
+          "scope_recall": 0.5,
           "clauses_returned": 52,
           "context_words": 2400
         },
         "5": {
-          "recall": 0.5,
-          "precision": 0.011627906976744186,
-          "ndcg": 0.12871532817644848,
-          "context_precision": 0.011627906976744186,
-          "mrr": 0.05263157894736842,
-          "map": 0.02631578947368421,
+          "recall": 0.6986301369863014,
+          "precision": 0.5930232558139535,
+          "ndcg": 0.7742253980444488,
+          "context_precision": 0.5930232558139535,
+          "mrr": 1.0,
+          "map": 0.6843433442123129,
           "hit_rate": 1.0,
+          "scope_recall": 0.5,
           "clauses_returned": 79,
           "context_words": 4000
         },
         "10": {
-          "recall": 0.5,
-          "precision": 0.00819672131147541,
-          "ndcg": 0.15757078383760303,
-          "context_precision": 0.01639344262295082,
-          "mrr": 0.05263157894736842,
-          "map": 0.02631578947368421,
+          "recall": 0.6986301369863014,
+          "precision": 0.4180327868852459,
+          "ndcg": 0.7773116572647193,
+          "context_precision": 0.4262295081967213,
+          "mrr": 1.0,
+          "map": 0.6843433442123129,
           "hit_rate": 1.0,
+          "scope_recall": 0.5,
           "clauses_returned": 115,
           "context_words": 8000
         }
@@ -911,7 +967,7 @@
     {
       "passage_id": "CER.2.11",
       "section": "2.11",
-      "n_primary": 1,
+      "n_primary": 59,
       "chunks": [
         60,
         139,
@@ -934,6 +990,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 13,
           "context_words": 800
         },
@@ -945,6 +1002,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 50,
           "context_words": 2400
         },
@@ -956,6 +1014,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 55,
           "context_words": 4000
         },
@@ -967,6 +1026,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 113,
           "context_words": 8000
         }
@@ -975,7 +1035,7 @@
     {
       "passage_id": "CER.2.12",
       "section": "2.12",
-      "n_primary": 2,
+      "n_primary": 15,
       "chunks": [
         115,
         96,
@@ -998,39 +1058,43 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 4,
           "context_words": 800
         },
         "3": {
           "recall": 0.0,
           "precision": 0.0,
-          "ndcg": 0.0,
-          "context_precision": 0.0,
+          "ndcg": 0.2994960273706146,
+          "context_precision": 0.6511627906976745,
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 43,
           "context_words": 2400
         },
         "5": {
           "recall": 0.0,
           "precision": 0.0,
-          "ndcg": 0.0,
-          "context_precision": 0.0,
+          "ndcg": 0.35012940153120387,
+          "context_precision": 0.6721311475409836,
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 57,
           "context_words": 4000
         },
         "10": {
           "recall": 0.0,
           "precision": 0.0,
-          "ndcg": 0.0,
-          "context_precision": 0.0,
+          "ndcg": 0.32409565975429955,
+          "context_precision": 0.3504273504273504,
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 113,
           "context_words": 8000
         }
@@ -1039,7 +1103,7 @@
     {
       "passage_id": "CER.2.13",
       "section": "2.13",
-      "n_primary": 2,
+      "n_primary": 62,
       "chunks": [
         97,
         52,
@@ -1055,46 +1119,50 @@
       "top_score": 0.347006618976593,
       "metrics": {
         "1": {
-          "recall": 0.0,
-          "precision": 0.0,
-          "ndcg": 0.0,
-          "context_precision": 0.0,
-          "mrr": 0.0,
-          "map": 0.0,
-          "hit_rate": 0.0,
+          "recall": 0.27419354838709675,
+          "precision": 1.0,
+          "ndcg": 1.0,
+          "context_precision": 1.0,
+          "mrr": 1.0,
+          "map": 0.27419354838709675,
+          "hit_rate": 1.0,
+          "scope_recall": 0.5,
           "clauses_returned": 17,
           "context_words": 800
         },
         "3": {
-          "recall": 0.0,
-          "precision": 0.0,
-          "ndcg": 0.0,
-          "context_precision": 0.0,
-          "mrr": 0.0,
-          "map": 0.0,
-          "hit_rate": 0.0,
+          "recall": 0.27419354838709675,
+          "precision": 0.3695652173913043,
+          "ndcg": 0.520698949061442,
+          "context_precision": 0.3695652173913043,
+          "mrr": 1.0,
+          "map": 0.27419354838709675,
+          "hit_rate": 1.0,
+          "scope_recall": 0.5,
           "clauses_returned": 46,
           "context_words": 2400
         },
         "5": {
-          "recall": 0.0,
-          "precision": 0.0,
-          "ndcg": 0.0,
-          "context_precision": 0.0,
-          "mrr": 0.0,
-          "map": 0.0,
-          "hit_rate": 0.0,
+          "recall": 0.27419354838709675,
+          "precision": 0.32075471698113206,
+          "ndcg": 0.47280914318813605,
+          "context_precision": 0.32075471698113206,
+          "mrr": 1.0,
+          "map": 0.27419354838709675,
+          "hit_rate": 1.0,
+          "scope_recall": 0.5,
           "clauses_returned": 53,
           "context_words": 4000
         },
         "10": {
-          "recall": 0.0,
-          "precision": 0.0,
-          "ndcg": 0.0,
-          "context_precision": 0.0,
-          "mrr": 0.0,
-          "map": 0.0,
-          "hit_rate": 0.0,
+          "recall": 0.6612903225806451,
+          "precision": 0.38317757009345793,
+          "ndcg": 0.6566086129394764,
+          "context_precision": 0.38317757009345793,
+          "mrr": 1.0,
+          "map": 0.4461098085509442,
+          "hit_rate": 1.0,
+          "scope_recall": 0.5,
           "clauses_returned": 103,
           "context_words": 8000
         }
@@ -1126,6 +1194,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 11,
           "context_words": 800
         },
@@ -1137,6 +1206,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 52,
           "context_words": 2400
         },
@@ -1148,6 +1218,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 67,
           "context_words": 4000
         },
@@ -1159,6 +1230,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 99,
           "context_words": 8000
         }
@@ -1167,7 +1239,7 @@
     {
       "passage_id": "CER.2.15",
       "section": "2.15",
-      "n_primary": 2,
+      "n_primary": 64,
       "chunks": [
         97,
         52,
@@ -1183,46 +1255,50 @@
       "top_score": 0.29014575481414795,
       "metrics": {
         "1": {
-          "recall": 0.0,
-          "precision": 0.0,
-          "ndcg": 0.0,
-          "context_precision": 0.0,
-          "mrr": 0.0,
-          "map": 0.0,
-          "hit_rate": 0.0,
+          "recall": 0.265625,
+          "precision": 1.0,
+          "ndcg": 1.0,
+          "context_precision": 1.0,
+          "mrr": 1.0,
+          "map": 0.265625,
+          "hit_rate": 1.0,
+          "scope_recall": 0.5,
           "clauses_returned": 17,
           "context_words": 800
         },
         "3": {
-          "recall": 0.0,
-          "precision": 0.0,
-          "ndcg": 0.0,
-          "context_precision": 0.0,
-          "mrr": 0.0,
-          "map": 0.0,
-          "hit_rate": 0.0,
+          "recall": 0.265625,
+          "precision": 0.4857142857142857,
+          "ndcg": 0.6255254955064181,
+          "context_precision": 0.4857142857142857,
+          "mrr": 1.0,
+          "map": 0.265625,
+          "hit_rate": 1.0,
+          "scope_recall": 0.5,
           "clauses_returned": 35,
           "context_words": 2400
         },
         "5": {
-          "recall": 0.0,
-          "precision": 0.0,
-          "ndcg": 0.0,
-          "context_precision": 0.0,
-          "mrr": 0.0,
-          "map": 0.0,
-          "hit_rate": 0.0,
+          "recall": 0.265625,
+          "precision": 0.3148148148148148,
+          "ndcg": 0.4667933431116671,
+          "context_precision": 0.3148148148148148,
+          "mrr": 1.0,
+          "map": 0.265625,
+          "hit_rate": 1.0,
+          "scope_recall": 0.5,
           "clauses_returned": 54,
           "context_words": 4000
         },
         "10": {
-          "recall": 0.0,
-          "precision": 0.0,
-          "ndcg": 0.0,
-          "context_precision": 0.0,
-          "mrr": 0.0,
-          "map": 0.0,
-          "hit_rate": 0.0,
+          "recall": 0.765625,
+          "precision": 0.44954128440366975,
+          "ndcg": 0.7531117116351819,
+          "context_precision": 0.44954128440366975,
+          "mrr": 1.0,
+          "map": 0.497743469778045,
+          "hit_rate": 1.0,
+          "scope_recall": 0.5,
           "clauses_returned": 105,
           "context_words": 8000
         }
@@ -1231,7 +1307,7 @@
     {
       "passage_id": "CER.2.17",
       "section": "2.17",
-      "n_primary": 2,
+      "n_primary": 60,
       "chunks": [
         96,
         32,
@@ -1247,46 +1323,50 @@
       "top_score": 0.3474726974964142,
       "metrics": {
         "1": {
-          "recall": 0.0,
-          "precision": 0.0,
-          "ndcg": 0.0,
-          "context_precision": 0.0,
-          "mrr": 0.0,
-          "map": 0.0,
-          "hit_rate": 0.0,
+          "recall": 0.4666666666666667,
+          "precision": 1.0,
+          "ndcg": 1.0,
+          "context_precision": 1.0,
+          "mrr": 1.0,
+          "map": 0.4666666666666667,
+          "hit_rate": 1.0,
+          "scope_recall": 0.5,
           "clauses_returned": 28,
           "context_words": 800
         },
         "3": {
-          "recall": 0.0,
-          "precision": 0.0,
-          "ndcg": 0.0,
-          "context_precision": 0.0,
-          "mrr": 0.0,
-          "map": 0.0,
-          "hit_rate": 0.0,
+          "recall": 0.4666666666666667,
+          "precision": 0.49122807017543857,
+          "ndcg": 0.6206002040764661,
+          "context_precision": 0.49122807017543857,
+          "mrr": 1.0,
+          "map": 0.4666666666666667,
+          "hit_rate": 1.0,
+          "scope_recall": 0.5,
           "clauses_returned": 57,
           "context_words": 2400
         },
         "5": {
-          "recall": 0.0,
-          "precision": 0.0,
-          "ndcg": 0.0,
-          "context_precision": 0.0,
-          "mrr": 0.0,
-          "map": 0.0,
-          "hit_rate": 0.0,
+          "recall": 0.4666666666666667,
+          "precision": 0.35443037974683544,
+          "ndcg": 0.5944906477250769,
+          "context_precision": 0.35443037974683544,
+          "mrr": 1.0,
+          "map": 0.4666666666666667,
+          "hit_rate": 1.0,
+          "scope_recall": 0.5,
           "clauses_returned": 79,
           "context_words": 4000
         },
         "10": {
-          "recall": 0.0,
-          "precision": 0.0,
-          "ndcg": 0.0,
-          "context_precision": 0.0,
-          "mrr": 0.0,
-          "map": 0.0,
-          "hit_rate": 0.0,
+          "recall": 0.6,
+          "precision": 0.3050847457627119,
+          "ndcg": 0.6778616180248889,
+          "context_precision": 0.3050847457627119,
+          "mrr": 1.0,
+          "map": 0.5144939662665663,
+          "hit_rate": 1.0,
+          "scope_recall": 0.5,
           "clauses_returned": 117,
           "context_words": 8000
         }
@@ -1295,7 +1375,7 @@
     {
       "passage_id": "CER.2.18",
       "section": "2.18",
-      "n_primary": 2,
+      "n_primary": 27,
       "chunks": [
         32,
         95,
@@ -1318,6 +1398,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 15,
           "context_words": 800
         },
@@ -1329,28 +1410,31 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 40,
           "context_words": 2400
         },
         "5": {
           "recall": 0.0,
           "precision": 0.0,
-          "ndcg": 0.03438833124193005,
-          "context_precision": 0.015384615384615385,
+          "ndcg": 0.07650286338959678,
+          "context_precision": 0.18461538461538463,
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 65,
           "context_words": 4000
         },
         "10": {
           "recall": 0.0,
           "precision": 0.0,
-          "ndcg": 0.03438833124193005,
-          "context_precision": 0.007462686567164179,
+          "ndcg": 0.07650286338959678,
+          "context_precision": 0.08955223880597014,
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 127,
           "context_words": 8000
         }
@@ -1359,7 +1443,7 @@
     {
       "passage_id": "CER.2.19",
       "section": "2.19",
-      "n_primary": 2,
+      "n_primary": 27,
       "chunks": [
         52,
         138,
@@ -1382,6 +1466,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 14,
           "context_words": 800
         },
@@ -1393,6 +1478,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 39,
           "context_words": 2400
         },
@@ -1404,6 +1490,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 49,
           "context_words": 4000
         },
@@ -1415,6 +1502,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 114,
           "context_words": 8000
         }
@@ -1446,6 +1534,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 14,
           "context_words": 800
         },
@@ -1457,6 +1546,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 15,
           "context_words": 2400
         },
@@ -1468,6 +1558,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 42,
           "context_words": 4000
         },
@@ -1479,6 +1570,7 @@
           "mrr": 0.0196078431372549,
           "map": 0.00980392156862745,
           "hit_rate": 1.0,
+          "scope_recall": 0.5,
           "clauses_returned": 72,
           "context_words": 8000
         }
@@ -1487,7 +1579,7 @@
     {
       "passage_id": "CER.3.2",
       "section": "3.2",
-      "n_primary": 2,
+      "n_primary": 15,
       "chunks": [
         32,
         134,
@@ -1510,6 +1602,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 15,
           "context_words": 800
         },
@@ -1521,6 +1614,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 30,
           "context_words": 2400
         },
@@ -1532,17 +1626,19 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 58,
           "context_words": 4000
         },
         "10": {
-          "recall": 0.5,
+          "recall": 0.06666666666666667,
           "precision": 0.008695652173913044,
-          "ndcg": 0.10620417280826637,
+          "ndcg": 0.03422952267545946,
           "context_precision": 0.017391304347826087,
           "mrr": 0.011494252873563218,
-          "map": 0.005747126436781609,
+          "map": 0.0007662835249042146,
           "hit_rate": 1.0,
+          "scope_recall": 0.5,
           "clauses_returned": 110,
           "context_words": 8000
         }
@@ -1574,6 +1670,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 14,
           "context_words": 800
         },
@@ -1585,6 +1682,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 15,
           "context_words": 2400
         },
@@ -1596,6 +1694,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 32,
           "context_words": 4000
         },
@@ -1607,6 +1706,7 @@
           "mrr": 0.02631578947368421,
           "map": 0.013157894736842105,
           "hit_rate": 1.0,
+          "scope_recall": 0.5,
           "clauses_returned": 83,
           "context_words": 8000
         }
@@ -1638,6 +1738,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 0,
           "context_words": 800
         },
@@ -1649,6 +1750,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 3,
           "context_words": 2400
         },
@@ -1660,6 +1762,7 @@
           "mrr": 0.09090909090909091,
           "map": 0.09090909090909091,
           "hit_rate": 1.0,
+          "scope_recall": 1.0,
           "clauses_returned": 15,
           "context_words": 4000
         },
@@ -1671,6 +1774,7 @@
           "mrr": 0.09090909090909091,
           "map": 0.09090909090909091,
           "hit_rate": 1.0,
+          "scope_recall": 1.0,
           "clauses_returned": 51,
           "context_words": 8000
         }
@@ -1679,7 +1783,7 @@
     {
       "passage_id": "CER.3.5",
       "section": "3.5",
-      "n_primary": 3,
+      "n_primary": 9,
       "chunks": [
         96,
         32,
@@ -1702,6 +1806,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 28,
           "context_words": 800
         },
@@ -1713,6 +1818,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 57,
           "context_words": 2400
         },
@@ -1724,6 +1830,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 75,
           "context_words": 4000
         },
@@ -1735,6 +1842,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 129,
           "context_words": 8000
         }
@@ -1766,6 +1874,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 0,
           "context_words": 800
         },
@@ -1777,6 +1886,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 9,
           "context_words": 2400
         },
@@ -1788,6 +1898,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 34,
           "context_words": 4000
         },
@@ -1799,6 +1910,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 95,
           "context_words": 8000
         }
@@ -1830,6 +1942,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 17,
           "context_words": 800
         },
@@ -1841,6 +1954,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 39,
           "context_words": 2400
         },
@@ -1852,6 +1966,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 74,
           "context_words": 4000
         },
@@ -1863,6 +1978,7 @@
           "mrr": 0.00980392156862745,
           "map": 0.004901960784313725,
           "hit_rate": 1.0,
+          "scope_recall": 0.5,
           "clauses_returned": 104,
           "context_words": 8000
         }
@@ -1894,6 +2010,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 28,
           "context_words": 800
         },
@@ -1905,6 +2022,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 58,
           "context_words": 2400
         },
@@ -1916,6 +2034,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 71,
           "context_words": 4000
         },
@@ -1927,6 +2046,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 115,
           "context_words": 8000
         }
@@ -1958,6 +2078,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 17,
           "context_words": 800
         },
@@ -1969,6 +2090,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 32,
           "context_words": 2400
         },
@@ -1980,6 +2102,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 60,
           "context_words": 4000
         },
@@ -1991,6 +2114,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 112,
           "context_words": 8000
         }
@@ -1999,7 +2123,7 @@
     {
       "passage_id": "CER.4.1",
       "section": "4.1",
-      "n_primary": 2,
+      "n_primary": 7,
       "chunks": [
         138,
         134,
@@ -2022,6 +2146,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 8,
           "context_words": 800
         },
@@ -2033,6 +2158,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 22,
           "context_words": 2400
         },
@@ -2044,6 +2170,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 22,
           "context_words": 4000
         },
@@ -2055,6 +2182,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 47,
           "context_words": 8000
         }
@@ -2086,6 +2214,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 8,
           "context_words": 800
         },
@@ -2097,6 +2226,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 23,
           "context_words": 2400
         },
@@ -2108,6 +2238,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 35,
           "context_words": 4000
         },
@@ -2119,6 +2250,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 115,
           "context_words": 8000
         }
@@ -2150,6 +2282,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 0,
           "context_words": 800
         },
@@ -2161,6 +2294,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 12,
           "context_words": 2400
         },
@@ -2172,6 +2306,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 32,
           "context_words": 4000
         },
@@ -2183,6 +2318,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 91,
           "context_words": 8000
         }
@@ -2191,7 +2327,7 @@
     {
       "passage_id": "CER.4.2#1",
       "section": "4.2",
-      "n_primary": 2,
+      "n_primary": 4,
       "chunks": [
         97,
         115,
@@ -2214,6 +2350,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 17,
           "context_words": 800
         },
@@ -2225,6 +2362,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 36,
           "context_words": 2400
         },
@@ -2236,6 +2374,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 61,
           "context_words": 4000
         },
@@ -2247,6 +2386,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 97,
           "context_words": 8000
         }
@@ -2255,7 +2395,7 @@
     {
       "passage_id": "CER.4.2#2",
       "section": "4.2",
-      "n_primary": 2,
+      "n_primary": 4,
       "chunks": [
         32,
         96,
@@ -2278,6 +2418,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 15,
           "context_words": 800
         },
@@ -2289,6 +2430,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 57,
           "context_words": 2400
         },
@@ -2300,6 +2442,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 72,
           "context_words": 4000
         },
@@ -2311,6 +2454,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 113,
           "context_words": 8000
         }
@@ -2319,7 +2463,7 @@
     {
       "passage_id": "CER.4.2#3",
       "section": "4.2",
-      "n_primary": 2,
+      "n_primary": 4,
       "chunks": [
         118,
         52,
@@ -2342,6 +2486,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 0,
           "context_words": 800
         },
@@ -2353,6 +2498,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 18,
           "context_words": 2400
         },
@@ -2364,6 +2510,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 37,
           "context_words": 4000
         },
@@ -2375,6 +2522,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 58,
           "context_words": 8000
         }
@@ -2406,6 +2554,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 28,
           "context_words": 800
         },
@@ -2417,6 +2566,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 54,
           "context_words": 2400
         },
@@ -2428,6 +2578,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 65,
           "context_words": 4000
         },
@@ -2439,6 +2590,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 115,
           "context_words": 8000
         }
@@ -2447,7 +2599,7 @@
     {
       "passage_id": "CER.4.2.2",
       "section": "4.2.2",
-      "n_primary": 2,
+      "n_primary": 15,
       "chunks": [
         8,
         48,
@@ -2470,39 +2622,43 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 0,
           "context_words": 800
         },
         "3": {
-          "recall": 0.5,
+          "recall": 0.06666666666666667,
           "precision": 0.037037037037037035,
-          "ndcg": 0.23958467719708867,
+          "ndcg": 0.07246911273283203,
           "context_precision": 0.037037037037037035,
           "mrr": 0.25,
-          "map": 0.125,
+          "map": 0.016666666666666666,
           "hit_rate": 1.0,
+          "scope_recall": 0.5,
           "clauses_returned": 27,
           "context_words": 2400
         },
         "5": {
-          "recall": 0.5,
+          "recall": 0.06666666666666667,
           "precision": 0.02127659574468085,
-          "ndcg": 0.23958467719708867,
+          "ndcg": 0.07246911273283203,
           "context_precision": 0.02127659574468085,
           "mrr": 0.25,
-          "map": 0.125,
+          "map": 0.016666666666666666,
           "hit_rate": 1.0,
+          "scope_recall": 0.5,
           "clauses_returned": 45,
           "context_words": 4000
         },
         "10": {
-          "recall": 0.5,
+          "recall": 0.06666666666666667,
           "precision": 0.012987012987012988,
-          "ndcg": 0.23958467719708867,
+          "ndcg": 0.07246911273283203,
           "context_precision": 0.012987012987012988,
           "mrr": 0.25,
-          "map": 0.125,
+          "map": 0.016666666666666666,
           "hit_rate": 1.0,
+          "scope_recall": 0.5,
           "clauses_returned": 75,
           "context_words": 8000
         }
@@ -2534,6 +2690,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 0,
           "context_words": 800
         },
@@ -2545,6 +2702,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 5,
           "context_words": 2400
         },
@@ -2556,6 +2714,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 41,
           "context_words": 4000
         },
@@ -2567,6 +2726,7 @@
           "mrr": 0.01,
           "map": 0.005,
           "hit_rate": 1.0,
+          "scope_recall": 0.5,
           "clauses_returned": 104,
           "context_words": 8000
         }
@@ -2575,7 +2735,7 @@
     {
       "passage_id": "CER.4.3.1",
       "section": "4.3.1",
-      "n_primary": 2,
+      "n_primary": 15,
       "chunks": [
         118,
         98,
@@ -2598,39 +2758,43 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 0,
           "context_words": 800
         },
         "3": {
-          "recall": 0.5,
-          "precision": 0.0625,
-          "ndcg": 0.1608062983790299,
-          "context_precision": 0.0625,
+          "recall": 0.3333333333333333,
+          "precision": 0.3125,
+          "ndcg": 0.2261866030314016,
+          "context_precision": 0.3125,
           "mrr": 0.1,
-          "map": 0.05,
+          "map": 0.07672438672438672,
           "hit_rate": 1.0,
+          "scope_recall": 0.5,
           "clauses_returned": 16,
           "context_words": 2400
         },
         "5": {
-          "recall": 0.5,
-          "precision": 0.02702702702702703,
-          "ndcg": 0.1608062983790299,
-          "context_precision": 0.02702702702702703,
+          "recall": 0.3333333333333333,
+          "precision": 0.13513513513513514,
+          "ndcg": 0.2261866030314016,
+          "context_precision": 0.13513513513513514,
           "mrr": 0.1,
-          "map": 0.05,
+          "map": 0.07672438672438672,
           "hit_rate": 1.0,
+          "scope_recall": 0.5,
           "clauses_returned": 37,
           "context_words": 4000
         },
         "10": {
-          "recall": 0.5,
-          "precision": 0.010752688172043012,
-          "ndcg": 0.1608062983790299,
-          "context_precision": 0.010752688172043012,
+          "recall": 0.3333333333333333,
+          "precision": 0.053763440860215055,
+          "ndcg": 0.2261866030314016,
+          "context_precision": 0.053763440860215055,
           "mrr": 0.1,
-          "map": 0.05,
+          "map": 0.07672438672438672,
           "hit_rate": 1.0,
+          "scope_recall": 0.5,
           "clauses_returned": 93,
           "context_words": 8000
         }
@@ -2639,7 +2803,7 @@
     {
       "passage_id": "CER.4.3.1.1#1",
       "section": "4.3.1.1",
-      "n_primary": 1,
+      "n_primary": 13,
       "chunks": [
         96,
         118,
@@ -2662,39 +2826,43 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 28,
           "context_words": 800
         },
         "3": {
           "recall": 0.0,
           "precision": 0.0,
-          "ndcg": 0.04580091427439404,
-          "context_precision": 0.023255813953488372,
+          "ndcg": 0.046392782596548,
+          "context_precision": 0.11627906976744186,
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 43,
           "context_words": 2400
         },
         "5": {
-          "recall": 0.0,
-          "precision": 0.0,
-          "ndcg": 0.08712509305427588,
-          "context_precision": 0.03389830508474576,
-          "mrr": 0.0,
-          "map": 0.0,
-          "hit_rate": 0.0,
+          "recall": 0.15384615384615385,
+          "precision": 0.03389830508474576,
+          "ndcg": 0.12316022453103467,
+          "context_precision": 0.1694915254237288,
+          "mrr": 0.01818181818181818,
+          "map": 0.004145854145854146,
+          "hit_rate": 1.0,
+          "scope_recall": 1.0,
           "clauses_returned": 59,
           "context_words": 4000
         },
         "10": {
-          "recall": 0.0,
-          "precision": 0.0,
-          "ndcg": 0.08712509305427588,
-          "context_precision": 0.019801980198019802,
-          "mrr": 0.0,
-          "map": 0.0,
-          "hit_rate": 0.0,
+          "recall": 0.15384615384615385,
+          "precision": 0.019801980198019802,
+          "ndcg": 0.12316022453103467,
+          "context_precision": 0.09900990099009901,
+          "mrr": 0.01818181818181818,
+          "map": 0.004145854145854146,
+          "hit_rate": 1.0,
+          "scope_recall": 1.0,
           "clauses_returned": 100,
           "context_words": 8000
         }
@@ -2703,7 +2871,7 @@
     {
       "passage_id": "CER.4.3.1.1#2",
       "section": "4.3.1.1",
-      "n_primary": 1,
+      "n_primary": 13,
       "chunks": [
         118,
         96,
@@ -2726,39 +2894,43 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 0,
           "context_words": 800
         },
         "3": {
-          "recall": 0.0,
-          "precision": 0.0,
-          "ndcg": 0.04841525078636038,
-          "context_precision": 0.030303030303030304,
-          "mrr": 0.0,
-          "map": 0.0,
-          "hit_rate": 0.0,
+          "recall": 0.15384615384615385,
+          "precision": 0.06060606060606061,
+          "ndcg": 0.09026012921359178,
+          "context_precision": 0.15151515151515152,
+          "mrr": 0.034482758620689655,
+          "map": 0.007780725022104333,
+          "hit_rate": 1.0,
+          "scope_recall": 1.0,
           "clauses_returned": 33,
           "context_words": 2400
         },
         "5": {
-          "recall": 0.0,
-          "precision": 0.0,
-          "ndcg": 0.09275617688302709,
-          "context_precision": 0.03389830508474576,
-          "mrr": 0.0,
-          "map": 0.0,
-          "hit_rate": 0.0,
+          "recall": 0.15384615384615385,
+          "precision": 0.03389830508474576,
+          "ndcg": 0.13527005973435027,
+          "context_precision": 0.1694915254237288,
+          "mrr": 0.034482758620689655,
+          "map": 0.007780725022104333,
+          "hit_rate": 1.0,
+          "scope_recall": 1.0,
           "clauses_returned": 59,
           "context_words": 4000
         },
         "10": {
-          "recall": 0.0,
-          "precision": 0.0,
-          "ndcg": 0.09275617688302709,
-          "context_precision": 0.0196078431372549,
-          "mrr": 0.0,
-          "map": 0.0,
-          "hit_rate": 0.0,
+          "recall": 0.15384615384615385,
+          "precision": 0.0196078431372549,
+          "ndcg": 0.13527005973435027,
+          "context_precision": 0.09803921568627451,
+          "mrr": 0.034482758620689655,
+          "map": 0.007780725022104333,
+          "hit_rate": 1.0,
+          "scope_recall": 1.0,
           "clauses_returned": 101,
           "context_words": 8000
         }
@@ -2767,7 +2939,7 @@
     {
       "passage_id": "CER.4.3.1.2",
       "section": "4.3.1.2",
-      "n_primary": 2,
+      "n_primary": 15,
       "chunks": [
         118,
         115,
@@ -2790,6 +2962,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 0,
           "context_words": 800
         },
@@ -2801,6 +2974,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 12,
           "context_words": 2400
         },
@@ -2812,17 +2986,19 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 28,
           "context_words": 4000
         },
         "10": {
-          "recall": 0.5,
-          "precision": 0.010752688172043012,
-          "ndcg": 0.08993790063202615,
-          "context_precision": 0.010752688172043012,
+          "recall": 0.3333333333333333,
+          "precision": 0.053763440860215055,
+          "ndcg": 0.12524651539499115,
+          "context_precision": 0.053763440860215055,
           "mrr": 0.019230769230769232,
-          "map": 0.009615384615384616,
+          "map": 0.018111336234474265,
           "hit_rate": 1.0,
+          "scope_recall": 0.5,
           "clauses_returned": 93,
           "context_words": 8000
         }
@@ -2831,7 +3007,7 @@
     {
       "passage_id": "CER.4.3.2.1",
       "section": "4.3.2.1",
-      "n_primary": 2,
+      "n_primary": 5,
       "chunks": [
         137,
         96,
@@ -2854,6 +3030,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 5,
           "context_words": 800
         },
@@ -2865,28 +3042,31 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 34,
           "context_words": 2400
         },
         "5": {
-          "recall": 0.5,
+          "recall": 0.2,
           "precision": 0.022222222222222223,
-          "ndcg": 0.09493770834241891,
+          "ndcg": 0.05798335198828761,
           "context_precision": 0.022222222222222223,
           "mrr": 0.023809523809523808,
-          "map": 0.011904761904761904,
+          "map": 0.0047619047619047615,
           "hit_rate": 1.0,
+          "scope_recall": 0.5,
           "clauses_returned": 45,
           "context_words": 4000
         },
         "10": {
-          "recall": 0.5,
+          "recall": 0.2,
           "precision": 0.010416666666666666,
-          "ndcg": 0.09493770834241891,
+          "ndcg": 0.05798335198828761,
           "context_precision": 0.010416666666666666,
           "mrr": 0.023809523809523808,
-          "map": 0.011904761904761904,
+          "map": 0.0047619047619047615,
           "hit_rate": 1.0,
+          "scope_recall": 0.5,
           "clauses_returned": 91,
           "context_words": 8000
         }
@@ -2913,44 +3093,48 @@
         "1": {
           "recall": 0.0,
           "precision": 0.0,
-          "ndcg": 0.04509032129610523,
-          "context_precision": 0.125,
+          "ndcg": 0.12233301990072651,
+          "context_precision": 0.375,
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 8,
           "context_words": 800
         },
         "3": {
           "recall": 0.0,
           "precision": 0.0,
-          "ndcg": 0.04509032129610523,
-          "context_precision": 0.05263157894736842,
+          "ndcg": 0.11413487704464663,
+          "context_precision": 0.15789473684210525,
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 19,
           "context_words": 2400
         },
         "5": {
           "recall": 0.0,
           "precision": 0.0,
-          "ndcg": 0.04509032129610523,
-          "context_precision": 0.027777777777777776,
+          "ndcg": 0.11413487704464663,
+          "context_precision": 0.08333333333333333,
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 36,
           "context_words": 4000
         },
         "10": {
           "recall": 0.0,
           "precision": 0.0,
-          "ndcg": 0.04509032129610523,
-          "context_precision": 0.013157894736842105,
+          "ndcg": 0.11413487704464663,
+          "context_precision": 0.039473684210526314,
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 76,
           "context_words": 8000
         }
@@ -2982,6 +3166,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 15,
           "context_words": 800
         },
@@ -2993,6 +3178,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 47,
           "context_words": 2400
         },
@@ -3004,17 +3190,19 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 48,
           "context_words": 4000
         },
         "10": {
           "recall": 0.0,
           "precision": 0.0,
-          "ndcg": 0.0216089016903721,
-          "context_precision": 0.011363636363636364,
+          "ndcg": 0.057918051658111834,
+          "context_precision": 0.03409090909090909,
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 88,
           "context_words": 8000
         }
@@ -3046,6 +3234,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 15,
           "context_words": 800
         },
@@ -3057,6 +3246,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 30,
           "context_words": 2400
         },
@@ -3068,6 +3258,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 31,
           "context_words": 4000
         },
@@ -3079,6 +3270,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 69,
           "context_words": 8000
         }
@@ -3110,6 +3302,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 17,
           "context_words": 800
         },
@@ -3121,28 +3314,31 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 46,
           "context_words": 2400
         },
         "5": {
           "recall": 0.0,
           "precision": 0.0,
-          "ndcg": 0.020867569113046165,
-          "context_precision": 0.014705882352941176,
+          "ndcg": 0.05596878135971088,
+          "context_precision": 0.04411764705882353,
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 68,
           "context_words": 4000
         },
         "10": {
           "recall": 0.0,
           "precision": 0.0,
-          "ndcg": 0.020867569113046165,
-          "context_precision": 0.01020408163265306,
+          "ndcg": 0.05596878135971088,
+          "context_precision": 0.030612244897959183,
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 98,
           "context_words": 8000
         }
@@ -3174,6 +3370,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 0,
           "context_words": 800
         },
@@ -3185,6 +3382,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 27,
           "context_words": 2400
         },
@@ -3196,17 +3394,19 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 37,
           "context_words": 4000
         },
         "10": {
           "recall": 0.0,
           "precision": 0.0,
-          "ndcg": 0.020652421348112862,
-          "context_precision": 0.012195121951219513,
+          "ndcg": 0.055401800291699235,
+          "context_precision": 0.036585365853658534,
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 81,
           "context_words": 8000
         }
@@ -3238,6 +3438,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 0,
           "context_words": 800
         },
@@ -3249,6 +3450,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 5,
           "context_words": 2400
         },
@@ -3260,6 +3462,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 30,
           "context_words": 4000
         },
@@ -3271,6 +3474,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 82,
           "context_words": 8000
         }
@@ -3302,6 +3506,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 8,
           "context_words": 800
         },
@@ -3313,6 +3518,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 8,
           "context_words": 2400
         },
@@ -3324,6 +3530,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 26,
           "context_words": 4000
         },
@@ -3335,6 +3542,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 60,
           "context_words": 8000
         }
@@ -3366,6 +3574,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 1,
           "context_words": 800
         },
@@ -3377,6 +3586,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 13,
           "context_words": 2400
         },
@@ -3388,6 +3598,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 24,
           "context_words": 4000
         },
@@ -3399,6 +3610,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 69,
           "context_words": 8000
         }
@@ -3430,6 +3642,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 11,
           "context_words": 800
         },
@@ -3441,6 +3654,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 12,
           "context_words": 2400
         },
@@ -3452,6 +3666,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 24,
           "context_words": 4000
         },
@@ -3463,6 +3678,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 76,
           "context_words": 8000
         }
@@ -3494,6 +3710,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 1,
           "context_words": 800
         },
@@ -3505,6 +3722,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 12,
           "context_words": 2400
         },
@@ -3516,6 +3734,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 34,
           "context_words": 4000
         },
@@ -3527,6 +3746,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 80,
           "context_words": 8000
         }
@@ -3558,6 +3778,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 15,
           "context_words": 800
         },
@@ -3569,6 +3790,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 26,
           "context_words": 2400
         },
@@ -3580,6 +3802,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 57,
           "context_words": 4000
         },
@@ -3591,6 +3814,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 83,
           "context_words": 8000
         }
@@ -3622,6 +3846,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 14,
           "context_words": 800
         },
@@ -3633,6 +3858,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 37,
           "context_words": 2400
         },
@@ -3644,6 +3870,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 47,
           "context_words": 4000
         },
@@ -3655,6 +3882,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 91,
           "context_words": 8000
         }
@@ -3663,7 +3891,7 @@
     {
       "passage_id": "CER.4.5",
       "section": "4.5",
-      "n_primary": 2,
+      "n_primary": 5,
       "chunks": [
         138,
         18,
@@ -3686,6 +3914,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 8,
           "context_words": 800
         },
@@ -3697,6 +3926,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 28,
           "context_words": 2400
         },
@@ -3708,6 +3938,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 59,
           "context_words": 4000
         },
@@ -3719,6 +3950,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 100,
           "context_words": 8000
         }
@@ -3750,6 +3982,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 8,
           "context_words": 800
         },
@@ -3761,6 +3994,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 9,
           "context_words": 2400
         },
@@ -3772,6 +4006,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 10,
           "context_words": 4000
         },
@@ -3783,6 +4018,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 45,
           "context_words": 8000
         }
@@ -3814,6 +4050,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 28,
           "context_words": 800
         },
@@ -3825,6 +4062,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 43,
           "context_words": 2400
         },
@@ -3836,6 +4074,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 55,
           "context_words": 4000
         },
@@ -3847,6 +4086,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 105,
           "context_words": 8000
         }
@@ -3878,6 +4118,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 28,
           "context_words": 800
         },
@@ -3889,6 +4130,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 42,
           "context_words": 2400
         },
@@ -3900,6 +4142,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 58,
           "context_words": 4000
         },
@@ -3911,6 +4154,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 116,
           "context_words": 8000
         }
@@ -3942,6 +4186,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 0,
           "context_words": 800
         },
@@ -3953,6 +4198,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 22,
           "context_words": 2400
         },
@@ -3964,6 +4210,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 23,
           "context_words": 4000
         },
@@ -3975,6 +4222,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 71,
           "context_words": 8000
         }
@@ -4006,6 +4254,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 4,
           "context_words": 800
         },
@@ -4017,6 +4266,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 20,
           "context_words": 2400
         },
@@ -4028,6 +4278,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 48,
           "context_words": 4000
         },
@@ -4039,6 +4290,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 82,
           "context_words": 8000
         }
@@ -4070,6 +4322,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 8,
           "context_words": 800
         },
@@ -4081,6 +4334,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 32,
           "context_words": 2400
         },
@@ -4092,6 +4346,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 41,
           "context_words": 4000
         },
@@ -4103,6 +4358,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 71,
           "context_words": 8000
         }
@@ -4134,6 +4390,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 14,
           "context_words": 800
         },
@@ -4145,6 +4402,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 40,
           "context_words": 2400
         },
@@ -4156,6 +4414,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 45,
           "context_words": 4000
         },
@@ -4167,6 +4426,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 100,
           "context_words": 8000
         }
@@ -4198,6 +4458,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 0,
           "context_words": 800
         },
@@ -4209,6 +4470,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 15,
           "context_words": 2400
         },
@@ -4220,6 +4482,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 42,
           "context_words": 4000
         },
@@ -4231,6 +4494,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 82,
           "context_words": 8000
         }
@@ -4262,6 +4526,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 8,
           "context_words": 800
         },
@@ -4273,6 +4538,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 50,
           "context_words": 2400
         },
@@ -4284,6 +4550,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 58,
           "context_words": 4000
         },
@@ -4295,6 +4562,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 90,
           "context_words": 8000
         }
@@ -4326,6 +4594,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 0,
           "context_words": 800
         },
@@ -4337,6 +4606,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 37,
           "context_words": 2400
         },
@@ -4348,6 +4618,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 49,
           "context_words": 4000
         },
@@ -4359,6 +4630,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 101,
           "context_words": 8000
         }
@@ -4390,6 +4662,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 15,
           "context_words": 800
         },
@@ -4401,6 +4674,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 20,
           "context_words": 2400
         },
@@ -4412,6 +4686,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 34,
           "context_words": 4000
         },
@@ -4423,6 +4698,7 @@
           "mrr": 0.0,
           "map": 0.0,
           "hit_rate": 0.0,
+          "scope_recall": 0.0,
           "clauses_returned": 89,
           "context_words": 8000
         }
