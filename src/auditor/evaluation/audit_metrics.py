@@ -81,7 +81,6 @@ class AuditScores:
             "false_positive_rate": round(self.false_positive_rate, 4),
             "hallucinated": self.hallucinated,
             "hallucination_rate": round(self.hallucination_rate, 4),
-            "matched": self.matched,
         }
 
 
