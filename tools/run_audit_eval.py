@@ -228,7 +228,19 @@ def main() -> int:
     ]
 
     local_llm = any(p.name == "ollama" for p in chain)
-    estimated = 2.0 + (3.5 if local_llm else 0.0) + (0.0 if args.qdrant_path else 2.0)
+    # Measured, not guessed. A Groq-only run with the embedded index peaked at
+    # ~4 GB, not the 2 GB an earlier version of this estimate claimed: the
+    # v1_retrieval config loads MiniLM AND v1's 145 chunk embeddings on top of
+    # bge-base, the reranker and the in-process Qdrant index. An estimate that
+    # under-reports is worse than none, because the headroom verdict beside it
+    # is then wrong in the dangerous direction.
+    estimated = (
+        2.0                                          # bge-base + reranker + runtime
+        + (1.5 if "v1_retrieval" in args.configs else 0.0)   # MiniLM + v1 chunk matrix
+        + (0.6 if args.qdrant_path else 0.0)         # embedded index held in process
+        + (3.5 if local_llm else 0.0)                # 8B model spilling out of 4 GB VRAM
+        + (0.0 if args.qdrant_path else 2.0)         # Docker Desktop VM
+    )
     print(describe_plan(
         [
             f"LLM        : {provider.describe()}"
