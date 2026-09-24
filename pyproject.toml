@@ -15,6 +15,7 @@ where = ["src"]
 testpaths = ["tests"]
 pythonpath = ["src", "."]
 addopts = "-q --strict-markers"
+asyncio_default_fixture_loop_scope = "function"
 markers = [
     "slow: tests that load models or hit a live service",
     "integration: tests that need Qdrant or Ollama running",
