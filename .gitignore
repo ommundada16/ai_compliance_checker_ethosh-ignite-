@@ -1,8 +1,43 @@
+# --- python ---
 venv/
+.venv/
 __pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+
+# --- secrets ---
 .env
+
+# --- v1 artefacts ---
 *.npy
+report.json
+
+# --- v2 artefacts ---
+# Model weights, vector storage and run outputs are all reproducible.
+# Evaluation RESULTS are committed on purpose (see eval_data/), because the
+# whole point of this project is that the numbers are auditable.
+.fastembed_cache/
+qdrant_storage/
+artifacts/
+*.log
+
+# --- data ---
+# The two sample PDFs are committed so the pipeline runs out of the box.
 data/*
 !data/guideline.pdf
 !data/source_file.pdf
-report.json
+
+# --- frontend ---
+node_modules/
+frontend/dist/
+frontend/.vite/
+
+# --- os / editor ---
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

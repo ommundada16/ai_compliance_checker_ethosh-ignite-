@@ -1,0 +1,20 @@
+# ---------------------------------------------------------------------------
+# FROZEN v1 baseline dependencies.
+#
+# These are the dependencies of the original pipeline (app.py, auditor.py,
+# ingest.py, retriever.py, run_audit.py, schema.py at the repository root).
+# They are pinned and kept here so the v1 numbers quoted in the comparison
+# report stay reproducible. Do not upgrade these to "fix" anything -- a
+# baseline that moves is not a baseline.
+#
+# Install into a SEPARATE virtualenv if you want to run the original
+# Streamlit app:  pip install -r requirements-v1.txt
+# ---------------------------------------------------------------------------
+
+openai==1.54.4
+pdfplumber==0.11.4
+sentence-transformers==3.3.1     # pulls torch; v2 deliberately does not
+pydantic==2.9.2
+numpy==1.26.4
+streamlit==1.40.1
+python-dotenv==1.0.1
