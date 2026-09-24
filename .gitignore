@@ -44,3 +44,7 @@ Thumbs.db
 
 # derived cache, rebuilt on demand from clauses.jsonl + the PDF
 eval_data/.span_cache.json
+
+# written at the end of a full tools/propose_labels_llm.py run; committed only
+# when complete, never as a partial smoke-test result
+eval_data/llm_proposals.jsonl
