@@ -22,6 +22,18 @@ sys.path.insert(0, str(PROJECT_ROOT / "src"))
 from auditor.parsing.cer import build  # noqa: E402
 
 
+def rel(path: Path) -> str:
+    """Display path, tolerant of outputs written outside the repo.
+
+    Path.relative_to raises when the target is not under the base, which
+    crashed a completed run at the final print line.
+    """
+    try:
+        return str(path.relative_to(PROJECT_ROOT))
+    except ValueError:
+        return str(path)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--pdf", type=Path, default=PROJECT_ROOT / "data" / "source_file.pdf")
@@ -40,7 +52,7 @@ def main() -> int:
 
     words = sum(p.n_words for p in passages)
     sections = len({p.section for p in passages})
-    print(f"passages written : {len(passages)}  -> {args.out.relative_to(PROJECT_ROOT)}")
+    print(f"passages written : {len(passages)}  -> {rel(args.out)}")
     print(f"  sections       : {sections}")
     print(f"  total words    : {words:,}")
     print(f"  mean words     : {words // max(len(passages), 1)}")

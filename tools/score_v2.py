@@ -144,6 +144,18 @@ def evaluate(name: str, retrieve, gold, passages, clause_words, max_k) -> dict:
     }
 
 
+def rel(path: Path) -> str:
+    """Display path, tolerant of outputs written outside the repo.
+
+    Path.relative_to raises when the target is not under the base, which
+    crashed a completed run at the final print line.
+    """
+    try:
+        return str(path.relative_to(PROJECT_ROOT))
+    except ValueError:
+        return str(path)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--configs", nargs="+",
@@ -281,7 +293,7 @@ def main() -> int:
             row += f"{results[name]['budget_recall'][str(b)]:>11.3f}"
         print(row)
     print("-" * 84)
-    print(f"written to {args.out.relative_to(PROJECT_ROOT)}")
+    print(f"written to {rel(args.out)}")
     return 0
 
 

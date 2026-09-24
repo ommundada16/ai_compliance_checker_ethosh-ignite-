@@ -110,6 +110,18 @@ def merge_proposals(records: list[dict], proposals: list[dict], corpus_ids: set[
     return notes
 
 
+def rel(path: Path) -> str:
+    """Display path, tolerant of outputs written outside the repo.
+
+    Path.relative_to raises when the target is not under the base, which
+    crashed a completed run at the final print line.
+    """
+    try:
+        return str(path.relative_to(PROJECT_ROOT))
+    except ValueError:
+        return str(path)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--passages", type=Path, default=PROJECT_ROOT / "eval_data" / "passages.jsonl")
@@ -156,7 +168,7 @@ def main() -> int:
     )
     both = sum(1 for r in records for cid, src in r["provenance"].items() if len(src) > 1)
 
-    print(f"gold records written : {len(records)}  -> {args.out.relative_to(PROJECT_ROOT)}")
+    print(f"gold records written : {len(records)}  -> {rel(args.out)}")
     print(f"  sections covered   : {len({r['section'] for r in records})} / {len(SECTION_MAP)}")
     print(f"  primary labels     : {total_primary}  (mean {total_primary / max(len(records), 1):.1f}/passage)")
     print(f"  total labels       : {total_labels}  (mean {total_labels / max(len(records), 1):.1f}/passage)")
