@@ -25,9 +25,9 @@
     "note": "all-MiniLM-L6-v2 accepts 256 word-pieces. Dense regulatory English exceeds that well before 800 words, so the tail of every chunk is truncated before embedding. recall_ceiling is the highest Recall any top-k over this index could reach: the remaining clauses were never encoded, so no value of k can retrieve them."
   },
   "timing": {
-    "index_seconds": 2.45,
-    "mean_query_ms": 10.88,
-    "total_seconds": 19.6
+    "index_seconds": 2.38,
+    "mean_query_ms": 9.9,
+    "total_seconds": 23.1
   },
   "summary": {
     "1": {
