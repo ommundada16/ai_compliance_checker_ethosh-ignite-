@@ -1,124 +1,201 @@
-# The Auditor — EU MDR Compliance Checker
+# The Auditor
 
-The Auditor is an AI-powered compliance tool that checks Medical Device Clinical Evaluation Reports (CER) against the EU MDR (Regulation 2017/745) guidelines. It is designed to help medical device manufacturers and regulatory auditors quickly identify compliance gaps, missing requirements, and safety issues — without manually going through hundreds of pages of regulations.
+Audits Clinical Evaluation Reports against **EU MDR 2017/745** with a RAG
+pipeline, and — the part that matters — **measures whether it actually works**.
 
----
-
-## What It Does
-
-When you upload a Clinical Evaluation Report (PDF), the tool reads through it, compares each section against the official EU MDR guidelines, and highlights exactly where the document falls short. Every issue is tied to a specific regulation clause, given a severity rating, and comes with a suggested fix.
-
-At the end, you get a readiness score out of 100 and a downloadable HTML report summarizing all findings.
+The regulation is the corpus (1320 clauses). A section of the document under
+audit is the query. That inversion of the usual RAG arrangement drives most of
+the design decisions below.
 
 ---
 
-## Key Features
+## The result in one table
 
-- Checks your document against real EU MDR regulatory clauses
-- Highlights every issue directly in your document's text, color-coded by severity (Critical/High/Medium/Low) — no digging through a separate findings list to find where a problem actually is
-- Expand any highlighted issue to see the guideline clause, explanation, and suggested fix, then apply it with one click — the correction is re-verified against the guideline clause before it's written into the document
-- Groups issues into categories like Risk Management, Clinical Evaluation, Post-Market Surveillance, and more
-- Scores the document from 0 to 100 based on how many gaps were found
-- Shows AI confidence level for each finding
-- Generates a clean, downloadable audit report in HTML format
-- Runs entirely on your own machine via a local Ollama model — no API key, no rate limits, nothing sent over the network
+Retrieval quality at k = 5, identical frozen gold set, identical metric code:
 
----
+| Metric | v1 | v2 | |
+|---|---|---|---|
+| Scope recall | 0.113 | **0.200** | **+77%** |
+| nDCG | 0.063 | **0.150** | **+138%** |
+| MRR | 0.076 | **0.228** | **+200%** |
+| Context precision | 0.054 | **0.144** | **+167%** |
+| Context words sent to the LLM | 4000 | **1456** | **−64%** |
 
-## How It Works
+Better answers from a third of the context.
 
-1. You upload a PDF Clinical Evaluation Report through the web interface and pick how many pages to audit (5-10).
-2. The app splits the document into readable sections, page by page, and skips pages that look like a cover/table of contents/abbreviations list (no LLM call is wasted on those).
-3. For each remaining page, it finds the most relevant EU MDR guideline clauses.
-4. A local AI model, run through [Ollama](https://ollama.com), analyzes the page and identifies any violations or missing items.
-5. Any finding whose flagged text can't actually be located on that page is dropped rather than shown as an unanchored "phantom" issue.
-6. Results are highlighted directly in the document text, color-coded by severity. Expanding a highlighted issue shows the suggested fix; applying it re-verifies the correction against the guideline clause, then rewrites that part of the document text.
+Full numbers, including the ablation and the negative results:
+**[docs/COMPARISON.md](docs/COMPARISON.md)**
 
 ---
 
-## Setup Instructions
+## The finding the project is actually about
 
-These steps assume you have Python installed on your machine (version 3.9 or higher recommended).
+v1 scored 2.9% recall. That looked like a harness bug, so it was investigated
+before being reported. It was not a bug:
 
-**Step 1 — Clone the repository**
+> `all-MiniLM-L6-v2` accepts 256 word-pieces. Regulatory English runs well over
+> two pieces per word, so only **106 of every 800-word chunk** was ever encoded
+> — 13%. Silently. No error, no warning.
 
-If you haven't already, download the project to your local machine:
+Measured consequences:
 
-```bash
-git clone https://github.com/ommundada16/ai_compliance_checker_ethosh-ignite-.git
-cd ai_compliance_checker_ethosh-ignite-
+- **334 of 1320 clauses** were ever embedded at all
+- a hard **recall ceiling of ~31%** — no value of `k` could beat it, because the
+  rest was not in the index in any form
+
+v1's problem was never ranking. **87% of the regulation it was auditing against
+was invisible to its retriever.** `measure_embedding_window()` proves this by
+binary-searching the shortest prefix whose embedding is *identical* to the full
+chunk's, and the result is written into the baseline JSON so the claim travels
+with the numbers.
+
+v2 truncates **zero** gold clauses.
+
+---
+
+## Architecture
+
+```
+  PDF
+   |
+   +-- PARSE      layout-aware; tables rendered as "header: value" rows
+   |              (flattened, a table reads "Categor Characteris Device 1...")
+   |
+   +-- CHUNK      clause-level units with hierarchical IDs (Art.61.3.a)
+   |
+   +-- EMBED      bge-base-en-v1.5 dense + BM25 sparse, ONNX on CPU
+   |
+   +-- INDEX      Qdrant, named vectors, persisted
+                    |
+  Query (a CER section)
+   |
+   +-- HYBRID     dense + sparse, fused with RRF
+   +-- RERANK     bge-reranker-base cross-encoder, top-25 -> top-5
+   |
+   +-- AUDIT      LLM with clause IDs it must cite
+   |
+   +-- GUARDRAILS schema -> abstention -> citation check -> grounding -> judge
+   |
+   +-- FastAPI --SSE--> React
 ```
 
-**Step 2 — Create a virtual environment**
-
-This keeps the project's dependencies isolated from your system Python:
-
-```bash
-python -m venv venv
-venv\Scripts\activate
-```
-
-On Mac or Linux, use `source venv/bin/activate` instead.
-
-**Step 3 — Install the required libraries**
-
-```bash
-pip install -r requirements.txt
-```
-
-**Step 4 — Install Ollama and pull a model**
-
-This project runs its AI model locally through [Ollama](https://ollama.com) — no API key, no rate limit, no per-token cost, nothing sent over the network.
-
-1. Download and install Ollama for your OS from [ollama.com/download](https://ollama.com/download).
-2. Start it (on Windows/Mac it runs as a background app after install; on Linux run `ollama serve`).
-3. Pull the default model:
-   ```bash
-   ollama pull llama3.2:3b
-   ```
-   This 3B model is the default because it's noticeably faster per page than 8B-class models on a single consumer GPU/laptop, at some cost to finding quality. If you have a strong GPU (8GB+ VRAM) and want better accuracy and don't mind slower audits, you can use an 8B-class model instead:
-   ```bash
-   ollama pull llama3.1:8b
-   ```
-4. Create a file named `.env` in the root of the project folder:
-   ```
-   OLLAMA_MODEL=llama3.2:3b
-   OLLAMA_BASE_URL=http://localhost:11434/v1
-   ```
-   `OLLAMA_MODEL` must exactly match whichever model you pulled in step 3 (a `model not found` error means these are out of sync).
-
-   If audits still feel slow, run `ollama ps` while an audit is running — it shows whether the model is using your GPU (`100% GPU`) or has fallen back to CPU. CPU-only inference is 5-10x slower; if you see CPU usage, check that your GPU drivers are up to date and that Ollama detected your GPU (`ollama list` and the Ollama app's logs will mention it).
-
-**Step 5 — Run the application**
-
-```bash
-streamlit run app.py
-```
-
-Once the server starts, Streamlit will automatically open the app in your default browser. If it does not open on its own, look for the Local URL printed in your terminal (it will look like `http://localhost:8501`) and open it manually.
+The GPU budget is 4 GB and it belongs to the LLM, so embedding and reranking run
+on CPU via ONNX. There is no torch in the v2 dependency set.
 
 ---
 
-## Project Structure
+## Quick start
 
-| File | Purpose |
-|---|---|
-| `app.py` | Main web application and UI |
-| `auditor.py` | AI auditing logic using a local Ollama model |
-| `ingest.py` | PDF text extraction and chunking |
-| `retriever.py` | Semantic search over guideline chunks |
-| `report.py` | HTML report generation |
-| `schema.py` | Data models for findings and reports |
-| `data/guideline.pdf` | The EU MDR 2017/745 regulation text (bundled), used as the compliance reference |
-| `data/source_file.pdf` | A sample Clinical Evaluation Report (bundled) you can upload to try the tool immediately |
+```bash
+python -m venv .venv && .venv/Scripts/activate      # or source .venv/bin/activate
+pip install -r requirements-dev.txt
+cp .env.example .env                                 # add a GROQ_API_KEY, or use Ollama
+```
+
+Qdrant runs **embedded by default** — no Docker required. `docker-compose.yml`
+is there for when you want a real server.
+
+```bash
+python tools/score_v2.py --reindex     # build the index and score retrieval
+uvicorn api.main:app --reload          # http://localhost:8000/docs
+cd frontend && npm install && npm run dev
+```
 
 ---
 
-## Notes
+## Evaluation
 
-- `data/guideline.pdf` is included in this repo (it's the official EU MDR 2017/745 text from the Official Journal of the European Union, i.e. public legislation) so the audit works out of the box with no setup step for it.
-- `data/source_file.pdf` is a sample CER (provided as hackathon sample data) you can upload right away to see the tool in action without needing your own report.
-- The document view currently audits 5-10 pages at a time (chosen via a slider on the upload screen) rather than a full report, to keep local inference time reasonable.
-- Front-matter pages (cover, table of contents, abbreviations/glossary, revision history) are detected automatically and skipped entirely -- they don't count toward your page slider at all. "N pages" always means N pages of real content, scanned from wherever it actually starts in the PDF (even if that's non-contiguous, e.g. an abbreviations page appears again later in the document).
-- If you see a connection error during an audit, make sure the Ollama app/service is actually running and that you've pulled the model named in `OLLAMA_MODEL`.
-- Only PDFs with selectable text (not scanned images) are supported. If your PDF is scanned, run it through an OCR tool first.
+Three layers, because they fail independently.
+
+| Layer | Metrics | Question |
+|---|---|---|
+| Retrieval | Scope recall, nDCG, MRR, MAP, context precision | Did the right clauses come back, high up? |
+| Audit | Recall, precision, F1, **false-positive rate**, hallucination rate | Were the right violations reported, and only those? |
+| Systems | p50/p95 latency, context words, index time | Is it usable and affordable? |
+
+The gold set is **frozen**: 1320 clauses, 75 passages, an expert MDR mapping
+authored from the regulation, and graded relevance (primary / secondary).
+
+CI **rebuilds the gold set from the source PDFs on every push and fails if a
+single byte differs.** The artefacts are frozen but the parser is live code; a
+cleaning tweak silently redefines what a clause *is* while the labels keep
+pointing at the old IDs. Nothing would break — the numbers would just quietly
+stop meaning what they did.
+
+---
+
+## What this does **not** show
+
+Stated here rather than buried, because these are the first questions a careful
+reader should ask:
+
+- **The audit gold set is not exhaustive.** Four authored violations, fifteen
+  clean passages. Audit recall is a lower bound, not an estimate.
+- **"Clean" means a reviewer would not expect a finding**, not "provably
+  compliant".
+- **Retrieval labels are an expert rubric** cross-checked by an independent
+  model — not verified by a regulatory professional.
+- **Hybrid search made things worse** at low k, and is kept in the ablation
+  precisely because it is a negative result. BM25 assumes short keyword
+  queries; these are 250-word passages, so the sparse arm matches common legal
+  vocabulary and injects noise that fusion then rewards for "agreement".
+- **Absolute numbers are low.** Picking 2–3 governing provisions out of 1320
+  into a top-5 is genuinely hard. The *relative* improvement is the claim.
+
+---
+
+## Guardrails
+
+Cheapest first, so the expensive judge only sees findings that are already
+grounded and correctly cited. Every rejection records a typed reason, because
+the distribution of those reasons says which failure mode the model actually
+has — and whether a guardrail removes more false positives than true ones.
+
+| Guardrail | v1 | v2 |
+|---|---|---|
+| Schema | Categories listed in the prompt only | Enforced enums |
+| Abstention | None | Confidence threshold |
+| Citation | Free text | Must be a clause that was **retrieved** |
+| Grounding | First 40 characters, substring | Character spans: exact → whitespace → bounded fuzzy |
+| Judge | None | A **different** model verifies |
+| Injection | None | The PDF is untrusted input |
+
+The citation check matters most. The model cannot have read a clause it was
+never shown, so a citation outside the retrieved set comes from training data
+rather than from the regulation in front of it — the failure mode most likely
+to look convincing and be wrong. v1 could not detect it at all.
+
+---
+
+## Layout
+
+```
+src/auditor/
+  parsing/      MDR and CER structural parsers (shared with the gold set)
+  chunking      clause-level, in parsing/
+  embedding.py  dense + sparse, ONNX on CPU
+  retrieval/    Qdrant store, RRF fusion, cross-encoder rerank
+  llm/          provider interface: Groq, Ollama, failover
+  audit/        schema, prompts, guardrails, pipeline
+  evaluation/   metrics, gold-set resolution, audit scoring
+  baselines/    frozen v1, kept runnable so v2 has something to beat
+api/            FastAPI, SSE streaming
+frontend/       React + Vite + TypeScript
+tools/          gold-set builders and scoring scripts
+tests/          ~160 tests
+```
+
+---
+
+## A note on running this locally
+
+The LLM provider is pluggable on purpose. With `GROQ_API_KEY` set, inference
+happens remotely and the local footprint is ~2 GB. Running `llama3.1:8b`
+locally instead adds ~3.5 GB, and a 4.92 GB model does not fit in 4 GB of VRAM,
+so it spills into RAM.
+
+The evaluation scripts print a resource plan before they start and abort
+cleanly if free memory drops below a floor. That is not defensive
+over-engineering: three of these jobs left running at once exhausted a 16 GB
+machine, sent Windows into swap, and froze the desktop. A batch job that cannot
+finish should stop and say so.
