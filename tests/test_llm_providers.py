@@ -18,7 +18,6 @@ from auditor.llm.base import (
 )
 from auditor.llm.providers import FailoverProvider
 
-
 # --- JSON recovery --------------------------------------------------------
 
 def test_plain_json() -> None:
