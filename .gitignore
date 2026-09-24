@@ -48,3 +48,6 @@ eval_data/.span_cache.json
 # written at the end of a full tools/propose_labels_llm.py run; committed only
 # when complete, never as a partial smoke-test result
 eval_data/llm_proposals.jsonl
+
+# embedded qdrant index, rebuilt by tools/score_v2.py --reindex
+qdrant_local/

@@ -65,11 +65,31 @@ class QdrantClauseStore:
         url: str = "http://localhost:6333",
         api_key: str = "",
         timeout: int = 60,
+        path: str | None = None,
     ) -> None:
+        """Server mode by default; `path` switches to an embedded local index.
+
+        Embedded mode runs Qdrant in-process against a directory -- no server,
+        no container, no Docker Desktop VM. On a 16 GB laptop that is worth
+        roughly 2 GB of RAM, which is the difference between a comfortable run
+        and one that swaps.
+
+        Same client class and identical calling code either way, so the
+        evaluation harness cannot behave differently from the deployed service
+        just because one of them is embedded.
+
+        Embedded mode holds an exclusive lock on the directory, so only one
+        process may use it at a time. That is a feature here: it makes the
+        "three jobs at once" mistake impossible rather than merely discouraged.
+        """
         self.collection = collection
         self.dense = dense
         self.sparse = sparse
-        self.client = QdrantClient(url=url, api_key=api_key or None, timeout=timeout)
+        self.embedded = path is not None
+        if path is not None:
+            self.client = QdrantClient(path=path)
+        else:
+            self.client = QdrantClient(url=url, api_key=api_key or None, timeout=timeout)
 
     # -- lifecycle ---------------------------------------------------------
 
@@ -108,13 +128,19 @@ class QdrantClauseStore:
         # Payload indexes for the fields a filter would actually use. Without
         # them Qdrant scans payloads linearly, which defeats the point of
         # having filters at all once the corpus grows.
-        for field, schema in (
-            ("clause_id", models.PayloadSchemaType.KEYWORD),
-            ("article", models.PayloadSchemaType.INTEGER),
-            ("annex", models.PayloadSchemaType.KEYWORD),
-            ("kind", models.PayloadSchemaType.KEYWORD),
-        ):
-            self.client.create_payload_index(self.collection, field, schema)
+        #
+        # Embedded mode filters in memory and has no index to build, so it
+        # either ignores or rejects these. Skipped rather than wrapped in a
+        # blanket try/except, so a genuine index failure in SERVER mode still
+        # surfaces instead of being swallowed.
+        if not self.embedded:
+            for field, schema in (
+                ("clause_id", models.PayloadSchemaType.KEYWORD),
+                ("article", models.PayloadSchemaType.INTEGER),
+                ("annex", models.PayloadSchemaType.KEYWORD),
+                ("kind", models.PayloadSchemaType.KEYWORD),
+            ):
+                self.client.create_payload_index(self.collection, field, schema)
 
     def index(self, clauses: Sequence[dict], batch_size: int = 128) -> int:
         """Embed and upsert. Returns the number of points written."""

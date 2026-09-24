@@ -62,6 +62,7 @@ from auditor.evaluation.audit_metrics import (  # noqa: E402
     PredictedFinding,
     score_audit,
 )
+from auditor.resources import check_memory, describe_plan  # noqa: E402
 from auditor.retrieval.fusion import fuse_to_ids  # noqa: E402
 from auditor.retrieval.qdrant_store import QdrantClauseStore, ScoredClause  # noqa: E402
 
@@ -167,6 +168,16 @@ def main() -> int:
                     default=["v1_retrieval", "v2_no_guards", "v2_full"])
     ap.add_argument("--collection", default="mdr_clauses_v2")
     ap.add_argument("--qdrant-url", default="http://localhost:6333")
+    ap.add_argument("--qdrant-path", default="qdrant_local",
+                    help="Embedded index directory. Pass '' to use a server instead. "
+                         "Embedded runs in-process: no container, no Docker VM, "
+                         "~2 GB less RAM on a 16 GB machine.")
+    ap.add_argument("--provider", choices=["auto", "groq", "local"], default="auto",
+                    help="groq keeps inference off this machine entirely, which is "
+                         "both safer and faster than an 8B model that does not fit "
+                         "in 4 GB of VRAM.")
+    ap.add_argument("--memory-floor-gb", type=float, default=1.5,
+                    help="Abort cleanly if free RAM drops below this.")
     ap.add_argument("--candidates", type=int, default=25)
     ap.add_argument("--top-k", type=int, default=5)
     ap.add_argument("--all-passages", action="store_true")
@@ -181,14 +192,24 @@ def main() -> int:
     from auditor.llm.providers import FailoverProvider, GroqProvider, OllamaProvider
 
     chain: list = []
-    if os.getenv("GROQ_API_KEY"):
+    if args.provider in ("auto", "groq") and os.getenv("GROQ_API_KEY"):
         chain.append(GroqProvider(os.getenv("GROQ_API_KEY"),
                                   os.getenv("GROQ_MODEL", "openai/gpt-oss-120b"),
                                   os.getenv("GROQ_REASONING_EFFORT", "low")))
-    chain.append(OllamaProvider(model=os.getenv("OLLAMA_MODEL", "llama3.1:8b")))
+    if args.provider in ("auto", "local") or not chain:
+        chain.append(OllamaProvider(model=os.getenv("OLLAMA_MODEL", "llama3.1:8b")))
     provider = FailoverProvider(chain)
-    # The judge must differ from the generator, or it measures self-consistency.
-    judge = OllamaProvider(model=os.getenv("JUDGE_MODEL", "llama3.1:8b"))
+
+    # The judge must differ from the GENERATOR, or it measures self-consistency
+    # rather than correctness. With Groq generating, a local model is a genuinely
+    # independent second reader AND costs nothing extra to run.
+    judge = (
+        OllamaProvider(model=os.getenv("JUDGE_MODEL", "llama3.1:8b"))
+        if args.provider != "groq"
+        else GroqProvider(os.getenv("GROQ_API_KEY"),
+                          os.getenv("GROQ_JUDGE_MODEL", "openai/gpt-oss-20b"),
+                          "low")
+    )
 
     clauses = load_jsonl(PROJECT_ROOT / "eval_data" / "clauses.jsonl")
     clause_by_id = {c["clause_id"]: c for c in clauses}
@@ -206,6 +227,21 @@ def main() -> int:
         for e in entries
     ]
 
+    local_llm = any(p.name == "ollama" for p in chain)
+    estimated = 2.0 + (3.5 if local_llm else 0.0) + (0.0 if args.qdrant_path else 2.0)
+    print(describe_plan(
+        [
+            f"LLM        : {provider.describe()}"
+            + ("   <-- runs on THIS machine" if local_llm else "   (remote; ~0 GB local)"),
+            "embeddings : bge-base + bge-reranker, ONNX on CPU   ~2.0 GB",
+            "vector db  : " + ("embedded, in-process (no Docker)" if args.qdrant_path
+                               else "server at " + args.qdrant_url + " (Docker VM ~2 GB)"),
+            f"passages   : {len(passages)} x {len(args.configs)} configs",
+        ],
+        estimated,
+    ))
+    check_memory(args.memory_floor_gb, "starting")
+    print()
     print(f"provider  : {provider.describe()}")
     print(f"judge     : {judge.describe()}")
     print(f"passages  : {len(passages)} ({len(EXPECTED_FINDINGS)} with expectations, "
@@ -226,8 +262,11 @@ def main() -> int:
         )
 
     if any(c.startswith("v2") for c in args.configs):
-        store = QdrantClauseStore(args.collection, get_dense(), get_sparse(),
-                                  url=args.qdrant_url)
+        store = QdrantClauseStore(
+            args.collection, get_dense(), get_sparse(),
+            url=args.qdrant_url,
+            path=str(PROJECT_ROOT / args.qdrant_path) if args.qdrant_path else None,
+        )
         from auditor.retrieval.rerank import CrossEncoderReranker
 
         reranker = CrossEncoderReranker()
@@ -255,7 +294,18 @@ def main() -> int:
             configs[name],
             judge=judge if configs[name].enable_judge else None,
         )
-        report = pipeline.audit_document(passages, "Clinical Evaluation Report")
+        # Guard per passage, not just at the start: memory pressure builds as
+        # models warm up and caches fill, and the point is to exit cleanly
+        # while the machine is still responsive.
+        audited = []
+        for passage in passages:
+            check_memory(args.memory_floor_gb, f"passage {passage['passage_id']}")
+            audited.append(pipeline.audit_passage(passage))
+        from auditor.audit.schema import AuditReport, readiness_score
+
+        report = AuditReport(document_name="Clinical Evaluation Report",
+                             passages=audited)
+        report.readiness_score = readiness_score(report.findings)
         predicted = to_predicted(report)
         scores = score_audit(predicted, expected, CLEAN_PASSAGES)
 

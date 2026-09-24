@@ -1,0 +1,67 @@
+# Optional. The project does NOT need Docker.
+#
+# eval_data/qdrant_local holds an embedded Qdrant index that runs in-process,
+# and on a 16 GB laptop that is worth roughly 2 GB of RAM over running Docker
+# Desktop's WSL2 VM. Use this compose file when you want a real server -- for a
+# shared index, for concurrent readers, or to rehearse the deployed topology.
+#
+#   docker compose up -d qdrant
+#   QDRANT_PATH= python tools/score_v2.py --reindex     # empty path = server
+#
+# Setting QDRANT_PATH back to a directory returns to embedded mode. The calling
+# code is identical either way.
+
+services:
+  qdrant:
+    image: qdrant/qdrant:v1.19.1        # pinned: "latest" is not a version
+    container_name: auditor-qdrant
+    ports:
+      - "6333:6333"                      # REST
+      - "6334:6334"                      # gRPC
+    volumes:
+      - qdrant_storage:/qdrant/storage
+    environment:
+      QDRANT__SERVICE__GRPC_PORT: 6334
+    healthcheck:
+      # Qdrant's image has no curl or wget, so probe the port from the shell
+      # rather than assuming a tool that is not in the image.
+      test: ["CMD-SHELL", "bash -c '</dev/tcp/localhost/6333' || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    deploy:
+      resources:
+        limits:
+          # 1320 clauses need a fraction of this. The cap exists so a runaway
+          # container cannot take the host down -- which is exactly how this
+          # machine was lost once already.
+          memory: 1g
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: auditor-api
+    ports:
+      - "8000:8000"
+    depends_on:
+      qdrant:
+        condition: service_healthy
+    environment:
+      QDRANT_URL: http://qdrant:6333
+      QDRANT_PATH: ""                    # server mode inside compose
+      LLM_PROVIDER: ${LLM_PROVIDER:-groq}
+      GROQ_API_KEY: ${GROQ_API_KEY:-}
+      GROQ_MODEL: ${GROQ_MODEL:-openai/gpt-oss-120b}
+      # host.docker.internal reaches Ollama on the host, since Ollama runs
+      # outside compose and should not be containerised on a 4 GB GPU.
+      OLLAMA_BASE_URL: http://host.docker.internal:11434
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ./eval_data:/app/eval_data:ro
+      - ./data:/app/data:ro
+
+volumes:
+  qdrant_storage:
