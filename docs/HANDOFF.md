@@ -1,75 +1,72 @@
-# The Auditor — project handoff
+# HANDOFF — The Auditor (v2)
 
-A complete briefing for another engineer or AI assistant picking this up.
-Everything here is verifiable from the repository; no figure is estimated.
+Everything another engineer or AI assistant needs to continue this work.
+Every number is read from a committed file; none is estimated.
 
 **Repository:** https://github.com/ommundada16/ai_compliance_checker_ethosh-ignite-
-**Status:** v2 complete and measured, including audit quality. ~160 tests passing, lint clean.
+**Branch:** `main` · **Commits:** 32 · **Tests:** 100 passing · **Lint:** clean
 **Last updated:** 2026-09-25
 
 ---
 
-## 1. What this project is
+## 1. GOAL
 
-An AI tool that audits **Clinical Evaluation Reports** (CERs) for medical
-devices against **EU MDR 2017/745**, using an LLM plus a RAG pipeline.
+Audit **Clinical Evaluation Reports** (CERs) for medical devices against
+**EU MDR 2017/745** using an LLM and a RAG pipeline — and, critically, **prove
+numerically that v2 is better than v1** rather than asserting it.
 
 Two real documents drive everything:
 
-| File | What it is | Size |
-|---|---|---|
-| `data/guideline.pdf` | EU MDR 2017/745, the full regulation | 175 pages, 101k words |
-| `data/source_file.pdf` | A real CER for a Double J ureteral stent (BIORAD MEDISYS) | 91 pages |
+| File | What it is |
+|---|---|
+| `data/guideline.pdf` | EU MDR 2017/745, the full regulation — 175 pages, 101k words |
+| `data/source_file.pdf` | A real CER for a Double J ureteral stent (BIORAD MEDISYS) — 91 pages |
 
-### The insight that shapes the whole design
+### The one insight that shapes every design decision
 
-**This is not normal question-answering RAG, and treating it as such is why v1
-failed.**
+**This is not question-answering RAG, and treating it as such is why v1 failed.**
 
-In ordinary RAG a short human question retrieves against a document corpus.
-Here it is inverted:
+Normally a short human question retrieves against a document corpus. Here it is
+inverted:
 
 - the **corpus** is the regulation (1,320 clauses)
 - the **query** is a ~250-word section of the document being audited
 
-Consequences that drive design decisions throughout:
+Consequences that recur throughout the codebase:
 
 - A long, topically-mixed query embeds to a mushy average vector, so chunking
-  strategy has outsized impact.
-- "Relevance" means *"this clause governs this passage"*, not *"this answers
-  the question"* — a different labelling task.
-- Exact identifiers (`Annex XIV`, `Article 61(4)`, `PMCF`) matter, because the
-  literal string IS the meaning. That motivates the sparse retrieval arm.
+  has outsized impact.
+- "Relevant" means *"this clause governs this passage"*, not *"this answers the
+  question"* — a different labelling task entirely.
+- Exact identifiers (`Annex XIV`, `Article 61(4)`, `PMCF`) matter because the
+  literal string IS the meaning. That is why there is a sparse retrieval arm.
+
+### Non-negotiable methodology
+
+The evaluation harness was built **before** any improvement, and v1 was scored
+with it. Without that, "v2 is better" is unfalsifiable. Preserve this: measure
+first, change one variable per ablation row, keep negative results, state
+limitations up front. **Never loosen the gold set to improve a number.**
 
 ---
 
-## 2. v1 versus v2
+## 2. CURRENT STATE
 
-| | v1 (baseline) | v2 (current) |
-|---|---|---|
-| Parsing | `text.split()` over concatenated pages | Layout-aware; tables rendered as key–value rows |
-| Chunking | Fixed 800 words, 100 overlap | Clause-level units, hierarchical IDs (`Art.61.3.a`) |
-| Embedding | `all-MiniLM-L6-v2` (256 word-pieces) | `BAAI/bge-base-en-v1.5` (512) |
-| Sparse | none | BM25 (`Qdrant/bm25`) |
-| Index | numpy matrix in RAM, rebuilt every run | Qdrant, persisted, named dense + sparse vectors |
-| Retrieval | dense only, top-3 | hybrid → RRF fusion → cross-encoder rerank |
-| Reranker | none | `BAAI/bge-reranker-base` |
-| Grounding | first 40 chars, substring match | character spans: exact → whitespace → bounded fuzzy |
-| Citations | free text | clause ID verified against what was retrieved |
-| LLM | Ollama only, hardcoded | pluggable provider with Groq → Ollama failover |
-| Evaluation | **none** | frozen gold set, three metric layers, per-change ablation |
+### Done and measured
 
-**No torch anywhere in v2.** Embedding and reranking run on ONNX Runtime on
-CPU, because the dev machine has 4 GB of VRAM and that belongs to the LLM.
+| Area | Status |
+|---|---|
+| Frozen gold set (1,320 clauses, 75 passages, 159 primary labels) | complete |
+| Retrieval metrics + v1 baseline | complete |
+| v2 retriever: Qdrant, hybrid, RRF, cross-encoder rerank | complete, ablated |
+| Table-aware parsing | complete |
+| Audit pipeline + 6 layered guardrails | complete |
+| Audit gold set + audit metrics | complete |
+| FastAPI + SSE streaming | complete |
+| React + Vite + TypeScript UI | complete, typechecks + builds |
+| Docker, CI, docs | complete |
 
----
-
-## 3. THE NUMBERS
-
-All from `eval_data/results/*.json`. Same frozen gold set, same metric code,
-same 75 passages for every system.
-
-### 3.1 Retrieval quality at k = 5
+### Retrieval quality at k = 5
 
 | Metric | v1 | v2 dense | v2 hybrid | **v2 rerank** | v1 → best |
 |---|---|---|---|---|---|
@@ -79,50 +76,22 @@ same 75 passages for every system.
 | MAP | 0.028 | 0.068 | 0.040 | **0.069** | **+147%** |
 | Context precision | 0.054 | 0.099 | 0.061 | **0.144** | **+164%** |
 | Hit rate | 0.187 | 0.267 | 0.213 | **0.387** | **+107%** |
-| Context words sent to LLM | 4000 | 2398 | 3662 | **1456** | **−64%** |
-| Latency per query | 17 ms | 339 ms | 353 ms | 14,061 ms | — |
+| Context words to LLM | 4000 | 2398 | 3662 | **1456** | **−64%** |
+| Latency / query | 17 ms | 339 ms | 353 ms | 14,061 ms | — |
 
-**Scope recall is the headline metric**: did the retriever surface the
-provisions that actually govern this passage.
-
-### 3.2 Recall at a matched context budget — the fair comparison
+### Recall at a matched context budget (the fair comparison)
 
 Equal `k` is not equal information: v1 returns 800-word chunks, v2 returns
-~66-word clauses. Comparing at equal **words delivered to the LLM**:
+~66-word clauses.
 
 | System | 200w | 400w | 800w | 2400w | 4000w |
 |---|---|---|---|---|---|
 | v1 baseline | 0.019 | 0.019 | 0.019 | 0.035 | 0.063 |
-| v2 dense | 0.034 | 0.057 | 0.058 | 0.067 | 0.125 |
-| v2 hybrid | 0.006 | 0.027 | 0.034 | 0.042 | 0.065 |
 | **v2 rerank** | **0.054** | **0.080** | **0.111** | **0.126** | **0.144** |
 
 At 800 words: **0.111 vs 0.019 — 5.8×**.
 
-### 3.3 The root cause of v1's failure (the most important finding)
-
-v1 scored 2.9% recall on the first measurement. That looked like a harness bug,
-so it was investigated before being reported. It was not a bug:
-
-> `all-MiniLM-L6-v2` accepts 256 word-pieces. Regulatory English runs well over
-> two pieces per word, so only **106 words of every 800-word chunk** were ever
-> encoded — 13%. Silently. No error, no warning.
-
-| Measurement | Value |
-|---|---|
-| Words embedded per 800-word chunk | **106** (13%) |
-| Clauses ever embedded at all | **334 / 1320** |
-| Gold labels reachable | 243 / 808 |
-| **Hard recall ceiling** | **30.1%** — no value of `k` could beat it |
-| v2 gold clauses truncated | **0** |
-
-v1's problem was never ranking. **87% of the regulation it was auditing against
-was invisible to its retriever.** `measure_embedding_window()` in
-`src/auditor/baselines/v1_retriever.py` proves this by binary-searching the
-shortest prefix whose embedding is *identical* to the full chunk's, and the
-result is written into the baseline JSON so the claim travels with the numbers.
-
-### 3.4 Audit quality — v2_full, 19 passages
+### Audit quality (v2_full, 19 passages)
 
 | Metric | Value |
 |---|---|
@@ -132,164 +101,285 @@ result is written into the baseline JSON so the claim travels with the numbers.
 | F1 | 0.105 |
 | **False-positive rate** | **0.533** (8 of 15 clean passages flagged) |
 | **Hallucination rate** | **0.000** |
-| Guardrail rejections | 5 (2 citing unretrieved clauses, 3 rejected by the judge) |
+| Guardrail rejections | 5 |
 | Runtime | 576 s |
 
-**These are poor numbers and are reported as such.** The breakdown is what
-makes them useful:
+**These are poor and are reported as poor.** Section 5 explains why.
 
-| Expected finding | Retrieval found the clause? | Model reported it? | Verdict |
-|---|---|---|---|
-| `CER.4.3.2.1` → Art. 61(4) | yes | yes | **found** |
-| `CER.2.11` → Annex I s23 | **yes** | **no** | LLM miss |
-| `CER.2.19` → Annex II s1 | no | n/a | retrieval miss |
-| `CER.4.3.2.2#1` → Art. 83 | no | n/a | retrieval miss |
+### Environment
 
-Two retrieval failures, one reasoning failure. Improving the prompt would not
-have recovered the first two; improving retrieval would not have recovered the
-third. That attribution is the entire reason the two layers are measured apart.
-
-**The false-positive rate is the binding problem.** The pipeline audits each
-passage in isolation, so the model sees section 2.1 ("Identification of
-device(s)", 54 administrative words) alongside Annex XIV s1(a), which lists
-what a clinical evaluation plan must contain. It correctly notes that this
-section contains no such plan, and reports it — while the content sits in
-section 4, which the model never sees. These findings carried confidence
-0.88-0.97, so raising the abstention threshold will not separate them.
-
-Highest-value next step: **document-level reconciliation** — before reporting
-"X is missing", check whether X appears elsewhere in the document.
-
-Hallucination rate is 0.000: the guardrails do catch fabrication. They cannot
-catch a finding that is internally coherent and merely out of context.
-
-## 4. The evaluation methodology
-
-This is the part worth understanding — it is what makes the numbers mean
-anything.
-
-### 4.1 Build the measuring stick first
-
-The gold set and metric harness were built **before** any improvement, and v1
-was scored with them. Without that, "v2 is better" is unfalsifiable.
-
-### 4.2 The frozen gold set
-
-| Artefact | Contents |
-|---|---|
-| `eval_data/clauses.jsonl` | 1,320 MDR clauses, hierarchical IDs, page spans |
-| `eval_data/passages.jsonl` | 75 CER passages across 46 sections |
-| `eval_data/gold_retrieval.jsonl` | 159 primary + 136 secondary graded labels |
-| `tools/mdr_section_map.py` | Expert CER-section → MDR-clause mapping, with rationale per entry |
-| `tools/audit_expectations.py` | 4 authored violations + 15 clean passages |
-
-**Graded relevance, not binary.** Primary (grade 2) is the clause a regulator
-cites first; missing it is a real failure. Secondary (grade 1) legitimately
-bears on the section but its absence is not. Recall counts primary only; nDCG
-uses both. This stops a retriever scoring well by dredging up loose context
-while missing the governing clause.
-
-**Labels name a SCOPE, not always a leaf.** A retrieved clause satisfies label
-`L` if its ID is `L` or sits beneath it. `Annex.VIII` is satisfied by
-`Annex.VIII.5`; `Art.61.1` has no children and still matches only itself.
-
-**Non-circular labelling.** The expert map is hand-authored from the
-regulation. A second opinion comes from an LLM that selects from a COMPLETE
-ENUMERATION of the regulation's structure (all 123 Article titles + 17 Annex
-titles, then all clauses of the chosen instruments) — it never sees retrieval
-output, so labels cannot smuggle in a retriever's ranking. The model may only
-add secondary labels; it can never create a primary one. A test enforces this.
-
-### 4.3 Three metric layers
-
-| Layer | Metrics | Question |
-|---|---|---|
-| Retrieval | Scope recall, nDCG, MRR, MAP, context precision, hit rate | Did the right clauses come back, high up? |
-| Audit | Recall, precision, F1, **FP rate**, hallucination rate | Were the right violations reported, and only those? |
-| Systems | latency, context words, index time | Is it usable and affordable? |
-
-### 4.4 Fairness rules
-
-- Identical frozen gold set for every system, built before v2 existed
-- Same metric code, same temperature 0, same seed
-- Exactly **one** variable changes per ablation row
-- v1's 800-word chunks are mapped to the clauses they contain — deliberately
-  **generous to v1**, making the v2 delta a conservative claim
-- Comparison reported at matched context budget, not just matched `k`
+- **Python 3.12** venv at `C:\Users\ommun\.venvs\auditor` (deliberately outside
+  the OneDrive-synced project folder)
+- **No torch.** Embedding and reranking run on ONNX Runtime, CPU only
+- **Qdrant runs embedded** (in-process, `qdrant_local/`) — Docker not required
+- **LLM:** Groq `openai/gpt-oss-120b`, judge `openai/gpt-oss-20b`; local Ollama
+  `llama3.1:8b` as failover
 
 ---
 
-## 5. Architecture
+## 3. FILES TOUCHED
 
-```
-  PDF
-   |
-   +-- PARSE      layout-aware; tables rendered "header: value"
-   +-- CHUNK      clause-level units, hierarchical IDs
-   +-- EMBED      bge-base dense + BM25 sparse, ONNX on CPU
-   +-- INDEX      Qdrant (embedded by default; server optional)
-                    |
-  Query = a CER section
-   |
-   +-- HYBRID     dense + sparse
-   +-- FUSE       Reciprocal Rank Fusion (k=60)
-   +-- RERANK     bge-reranker-base cross-encoder, top-25 -> top-5
-   +-- AUDIT      LLM, must cite a clause ID it was shown
-   +-- GUARDRAILS schema -> abstention -> citation -> grounding -> judge
-   +-- API        FastAPI + SSE
-   +-- UI         React + Vite + TypeScript
-```
+10,228 lines of Python, 1,108 of TypeScript/CSS.
 
-### Guardrails, cheapest first
+### New — the v2 pipeline (`src/auditor/`)
 
-| Guardrail | What it rejects |
+| File | Purpose |
 |---|---|
-| Schema | Invented categories/severities; missing quote |
+| `parsing/mdr.py` | MDR → 1,320 clauses with hierarchical IDs (`Art.61.3.a`) |
+| `parsing/cer.py` | CER → 75 passages; table-aware, bullet repair, boilerplate stripping |
+| `embedding.py` | bge-base dense + BM25 sparse, ONNX/CPU |
+| `retrieval/qdrant_store.py` | Named dense+sparse vectors; server **or** embedded |
+| `retrieval/fusion.py` | Reciprocal Rank Fusion |
+| `retrieval/rerank.py` | bge-reranker-base cross-encoder |
+| `llm/base.py` | `JSONProvider` interface, JSON recovery, typed errors |
+| `llm/providers.py` | Groq (token-paced), Ollama (native API), failover chain |
+| `audit/schema.py` | Enforced enums, mandatory quote, drop reasons |
+| `audit/guardrails.py` | Span grounding, citation check, injection sanitising |
+| `audit/pipeline.py` | retrieve → prompt → parse → guard → judge |
+| `evaluation/metrics.py` | Recall@k, nDCG, MRR, MAP, context precision |
+| `evaluation/gold.py` | Scope resolution, `scope_recall` |
+| `evaluation/audit_metrics.py` | Recall, FP rate, hallucination rate |
+| `baselines/v1_retriever.py` | Frozen v1, runnable; `measure_embedding_window()` |
+| `baselines/coverage.py` | Maps v1 chunks → clause IDs so v1 can be scored |
+| `resources.py` | Memory guard + resource plan |
+
+### New — gold set and scoring (`tools/`)
+
+`build_clause_corpus.py`, `build_protocol_passages.py`, `mdr_section_map.py`
+(the expert mapping), `build_gold_retrieval.py`, `audit_expectations.py`,
+`propose_labels_llm.py`, `score_baseline_v1.py`, `score_v2.py`,
+`run_audit_eval.py`, `build_comparison_report.py`
+
+### New — service and UI
+
+`api/main.py`, `api/deps.py`, `frontend/src/**` (App, PassageView,
+MetricsPanel, SearchPanel, api.ts, styles.css)
+
+### New — tests (`tests/`, 100 passing)
+
+`test_metrics.py`, `test_coverage.py`, `test_fusion_and_gold.py`,
+`test_guardrails.py`, `test_audit_metrics.py`, `test_llm_providers.py`,
+`test_clause_corpus.py`, `test_protocol_passages.py`, `test_gold_retrieval.py`,
+`test_parsers_match_frozen.py`, `test_api.py`
+
+### New — infra and docs
+
+`Dockerfile`, `docker-compose.yml`, `.github/workflows/ci.yml`,
+`.gitattributes`, `pyproject.toml`, `requirements{,-dev,-v1}.txt`,
+`README.md`, `docs/COMPARISON.md`, `docs/HANDOFF.md`
+
+### Frozen artefacts (`eval_data/`, committed)
+
+`clauses.jsonl` (1,320), `passages.jsonl` (75), `gold_retrieval.jsonl` (75),
+`results/v1_baseline.json`, `results/v2_ablation.json`, `results/audit_eval.json`
+
+### Untouched — v1, kept as the baseline
+
+`app.py`, `auditor.py`, `ingest.py`, `retriever.py`, `run_audit.py`,
+`schema.py`, `report.py`. **Do not modify these.** They are the reference
+point every comparison is made against.
+
+---
+
+## 4. WHAT CHANGED
+
+### Architecture
+
+| | v1 | v2 |
+|---|---|---|
+| Parsing | `text.split()` over concatenated pages | Layout-aware; tables → key-value rows |
+| Chunking | Fixed 800 words / 100 overlap | Clause-level, hierarchical IDs |
+| Embedding | all-MiniLM-L6-v2 (256 word-pieces) | bge-base-en-v1.5 (512) |
+| Sparse | none | BM25 |
+| Index | numpy in RAM, rebuilt each run | Qdrant, persisted |
+| Retrieval | dense, top-3 | hybrid → RRF → cross-encoder |
+| Grounding | first 40 chars, substring | character spans: exact → whitespace → fuzzy |
+| Citations | free text | clause ID verified against what was retrieved |
+| LLM | Ollama hardcoded | pluggable provider + failover |
+| Evaluation | **none** | frozen gold set, 3 metric layers, ablation |
+
+### Guardrails (cheapest first, so the judge only sees clean candidates)
+
+| Guardrail | Rejects |
+|---|---|
+| Schema | Invented categories/severities, missing quote |
 | Abstention | Confidence below threshold |
 | **Citation** | A clause that was never retrieved |
-| Grounding | A quote that cannot be located in the passage |
-| Judge | A finding a *different* model does not support |
+| Grounding | A quote not locatable in the passage |
+| Judge | A finding a **different** model won't support |
 | Injection | Instruction-like text inside the untrusted PDF |
 
-The citation check matters most: the model cannot have read a clause it was
-never shown, so a citation outside the retrieved set comes from training data
-rather than the regulation in front of it. v1 could not detect this at all.
+Every rejection records a **typed reason**, so the guardrails are themselves
+measurable — a guardrail that removes more true positives than false ones is a
+bad guardrail, and without the reasons there is no way to tell.
 
-Every rejection records a **typed reason**. The distribution of reasons is
-itself a measurement — it says which failure mode the model has, and whether a
-guardrail removes more false positives than true ones.
+### The single most important finding
+
+v1 scored 2.9% recall. That looked like a harness bug, so it was investigated
+before being reported. It was not a bug:
+
+> `all-MiniLM-L6-v2` accepts 256 word-pieces. Regulatory English exceeds two
+> pieces per word, so only **106 words of every 800-word chunk** were ever
+> encoded — 13%. Silently. No error, no warning.
+
+| Measurement | Value |
+|---|---|
+| Words embedded per chunk | **106** of 800 (13%) |
+| Clauses ever embedded | **334 / 1,320** |
+| **Hard recall ceiling** | **30.1%** — no `k` could beat it |
+| v2 gold clauses truncated | **0** |
+
+`measure_embedding_window()` proves it by binary-searching the shortest prefix
+whose embedding is *identical* to the full chunk's. The result is written into
+the baseline JSON so the claim travels with the numbers.
+
+### Gold-set design decisions worth preserving
+
+- **Graded relevance**: primary (2) = the clause a regulator cites first;
+  secondary (1) = legitimately related. Recall counts primary only; nDCG uses
+  both.
+- **Labels name a SCOPE**: `Annex.VIII` is satisfied by `Annex.VIII.5`;
+  `Art.61.1` has no children and matches only itself.
+- **Non-circular labelling**: the expert map is hand-authored from the
+  regulation; the LLM cross-check selects from a COMPLETE ENUMERATION of the
+  regulation's structure and never sees retrieval output. It may only add
+  secondary labels, never create a primary one. A test enforces this.
+- **v1 is scored generously** (its chunks are credited with every clause they
+  contain), making the v2 delta a conservative claim.
 
 ---
 
-## 6. Repository layout
+## 5. WHAT FAILED
 
-```
-src/auditor/
-  parsing/mdr.py          MDR -> 1320 clauses with hierarchical IDs
-  parsing/cer.py          CER -> 75 passages, table-aware
-  embedding.py            dense + sparse, ONNX/CPU
-  retrieval/qdrant_store.py   server or embedded index
-  retrieval/fusion.py     RRF, unit-tested against hand-computed values
-  retrieval/rerank.py     cross-encoder
-  llm/base.py             JSONProvider interface, JSON recovery
-  llm/providers.py        Groq (paced) / Ollama (native API) / failover
-  audit/schema.py         enforced enums, mandatory quote
-  audit/guardrails.py     span grounding, injection sanitising
-  audit/pipeline.py       retrieve -> prompt -> parse -> guard -> judge
-  evaluation/metrics.py   Recall@k, nDCG, MRR, MAP, context precision
-  evaluation/gold.py      scope resolution
-  evaluation/audit_metrics.py  recall, FP rate, hallucination
-  baselines/              frozen v1, kept runnable
-  resources.py            memory guard
-api/                      FastAPI + SSE
-frontend/                 React + Vite + TypeScript
-tools/                    gold-set builders, scoring scripts
-tests/                    ~160 tests
-```
+### 5.1 The audit results are poor — and the breakdown says why
+
+| Expected finding | Retrieved? | Reported? | Verdict |
+|---|---|---|---|
+| `CER.4.3.2.1` → Art. 61(4) | yes | yes | **found** |
+| `CER.2.11` → Annex I §23 | **yes** | **no** | LLM miss |
+| `CER.2.19` → Annex II §1 | no | — | retrieval miss |
+| `CER.4.3.2.2#1` → Art. 83 | no | — | retrieval miss |
+
+**Two retrieval failures, one reasoning failure.** A better prompt would not
+have recovered the first two; better retrieval would not have recovered the
+third. This attribution is the entire reason the two layers are measured apart.
+
+### 5.2 The false-positive rate is the binding problem — and it is architectural
+
+**8 of 15 clean passages drew a finding. Precision 0.067.**
+
+The pipeline audits each passage **in isolation**. The model is shown section
+2.1 ("Identification of device(s)", 54 administrative words) together with
+Annex XIV §1(a), which lists what a clinical evaluation plan must contain. It
+correctly observes that this section contains no such plan and reports it — but
+the content is in **section 4**, which it never sees.
+
+Those findings carried confidence **0.88–0.97**, so raising the abstention
+threshold will not separate them. This is not a prompt defect.
+
+### 5.3 Hybrid search made retrieval worse — a kept negative result
+
+Scope recall at k=5: hybrid **0.107** vs dense **0.138**. BM25 assumes short
+keyword queries; these are 250-word passages, so the sparse arm matches common
+legal vocabulary and injects noise that RRF then rewards for "cross-arm
+agreement". The reranker recovers it. Kept in the ablation **because** it is
+negative.
+
+### 5.4 Operational failures, and what fixed them
+
+| Failure | Cause | Fix |
+|---|---|---|
+| Desktop froze, disk 100% | Three ML jobs at once on 15.7 GB; Windows swapped | Memory guard + resource plan + embedded Qdrant lock |
+| 18 of 19 passages lost to HTTP 429 | Token pacer existed in one tool only | Pacing moved **into** `GroqProvider` |
+| Audit run took 50+ min then died | Longest MDR clause is 2,351 words → one request cost ~25,700 tokens = 3.2 min of pacing | Clause text capped at 250 words in the prompt → 4,589 tokens; run now 576 s |
+| qwen3:4b returned empty responses | Ollama's OpenAI shim silently drops `think:False` | Switched to the native `/api/chat` endpoint |
+| Gold labels marked correct retrievals wrong | `Annex.VIII.1` was written meaning "Annex VIII"; that ID is "DURATION OF USE" | Scope-based matching, applied identically to v1 and v2 |
+| API returned scores contradicting its own order | With rerank off, order came from RRF but raw dense scores were returned | Return the score of whichever stage decided the order |
+
+**Beware the Groq dashboard.** Its "Rate Limit" line reads 80.5K, which looks
+like 10× the available headroom. It is the per-minute limit scaled to the
+graph's 10-minute buckets. The API header is authoritative:
+`x-ratelimit-limit-tokens: 8000`.
+
+### 5.5 Known limitations — state these before anyone asks
+
+- **Audit gold set is not exhaustive** — 4 authored violations, 15 clean
+  passages. Audit recall is a **lower bound**, not an estimate.
+- **"Clean" means a reviewer would not expect a finding**, not "provably
+  compliant".
+- **Retrieval labels are an expert rubric**, not verified by a regulatory
+  professional.
+- **Absolute retrieval numbers are low** (0.200 scope recall). Selecting 2–3
+  governing provisions from 1,320 into a top-5 is hard; random ≈ 0.4%. The
+  **relative** improvement is the claim.
+- **Reranking costs ~14 s/query on CPU** — too slow for interactive use.
+- **Only `v2_full` has audit numbers.** `v1_retrieval` and `v2_no_guards` have
+  not been run, so the audit table has no ablation.
+- **LLM label cross-check not merged** — `tools/propose_labels_llm.py` works
+  and is rate-limit-safe, but its output is not folded into the gold set.
+- **UI not verified in a browser** — it typechecks and builds, but has not been
+  run against the live API and screenshotted.
 
 ---
 
-## 7. How to reproduce every number
+## 6. NEXT STEPS
+
+In descending order of value.
+
+### 1. Document-level reconciliation — fixes the biggest problem
+
+Before reporting "X is missing", check whether X appears elsewhere in the
+document. Most of the 8 false positives would disappear. Approach: after the
+per-passage pass, for each "missing X" finding, run a retrieval query for X
+over the **CER's own passages**; if a strong match exists, downgrade or drop.
+
+Expected: FP rate 0.53 → well under 0.2. **Do this first.**
+
+### 2. Tell the model what kind of section it is reading
+
+Pass the section title and a coarse type (identification / description /
+analysis / evidence). An identification section cannot breach a
+clinical-evaluation-plan requirement. Cheap, and complements step 1.
+
+### 3. Complete the audit ablation
+
+Run `v1_retrieval` and `v2_no_guards` (~10 min each, Groq). This turns one
+audit row into a real comparison and quantifies what retrieval quality and the
+guardrails are each worth in *findings*, not just in retrieval metrics.
+
+```bash
+python tools/run_audit_eval.py --provider groq --configs v1_retrieval
+python tools/run_audit_eval.py --provider groq --configs v2_no_guards
+```
+
+### 4. Fix the two retrieval misses
+
+`CER.2.19` (Annex II §1) and `CER.4.3.2.2#1` (Art. 83) were never retrieved.
+Investigate: query expansion, or a section-title-aware query, or raising `k`
+for the audit path specifically.
+
+### 5. Reranker latency
+
+14 s/query is too slow interactively. Options: batch the cross-encoder, use
+`jinaai/jina-reranker-v1-turbo-en` (0.15 GB vs 1.04 GB), or rerank only the
+top-10 rather than top-25.
+
+### 6. Verify the UI in a browser and screenshot it
+
+`uvicorn api.main:app --reload` plus `cd frontend && npm run dev`.
+
+### 7. Merge the LLM label cross-check
+
+```bash
+python tools/propose_labels_llm.py
+python tools/build_gold_retrieval.py --merge eval_data/llm_proposals.jsonl
+```
+
+Then re-run both scoring scripts, since the gold set will have changed.
+
+---
+
+## Reproducing every number
 
 ```bash
 python -m venv .venv && .venv/Scripts/activate
@@ -301,12 +391,9 @@ python tools/build_protocol_passages.py   # 75 passages
 python tools/build_gold_retrieval.py      # graded labels
 python tools/score_baseline_v1.py         # v1 numbers
 python tools/score_v2.py --reindex        # v2 ablation
-python tools/run_audit_eval.py --provider groq
+python tools/run_audit_eval.py --provider groq --configs v2_full
 python tools/build_comparison_report.py   # docs/COMPARISON.md
 ```
-
-Qdrant runs **embedded** by default — no Docker required.
-`docker-compose.yml` exists for when a real server is wanted.
 
 CI rebuilds the gold set from the source PDFs on every push and **fails if a
 single byte differs**. The artefacts are frozen but the parser is live code; a
@@ -316,86 +403,24 @@ what they did.
 
 ---
 
-## 8. Known limitations — state these before anyone asks
+## Machine constraints — read before running anything
 
-- **The audit gold set is not exhaustive.** Four authored violations, fifteen
-  clean passages. Audit recall is a **lower bound**, not an estimate.
-- **"Clean" means a reviewer would not expect a finding**, not "provably
-  compliant".
-- **Retrieval labels are an expert rubric**, cross-checked by an independent
-  model but not verified by a regulatory professional.
-- **Hybrid search made things worse** at low k (0.107 vs 0.138 scope recall at
-  k=5) and is kept in the ablation *because* it is a negative result. BM25
-  assumes short keyword queries; these are 250-word passages, so the sparse arm
-  matches common legal vocabulary and injects noise that RRF then rewards for
-  "cross-arm agreement".
-- **Absolute numbers are low.** Selecting 2–3 governing provisions out of 1,320
-  clauses into a top-5 is genuinely hard (random ≈ 0.4%). The **relative**
-  improvement is the claim.
-- **Reranking costs ~14 s/query on CPU.** Too slow for interactive use at that
-  setting; needs batching or a smaller cross-encoder.
-- **Groq free tier is 8,000 tokens/minute**, which makes a full audit run take
-  ~40 minutes. This is the dominant cost of any end-to-end evaluation.
+The development machine is **15.7 GB RAM, 4 GB VRAM (RTX 3050 Laptop)**.
 
----
+- **Run ONE ML or LLM job at a time.** Verify the previous one has exited; a
+  completion notification is not the same as having checked. Three concurrent
+  jobs exhausted memory, sent Windows into swap, and froze the desktop.
+- **Prefer Groq over local Ollama** for batch work — remote inference costs
+  ~0 local RAM and is faster than an 8B model that does not fit in 4 GB of VRAM.
+- `llama3.1:8b` is 4.92 GB and spills into RAM (~3.5 GB extra).
+- Evaluation scripts print a resource plan and abort below a memory floor.
+  **Keep that behaviour.**
+- **Never pipe a long background job through `grep`** without `--line-buffered`
+  — it block-buffers and you lose all output. This happened twice.
 
-## 9. Bugs found and fixed — useful context
+## Context about the author
 
-Each was found by checking output, not by a test failing:
-
-1. **MiniLM truncation** — the finding above. 87% of the corpus unindexed.
-2. **Gold labels at the wrong granularity** — `Annex.VIII.1` was written
-   meaning "Annex VIII"; that ID is actually "DURATION OF USE". The retriever
-   was returning the correct classification rule and scoring zero. Fixed with
-   scope-based matching applied identically to v1 and v2.
-3. **Clause locator scattering** — accepting the first candidate above a
-   threshold let a 9-token clause match a sparse 34-token scatter. Now the
-   tightest span wins and a ceiling rejects stretched matches.
-4. **Flattened tables** — 17 of 68 gold queries were column-interleaved
-   garbage. Fixed by rendering tables as key–value rows; +16% more text
-   captured and all retrieval metrics rose.
-5. **Duplicate section numbers in the source CER** — the document numbers two
-   different sections `4.5.1`. Later occurrences now take a `~2` suffix.
-6. **Ollama's OpenAI shim drops `think:False`** — qwen3 burned 2,000 tokens on
-   a hidden reasoning block and returned empty content. Now on the native API.
-7. **Rate limiting in the wrong layer** — the token pacer lived in one tool, so
-   an audit run fired 19 requests back to back and lost 18 to HTTP 429. Pacing
-   now lives inside `GroqProvider`.
-8. **API returned scores that contradicted its own ordering** — with reranking
-   off, ordering came from RRF but the response carried raw dense scores.
-
----
-
-## 10. What is NOT done
-
-- **Document-level reconciliation** — the single highest-value fix. Without it
-  the false-positive rate stays around 0.53 and the tool is not usable by a
-  reviewer.
-- **The other two audit configs** (`v1_retrieval`, `v2_no_guards`) have not
-  been run, so the audit table has no ablation yet. Each costs ~10 min.
-- **Browser verification of the UI** — code typechecks and builds; not yet
-  screenshotted running against the live API.
-- **LLM label cross-check not merged** — `tools/propose_labels_llm.py` works
-  and is rate-limit-safe, but its output has not been folded into the gold set.
-- **Reranker latency** — 14 s/query needs addressing before interactive use.
-- **No deployment** — Terraform/Ansible were deliberately dropped from scope.
-
----
-
-## 11. If you are an AI assistant picking this up
-
-Context you need that is not obvious from the code:
-
-- **The user is a final-year Computer Engineering student** building this for a
-  resume/portfolio. Interview-defensibility matters more than raw scores.
-- **Their machine is 15.7 GB RAM / 4 GB VRAM.** Running three ML jobs at once
-  exhausted it, sent Windows into swap, and froze the desktop. **Never run more
-  than one LLM or ML job at a time**, and verify the previous one exited before
-  starting another. Prefer Groq (remote, ~0 local RAM) over local Ollama.
-- `llama3.1:8b` is 4.92 GB and does **not** fit in 4 GB of VRAM; it spills into
-  RAM and adds ~3.5 GB.
-- Evaluation scripts print a resource plan and abort below a memory floor. Keep
-  that behaviour.
-- **The methodology is the product.** Preserve: measuring before changing,
-  one variable per ablation row, keeping negative results, and stating
-  limitations up front. Do not "improve" a number by loosening the gold set.
+Final-year Computer Engineering student building this for a portfolio and
+interviews. **Interview-defensibility matters more than flattering numbers.**
+The methodology is the product: measuring before changing, one variable per
+ablation row, keeping negative results, and stating limitations up front.
