@@ -4,7 +4,7 @@ Everything another engineer or AI assistant needs to continue this work.
 Every number is read from a committed file; none is estimated.
 
 **Repository:** https://github.com/ommundada16/ai_compliance_checker_ethosh-ignite-
-**Branch:** `main` · **Commits:** 34 · **Tests:** 100 passing · **Lint:** clean
+**Branch:** `main` · **Commits:** 34 · **Tests:** 172 collected, 170 passing (2 skipped: integration tests that need a live service) · **Lint:** clean
 **Last updated:** 2026-09-25
 
 ---
@@ -155,7 +155,7 @@ At 800 words: **0.111 vs 0.019 — 5.8×**.
 `api/main.py`, `api/deps.py`, `frontend/src/**` (App, PassageView,
 MetricsPanel, SearchPanel, api.ts, styles.css)
 
-### New — tests (`tests/`, 100 passing)
+### New — tests (`tests/`, 172 collected, 170 passing)
 
 `test_metrics.py`, `test_coverage.py`, `test_fusion_and_gold.py`,
 `test_guardrails.py`, `test_audit_metrics.py`, `test_llm_providers.py`,

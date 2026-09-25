@@ -182,7 +182,7 @@ src/auditor/
 api/            FastAPI, SSE streaming
 frontend/       React + Vite + TypeScript
 tools/          gold-set builders and scoring scripts
-tests/          ~160 tests
+tests/          172 tests (170 pass, 2 skip without a live service)
 ```
 
 ---
