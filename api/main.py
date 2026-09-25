@@ -172,7 +172,8 @@ def _pipeline(k: int, enable_judge: bool, min_confidence: float):
     return AuditPipeline(
         get_provider(),
         build_retriever(),
-        AuditConfig(top_k=k, enable_judge=enable_judge, min_confidence=min_confidence),
+        AuditConfig(top_k=k, enable_judge=enable_judge, min_confidence=min_confidence,
+                    title_in_query=True),
         judge=get_judge() if enable_judge else None,
     )
 

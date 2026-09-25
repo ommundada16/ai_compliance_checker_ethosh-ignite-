@@ -58,6 +58,9 @@ K_VALUES = [1, 3, 5, 10]
 BUDGETS = [200, 400, 800, 2400, 4000]
 
 
+HEAD_WORDS = 100
+
+
 def load_jsonl(path: Path) -> list[dict]:
     with path.open(encoding="utf-8") as fh:
         return [json.loads(line) for line in fh if line.strip()]
@@ -84,7 +87,8 @@ def recall_at_budget(
     return len(taken & relevant) / len(relevant)
 
 
-def evaluate(name: str, retrieve, gold, passages, clause_words, max_k) -> dict:
+def evaluate(name: str, retrieve, gold, passages, clause_words, max_k,
+             query_of=None) -> dict:
     per_query: list[dict] = []
     elapsed = 0.0
 
@@ -94,7 +98,7 @@ def evaluate(name: str, retrieve, gold, passages, clause_words, max_k) -> dict:
         primary = g.primary
 
         t0 = time.time()
-        ranked = retrieve(passage["text"], max_k)
+        ranked = retrieve(query_of(passage) if query_of else passage["text"], max_k)
         elapsed += time.time() - t0
 
         row = {"passage_id": g.passage_id, "section": g.section, "metrics": {},
@@ -159,10 +163,15 @@ def rel(path: Path) -> str:
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--configs", nargs="+",
-                    default=["v2_dense", "v2_hybrid", "v2_rerank"])
+                    default=["v2_dense", "v2_hybrid", "v2_rerank"],
+                    help="A runner (v2_dense, v2_hybrid, v2_rerank) optionally with a "
+                         "query-variant suffix: _title prefixes the section title, "
+                         "_head keeps only the first 100 words of the passage.")
     ap.add_argument("--reindex", action="store_true")
     ap.add_argument("--collection", default="mdr_clauses_v2")
     ap.add_argument("--qdrant-url", default="http://localhost:6333")
+    ap.add_argument("--qdrant-path", default="",
+                    help="Embedded index directory (e.g. qdrant_local); empty uses the server.")
     ap.add_argument("--candidates", type=int, default=25,
                     help="First-stage pool handed to the reranker.")
     ap.add_argument("--out", type=Path,
@@ -182,7 +191,10 @@ def main() -> int:
 
     dense = get_dense()
     sparse = get_sparse()
-    store = QdrantClauseStore(args.collection, dense, sparse, url=args.qdrant_url)
+    store = QdrantClauseStore(
+        args.collection, dense, sparse, url=args.qdrant_url,
+        path=str(PROJECT_ROOT / args.qdrant_path) if args.qdrant_path else None,
+    )
 
     if args.reindex or not store.client.collection_exists(args.collection):
         print(f"indexing into '{args.collection}' ...")
@@ -196,7 +208,7 @@ def main() -> int:
         print(f"reusing collection '{args.collection}' ({store.count()} points)")
 
     reranker = None
-    if "v2_rerank" in args.configs:
+    if any(c.startswith("v2_rerank") for c in args.configs):
         from auditor.retrieval.rerank import CrossEncoderReranker
 
         print("loading cross-encoder (first run downloads ~1 GB) ...")
@@ -225,11 +237,29 @@ def main() -> int:
 
     runners = {"v2_dense": dense_only, "v2_hybrid": hybrid, "v2_rerank": hybrid_reranked}
 
+    # Query variants. The query is a ~250-word slice of the audited document, so
+    # what goes INTO it is a design variable; each variant changes only that.
+    def head(passage: dict) -> str:
+        return " ".join(passage["text"].split()[:HEAD_WORDS])
+
+    def title(passage: dict) -> str:
+        t = passage.get("section_title", "")
+        return f"{t}. {passage['text']}" if t else passage["text"]
+
+    variants = {"_title": title, "_head": head}
+
+    def resolve(name: str):
+        for suffix, fn in variants.items():
+            if name.endswith(suffix):
+                return runners[name[: -len(suffix)]], fn
+        return runners[name], None
+
     results = {}
     for name in args.configs:
         print(f"\nevaluating {name} ...")
+        runner, query_of = resolve(name)
         results[name] = evaluate(
-            name, runners[name], gold, passages, clause_words, max(K_VALUES)
+            name, runner, gold, passages, clause_words, max(K_VALUES), query_of
         )
 
     payload = {

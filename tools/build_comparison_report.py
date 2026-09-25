@@ -12,6 +12,7 @@ Usage:
 from __future__ import annotations
 
 import json
+import sys
 from datetime import UTC, datetime
 from pathlib import Path
 
@@ -163,22 +164,38 @@ def main() -> int:
         add("reviewer can trust the output.")
         add("")
         rows = []
+        repeated = any("summary" in v and len(v.get("repeats", [])) > 1
+                       for v in audit.values())
+
+        def cell(value: dict, key: str) -> str:
+            m = value.get("summary", {}).get(key)
+            if m is None:
+                return f"{value['scores'][key]:.3f}"
+            if len(value.get("repeats", [])) > 1:
+                return f"{m['mean']:.3f} ({m['min']:.2f}–{m['max']:.2f})"
+            return f"{m['mean']:.3f}"
+
         for name, value in audit.items():
-            s = value["scores"]
             rows.append([
                 name.replace("_", " "),
                 str(value["findings"]),
-                f"{s['recall']:.3f}",
-                f"{s['precision']:.3f}",
-                f"{s['f1']:.3f}",
-                f"{s['false_positive_rate']:.3f}",
-                f"{s['hallucination_rate']:.3f}",
+                cell(value, "recall"),
+                cell(value, "precision"),
+                cell(value, "f1"),
+                cell(value, "false_positive_rate"),
+                cell(value, "hallucination_rate"),
             ])
         add(table(
             ["System", "Findings", "Recall", "Precision", "F1", "FP rate", "Hallucination"],
             rows,
         ))
         add("")
+        if repeated:
+            n = max(len(v.get("repeats", [])) for v in audit.values())
+            add(f"Values are the mean over {n} runs with the (min–max) range. A single")
+            add("run is not stable: the same configuration has scored an FP rate of 0.53")
+            add("and 0.73 back to back, so differences inside the ranges are not claims.")
+            add("")
 
     # --- cost ---
     add("## Cost and latency")
@@ -229,9 +246,18 @@ def main() -> int:
     add("```")
     add("")
 
-    OUT.parent.mkdir(parents=True, exist_ok=True)
-    OUT.write_text("\n".join(lines) + "\n", encoding="utf-8")
-    print(f"wrote {OUT.relative_to(PROJECT_ROOT)} ({len(lines)} lines)")
+    # docs/COMPARISON.md also carries hand-written analysis (the audit failure
+    # breakdown and the false-positive discussion) that this script does not
+    # generate. Overwriting it silently deleted 46 lines of that analysis, so the
+    # default output is a separate file to diff and merge from; pass --overwrite
+    # only when the committed file has no hand-written sections left to lose.
+    target = OUT if "--overwrite" in sys.argv else OUT.with_name("COMPARISON.generated.md")
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    print(f"wrote {target.relative_to(PROJECT_ROOT)} ({len(lines)} lines)")
+    if target != OUT:
+        print("COMPARISON.md left untouched (it holds hand-written sections); "
+              "diff the two and merge, or pass --overwrite")
     return 0
 
 

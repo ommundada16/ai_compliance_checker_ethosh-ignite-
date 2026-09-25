@@ -57,6 +57,7 @@ class DropReason(str, Enum):
     SCHEMA_INVALID = "did not satisfy the finding schema"
     EMPTY_EXPLANATION = "explanation or correction was empty"
     JUDGE_REJECTED = "second model did not agree the finding is supported"
+    ADDRESSED_ELSEWHERE = "requirement is satisfied in another section of the document"
 
 
 class RawFinding(BaseModel):

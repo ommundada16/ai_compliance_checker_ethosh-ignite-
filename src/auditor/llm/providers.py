@@ -92,7 +92,8 @@ class GroqProvider(JSONProvider):
     def __init__(self, api_key: str, model: str = "openai/gpt-oss-120b",
                  reasoning_effort: str = "low",
                  tokens_per_minute: int | None = None,
-                 max_retries: int = 4) -> None:
+                 max_retries: int = 4,
+                 seed: int | None = None) -> None:
         from groq import Groq
 
         if not api_key:
@@ -100,6 +101,9 @@ class GroqProvider(JSONProvider):
         self.model = model
         self.reasoning_effort = reasoning_effort
         self.max_retries = max_retries
+        # Best effort only: Groq documents that determinism is not guaranteed
+        # even with a seed, so repeated runs must still be averaged.
+        self.seed = seed
         self.pacer = TokenPacer(
             tokens_per_minute
             if tokens_per_minute is not None
@@ -111,11 +115,14 @@ class GroqProvider(JSONProvider):
         estimated = estimate_tokens(system) + estimate_tokens(prompt) + max_tokens
         last: Exception | None = None
 
+        extra = {"seed": self.seed} if self.seed is not None else {}
+
         for attempt in range(self.max_retries):
             self.pacer.wait_for(estimated)
             started = time.time()
             try:
                 response = self._client.chat.completions.create(
+                    **extra,
                     model=self.model,
                     messages=[{"role": "system", "content": system},
                               {"role": "user", "content": prompt}],
