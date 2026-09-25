@@ -41,6 +41,35 @@ SYSTEM = (
 CATEGORY_LIST = ", ".join(f'"{c.value}"' for c in Category)
 
 
+# Clause length in the prompt is capped, and the cap is the single biggest
+# lever on how long an evaluation run takes.
+#
+# The MDR's clause lengths are wildly skewed: median 37 words, p90 126, but the
+# longest is 2351. Retrieval returning a few of the long ones turns ONE request
+# into ~25,700 tokens, and against an 8,000 tokens-per-minute budget that is
+# over three minutes of waiting for a single call. That is what turned a
+# 57-request run into 50+ minutes.
+#
+# 250 words is enough for the model to decide whether a clause applies and to
+# quote the obligation. The full text stays available through the API and the
+# UI; only the prompt copy is trimmed, and the trim is marked so neither the
+# model nor a reader mistakes it for the whole clause.
+MAX_CLAUSE_WORDS_IN_PROMPT = 250
+
+
+def _clause_for_prompt(clause) -> str:
+    words = clause.text.split()
+    if len(words) <= MAX_CLAUSE_WORDS_IN_PROMPT:
+        body = clause.text
+    else:
+        body = (
+            " ".join(words[:MAX_CLAUSE_WORDS_IN_PROMPT])
+            + f" [... {len(words) - MAX_CLAUSE_WORDS_IN_PROMPT} further words of this "
+              "clause omitted for length]"
+        )
+    return f"[{clause.clause_id}] ({clause.path})\n{body}"
+
+
 def build_prompt(passage_text: str, section_title: str, clauses: Sequence) -> str:
     """One passage plus its retrieved clauses.
 
@@ -49,9 +78,9 @@ def build_prompt(passage_text: str, section_title: str, clauses: Sequence) -> st
     clause TEXT with no identifier, which left `guideline_clause` as free prose
     that could never be checked or aggregated.
     """
-    context = "\n\n".join(
-        f"[{c.clause_id}] ({c.path})\n{c.text}" for c in clauses
-    ) or "(no relevant clauses retrieved)"
+    context = "\n\n".join(_clause_for_prompt(c) for c in clauses) or (
+        "(no relevant clauses retrieved)"
+    )
 
     return f"""Audit the following section of a Clinical Evaluation Report against the MDR
 clauses provided.
@@ -123,7 +152,10 @@ class AuditConfig:
     min_grounding: float = 0.82
     enable_judge: bool = True
     enable_sanitisation: bool = True
-    max_tokens: int = 1600
+    # The pacer reserves max_tokens against the per-minute budget for EVERY
+    # call, whether or not the reply uses them. 1000 comfortably fits a handful
+    # of findings; 1600 simply bought slower runs.
+    max_tokens: int = 1000
     top_k: int = 5
 
 
