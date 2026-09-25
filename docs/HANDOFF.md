@@ -4,7 +4,7 @@ Everything another engineer or AI assistant needs to continue this work.
 Every number is read from a committed file; none is estimated.
 
 **Repository:** https://github.com/ommundada16/ai_compliance_checker_ethosh-ignite-
-**Branch:** `main` · **Commits:** 32 · **Tests:** 100 passing · **Lint:** clean
+**Branch:** `main` · **Commits:** 34 · **Tests:** 100 passing · **Lint:** clean
 **Last updated:** 2026-09-25
 
 ---
@@ -301,7 +301,47 @@ like 10× the available headroom. It is the per-minute limit scaled to the
 graph's 10-minute buckets. The API header is authoritative:
 `x-ratelimit-limit-tokens: 8000`.
 
-### 5.5 Known limitations — state these before anyone asks
+### 5.5 The 250-word clause cap loses more context than it first appears
+
+The cap that made the audit run fast (see 5.4) is a real information trade-off,
+and the first framing of it understated the cost.
+
+| | |
+|---|---|
+| Clauses over 250 words in the corpus | 46 of 1,320 (**3.5%**) |
+| Clauses over 250 words **actually retrieved** in the audit run | 41 of 95 (**43%**) |
+
+Long clauses are retrieved far more often than their share of the corpus,
+because more text means more chance of matching a query. So the cap touches
+**roughly half the context the model is shown**, not 3.5% of it.
+
+Consequence: a violation described beyond word 250 of a clause cannot be found.
+Whether that actually costs recall is **unmeasured** — see Next Steps §1.
+
+The clauses over 250 words that were shown during the run:
+`Annex.I.10.h`, `Annex.I.11.d`, `Annex.I.23.s#1`, `Annex.IX.2.e`, `Annex.IX.4`,
+`Annex.VI.A.2`, `Annex.VII.4.b#2`, `Annex.VII.4.d#3`, `Annex.VII.4.e#1`,
+`Annex.VIII.4`, `Annex.VIII.5`, `Annex.VIII.7`, `Annex.XIV.A.3`, `Annex.XV.2`,
+`Annex.XV.2#1`, `Art.117`, `Art.2`, `Art.2.c#1`
+
+### 5.6 Is the v1 vs v2 comparison fair on model choice?
+
+A reasonable objection: v1 originally ran on a local 8B model while v2 runs on
+Groq's 120B. Checked rather than assumed:
+
+**The retrieval comparison uses no LLM at all.** `tools/score_baseline_v1.py`
+and `tools/score_v2.py` contain zero LLM calls — verified by grep for
+`complete_json`, `GroqProvider`, `OllamaProvider`, `chat.completions`. Both are
+pure embedding retrieval over the same gold set with the same metric code.
+
+So **scope recall +76%, nDCG +137%, MRR +198% are unaffected by model choice.**
+
+**The audit comparison is designed to hold the LLM constant**: `v1_retrieval`
+and `v2_full` both use the same Groq model, and only the *retriever* differs.
+But `v1_retrieval` has not actually been run, so **there is currently no audit
+comparison at all** — fair or otherwise. That is the gap, not the model choice.
+
+### 5.7 Known limitations — state these before anyone asks
 
 - **Audit gold set is not exhaustive** — 4 authored violations, 15 clean
   passages. Audit recall is a **lower bound**, not an estimate.
@@ -313,6 +353,8 @@ graph's 10-minute buckets. The API header is authoritative:
   governing provisions from 1,320 into a top-5 is hard; random ≈ 0.4%. The
   **relative** improvement is the claim.
 - **Reranking costs ~14 s/query on CPU** — too slow for interactive use.
+- **Clause text is capped at 250 words in the prompt**, which touches ~43%
+  of the context actually shown. The cost in recall is unmeasured (see 5.5).
 - **Only `v2_full` has audit numbers.** `v1_retrieval` and `v2_no_guards` have
   not been run, so the audit table has no ablation.
 - **LLM label cross-check not merged** — `tools/propose_labels_llm.py` works
@@ -326,7 +368,62 @@ graph's 10-minute buckets. The API header is authoritative:
 
 In descending order of value.
 
-### 1. Document-level reconciliation — fixes the biggest problem
+### 1. Measure what the 250-word clause cap costs
+
+Settle §5.5 with data instead of an assumption. Run the audit twice, changing
+only `MAX_CLAUSE_WORDS_IN_PROMPT` in `src/auditor/audit/pipeline.py`:
+
+```bash
+# baseline, current setting
+python tools/run_audit_eval.py --provider groq --configs v2_full \
+  --out eval_data/results/audit_cap250.json
+
+# edit MAX_CLAUSE_WORDS_IN_PROMPT = 600, then:
+python tools/run_audit_eval.py --provider groq --configs v2_full \
+  --out eval_data/results/audit_cap600.json
+```
+
+Compare recall and false-positive rate.
+
+- **If they are the same**, the cap is free and the current setting stays.
+- **If recall improves at 600**, the cap is costing real findings; raise it and
+  accept the slower run, or cap by *tokens* rather than words so only the
+  genuinely huge clauses are trimmed.
+
+~10 min per run, one at a time. Do this **before** trusting the audit numbers
+as a baseline for anything else.
+
+### 2. Run `v1_retrieval` so the audit comparison actually exists
+
+Right now only `v2_full` has audit numbers, so there is no audit comparison.
+This is the run that produces one, and it holds the LLM constant so the
+difference is attributable to retrieval alone:
+
+```bash
+python tools/run_audit_eval.py --provider groq --configs v1_retrieval
+python tools/run_audit_eval.py --provider groq --configs v2_no_guards
+```
+
+~10 min each. `v2_no_guards` additionally quantifies what the guardrails are
+worth in *findings*, not just in retrieval metrics.
+
+### 3. Decide: Groq or local for evaluation runs
+
+Both are viable; the trade-off is measured, not obvious:
+
+| | Groq (paced) | Local `llama3.1:8b` |
+|---|---|---|
+| 19 passages | **576 s** (measured) | ~300 s (estimated at ~16 s/call) |
+| Rate limit | 8,000 tokens/min | none |
+| Local RAM | ~0 | **+3.5 GB** |
+| Model | 120B | 8B |
+
+Local may now be **faster**, because there is no rate limit to pace against.
+The costs are 3.5 GB of RAM and a much weaker model. Use
+`--provider local` to try it. If quality holds, local removes the rate-limit
+problem entirely and makes the clause cap unnecessary.
+
+### 4. Document-level reconciliation — fixes the biggest problem
 
 Before reporting "X is missing", check whether X appears elsewhere in the
 document. Most of the 8 false positives would disappear. Approach: after the
@@ -335,13 +432,13 @@ over the **CER's own passages**; if a strong match exists, downgrade or drop.
 
 Expected: FP rate 0.53 → well under 0.2. **Do this first.**
 
-### 2. Tell the model what kind of section it is reading
+### 5. Tell the model what kind of section it is reading
 
 Pass the section title and a coarse type (identification / description /
 analysis / evidence). An identification section cannot breach a
 clinical-evaluation-plan requirement. Cheap, and complements step 1.
 
-### 3. Complete the audit ablation
+### 6. Complete the audit ablation
 
 Run `v1_retrieval` and `v2_no_guards` (~10 min each, Groq). This turns one
 audit row into a real comparison and quantifies what retrieval quality and the
@@ -352,23 +449,23 @@ python tools/run_audit_eval.py --provider groq --configs v1_retrieval
 python tools/run_audit_eval.py --provider groq --configs v2_no_guards
 ```
 
-### 4. Fix the two retrieval misses
+### 7. Fix the two retrieval misses
 
 `CER.2.19` (Annex II §1) and `CER.4.3.2.2#1` (Art. 83) were never retrieved.
 Investigate: query expansion, or a section-title-aware query, or raising `k`
 for the audit path specifically.
 
-### 5. Reranker latency
+### 8. Reranker latency
 
 14 s/query is too slow interactively. Options: batch the cross-encoder, use
 `jinaai/jina-reranker-v1-turbo-en` (0.15 GB vs 1.04 GB), or rerank only the
 top-10 rather than top-25.
 
-### 6. Verify the UI in a browser and screenshot it
+### 9. Verify the UI in a browser and screenshot it
 
 `uvicorn api.main:app --reload` plus `cd frontend && npm run dev`.
 
-### 7. Merge the LLM label cross-check
+### 10. Merge the LLM label cross-check
 
 ```bash
 python tools/propose_labels_llm.py
