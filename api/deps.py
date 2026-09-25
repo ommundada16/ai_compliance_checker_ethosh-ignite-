@@ -33,12 +33,19 @@ def get_store():
     from auditor.embedding import get_dense, get_sparse
     from auditor.retrieval.qdrant_store import QdrantClauseStore
 
+    # Embedded by default, matching .env.example and the evaluation tools; an
+    # EMPTY QDRANT_PATH selects the server at QDRANT_URL (docker-compose does
+    # this). The API used to ignore QDRANT_PATH and always dial the server, so
+    # on the documented no-Docker setup every search and audit endpoint failed
+    # and the UI reported "vector store down".
+    embedded_dir = os.getenv("QDRANT_PATH", "qdrant_local")
     return QdrantClauseStore(
         os.getenv("QDRANT_COLLECTION", "mdr_clauses_v2"),
         get_dense(),
         get_sparse(),
         url=os.getenv("QDRANT_URL", "http://localhost:6333"),
         api_key=os.getenv("QDRANT_API_KEY", ""),
+        path=str(PROJECT_ROOT / embedded_dir) if embedded_dir else None,
     )
 
 
