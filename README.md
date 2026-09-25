@@ -28,6 +28,12 @@ shown: rounding the metrics to three first and dividing those gives +138% and
 +200% instead. Same numbers, different order of operations — the raw values are
 in `eval_data/results/v2_ablation.json` if you want to check either way.
 
+One further retrieval change was made after this table, under a rule fixed
+before the run: prefixing the section title to the query. Over the same 75
+passages it lifts scope recall to **0.227** and nDCG to **0.211** with the
+reranker (`eval_data/results/v2_query_ablation.json`); using only the first 100
+words of the passage did not pass the rule and was not adopted.
+
 Full numbers, including the ablation and the negative results:
 **[docs/COMPARISON.md](docs/COMPARISON.md)**
 
@@ -138,8 +144,24 @@ reader should ask:
   clean passages. Audit recall is a lower bound, not an estimate.
 - **"Clean" means a reviewer would not expect a finding**, not "provably
   compliant".
-- **Retrieval labels are an expert rubric** cross-checked by an independent
-  model — not verified by a regulatory professional.
+- **Retrieval labels are a hand-authored expert rubric**, not verified by a
+  regulatory professional. An LLM cross-check tool exists
+  (`tools/propose_labels_llm.py`) but its proposals were deliberately **not**
+  merged: doing so would change the frozen gold set and every score computed
+  against it.
+- **The audit itself is weak, and stated as weak.** On the 19-passage audit set
+  the shipped configuration finds 1 of 4 known violations and flags 53–73% of
+  clean passages (the same settings gave both figures on different runs, so a
+  single run is a sample, not a measurement). Zero findings were hallucinated.
+  The false positives are largely architectural: each passage is audited in
+  isolation, so a section that defers a topic to another section is reported as
+  missing it. A cross-section reconciliation step removed 1–3 findings per run
+  without losing a true one — helpful, not a fix.
+- **A v1-vs-v2 comparison of the audit does not exist yet.** Only `v2_full` has
+  audit numbers. The remaining rows need Groq runs that the free tier's
+  200,000-token daily cap spreads over several days; the exact commands are in
+  `docs/HANDOFF.md`. The retrieval comparison above needs no LLM and is
+  unaffected.
 - **Hybrid search made things worse** at low k, and is kept in the ablation
   precisely because it is a negative result. BM25 assumes short keyword
   queries; these are 250-word passages, so the sparse arm matches common legal
@@ -187,7 +209,7 @@ src/auditor/
 api/            FastAPI, SSE streaming
 frontend/       React + Vite + TypeScript
 tools/          gold-set builders and scoring scripts
-tests/          172 tests (170 pass, 2 skip without a live service)
+tests/          198 tests, all passing (two are integration tests that need the local index)
 ```
 
 ---

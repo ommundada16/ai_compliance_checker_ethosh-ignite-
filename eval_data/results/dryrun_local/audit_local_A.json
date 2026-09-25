@@ -1,0 +1,934 @@
+{
+  "v1_retrieval": {
+    "scores": {
+      "expected_total": 4,
+      "matched": 0,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "predicted_total": 27,
+      "clean_passages": 15,
+      "clean_passages_with_findings": 12,
+      "findings_on_clean": 20,
+      "false_positive_rate": 0.8,
+      "hallucinated": 0,
+      "hallucination_rate": 0.0
+    },
+    "readiness_score": 0.0,
+    "findings": 27,
+    "dropped": {},
+    "categories": {
+      "Regulatory Documentation": 12,
+      "Clinical Evaluation": 9,
+      "Safety": 1,
+      "Clinical Investigation": 1,
+      "Post Market Surveillance": 1,
+      "Verification & Validation": 2,
+      "Risk Management": 1
+    },
+    "errors": 3,
+    "judge_errors": 0,
+    "elapsed_s": 526.1,
+    "matched": [],
+    "missed": [
+      "CER.4.3.2.1 -> Art.61.4",
+      "CER.2.11 -> Annex.I.23",
+      "CER.2.19 -> Annex.II.1",
+      "CER.4.3.2.2#1 -> Art.83"
+    ],
+    "report": {
+      "document_name": "Clinical Evaluation Report",
+      "passages": [
+        {
+          "passage_id": "CER.2.1",
+          "section": "2.1",
+          "page": 11,
+          "findings": [
+            {
+              "violating_statement": "The scope of the device is not clearly defined with specific technical characteristics or intended use",
+              "source_quote": "The scope of this clinical evaluation includes the Double J Stent (Short Term), designed and manufactured by Biorad under the brand name DJS as mentioned below.",
+              "clause_id": "Annex.VII.4.c#1",
+              "category": "Regulatory Documentation",
+              "severity": "High",
+              "explanation": "The MDR requires that the conformity assessment procedures chosen by the applicant are applicable to the device in question. The CER section does not provide sufficient detail on the technical characteristics or intended use of the device, which is necessary to determine applicability of the chosen conformity assessment procedures.",
+              "suggested_correction": "The scope of this clinical evaluation includes the Double J Stent (Short Term), designed and manufactured by Biorad under the brand name DJS, with specific technical characteristics and intended use as detailed in Table 1.",
+              "confidence": 0.8,
+              "passage_id": "CER.2.1",
+              "page": 11,
+              "quote_start": 0,
+              "quote_end": 160,
+              "clause_path": "Annex VII > (4) > (c)",
+              "grounding_score": 1.0,
+              "judged": false
+            },
+            {
+              "violating_statement": "The CER section does not specify the variants of the device with sufficient detail",
+              "source_quote": "Variants; Double J Stent (Short Term): Please see attached annexure for variants.",
+              "clause_id": "Annex.VII.4.a#2",
+              "category": "Regulatory Documentation",
+              "severity": "Medium",
+              "explanation": "Annex VII.4.a#2 requires that the notified body assess the documentation submitted and identify links between manufacturing sites and suppliers. The CER section refers to variants but does not provide sufficient detail on the variants themselves, which could impact the assessment of the quality management system.",
+              "suggested_correction": "Variants; Double J Stent (Short Term): Specific variants with their technical characteristics and intended use are detailed in Table 1.",
+              "confidence": 0.7,
+              "passage_id": "CER.2.1",
+              "page": 11,
+              "quote_start": 255,
+              "quote_end": 336,
+              "clause_path": "Annex VII > (4) > (a)",
+              "grounding_score": 1.0,
+              "judged": false
+            }
+          ],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Annex.VII.4.c#1",
+            "Annex.VII.4.d#1",
+            "Annex.VII.4.e#1",
+            "Annex.VII.4.a#2",
+            "Annex.IX.2.e"
+          ],
+          "llm_provider": "ollama",
+          "llm_model": "qwen3:4b",
+          "latency_s": 34.509042501449585,
+          "error": null
+        },
+        {
+          "passage_id": "CER.2.2",
+          "section": "2.2",
+          "page": 11,
+          "findings": [
+            {
+              "violating_statement": "The manufacturer's address and contact details are duplicated in the CER section, which may lead to confusion and errors in communication.",
+              "source_quote": "Name Address: Phone; Survey No.: 48/3 & 48/7, Pashan Sus Road, Sus Village, Taluka Mulshi, Pune-411021 Maharashtra, INDIA.: Tel.: +91-20-3091-2000, Fax: +91-20-3091-2050. Email; Survey No.: 48/3 & 48/7, Pashan Sus Road, Sus Village, Taluka Mulshi, Pune-411021 Maharashtra, INDIA.: pune@bioradmedisys.com.",
+              "clause_id": "Annex.VI.C.6.a#1",
+              "category": "Regulatory Documentation",
+              "severity": "Medium",
+              "explanation": "The CER section contains duplicated information for the manufacturer's address and contact details, which could lead to confusion and errors in communication. The MDR requires clear and unambiguous presentation of manufacturer details to ensure regulatory compliance.",
+              "suggested_correction": "Provide a single, clear table with unique manufacturer details without duplication.",
+              "confidence": 0.8,
+              "passage_id": "CER.2.2",
+              "page": 11,
+              "quote_start": 190,
+              "quote_end": 494,
+              "clause_path": "Annex VI > Part C > (6) > (a)",
+              "grounding_score": 1.0,
+              "judged": false
+            }
+          ],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Annex.VI.C.6.a#1",
+            "Annex.VI.C.6.b#1",
+            "Annex.VI.C.6.a#2",
+            "Annex.VI.C.6.b#2",
+            "Annex.VI.C.6.b#3"
+          ],
+          "llm_provider": "ollama",
+          "llm_model": "qwen3:4b",
+          "latency_s": 17.344481229782104,
+          "error": null
+        },
+        {
+          "passage_id": "CER.2.3",
+          "section": "2.3",
+          "page": 12,
+          "findings": [],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Annex.II.6.c#1",
+            "Annex.II.6.d#1",
+            "Annex.II.6.e",
+            "Annex.II.6.f",
+            "Annex.II.6.g"
+          ],
+          "llm_provider": "",
+          "llm_model": "",
+          "latency_s": 59.4814019203186,
+          "error": "RuntimeError: all providers failed; last error: Expecting ',' delimiter: line 42 column 6 (char 3088)"
+        },
+        {
+          "passage_id": "CER.2.4",
+          "section": "2.4",
+          "page": 14,
+          "findings": [
+            {
+              "violating_statement": "The CER section does not specify the name of the manufacturer or the address of its registered place of business",
+              "source_quote": "Double J Stent is used for treatment of the upper urinary tract are implantable devices that support the flow of the urine from the kidneys to the bladder.",
+              "clause_id": "Annex.I.23.c#1",
+              "category": "Regulatory Documentation",
+              "severity": "High",
+              "explanation": "The clause requires the name, registered trade name or registered trade mark of the manufacturer and the address of its registered place of business. The CER section does not mention the manufacturer or its address.",
+              "suggested_correction": "Include the name, registered trade name or registered trade mark of the manufacturer and the address of its registered place of business.",
+              "confidence": 0.9,
+              "passage_id": "CER.2.4",
+              "page": 14,
+              "quote_start": 0,
+              "quote_end": 155,
+              "clause_path": "Annex I > (23) > (c)",
+              "grounding_score": 1.0,
+              "judged": false
+            },
+            {
+              "violating_statement": "The CER section does not specify whether the device contains medicinal substances, human or animal tissues, or their derivatives",
+              "source_quote": "Double J Stent is used for treatment of the upper urinary tract are implantable devices that support the flow of the urine from the kidneys to the bladder.",
+              "clause_id": "Annex.I.23.e#1",
+              "category": "Regulatory Documentation",
+              "severity": "High",
+              "explanation": "The clause requires an indication if the device contains or incorporates medicinal substances, human or animal tissues, or their derivatives. The CER section does not specify this.",
+              "suggested_correction": "Include an indication that the device contains or incorporates medicinal substances, human or animal tissues, or their derivatives as applicable.",
+              "confidence": 0.8,
+              "passage_id": "CER.2.4",
+              "page": 14,
+              "quote_start": 0,
+              "quote_end": 155,
+              "clause_path": "Annex I > (23) > (e)",
+              "grounding_score": 1.0,
+              "judged": false
+            }
+          ],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Annex.I.23.b#1",
+            "Annex.I.23.c#1",
+            "Annex.I.23.d#1",
+            "Annex.I.23.e#1",
+            "Annex.I.23.f#1"
+          ],
+          "llm_provider": "ollama",
+          "llm_model": "qwen3:4b",
+          "latency_s": 19.578011751174927,
+          "error": null
+        },
+        {
+          "passage_id": "CER.2.5",
+          "section": "2.5",
+          "page": 14,
+          "findings": [],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Annex.I.23.b#1",
+            "Annex.I.23.c#1",
+            "Annex.I.23.d#1",
+            "Annex.I.23.e#1",
+            "Annex.I.23.f#1"
+          ],
+          "llm_provider": "",
+          "llm_model": "",
+          "latency_s": 48.514087200164795,
+          "error": "RuntimeError: all providers failed; last error: Expecting ',' delimiter: line 42 column 6 (char 4115)"
+        },
+        {
+          "passage_id": "CER.2.6",
+          "section": "2.6",
+          "page": 15,
+          "findings": [
+            {
+              "violating_statement": "The CER section does not specify MRI compatibility for the device, which is a critical safety parameter that must be evaluated and documented.",
+              "source_quote": "Parameter: MRI Compatibility; Specifications: Not specified in Technical File (no MR safety claim declared).",
+              "clause_id": "Art.52.1",
+              "category": "Regulatory Documentation",
+              "severity": "Critical",
+              "explanation": "According to Art.52.1, manufacturers must assess conformity before market placement. The CER section indicates MRI compatibility is not specified, which is a critical safety parameter that must be evaluated and documented as part of the technical file.",
+              "suggested_correction": "MRI Compatibility: Evaluated for MR safety (e.g., compatibility with MRI machines up to 1.5T) with appropriate safety documentation.",
+              "confidence": 0.95,
+              "passage_id": "CER.2.6",
+              "page": 15,
+              "quote_start": 1209,
+              "quote_end": 1317,
+              "clause_path": "Chapter V > Article 52 > (1)",
+              "grounding_score": 1.0,
+              "judged": false
+            }
+          ],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Art.51.4",
+            "Art.51.5",
+            "Art.51.6",
+            "Art.52.1",
+            "Art.52.2"
+          ],
+          "llm_provider": "ollama",
+          "llm_model": "qwen3:4b",
+          "latency_s": 12.455987453460693,
+          "error": null
+        },
+        {
+          "passage_id": "CER.2.7#1",
+          "section": "2.7",
+          "page": 16,
+          "findings": [
+            {
+              "violating_statement": "The CER section does not specify the intended use duration for the device in the context of MDR requirements",
+              "source_quote": "The device materials have undergone biological safety evaluation in accordance with the ISO 10993 series to ensure biocompatibility for their intended duration and type of contact.",
+              "clause_id": "Art.123.3.d",
+              "category": "Regulatory Documentation",
+              "severity": "High",
+              "explanation": "The MDR requires that the intended use duration be clearly defined for the device. The CER section mentions 'intended duration' but does not explicitly state the duration in the context of the device's intended use as required by MDR.",
+              "suggested_correction": "The device materials have undergone biological safety evaluation in accordance with the ISO 10993 series to ensure biocompatibility for their intended duration of up to 30 days and type of contact.",
+              "confidence": 0.8,
+              "passage_id": "CER.2.7#1",
+              "page": 16,
+              "quote_start": 1279,
+              "quote_end": 1459,
+              "clause_path": "Chapter X > Article 123 > (3) > (d)",
+              "grounding_score": 1.0,
+              "judged": false
+            }
+          ],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Art.123.3.d",
+            "Art.123.3.e",
+            "Art.123.3.f",
+            "Art.123.3.g",
+            "Art.123.3.h"
+          ],
+          "llm_provider": "ollama",
+          "llm_model": "qwen3:4b",
+          "latency_s": 16.158361434936523,
+          "error": null
+        },
+        {
+          "passage_id": "CER.2.7#2",
+          "section": "2.7",
+          "page": 16,
+          "findings": [],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Annex.I.23.a#3",
+            "Annex.I.23.b#3",
+            "Annex.I.23.c#3",
+            "Annex.I.23.d#3",
+            "Annex.I.23.f#3"
+          ],
+          "llm_provider": "",
+          "llm_model": "",
+          "latency_s": 51.93253970146179,
+          "error": "RuntimeError: all providers failed; last error: Expecting ',' delimiter: line 52 column 6 (char 3531)"
+        },
+        {
+          "passage_id": "CER.2.8",
+          "section": "2.8",
+          "page": 21,
+          "findings": [
+            {
+              "violating_statement": "The CER section does not specify the intended purpose with clear indications, contra-indications, patient target groups, or intended users as required by Annex.I.23.b#3",
+              "source_quote": "The Double J Stent (Short Term) is a passive, implantable ureteral stent intended to support urine flow from the kidney to the bladder in cases of ureteral obstruction or impaired drainage.",
+              "clause_id": "Annex.I.23.b#3",
+              "category": "Clinical Evaluation",
+              "severity": "High",
+              "explanation": "The clause requires the device's intended purpose with clear specification of indications, contra-indications, patient target group or groups, and intended users. The CER section mentions indications (ureteral obstruction or impaired drainage) but lacks explicit contra-indications, patient target groups, and intended users.",
+              "suggested_correction": "The Double J Stent (Short Term) is a passive, implantable ureteral stent intended to support urine flow from the kidney to the bladder in cases of ureteral obstruction or impaired drainage, with contra-indications including [list], target patient groups including [specify], and intended users as [specify].",
+              "confidence": 0.8,
+              "passage_id": "CER.2.8",
+              "page": 21,
+              "quote_start": 0,
+              "quote_end": 189,
+              "clause_path": "Annex I > (23) > (b)",
+              "grounding_score": 1.0,
+              "judged": false
+            },
+            {
+              "violating_statement": "The CER section does not specify clinical benefits expected for the device as required by Annex.I.23.c#3",
+              "source_quote": "The mechanism of action is mechanical and is based on the following: 1. Internal Urinary Drainage The stent is placed within the ureter, extending from the renal pelvis to the urinary bladder.",
+              "clause_id": "Annex.I.23.c#3",
+              "category": "Clinical Evaluation",
+              "severity": "High",
+              "explanation": "The clause requires a specification of clinical benefits to be expected where applicable. The CER section describes the mechanism of action but does not explicitly state the clinical benefits (e.g., reduced risk of kidney damage, improved urine flow, etc.) that the device provides.",
+              "suggested_correction": "The clinical benefits expected from the Double J Stent (Short Term) include [list specific clinical benefits such as reduced risk of hydronephrosis, improved urine flow, etc.]",
+              "confidence": 0.7,
+              "passage_id": "CER.2.8",
+              "page": 21,
+              "quote_start": 190,
+              "quote_end": 382,
+              "clause_path": "Annex I > (23) > (c)",
+              "grounding_score": 1.0,
+              "judged": false
+            },
+            {
+              "violating_statement": "The CER section does not link to the summary of safety and clinical performance as required by Annex.I.23.d#3",
+              "source_quote": "The Double J Stent is a thin, flexible plastic tube that is placed temporarily in the ureter to help urine drain from the kidney into the bladder in the case of a blockage.",
+              "clause_id": "Annex.I.23.d#3",
+              "category": "Clinical Evaluation",
+              "severity": "High",
+              "explanation": "The clause requires links to the summary of safety and clinical performance referred to in Article 32. The CER section does not mention any reference to the summary of safety and clinical performance.",
+              "suggested_correction": "The Double J Stent (Short Term) is linked to the summary of safety and clinical performance as described in [reference to Article 32 summary].",
+              "confidence": 0.8,
+              "passage_id": "CER.2.8",
+              "page": 21,
+              "quote_start": 1396,
+              "quote_end": 1568,
+              "clause_path": "Annex I > (23) > (d)",
+              "grounding_score": 0.9825581395348837,
+              "judged": false
+            }
+          ],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Annex.I.23.a#3",
+            "Annex.I.23.b#3",
+            "Annex.I.23.c#3",
+            "Annex.I.23.d#3",
+            "Annex.I.23.f#3"
+          ],
+          "llm_provider": "ollama",
+          "llm_model": "qwen3:4b",
+          "latency_s": 54.75349283218384,
+          "error": null
+        },
+        {
+          "passage_id": "CER.2.9",
+          "section": "2.9",
+          "page": 22,
+          "findings": [
+            {
+              "violating_statement": "The intended use description lacks clarity on the target user group and does not specify if it is for use by lay persons",
+              "source_quote": "This is a single use sterile device which is used for internal drainage from Kidney to Bladder in medical conditions like improper urine drainage, calculi in ureter, hydronephrosis, oxalate calculi, pyeloplasty with UPJ Obstruction, residual renal calculus, ureteral stricture.",
+              "clause_id": "Annex.I.22",
+              "category": "Safety",
+              "severity": "High",
+              "explanation": "The intended use description does not specify whether the device is intended for use by lay persons or healthcare professionals, which is required by Annex.I.22 to ensure devices for lay persons are designed and manufactured appropriately for their skills and environment.",
+              "suggested_correction": "This is a single use sterile device intended for use by healthcare professionals for internal drainage from Kidney to Bladder in medical conditions like improper urine drainage, calculi in ureter, hydronephrosis, oxalate calculi, pyeloplasty with UPJ Obstruction, residual renal calculus, ureteral stricture.",
+              "confidence": 0.9,
+              "passage_id": "CER.2.9",
+              "page": 22,
+              "quote_start": 0,
+              "quote_end": 277,
+              "clause_path": "Annex I > (22)",
+              "grounding_score": 1.0,
+              "judged": false
+            },
+            {
+              "violating_statement": "The intended use description does not provide sufficient detail on the technical knowledge, experience, education or training of the intended user(s) as required by Annex.I.23.a",
+              "source_quote": "This is a single use sterile device which is used for internal drainage from Kidney to Bladder in medical conditions like improper urine drainage, calculi in ureter, hydronephrosis, oxalate calculi, pyeloplasty with UPJ Obstruction, residual renal calculus, ureteral stricture.",
+              "clause_id": "Annex.I.23.a",
+              "category": "Regulatory Documentation",
+              "severity": "Medium",
+              "explanation": "Annex.I.23.a requires that instructions for use be written in terms readily understood by the intended user and supplemented with drawings and diagrams where appropriate. The current description lacks detail on the technical knowledge, experience, education or training of the intended user(s).",
+              "suggested_correction": "This is a single use sterile device intended for use by trained healthcare professionals with specific knowledge in urology for internal drainage from Kidney to Bladder in medical conditions like improper urine drainage, calculi in ureter, hydronephrosis, oxalate calculi, pyeloplasty with UPJ Obstruction, residual renal calculus, ureteral stricture.",
+              "confidence": 0.8,
+              "passage_id": "CER.2.9",
+              "page": 22,
+              "quote_start": 0,
+              "quote_end": 277,
+              "clause_path": "Annex I > (23) > (a)",
+              "grounding_score": 1.0,
+              "judged": false
+            }
+          ],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Annex.I.22",
+            "Annex.I.23",
+            "Annex.I.23.a",
+            "Annex.I.23.b",
+            "Annex.I.23.c"
+          ],
+          "llm_provider": "ollama",
+          "llm_model": "qwen3:4b",
+          "latency_s": 30.84441065788269,
+          "error": null
+        },
+        {
+          "passage_id": "CER.2.10",
+          "section": "2.10",
+          "page": 23,
+          "findings": [
+            {
+              "violating_statement": "The CER section does not specify the patient target group or groups as required by clause [Annex.I.23.b#3]",
+              "source_quote": "This is a single use sterile device used for internal drainage from Kidney to Bladder",
+              "clause_id": "Annex.I.23.b#3",
+              "category": "Clinical Evaluation",
+              "severity": "High",
+              "explanation": "The clause requires the device's intended purpose with a clear specification of indications, contra-indications, the patient target group or groups, and of the intended users. The CER section only describes the device's use without specifying the patient target group.",
+              "suggested_correction": "This is a single use sterile device used for internal drainage from Kidney to Bladder in adult patients with renal failure requiring urinary drainage.",
+              "confidence": 0.9,
+              "passage_id": "CER.2.10",
+              "page": 23,
+              "quote_start": 0,
+              "quote_end": 85,
+              "clause_path": "Annex I > (23) > (b)",
+              "grounding_score": 1.0,
+              "judged": false
+            }
+          ],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Annex.I.23.a#3",
+            "Annex.I.23.b#3",
+            "Annex.I.23.c#3",
+            "Annex.I.23.d#3",
+            "Annex.I.23.f#3"
+          ],
+          "llm_provider": "ollama",
+          "llm_model": "qwen3:4b",
+          "latency_s": 11.135255098342896,
+          "error": null
+        },
+        {
+          "passage_id": "CER.2.11",
+          "section": "2.11",
+          "page": 23,
+          "findings": [
+            {
+              "violating_statement": "The CER section states there are no known absolute contraindications, but MDR requires a clinical evaluation to identify contraindications.",
+              "source_quote": "There are no known absolute contraindications for this device.",
+              "clause_id": "Art.70.3",
+              "category": "Clinical Evaluation",
+              "severity": "High",
+              "explanation": "The CER section claims no absolute contraindications exist, but Art.70.3 requires the clinical evaluation to identify contraindications as part of the regulatory process.",
+              "suggested_correction": "There are no known absolute contraindications for this device based on the clinical evaluation.",
+              "confidence": 0.9,
+              "passage_id": "CER.2.11",
+              "page": 23,
+              "quote_start": 0,
+              "quote_end": 62,
+              "clause_path": "Chapter VI > Article 70 > (3)",
+              "grounding_score": 1.0,
+              "judged": false
+            }
+          ],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Art.70.3",
+            "Art.70.4",
+            "Art.70.5",
+            "Art.70.6",
+            "Art.70.7"
+          ],
+          "llm_provider": "ollama",
+          "llm_model": "qwen3:4b",
+          "latency_s": 10.499351739883423,
+          "error": null
+        },
+        {
+          "passage_id": "CER.2.12",
+          "section": "2.12",
+          "page": 23,
+          "findings": [
+            {
+              "violating_statement": "The CER section does not specify the intended patient population with sufficient detail for regulatory purposes, as required by MDR.",
+              "source_quote": "Double J Stent (Short term) is manufactured to meet requirements of medical conditions like Improper urine drainage, calculi in ureter, hydronephrosis, oxalate calculi, pyeloplasty with UPJ Obstruction, residual renal calculus, ureteral stricture.",
+              "clause_id": "Annex.I.23.b#1",
+              "category": "Regulatory Documentation",
+              "severity": "High",
+              "explanation": "The MDR requires that the details strictly necessary for a user to identify the device, the contents of the packaging and, where it is not obvious for the user, the intended purpose of the device are provided. The CER section lists medical conditions but does not clearly state the intended patient population with sufficient detail for regulatory purposes.",
+              "suggested_correction": "Double J Stent (Short term) is intended for use in adults with specific urological conditions including improper urine drainage, calculi in ureter, hydronephrosis, oxalate calculi, pyeloplasty with UPJ obstruction, residual renal calculus, and ureteral stricture.",
+              "confidence": 0.8,
+              "passage_id": "CER.2.12",
+              "page": 23,
+              "quote_start": 0,
+              "quote_end": 247,
+              "clause_path": "Annex I > (23) > (b)",
+              "grounding_score": 1.0,
+              "judged": false
+            }
+          ],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Annex.VII.4.c#1",
+            "Annex.VII.4.d#1",
+            "Annex.VII.4.e#1",
+            "Annex.VII.4.a#2",
+            "Annex.I.23.b#1"
+          ],
+          "llm_provider": "ollama",
+          "llm_model": "qwen3:4b",
+          "latency_s": 17.172643184661865,
+          "error": null
+        },
+        {
+          "passage_id": "CER.2.13",
+          "section": "2.13",
+          "page": 23,
+          "findings": [
+            {
+              "violating_statement": "The CER section does not specify the patient target group or groups as required by Annex.I.23.b#3",
+              "source_quote": "The Double J Stent (Short Term) is intended to be used by qualified healthcare professionals trained and experienced in urological procedures.",
+              "clause_id": "Annex.I.23.b#3",
+              "category": "Clinical Evaluation",
+              "severity": "High",
+              "explanation": "Annex.I.23.b#3 requires the device's intended purpose with a clear specification of indications, contra-indications, the patient target group or groups, and of the intended users. The CER section mentions intended users but does not specify the patient target group or groups.",
+              "suggested_correction": "The Double J Stent (Short Term) is intended for use in patients with ureteral obstruction requiring temporary stent placement, as determined by urological assessment.",
+              "confidence": 0.8,
+              "passage_id": "CER.2.13",
+              "page": 23,
+              "quote_start": 0,
+              "quote_end": 142,
+              "clause_path": "Annex I > (23) > (b)",
+              "grounding_score": 1.0,
+              "judged": false
+            },
+            {
+              "violating_statement": "The CER section does not specify contra-indications as required by Annex.I.23.b#3",
+              "source_quote": "The Double J Stent (Short Term) is intended to be used by qualified healthcare professionals trained and experienced in urological procedures.",
+              "clause_id": "Annex.I.23.b#3",
+              "category": "Clinical Evaluation",
+              "severity": "High",
+              "explanation": "Annex.I.23.b#3 requires the device's intended purpose with a clear specification of indications, contra-indications, the patient target group or groups, and of the intended users. The CER section does not mention contra-indications.",
+              "suggested_correction": "Contra-indications include patients with severe ureteral obstruction, active infection, or contraindications to stent placement as determined by the healthcare provider.",
+              "confidence": 0.8,
+              "passage_id": "CER.2.13",
+              "page": 23,
+              "quote_start": 0,
+              "quote_end": 142,
+              "clause_path": "Annex I > (23) > (b)",
+              "grounding_score": 1.0,
+              "judged": false
+            },
+            {
+              "violating_statement": "The CER section does not specify clinical benefits as required by Annex.I.23.c#3",
+              "source_quote": "The Double J Stent (Short Term) is intended to be used by qualified healthcare professionals trained and experienced in urological procedures.",
+              "clause_id": "Annex.I.23.c#3",
+              "category": "Clinical Evaluation",
+              "severity": "High",
+              "explanation": "Annex.I.23.c#3 requires where applicable, a specification of the clinical benefits to be expected. The CER section does not mention clinical benefits.",
+              "suggested_correction": "The clinical benefits include relief of ureteral obstruction, prevention of hydronephrosis, and reduction in post-procedural pain for patients with temporary stent placement.",
+              "confidence": 0.8,
+              "passage_id": "CER.2.13",
+              "page": 23,
+              "quote_start": 0,
+              "quote_end": 142,
+              "clause_path": "Annex I > (23) > (c)",
+              "grounding_score": 1.0,
+              "judged": false
+            }
+          ],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Annex.I.23.a#3",
+            "Annex.I.23.b#3",
+            "Annex.I.23.c#3",
+            "Annex.I.23.d#3",
+            "Annex.I.23.f#3"
+          ],
+          "llm_provider": "ollama",
+          "llm_model": "qwen3:4b",
+          "latency_s": 30.047252655029297,
+          "error": null
+        },
+        {
+          "passage_id": "CER.2.19",
+          "section": "2.19",
+          "page": 26,
+          "findings": [
+            {
+              "violating_statement": "The CER section does not address the summary of safety and clinical performance as required by Art.57.1.i",
+              "source_quote": "The following are discussed in this section: • Clinical background to identify relevant medical conditions • Stages of medical conditions in terms of severity, rate of occurrence, affected populations • Available medical alternatives for relevant medical conditions • Advantages and disadvantages of medical alternatives in comparison to the device under evaluation • Historical context and development of the device under evaluation • Safety and performance characteristics of the device under evaluation • Applicable regulatory references for the device under evaluation",
+              "clause_id": "Art.57.1.i",
+              "category": "Regulatory Documentation",
+              "severity": "High",
+              "explanation": "The CER section mentions 'Safety and performance characteristics of the device under evaluation' but does not explicitly state that it provides the summary of safety and clinical performance required by Art.57.1.i",
+              "suggested_correction": "The section should explicitly state that it includes a summary of safety and clinical performance as required by Article 32",
+              "confidence": 0.8,
+              "passage_id": "CER.2.19",
+              "page": 26,
+              "quote_start": 1004,
+              "quote_end": 1576,
+              "clause_path": "Chapter V > Article 57 > (1) > (i)",
+              "grounding_score": 1.0,
+              "judged": false
+            }
+          ],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Art.57.1.h",
+            "Art.57.1.i",
+            "Art.57.2",
+            "Art.58.1",
+            "Art.58.1.a"
+          ],
+          "llm_provider": "ollama",
+          "llm_model": "qwen3:4b",
+          "latency_s": 14.495459794998169,
+          "error": null
+        },
+        {
+          "passage_id": "CER.3.3",
+          "section": "3.3",
+          "page": 31,
+          "findings": [
+            {
+              "violating_statement": "The CER section does not explicitly state the clinical evaluation report's purpose or scope as required by the MDR",
+              "source_quote": "The included scientific articles collectively describe the medical condition addressed by the device",
+              "clause_id": "Art.57.1.h",
+              "category": "Regulatory Documentation",
+              "severity": "High",
+              "explanation": "Art.57.1.h requires information regarding certificates, but the CER section does not address certificates or their relevance to the clinical evaluation",
+              "suggested_correction": "The clinical evaluation report must explicitly state the purpose and scope of the clinical evaluation as per the MDR requirements",
+              "confidence": 0.7,
+              "passage_id": "CER.3.3",
+              "page": 31,
+              "quote_start": 0,
+              "quote_end": 100,
+              "clause_path": "Chapter V > Article 57 > (1) > (h)",
+              "grounding_score": 1.0,
+              "judged": false
+            },
+            {
+              "violating_statement": "The CER section does not provide a summary of safety and clinical performance as required by the MDR",
+              "source_quote": "The literature consistently reflects current clinical practice and state-of-the-art management approaches",
+              "clause_id": "Art.57.1.i",
+              "category": "Clinical Evaluation",
+              "severity": "High",
+              "explanation": "Art.57.1.i requires a summary of safety and clinical performance, but the CER section focuses on literature review without explicitly summarizing safety and clinical performance data",
+              "suggested_correction": "The clinical evaluation report must include a concise summary of safety and clinical performance based on the clinical evaluation",
+              "confidence": 0.8,
+              "passage_id": "CER.3.3",
+              "page": 31,
+              "quote_start": 187,
+              "quote_end": 292,
+              "clause_path": "Chapter V > Article 57 > (1) > (i)",
+              "grounding_score": 1.0,
+              "judged": false
+            }
+          ],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Art.57.1.h",
+            "Art.57.1.i",
+            "Art.57.2",
+            "Art.58.1",
+            "Art.58.1.a"
+          ],
+          "llm_provider": "ollama",
+          "llm_model": "qwen3:4b",
+          "latency_s": 18.897703170776367,
+          "error": null
+        },
+        {
+          "passage_id": "CER.3.6",
+          "section": "3.6",
+          "page": 34,
+          "findings": [
+            {
+              "violating_statement": "The CER section does not provide a summary of safety and clinical performance as required by Art.57.1.i",
+              "source_quote": "The following table provides a comparison of the Double J Stent (Short Term) with alternative treatment options available for the management of ureteral obstruction and impaired urinary drainage. The comparison is based on the intended purpose, expected clinical benefits, and known limitations of each approach.",
+              "clause_id": "Art.57.1.i",
+              "category": "Regulatory Documentation",
+              "severity": "High",
+              "explanation": "Art.57.1.i requires the summary of safety and clinical performance as per Art.32. The CER section describes clinical benefits and limitations but does not explicitly summarize safety and clinical performance as required by the regulation.",
+              "suggested_correction": "Include a dedicated section summarizing the safety profile and clinical performance data for the Double J Stent (Short Term) based on clinical evidence and risk assessment.",
+              "confidence": 0.9,
+              "passage_id": "CER.3.6",
+              "page": 34,
+              "quote_start": 0,
+              "quote_end": 312,
+              "clause_path": "Chapter V > Article 57 > (1) > (i)",
+              "grounding_score": 1.0,
+              "judged": false
+            }
+          ],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Art.57.1.h",
+            "Art.57.1.i",
+            "Art.57.2",
+            "Art.58.1",
+            "Art.58.1.a"
+          ],
+          "llm_provider": "ollama",
+          "llm_model": "qwen3:4b",
+          "latency_s": 13.955156564712524,
+          "error": null
+        },
+        {
+          "passage_id": "CER.4.3.2.1",
+          "section": "4.3.2.1",
+          "page": 53,
+          "findings": [
+            {
+              "violating_statement": "The CER states that no clinical investigation was performed for the Double J Stent/Kit (Short Term) due to its routine clinical use for over a decade, but this claim is inconsistent with MDR requirements for clinical investigations.",
+              "source_quote": "The Double J Stent/Kit (Short Term) is an implantable as it is inserted into the body for several days or weeks and then removed, this technology has indeed been in routine clinical use for over a decade. Hence, according to MDR article 61, no clinical investigation was performed.",
+              "clause_id": "Annex.XI.A.10",
+              "category": "Clinical Investigation",
+              "severity": "High",
+              "explanation": "The CER claims no clinical investigation was performed for the Double J Stent/Kit (Short Term) based on its routine clinical use for over a decade, but MDR Article 61 requires clinical investigations for certain devices. The relevant clause (Annex XI.A.10) states that for class IIa devices, the notified body must assess whether the technical documentation meets the requirements of the Regulation, including considering the novelty of the technology and previous assessments. The CER's claim that no clinical investigation was performed contradicts the need for clinical investigations when the device is not in routine clinical use or has not been sufficiently validated.",
+              "suggested_correction": "The Double J Stent/Kit (Short Term) is an implantable device that has been in routine clinical use for over a decade, therefore a clinical investigation was performed as required by MDR Article 61.",
+              "confidence": 0.8,
+              "passage_id": "CER.4.3.2.1",
+              "page": 53,
+              "quote_start": 0,
+              "quote_end": 281,
+              "clause_path": "Annex XI > Part A > (10)",
+              "grounding_score": 1.0,
+              "judged": false
+            }
+          ],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Annex.XI.A.10",
+            "Annex.XI.B.11",
+            "Annex.XI.B.12",
+            "Annex.XI.B.13",
+            "Annex.XI.B.14"
+          ],
+          "llm_provider": "ollama",
+          "llm_model": "qwen3:4b",
+          "latency_s": 21.96309995651245,
+          "error": null
+        },
+        {
+          "passage_id": "CER.4.3.2.2#1",
+          "section": "4.3.2.2",
+          "page": 53,
+          "findings": [
+            {
+              "violating_statement": "The CER section does not provide sufficient post-market surveillance data for the device marketed in India, which is outside the EU market.",
+              "source_quote": "The device is marketed in India. The following data sources were utilised to collect relevant post-marketing data to support clinical safety and performance.",
+              "clause_id": "Annex.II.6.c#1",
+              "category": "Post Market Surveillance",
+              "severity": "High",
+              "explanation": "The MDR requires post-market surveillance data for devices marketed in the EU. The CER section mentions data sources for India but does not address EU post-market surveillance requirements.",
+              "suggested_correction": "Include specific post-market surveillance data sources for EU markets, such as adverse event reporting systems and clinical follow-up data within EU countries.",
+              "confidence": 0.9,
+              "passage_id": "CER.4.3.2.2#1",
+              "page": 53,
+              "quote_start": 0,
+              "quote_end": 157,
+              "clause_path": "Annex II > (6) > (c)",
+              "grounding_score": 1.0,
+              "judged": false
+            },
+            {
+              "violating_statement": "The CER section does not provide adequate information on the environmental conditions for manufacturing steps for devices placed on the market in a sterile condition.",
+              "source_quote": "A total of 1859 units of the device were sold in India between Jan 2025, and Dec 2025 & 1819 units of the device were sold in EU Countries between Jan 2025 and Dec 2025.",
+              "clause_id": "Annex.II.6.e",
+              "category": "Verification & Validation",
+              "severity": "Medium",
+              "explanation": "The MDR requires a description of environmental conditions for sterile manufacturing steps. The CER section does not mention any such details for the device.",
+              "suggested_correction": "Add a section describing the environmental conditions for manufacturing steps, including validation reports for sterilization and packaging.",
+              "confidence": 0.8,
+              "passage_id": "CER.4.3.2.2#1",
+              "page": 53,
+              "quote_start": 407,
+              "quote_end": 576,
+              "clause_path": "Annex II > (6) > (e)",
+              "grounding_score": 1.0,
+              "judged": false
+            },
+            {
+              "violating_statement": "The CER section does not provide information on the accuracy of measuring functions for the device.",
+              "source_quote": "The Manufacturer has provided the subject device to 5 healthcare professionals for stenting application and asked for their feedback.",
+              "clause_id": "Annex.II.6.f",
+              "category": "Verification & Validation",
+              "severity": "Medium",
+              "explanation": "The MDR requires a description of methods to ensure accuracy for devices with measuring functions. The CER section does not address this requirement.",
+              "suggested_correction": "Include a section describing the accuracy testing methods for the device's measuring functions.",
+              "confidence": 0.7,
+              "passage_id": "CER.4.3.2.2#1",
+              "page": 53,
+              "quote_start": 1495,
+              "quote_end": 1628,
+              "clause_path": "Annex II > (6) > (f)",
+              "grounding_score": 1.0,
+              "judged": false
+            },
+            {
+              "violating_statement": "The CER section does not provide information on the combination of devices for the device to operate as intended.",
+              "source_quote": "All of them given ‘Good’ rating against ‘product satisfaction’.",
+              "clause_id": "Annex.II.6.g",
+              "category": "Risk Management",
+              "severity": "Medium",
+              "explanation": "The MDR requires a description of device combinations if the device connects to other devices. The CER section does not address this requirement.",
+              "suggested_correction": "Add a section describing the device combinations and proof of compliance with safety and performance requirements.",
+              "confidence": 0.8,
+              "passage_id": "CER.4.3.2.2#1",
+              "page": 53,
+              "quote_start": 1629,
+              "quote_end": 1692,
+              "clause_path": "Annex II > (6) > (g)",
+              "grounding_score": 1.0,
+              "judged": false
+            }
+          ],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Annex.II.6.c#1",
+            "Annex.II.6.d#1",
+            "Annex.II.6.e",
+            "Annex.II.6.f",
+            "Annex.II.6.g"
+          ],
+          "llm_provider": "ollama",
+          "llm_model": "qwen3:4b",
+          "latency_s": 42.34018802642822,
+          "error": null
+        }
+      ],
+      "readiness_score": 0.0,
+      "config": {}
+    },
+    "repeats": [
+      {
+        "scores": {
+          "expected_total": 4,
+          "matched": 0,
+          "recall": 0.0,
+          "precision": 0.0,
+          "f1": 0.0,
+          "predicted_total": 27,
+          "clean_passages": 15,
+          "clean_passages_with_findings": 12,
+          "findings_on_clean": 20,
+          "false_positive_rate": 0.8,
+          "hallucinated": 0,
+          "hallucination_rate": 0.0
+        },
+        "findings": 27,
+        "dropped": {},
+        "elapsed_s": 526.1,
+        "matched": []
+      },
+      {
+        "scores": {
+          "expected_total": 4,
+          "matched": 0,
+          "recall": 0.0,
+          "precision": 0.0,
+          "f1": 0.0,
+          "predicted_total": 30,
+          "clean_passages": 15,
+          "clean_passages_with_findings": 14,
+          "findings_on_clean": 27,
+          "false_positive_rate": 0.9333,
+          "hallucinated": 0,
+          "hallucination_rate": 0.0
+        },
+        "findings": 30,
+        "dropped": {},
+        "elapsed_s": 463.3,
+        "matched": []
+      }
+    ],
+    "summary": {
+      "recall": {
+        "mean": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "precision": {
+        "mean": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "f1": {
+        "mean": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "false_positive_rate": {
+        "mean": 0.8667,
+        "min": 0.8,
+        "max": 0.9333
+      },
+      "hallucination_rate": {
+        "mean": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      }
+    },
+    "contaminated_runs": 2
+  }
+}

@@ -1,0 +1,667 @@
+{
+  "v2_full": {
+    "scores": {
+      "expected_total": 4,
+      "matched": 0,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "predicted_total": 15,
+      "clean_passages": 15,
+      "clean_passages_with_findings": 11,
+      "findings_on_clean": 15,
+      "false_positive_rate": 0.7333,
+      "hallucinated": 0,
+      "hallucination_rate": 0.0
+    },
+    "readiness_score": 60.0,
+    "findings": 15,
+    "dropped": {
+      "second model did not agree the finding is supported": 1
+    },
+    "categories": {
+      "Clinical Evaluation": 3,
+      "Regulatory Documentation": 4,
+      "Safety": 8
+    },
+    "errors": 4,
+    "elapsed_s": 1508.3,
+    "matched": [],
+    "missed": [
+      "CER.4.3.2.1 -> Art.61.4",
+      "CER.2.11 -> Annex.I.23",
+      "CER.2.19 -> Annex.II.1",
+      "CER.4.3.2.2#1 -> Art.83"
+    ],
+    "report": {
+      "document_name": "Clinical Evaluation Report",
+      "passages": [
+        {
+          "passage_id": "CER.2.1",
+          "section": "2.1",
+          "page": 11,
+          "findings": [
+            {
+              "violating_statement": "The clinical evaluation plan does not specify the intended purpose of the device as required",
+              "source_quote": "The scope of this clinical evaluation includes the Double J Stent (Short Term), designed and manufactured by Biorad under the brand name DJS as mentioned below.",
+              "clause_id": "Annex.XIV.A.1.a",
+              "category": "Clinical Evaluation",
+              "severity": "High",
+              "explanation": "Annex XIV Part A paragraph (1)(a) requires the clinical evaluation plan to include a specification of the intended purpose of the device, which is absent from the provided section.",
+              "suggested_correction": "Add a clear statement of the intended purpose, e.g., \"Intended purpose: to provide temporary urinary drainage in patients requiring short‑term ureteral stenting.\"",
+              "confidence": 0.96,
+              "passage_id": "CER.2.1",
+              "page": 11,
+              "quote_start": 0,
+              "quote_end": 160,
+              "clause_path": "Annex XIV > Part A > (1) > (a)",
+              "grounding_score": 1.0,
+              "judged": true
+            },
+            {
+              "violating_statement": "The clinical evaluation plan does not identify the intended target groups, indications or contraindications",
+              "source_quote": "The scope of this clinical evaluation includes the Double J Stent (Short Term), designed and manufactured by Biorad under the brand name DJS as mentioned below.",
+              "clause_id": "Annex.XIV.A.1.a",
+              "category": "Clinical Evaluation",
+              "severity": "High",
+              "explanation": "Annex XIV Part A paragraph (1)(a) mandates a clear specification of intended target groups with clear indications and contra‑indications, which is missing from the section.",
+              "suggested_correction": "Include a target‑group description, e.g., \"Target group: adult patients requiring short‑term ureteral stenting; Indications: obstruction of the ureter; Contra‑indications: active urinary infection, known allergy to device materials.\"",
+              "confidence": 0.94,
+              "passage_id": "CER.2.1",
+              "page": 11,
+              "quote_start": 0,
+              "quote_end": 160,
+              "clause_path": "Annex XIV > Part A > (1) > (a)",
+              "grounding_score": 1.0,
+              "judged": true
+            },
+            {
+              "violating_statement": "The clinical evaluation plan lacks a detailed description of intended clinical benefits and outcome parameters",
+              "source_quote": "The scope of this clinical evaluation includes the Double J Stent (Short Term), designed and manufactured by Biorad under the brand name DJS as mentioned below.",
+              "clause_id": "Annex.XIV.A.1.a",
+              "category": "Clinical Evaluation",
+              "severity": "Medium",
+              "explanation": "Annex XIV Part A paragraph (1)(a) requires a detailed description of intended clinical benefits and relevant clinical outcome parameters, which are not provided in the excerpt.",
+              "suggested_correction": "Add a benefits statement, e.g., \"Intended clinical benefit: to maintain ureteral patency and relieve hydronephrosis, with outcome parameters such as time to obstruction recurrence and patient‑reported pain scores.\"",
+              "confidence": 0.92,
+              "passage_id": "CER.2.1",
+              "page": 11,
+              "quote_start": 0,
+              "quote_end": 160,
+              "clause_path": "Annex XIV > Part A > (1) > (a)",
+              "grounding_score": 1.0,
+              "judged": true
+            }
+          ],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Annex.XIV.B.6.f",
+            "Annex.XIV.A.3",
+            "Annex.XIV.A.1.a",
+            "Annex.VII.4.d#3",
+            "Annex.XV.2#1"
+          ],
+          "llm_provider": "groq",
+          "llm_model": "openai/gpt-oss-120b",
+          "latency_s": 11.287896633148193,
+          "error": null
+        },
+        {
+          "passage_id": "CER.2.2",
+          "section": "2.2",
+          "page": 11,
+          "findings": [
+            {
+              "violating_statement": "The PRRC entry lacks required address and complete contact details",
+              "source_quote": "Table 3: Details of Person Responsible for Regulatory Compliance (PRRC) Name: Phone; Mr. Sudhakar Saxena: +41 447090101. Name: Email.",
+              "clause_id": "Annex.VI.A.1",
+              "category": "Regulatory Documentation",
+              "severity": "Medium",
+              "explanation": "Annex VI Part A (1) requires the name, address and contact details of the person(s) responsible for regulatory compliance. The CER only provides the PRRC's name and phone number, omitting the address and email, thus not fulfilling the clause.",
+              "suggested_correction": "Table 3: Details of Person Responsible for Regulatory Compliance (PRRC) Name: Mr. Sudhakar Saxena; Address: [full address]; Phone: +41 447090101; Email: [email address].",
+              "confidence": 0.95,
+              "passage_id": "CER.2.2",
+              "page": 11,
+              "quote_start": 787,
+              "quote_end": 920,
+              "clause_path": "Annex VI > Part A > (1)",
+              "grounding_score": 1.0,
+              "judged": true
+            }
+          ],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Annex.X.2",
+            "Annex.VI.A.1",
+            "Art.14.5",
+            "Annex.XII.2#1",
+            "Art.15.1"
+          ],
+          "llm_provider": "groq",
+          "llm_model": "openai/gpt-oss-120b",
+          "latency_s": 9.819482564926147,
+          "error": null
+        },
+        {
+          "passage_id": "CER.2.3",
+          "section": "2.3",
+          "page": 12,
+          "findings": [],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Art.29.3",
+            "Art.118",
+            "Annex.VI.C.6.b",
+            "Art.4.1",
+            "Art.1.6.a"
+          ],
+          "llm_provider": "groq",
+          "llm_model": "openai/gpt-oss-120b",
+          "latency_s": 50.00142025947571,
+          "error": null
+        },
+        {
+          "passage_id": "CER.2.4",
+          "section": "2.4",
+          "page": 14,
+          "findings": [
+            {
+              "violating_statement": "The device description does not provide the user/patient with required warnings, precautions, contraindications, measures to be taken and limitations of use as required by Annex I.23.s#1",
+              "source_quote": "It is supplied as sterile/nonsterile product in a peel-open package and intended for one time use only.",
+              "clause_id": "Annex.I.23.s#1",
+              "category": "Safety",
+              "severity": "High",
+              "explanation": "Annex I.23.s#1 mandates that the device information include warnings, precautions, contraindications, measures to be taken and limitations of use. The CER section only mentions packaging and single‑use status and omits any such safety information, constituting a breach of the MDR.",
+              "suggested_correction": "Add a subsection in the device description that details all relevant warnings, precautions, contraindications, measures to be taken and limitations of use for the Double J Stent, e.g., \"Warnings: Do not use in patients with known allergy to PTFE. Precautions: Ensure correct placement to avoid migration. Contraindications: Active urinary infection. Limitations: Not for use beyond 30 days in short‑term applications.\"",
+              "confidence": 0.92,
+              "passage_id": "CER.2.4",
+              "page": 14,
+              "quote_start": 1350,
+              "quote_end": 1453,
+              "clause_path": "Annex I > (23) > (s)",
+              "grounding_score": 1.0,
+              "judged": true
+            }
+          ],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Art.1.3",
+            "Annex.I.23.s#1",
+            "Annex.VIII.4",
+            "Art.2",
+            "Annex.VI.A.2"
+          ],
+          "llm_provider": "groq",
+          "llm_model": "openai/gpt-oss-120b",
+          "latency_s": 62.925644636154175,
+          "error": null
+        },
+        {
+          "passage_id": "CER.2.5",
+          "section": "2.5",
+          "page": 14,
+          "findings": [],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Annex.VIII.4",
+            "Annex.IX.4",
+            "Annex.VIII.7",
+            "Annex.VIII.5",
+            "Annex.VI.A.2"
+          ],
+          "llm_provider": "groq",
+          "llm_model": "openai/gpt-oss-120b",
+          "latency_s": 60.6539511680603,
+          "error": null
+        },
+        {
+          "passage_id": "CER.2.6",
+          "section": "2.6",
+          "page": 15,
+          "findings": [
+            {
+              "violating_statement": "The CER does not provide confirmation that the device meets defined chemical and/or physical specifications as required by Annex I.10.h",
+              "source_quote": "Material; Specifications: Stent: Polyurethane (White/Blue) Pusher: Polypropylene String/Suture: Polypropylene Guidewire (in kit): SS 304 with PTFE coating / Nitinol with hydrophilic coating.",
+              "clause_id": "Annex.I.10.h",
+              "category": "Safety",
+              "severity": "Medium",
+              "explanation": "Annex I.10.h requires the confirmation that the device meets any defined chemical and/or physical specifications. The section only lists the materials without stating that they meet the required specifications or have been verified against them.",
+              "suggested_correction": "Add a statement such as: \"All materials have been verified to meet the defined chemical and physical specifications in accordance with applicable standards (e.g., ISO 10993, ISO 7153).\"",
+              "confidence": 0.85,
+              "passage_id": "CER.2.6",
+              "page": 15,
+              "quote_start": 216,
+              "quote_end": 406,
+              "clause_path": "Annex I > (10) > (h)",
+              "grounding_score": 1.0,
+              "judged": true
+            }
+          ],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Annex.XIV.A.3",
+            "Annex.VI.A.2",
+            "Annex.I.11.d",
+            "Annex.I.10.h",
+            "Annex.VII.4.e#1"
+          ],
+          "llm_provider": "groq",
+          "llm_model": "openai/gpt-oss-120b",
+          "latency_s": 62.762837409973145,
+          "error": null
+        },
+        {
+          "passage_id": "CER.2.7#1",
+          "section": "2.7",
+          "page": 16,
+          "findings": [
+            {
+              "violating_statement": "The report does not provide the confirmation that the device meets any defined chemical and/or physical specifications as required by Annex I 10 h.",
+              "source_quote": "The materials selected for device construction are widely used in urological medical devices and are suitable for short-term internal use.",
+              "clause_id": "Annex.I.10.h",
+              "category": "Safety",
+              "severity": "Medium",
+              "explanation": "Annex I 10 h mandates that the technical documentation include confirmation that the device meets defined chemical and physical specifications. The CER only states that the materials are widely used and suitable, without providing the required specification confirmation or test results.",
+              "suggested_correction": "Add a statement such as: \"All materials used (polyurethane, polypropylene, stainless steel 304 with PTFE coating, nitinol with hydrophilic coating) have been tested and meet the defined chemical and physical specifications outlined in the device’s specification sheet, with results documented in Appendix X.\"",
+              "confidence": 0.95,
+              "passage_id": "CER.2.7#1",
+              "page": 16,
+              "quote_start": 1140,
+              "quote_end": 1278,
+              "clause_path": "Annex I > (10) > (h)",
+              "grounding_score": 1.0,
+              "judged": true
+            }
+          ],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Annex.VI.A.2",
+            "Art.117",
+            "Annex.VII.4.b#2",
+            "Annex.I.10.h",
+            "Annex.IX.4"
+          ],
+          "llm_provider": "groq",
+          "llm_model": "openai/gpt-oss-120b",
+          "latency_s": 62.00232434272766,
+          "error": null
+        },
+        {
+          "passage_id": "CER.2.7#2",
+          "section": "2.7",
+          "page": 16,
+          "findings": [
+            {
+              "violating_statement": "The CER section does not provide any information on warnings, precautions, contraindications, or limitations of use for the materials (e.g., polypropylene, PTFE, stainless steel) as required by Annex I.23.s",
+              "source_quote": "Polypropylene suture or thread is used for stabilizing the distal end of the stent and keeps everything adequately aligned with only gentle traction on the dangler thread",
+              "clause_id": "Annex.I.23.s#1",
+              "category": "Safety",
+              "severity": "Medium",
+              "explanation": "Annex I.23.s mandates that the documentation include information that allows the user/patient to be informed of any warnings, precautions, contraindications, measures to be taken and limitations of use regarding the device and its materials. The provided description only lists material composition and functional features, without any such safety information, constituting a non‑compliance.",
+              "suggested_correction": "Add a subsection detailing all relevant warnings, precautions, contraindications, and usage limitations for each material (e.g., potential allergic reactions to polypropylene, PTFE coating integrity, stainless‑steel corrosion risk) and instructions for the user/patient accordingly.",
+              "confidence": 0.92,
+              "passage_id": "CER.2.7#2",
+              "page": 16,
+              "quote_start": 494,
+              "quote_end": 664,
+              "clause_path": "Annex I > (23) > (s)",
+              "grounding_score": 1.0,
+              "judged": true
+            }
+          ],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Annex.I.23.s#1",
+            "Annex.II.6.a#1",
+            "Art.2",
+            "Art.23.1",
+            "Annex.VIII.2.b"
+          ],
+          "llm_provider": "groq",
+          "llm_model": "openai/gpt-oss-120b",
+          "latency_s": 61.908491373062134,
+          "error": null
+        },
+        {
+          "passage_id": "CER.2.8",
+          "section": "2.8",
+          "page": 21,
+          "findings": [
+            {
+              "violating_statement": "The section does not provide any information on warnings, precautions, contraindications, measures to be taken or limitations of use for the Double J Stent, as required by the MDR.",
+              "source_quote": "The Double J Stent (Short Term) is a passive, implantable ureteral stent intended to support urine flow from the kidney to the bladder in cases of ureteral obstruction or impaired drainage.",
+              "clause_id": "Annex.I.23.s#1",
+              "category": "Safety",
+              "severity": "Medium",
+              "explanation": "Annex I.23.s#1 mandates that the device information must include warnings, precautions, contraindications and limitations of use to inform the user and patient. The CER section on mechanism of action omits this required information, representing a gap in regulatory documentation and safety communication.",
+              "suggested_correction": "Add a subsection titled \"Warnings, Precautions and Limitations of Use\" that details any known risks (e.g., migration, infection, encrustation), contraindications (e.g., active urinary infection, allergy to device material), and measures to be taken in case of malfunction or adverse events.",
+              "confidence": 0.93,
+              "passage_id": "CER.2.8",
+              "page": 21,
+              "quote_start": 0,
+              "quote_end": 189,
+              "clause_path": "Annex I > (23) > (s)",
+              "grounding_score": 1.0,
+              "judged": true
+            }
+          ],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Annex.I.23.s#1",
+            "Art.2.i.iv",
+            "Annex.VI.A.2",
+            "Annex.I.14.g",
+            "Art.1.3"
+          ],
+          "llm_provider": "groq",
+          "llm_model": "openai/gpt-oss-120b",
+          "latency_s": 9.318960428237915,
+          "error": null
+        },
+        {
+          "passage_id": "CER.2.9",
+          "section": "2.9",
+          "page": 22,
+          "findings": [
+            {
+              "violating_statement": "The intended use description does not indicate the sterilisation method required for a sterile device",
+              "source_quote": "This is a single use sterile device which is used for internal drainage from Kidney to Bladder in medical conditions like improper urine drainage, calculi in ureter, hydronephrosis, oxalate calculi, pyeloplasty with UPJ Obstruction, residual renal calculus, ureteral stricture.",
+              "clause_id": "Annex.I.23.l",
+              "category": "Regulatory Documentation",
+              "severity": "Medium",
+              "explanation": "Annex I 23(l) requires that if the device is supplied sterile, the report must include an indication of its sterile state and the sterilisation method. The CER only states the device is sterile but does not specify the sterilisation method, breaching this requirement.",
+              "suggested_correction": "Add a statement such as: \"The device is supplied sterile, having been sterilised by validated ethylene oxide (EO) processing in accordance with ISO 11135. The sterilisation method and validation data are documented in the technical file.\"",
+              "confidence": 0.95,
+              "passage_id": "CER.2.9",
+              "page": 22,
+              "quote_start": 0,
+              "quote_end": 277,
+              "clause_path": "Annex I > (23) > (l)",
+              "grounding_score": 1.0,
+              "judged": true
+            }
+          ],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Annex.I.23.l",
+            "Annex.I.23.b#2",
+            "Annex.II.6.a#1",
+            "Annex.I.12",
+            "Annex.II.6.e"
+          ],
+          "llm_provider": "groq",
+          "llm_model": "openai/gpt-oss-120b",
+          "latency_s": 52.60759949684143,
+          "error": null
+        },
+        {
+          "passage_id": "CER.2.10",
+          "section": "2.10",
+          "page": 23,
+          "findings": [
+            {
+              "violating_statement": "Missing indication of the sterile state and sterilisation method",
+              "source_quote": "This is a single use sterile device used for internal drainage from Kidney to Bladder",
+              "clause_id": "Annex.I.23.l",
+              "category": "Regulatory Documentation",
+              "severity": "Medium",
+              "explanation": "The clause requires that if the device is supplied sterile, the CER must indicate its sterile state and the sterilisation method, which is not provided in the text.",
+              "suggested_correction": "The device is supplied sterile; sterilisation is performed by gamma irradiation (or specify method) and the sterile state is indicated on the labeling.",
+              "confidence": 0.95,
+              "passage_id": "CER.2.10",
+              "page": 23,
+              "quote_start": 0,
+              "quote_end": 85,
+              "clause_path": "Annex I > (23) > (l)",
+              "grounding_score": 1.0,
+              "judged": true
+            },
+            {
+              "violating_statement": "Missing instructions for damaged or unintentionally opened sterile packaging",
+              "source_quote": "This is a single use sterile device used for internal drainage from Kidney to Bladder",
+              "clause_id": "Annex.I.23.l#1",
+              "category": "Regulatory Documentation",
+              "severity": "Medium",
+              "explanation": "The clause mandates instructions on what to do if the sterile packaging is damaged or opened before use, which are not mentioned.",
+              "suggested_correction": "Add instructions: \"If the sterile packaging is damaged or opened before use, do not use the device and contact the manufacturer for a replacement.\"",
+              "confidence": 0.94,
+              "passage_id": "CER.2.10",
+              "page": 23,
+              "quote_start": 0,
+              "quote_end": 85,
+              "clause_path": "Annex I > (23) > (l)",
+              "grounding_score": 1.0,
+              "judged": true
+            },
+            {
+              "violating_statement": "No statement addressing reduction of microbial leakage or exposure during use",
+              "source_quote": "This is a single use sterile device used for internal drainage from Kidney to Bladder",
+              "clause_id": "Annex.I.11.c",
+              "category": "Safety",
+              "severity": "Medium",
+              "explanation": "The clause requires that the device design and labeling reduce microbial leakage and exposure, but the CER provides no such information.",
+              "suggested_correction": "Include a statement: \"The device is designed to minimise microbial leakage and exposure during use, complying with MDR requirements.\"",
+              "confidence": 0.93,
+              "passage_id": "CER.2.10",
+              "page": 23,
+              "quote_start": 0,
+              "quote_end": 85,
+              "clause_path": "Annex I > (11) > (c)",
+              "grounding_score": 1.0,
+              "judged": true
+            }
+          ],
+          "dropped": [
+            {
+              "reason": "second model did not agree the finding is supported",
+              "detail": "",
+              "raw": {
+                "violating_statement": "Missing declaration that the device is in a sterile condition",
+                "source_quote": "This is a single use sterile device used for internal drainage from Kidney to Bladder",
+                "clause_id": "[Annex.I.23.b#2]",
+                "category": "Regulatory Documentation",
+                "severity": "Medium",
+                "explanation": "The clause requires a declaration that the device is in a sterile condition, which is absent from the provided statement.",
+                "suggested_correction": "Include a statement such as: \"The device is supplied in a sterile condition.\"",
+                "confidence": 0.95
+              }
+            }
+          ],
+          "retrieved_clauses": [
+            "Annex.I.23.l",
+            "Annex.I.23.b#2",
+            "Annex.I.23.n",
+            "Annex.I.23.l#1",
+            "Annex.I.11.c"
+          ],
+          "llm_provider": "groq",
+          "llm_model": "openai/gpt-oss-120b",
+          "latency_s": 11.434802532196045,
+          "error": null
+        },
+        {
+          "passage_id": "CER.2.11",
+          "section": "2.11",
+          "page": 23,
+          "findings": [],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Annex.I.23.i#1",
+            "Art.2",
+            "Art.16.2",
+            "Annex.II.4.a",
+            "Annex.I.8"
+          ],
+          "llm_provider": "groq",
+          "llm_model": "openai/gpt-oss-120b",
+          "latency_s": 8.344609260559082,
+          "error": null
+        },
+        {
+          "passage_id": "CER.2.12",
+          "section": "2.12",
+          "page": 23,
+          "findings": [
+            {
+              "violating_statement": "The intended patient population description does not provide the required information on warnings, precautions, contraindications, measures to be taken and limitations of use for the device.",
+              "source_quote": "Hence Double J Stent (Short term) can be use in Adults, Male / Female.",
+              "clause_id": "Annex.I.23.s#1",
+              "category": "Safety",
+              "severity": "Medium",
+              "explanation": "Annex I, clause 23(s) requires that the clinical evaluation report include information that allows the user and/or patient to be informed of any warnings, precautions, contraindications, measures to be taken and limitations of use. The CER section only lists medical conditions and target adult gender groups, but omits any such safety information, constituting a breach of the clause.",
+              "suggested_correction": "Add a subsection that details all relevant warnings, precautions, contraindications, required measures and usage limitations for the Double J Stent, e.g., \"The device must not be used in patients with known hypersensitivity to its material, must be removed after the recommended short-term period, and users should monitor for signs of infection or migration.\"",
+              "confidence": 0.9,
+              "passage_id": "CER.2.12",
+              "page": 23,
+              "quote_start": 340,
+              "quote_end": 410,
+              "clause_path": "Annex I > (23) > (s)",
+              "grounding_score": 1.0,
+              "judged": true
+            }
+          ],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Art.2.i.iv",
+            "Art.1.3",
+            "Annex.I.23.s#1",
+            "Art.1.9",
+            "Annex.IX.2.e"
+          ],
+          "llm_provider": "groq",
+          "llm_model": "openai/gpt-oss-120b",
+          "latency_s": 45.6170175075531,
+          "error": null
+        },
+        {
+          "passage_id": "CER.2.13",
+          "section": "2.13",
+          "page": 23,
+          "findings": [
+            {
+              "violating_statement": "The section does not provide the user‑information required by Annex I.23.s#1, such as warnings, precautions, contraindications and limitations of use for the Double J Stent.",
+              "source_quote": "The Double J Stent (Short Term) is intended to be used by qualified healthcare professionals trained and experienced in urological procedures. The intended users include: • Urologists • Surgeons trained in endourology or urological interventions • Interventional specialists performing ureteroscopic procedures • Trained operating room or catheterization laboratory personnel under physician supervision The device is intended for use in a clinical/hospital setting, including operating theatres, endoscopy suites, and other controlled healthcare environments. Proper knowledge of ureteral anatomy, guidewire-assisted placement techniques, and stent positioning is required for safe and effective use.",
+              "clause_id": "Annex.I.23.s#1",
+              "category": "Safety",
+              "severity": "Medium",
+              "explanation": "Annex I.23.s#1 mandates that the CER include information that allows the user and/or patient to be informed of any warnings, precautions, contraindications, measures to be taken and limitations of use. The provided text only describes intended users and setting, but omits any such safety information, constituting a non‑compliance with the MDR requirement.",
+              "suggested_correction": "Add a subsection titled “User Information and Safety Instructions” that details all relevant warnings, precautions, contraindications, and limitations of use for the Double J Stent, e.g., \"Do not use in patients with known hypersensitivity to the device material; ensure correct guidewire placement to avoid ureteral injury; monitor for signs of infection or obstruction; contraindicated in patients with active urinary tract infection, etc.\"",
+              "confidence": 0.93,
+              "passage_id": "CER.2.13",
+              "page": 23,
+              "quote_start": 0,
+              "quote_end": 701,
+              "clause_path": "Annex I > (23) > (s)",
+              "grounding_score": 1.0,
+              "judged": true
+            }
+          ],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Annex.I.23.q",
+            "Annex.XIV.A.3",
+            "Art.2.i.iv",
+            "Annex.I.23.s#1",
+            "Art.61.1"
+          ],
+          "llm_provider": "groq",
+          "llm_model": "openai/gpt-oss-120b",
+          "latency_s": 17.24345302581787,
+          "error": null
+        },
+        {
+          "passage_id": "CER.2.19",
+          "section": "2.19",
+          "page": 26,
+          "findings": [],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Annex.XIV.A.3",
+            "Art.1.2",
+            "Annex.IX.4",
+            "Annex.IX.2.c",
+            "Annex.XV.2"
+          ],
+          "llm_provider": "",
+          "llm_model": "",
+          "latency_s": 241.59016251564026,
+          "error": "RuntimeError: all providers failed; last error: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kvhk17xfe1gbpj2mxgpehxxe` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 197535, Requested 3656. Please try again in 8m34.512s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+        },
+        {
+          "passage_id": "CER.3.3",
+          "section": "3.3",
+          "page": 31,
+          "findings": [],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Annex.XIV.A.4",
+            "Art.61.11",
+            "Art.61.3.a",
+            "Annex.I.12",
+            "Art.2"
+          ],
+          "llm_provider": "groq",
+          "llm_model": "openai/gpt-oss-120b",
+          "latency_s": 126.43724370002747,
+          "error": null
+        },
+        {
+          "passage_id": "CER.3.6",
+          "section": "3.6",
+          "page": 34,
+          "findings": [],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Annex.XIV.A.3",
+            "Art.88.1",
+            "Art.2.i.iv",
+            "Annex.I.23.s#1",
+            "Annex.XV.2#1"
+          ],
+          "llm_provider": "",
+          "llm_model": "",
+          "latency_s": 189.07504534721375,
+          "error": "RuntimeError: all providers failed; last error: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kvhk17xfe1gbpj2mxgpehxxe` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199329, Requested 2564. Please try again in 13m37.776s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+        },
+        {
+          "passage_id": "CER.4.3.2.1",
+          "section": "4.3.2.1",
+          "page": 53,
+          "findings": [],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Annex.I.23.q",
+            "Art.61.4",
+            "Art.52.5",
+            "Annex.VI.A.2",
+            "Art.74.1"
+          ],
+          "llm_provider": "",
+          "llm_model": "",
+          "latency_s": 182.60701274871826,
+          "error": "RuntimeError: all providers failed; last error: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kvhk17xfe1gbpj2mxgpehxxe` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198906, Requested 2009. Please try again in 6m35.28s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+        },
+        {
+          "passage_id": "CER.4.3.2.2#1",
+          "section": "4.3.2.2",
+          "page": 53,
+          "findings": [],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Art.61.4",
+            "Art.2.c#1",
+            "Art.1.10",
+            "Art.32.1",
+            "Annex.IX.4"
+          ],
+          "llm_provider": "",
+          "llm_model": "",
+          "latency_s": 242.6602907180786,
+          "error": "RuntimeError: all providers failed; last error: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kvhk17xfe1gbpj2mxgpehxxe` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198344, Requested 3534. Please try again in 13m31.296s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+        }
+      ],
+      "readiness_score": 60.0,
+      "config": {}
+    }
+  }
+}
