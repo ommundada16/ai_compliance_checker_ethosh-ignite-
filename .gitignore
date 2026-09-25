@@ -51,3 +51,8 @@ eval_data/llm_proposals.jsonl
 
 # embedded qdrant index, rebuilt by tools/score_v2.py --reindex
 qdrant_local/
+
+# --- regenerable ---
+eval_data/.retrieval_cache.json
+frontend/*.tsbuildinfo
+docs/COMPARISON.generated.md

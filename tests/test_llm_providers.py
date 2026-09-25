@@ -142,3 +142,31 @@ def test_counts_track_which_backend_served() -> None:
 def test_empty_chain_rejected() -> None:
     with pytest.raises(ValueError):
         FailoverProvider([])
+
+
+# --- salvaging a reply that broke part-way -------------------------------------
+
+def test_complete_findings_survive_a_truncated_reply():
+    from auditor.llm.base import parse_json_payload
+
+    raw = ('{"findings": [{"clause_id": "A", "n": 1}, {"clause_id": "B", "n": 2}, '
+           '{"clause_id": "C", "explanation": "cut off mid-sen')
+    data = parse_json_payload(raw)
+    assert [f["clause_id"] for f in data["findings"]] == ["A", "B"]
+    assert data["_salvaged"] is True
+
+
+def test_a_reply_with_no_complete_finding_still_raises():
+    import pytest
+
+    from auditor.llm.base import parse_json_payload
+
+    with pytest.raises(ValueError):
+        parse_json_payload('{"findings": [{"clause_id": "A", "explanation": "cut')
+
+
+def test_a_valid_reply_is_untouched_by_salvage():
+    from auditor.llm.base import parse_json_payload
+
+    data = parse_json_payload('{"findings": [{"clause_id": "A"}]}')
+    assert data == {"findings": [{"clause_id": "A"}]}

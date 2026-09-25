@@ -95,8 +95,46 @@ def parse_json_payload(raw: str) -> dict:
     start = text.find("{")
     end = text.rfind("}")
     if start != -1 and end > start:
-        return json.loads(text[start : end + 1])
+        try:
+            return json.loads(text[start : end + 1])
+        except json.JSONDecodeError:
+            salvaged = _salvage_findings(text)
+            if salvaged is not None:
+                return salvaged
+            raise
     raise ValueError(f"no JSON object in response: {raw[:200]!r}")
+
+
+def _salvage_findings(text: str) -> dict | None:
+    """Recover the complete findings from a reply that broke part-way through.
+
+    A long answer cut off at the token limit, or a small model losing the thread
+    on its eighth finding, used to cost the WHOLE passage: three of nineteen in
+    a measured local run. The findings before the break are intact objects and
+    are still evidence, so they are kept and the reply is marked `_salvaged` so
+    that it stays visible in the results. Returns None when nothing complete can
+    be recovered, and the caller then raises as before -- an unreadable reply is
+    never quietly turned into "no findings".
+    """
+    anchor = text.find('"findings"')
+    if anchor == -1:
+        return None
+    bracket = text.find("[", anchor)
+    if bracket == -1:
+        return None
+    decoder = json.JSONDecoder()
+    position, items = bracket + 1, []
+    while position < len(text):
+        while position < len(text) and (text[position].isspace() or text[position] == ","):
+            position += 1
+        if position >= len(text) or text[position] != "{":
+            break
+        try:
+            obj, position = decoder.raw_decode(text, position)
+        except json.JSONDecodeError:
+            break
+        items.append(obj)
+    return {"findings": items, "_salvaged": True} if items else None
 
 
 class JSONProvider(ABC):
