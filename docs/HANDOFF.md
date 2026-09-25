@@ -4,8 +4,8 @@ A complete briefing for another engineer or AI assistant picking this up.
 Everything here is verifiable from the repository; no figure is estimated.
 
 **Repository:** https://github.com/ommundada16/ai_compliance_checker_ethosh-ignite-
-**Status:** v2 complete and measured. 30 commits. ~160 tests passing, lint clean.
-**Last updated:** 2026-09-24
+**Status:** v2 complete and measured, including audit quality. ~160 tests passing, lint clean.
+**Last updated:** 2026-09-25
 
 ---
 
@@ -122,16 +122,46 @@ was invisible to its retriever.** `measure_embedding_window()` in
 shortest prefix whose embedding is *identical* to the full chunk's, and the
 result is written into the baseline JSON so the claim travels with the numbers.
 
-### 3.4 Audit quality — PENDING
+### 3.4 Audit quality — v2_full, 19 passages
 
-`eval_data/results/audit_eval.json` currently holds output from an **invalid
-run** (18 of 19 passages failed on rate limits before token pacing was added).
-Do not quote it. A corrected 3-config run was in progress at handoff time.
+| Metric | Value |
+|---|---|
+| Findings reported | 15 |
+| Recall over known violations | **0.250** (1 of 4) |
+| Precision | 0.067 |
+| F1 | 0.105 |
+| **False-positive rate** | **0.533** (8 of 15 clean passages flagged) |
+| **Hallucination rate** | **0.000** |
+| Guardrail rejections | 5 (2 citing unretrieved clauses, 3 rejected by the judge) |
+| Runtime | 576 s |
 
-When it completes it reports: recall over known violations, precision, F1,
-**false-positive rate on clean passages**, and hallucination rate.
+**These are poor numbers and are reported as such.** The breakdown is what
+makes them useful:
 
----
+| Expected finding | Retrieval found the clause? | Model reported it? | Verdict |
+|---|---|---|---|
+| `CER.4.3.2.1` → Art. 61(4) | yes | yes | **found** |
+| `CER.2.11` → Annex I s23 | **yes** | **no** | LLM miss |
+| `CER.2.19` → Annex II s1 | no | n/a | retrieval miss |
+| `CER.4.3.2.2#1` → Art. 83 | no | n/a | retrieval miss |
+
+Two retrieval failures, one reasoning failure. Improving the prompt would not
+have recovered the first two; improving retrieval would not have recovered the
+third. That attribution is the entire reason the two layers are measured apart.
+
+**The false-positive rate is the binding problem.** The pipeline audits each
+passage in isolation, so the model sees section 2.1 ("Identification of
+device(s)", 54 administrative words) alongside Annex XIV s1(a), which lists
+what a clinical evaluation plan must contain. It correctly notes that this
+section contains no such plan, and reports it — while the content sits in
+section 4, which the model never sees. These findings carried confidence
+0.88-0.97, so raising the abstention threshold will not separate them.
+
+Highest-value next step: **document-level reconciliation** — before reporting
+"X is missing", check whether X appears elsewhere in the document.
+
+Hallucination rate is 0.000: the guardrails do catch fabrication. They cannot
+catch a finding that is internally coherent and merely out of context.
 
 ## 4. The evaluation methodology
 
@@ -338,10 +368,11 @@ Each was found by checking output, not by a test failing:
 
 ## 10. What is NOT done
 
-- **Audit-quality numbers** — run was in progress at handoff; the committed
-  `audit_eval.json` is from an invalid run and must not be quoted.
-- **`docs/COMPARISON.md`** — generator exists (`tools/build_comparison_report.py`),
-  needs the audit numbers.
+- **Document-level reconciliation** — the single highest-value fix. Without it
+  the false-positive rate stays around 0.53 and the tool is not usable by a
+  reviewer.
+- **The other two audit configs** (`v1_retrieval`, `v2_no_guards`) have not
+  been run, so the audit table has no ablation yet. Each costs ~10 min.
 - **Browser verification of the UI** — code typechecks and builds; not yet
   screenshotted running against the live API.
 - **LLM label cross-check not merged** — `tools/propose_labels_llm.py` works
