@@ -13,15 +13,20 @@ the design decisions below.
 
 Retrieval quality at k = 5, identical frozen gold set, identical metric code:
 
-| Metric | v1 | v2 | |
+| Metric | v1 | v2 | change |
 |---|---|---|---|
-| Scope recall | 0.113 | **0.200** | **+77%** |
-| nDCG | 0.063 | **0.150** | **+138%** |
-| MRR | 0.076 | **0.228** | **+200%** |
-| Context precision | 0.054 | **0.144** | **+167%** |
+| Scope recall | 0.1133 | **0.2000** | **+76%** |
+| nDCG | 0.0634 | **0.1503** | **+137%** |
+| MRR | 0.0764 | **0.2278** | **+198%** |
+| Context precision | 0.0544 | **0.1440** | **+164%** |
 | Context words sent to the LLM | 4000 | **1456** | **−64%** |
 
 Better answers from a third of the context.
+
+Percentages are computed from full precision, which is why four decimals are
+shown: rounding the metrics to three first and dividing those gives +138% and
++200% instead. Same numbers, different order of operations — the raw values are
+in `eval_data/results/v2_ablation.json` if you want to check either way.
 
 Full numbers, including the ablation and the negative results:
 **[docs/COMPARISON.md](docs/COMPARISON.md)**
@@ -40,7 +45,7 @@ before being reported. It was not a bug:
 Measured consequences:
 
 - **334 of 1320 clauses** were ever embedded at all
-- a hard **recall ceiling of ~31%** — no value of `k` could beat it, because the
+- a hard **recall ceiling of 30.1%** — no value of `k` could beat it, because the
   rest was not in the index in any form
 
 v1's problem was never ranking. **87% of the regulation it was auditing against
