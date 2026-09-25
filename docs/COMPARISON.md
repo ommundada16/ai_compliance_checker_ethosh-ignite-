@@ -113,6 +113,16 @@ Three fixes follow directly, in order of expected value:
    0.88–0.97, so confidence alone does not separate them — which is itself
    worth knowing, and is why the threshold is not the first fix.
 
+**Update 2026-09-25.** Fix 1 was built and measured by replaying it over three
+stored audit runs (`eval_data/results/reconcile_offline.json`): it dropped 1-3
+findings per run, lowered the FP rate by 0.06-0.13 (e.g. 0.73 to 0.60) and lost
+no true positive - a real but small effect, not the collapse predicted above.
+Most surviving false positives apply label/IFU requirements to a CER section,
+which fix 2 (an opt-in `document_context` prompt, not yet measured end to end)
+targets. Prefixing the section title to the retrieval query also lifted scope
+recall to 0.227 and nDCG to 0.211 (`eval_data/results/v2_query_ablation.json`).
+See `docs/HANDOFF.md` for the remaining Groq-gated runs.
+
 The guardrails are working as designed: hallucination rate is **0.000**, and
 they rejected 5 findings (2 citing clauses that were never retrieved, 3 that
 the second model would not support). They catch fabrication. They cannot catch

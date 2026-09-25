@@ -1,0 +1,536 @@
+{
+  "audit_eval.json": {
+    "before": {
+      "expected_total": 4,
+      "matched": 1,
+      "recall": 0.25,
+      "precision": 0.0667,
+      "f1": 0.1053,
+      "predicted_total": 15,
+      "clean_passages": 15,
+      "clean_passages_with_findings": 8,
+      "findings_on_clean": 13,
+      "false_positive_rate": 0.5333,
+      "hallucinated": 0,
+      "hallucination_rate": 0.0
+    },
+    "after": {
+      "expected_total": 4,
+      "matched": 1,
+      "recall": 0.25,
+      "precision": 0.0833,
+      "f1": 0.125,
+      "predicted_total": 12,
+      "clean_passages": 15,
+      "clean_passages_with_findings": 7,
+      "findings_on_clean": 11,
+      "false_positive_rate": 0.4667,
+      "hallucinated": 0,
+      "hallucination_rate": 0.0
+    },
+    "decisions": [
+      {
+        "passage": "CER.2.1",
+        "clause": "Annex.XIV.A.1.a",
+        "absence_claim": true,
+        "dropped": false,
+        "detail": "proof quote is not in the named section",
+        "proof": "",
+        "claim": "The CER does not specify the intended purpose of the Double J Stent (Short Term) as required for the clinical evaluation plan."
+      },
+      {
+        "passage": "CER.2.1",
+        "clause": "Annex.XIV.A.1.a",
+        "absence_claim": true,
+        "dropped": false,
+        "detail": "not addressed elsewhere",
+        "proof": "",
+        "claim": "The CER lacks identification of the target patient groups, indications and contraindications for the device."
+      },
+      {
+        "passage": "CER.2.1",
+        "clause": "Annex.XIV.A.1.a",
+        "absence_claim": true,
+        "dropped": false,
+        "detail": "not addressed elsewhere",
+        "proof": "",
+        "claim": "The CER does not describe the clinical benefits to patients or the outcome parameters to be measured."
+      },
+      {
+        "passage": "CER.2.1",
+        "clause": "Annex.XIV.B.6.f",
+        "absence_claim": true,
+        "dropped": true,
+        "detail": "addressed in CER.4.1",
+        "proof": "Clinical data from the equivalent device, such as clinical trials, published literature, or post-market data, was reviewed to establish equivalence in safety and performance.",
+        "claim": "No evaluation of equivalent or similar devices is presented, despite the need to consider such data."
+      },
+      {
+        "passage": "CER.2.4",
+        "clause": "Annex.I.23.s#1",
+        "absence_claim": true,
+        "dropped": false,
+        "detail": "not addressed elsewhere",
+        "proof": "",
+        "claim": "The device description does not provide the required information on warnings, precautions, contraindications, measures to be taken and limitations of use for the Double J Stent."
+      },
+      {
+        "passage": "CER.2.7#1",
+        "clause": "Annex.I.10.h",
+        "absence_claim": true,
+        "dropped": false,
+        "detail": "not addressed elsewhere",
+        "proof": "",
+        "claim": "The report does not provide confirmation that the device meets defined chemical and/or physical specifications as required by Annex I (10.h)."
+      },
+      {
+        "passage": "CER.2.7#2",
+        "clause": "Annex.I.23.s#1",
+        "absence_claim": true,
+        "dropped": false,
+        "detail": "not addressed elsewhere",
+        "proof": "",
+        "claim": "The report does not provide the user‑patient information required by Annex I.23.s (warnings, precautions, contraindications, measures to be taken and limitations of use)."
+      },
+      {
+        "passage": "CER.2.9",
+        "clause": "Annex.I.23.l",
+        "absence_claim": true,
+        "dropped": false,
+        "detail": "not addressed elsewhere",
+        "proof": "",
+        "claim": "The intended use section does not specify the sterilisation method for the single‑use sterile device, as required for sterile devices."
+      },
+      {
+        "passage": "CER.2.10",
+        "clause": "Annex.I.23.l",
+        "absence_claim": true,
+        "dropped": false,
+        "detail": "not addressed elsewhere",
+        "proof": "",
+        "claim": "Missing indication of the device's sterile state and the sterilisation method"
+      },
+      {
+        "passage": "CER.2.10",
+        "clause": "Annex.I.23.b#2",
+        "absence_claim": true,
+        "dropped": false,
+        "detail": "not addressed elsewhere",
+        "proof": "",
+        "claim": "Missing declaration that the device is in a sterile condition"
+      },
+      {
+        "passage": "CER.2.10",
+        "clause": "Annex.I.23.l#1",
+        "absence_claim": true,
+        "dropped": false,
+        "detail": "not addressed elsewhere",
+        "proof": "",
+        "claim": "Missing instructions for damaged or unintentionally opened sterile packaging"
+      },
+      {
+        "passage": "CER.2.12",
+        "clause": "Annex.I.23.s#1",
+        "absence_claim": true,
+        "dropped": false,
+        "detail": "not addressed elsewhere",
+        "proof": "",
+        "claim": "The intended patient population description does not provide the required information on warnings, precautions, contraindications, measures to be taken and limitations of use for the device."
+      },
+      {
+        "passage": "CER.2.19",
+        "clause": "Annex.XIV.A.3",
+        "absence_claim": true,
+        "dropped": true,
+        "detail": "addressed in CER.4.1",
+        "proof": "The route of evaluation involved comparing the subject device to an equivalent device with the same technological, biological, and clinical characteristics.",
+        "claim": "The report mentions the existence of similar generic devices but does not provide the required technical, biological and clinical comparison to demonstrate equivalence as required by Annex XIV.A.3."
+      },
+      {
+        "passage": "CER.3.6",
+        "clause": "Annex.XIV.A.3",
+        "absence_claim": true,
+        "dropped": true,
+        "detail": "addressed in CER.4.5.4#1",
+        "proof": "based on a systematic review of scientific literature, demonstration of equivalence with a marketed Double Pigtail Ureteral Stent, device-specific verification and validation data",
+        "claim": "The section provides a comparison of the Double J Stent with alternative treatments but does not demonstrate equivalence according to the technical, biological and clinical characteristics required by Annex XIV A.3."
+      },
+      {
+        "passage": "CER.4.3.2.1",
+        "clause": "Art.61.4",
+        "absence_claim": true,
+        "dropped": false,
+        "detail": "not addressed elsewhere",
+        "proof": "",
+        "claim": "The report claims that no clinical investigation was performed based solely on a generic reference to MDR article 61, without demonstrating that an exemption under Art.61.4 applies."
+      }
+    ]
+  },
+  "audit_cap250.json": {
+    "before": {
+      "expected_total": 4,
+      "matched": 1,
+      "recall": 0.25,
+      "precision": 0.0526,
+      "f1": 0.087,
+      "predicted_total": 19,
+      "clean_passages": 15,
+      "clean_passages_with_findings": 11,
+      "findings_on_clean": 17,
+      "false_positive_rate": 0.7333,
+      "hallucinated": 0,
+      "hallucination_rate": 0.0
+    },
+    "after": {
+      "expected_total": 4,
+      "matched": 1,
+      "recall": 0.25,
+      "precision": 0.0625,
+      "f1": 0.1,
+      "predicted_total": 16,
+      "clean_passages": 15,
+      "clean_passages_with_findings": 9,
+      "findings_on_clean": 14,
+      "false_positive_rate": 0.6,
+      "hallucinated": 0,
+      "hallucination_rate": 0.0
+    },
+    "decisions": [
+      {
+        "passage": "CER.2.1",
+        "clause": "Annex.XIV.A.1.a",
+        "absence_claim": true,
+        "dropped": false,
+        "detail": "proof quote is not in the named section",
+        "proof": "",
+        "claim": "The section does not specify the intended purpose of the Double J Stent (Short Term) as required for the clinical evaluation plan."
+      },
+      {
+        "passage": "CER.2.1",
+        "clause": "Annex.XIV.A.1.a",
+        "absence_claim": true,
+        "dropped": false,
+        "detail": "not addressed elsewhere",
+        "proof": "",
+        "claim": "The section lacks identification of the intended target groups, indications, contraindications and clinical benefits, which are mandatory elements of the clinical evaluation plan."
+      },
+      {
+        "passage": "CER.2.1",
+        "clause": "Annex.XIV.A.3",
+        "absence_claim": true,
+        "dropped": true,
+        "detail": "addressed in CER.4.1",
+        "proof": "The conformity with GSPRs was demonstrated in accordance with Article 61(3) of the EU MDR 2017/745 regulation, by proving equivalence as outlined in Annex XIV. The route of evaluation involved comparing the subject device to an equivalent device with the same technological, biological, and clinical characteristics.",
+        "claim": "No evidence is provided that equivalence to a similar device has been demonstrated, which is required when clinical data from equivalent devices are used."
+      },
+      {
+        "passage": "CER.2.3",
+        "clause": "Art.29.3",
+        "absence_claim": true,
+        "dropped": false,
+        "detail": "not addressed elsewhere",
+        "proof": "",
+        "claim": "The report lists Basic UDI‑DI codes but does not demonstrate that the Basic UDI‑DI was assigned before the manufacturer applied to the notified body, as required by Art.29.3."
+      },
+      {
+        "passage": "CER.2.4",
+        "clause": "Annex.I.23.s#1",
+        "absence_claim": true,
+        "dropped": false,
+        "detail": "not addressed elsewhere",
+        "proof": "",
+        "claim": "The device description does not provide the user/patient information required on warnings, precautions, contraindications and limitations of use."
+      },
+      {
+        "passage": "CER.2.6",
+        "clause": "Annex.I.10.h",
+        "absence_claim": true,
+        "dropped": false,
+        "detail": "not addressed elsewhere",
+        "proof": "",
+        "claim": "The report does not provide a confirmation that the device meets defined chemical and/or physical specifications as required by Annex I 10.h."
+      },
+      {
+        "passage": "CER.2.6",
+        "clause": "Annex.I.11.d",
+        "absence_claim": true,
+        "dropped": false,
+        "detail": "not addressed elsewhere",
+        "proof": "",
+        "claim": "The report lacks evidence that the sterile state of the device and packaging integrity are ensured as required by Annex I 11.d."
+      },
+      {
+        "passage": "CER.2.7#1",
+        "clause": "Annex.I.10.h",
+        "absence_claim": true,
+        "dropped": false,
+        "detail": "not addressed elsewhere",
+        "proof": "",
+        "claim": "The report does not provide the required chemical and physical specifications for the device materials as required by Annex I 10.h."
+      },
+      {
+        "passage": "CER.2.7#1",
+        "clause": "Annex.VI.A.2",
+        "absence_claim": true,
+        "dropped": false,
+        "detail": "not addressed elsewhere",
+        "proof": "",
+        "claim": "The section lacks the basic device identification information required by Annex VI A.2 (e.g., UDI‑DI, risk class, member states, reprocessed status)."
+      },
+      {
+        "passage": "CER.2.7#2",
+        "clause": "Annex.I.23.s#1",
+        "absence_claim": true,
+        "dropped": false,
+        "detail": "not addressed elsewhere",
+        "proof": "",
+        "claim": "The CER section does not provide the user‑or patient‑focused information on warnings, precautions, contraindications, measures to be taken or limitations of use required by Annex I.23.s."
+      },
+      {
+        "passage": "CER.2.9",
+        "clause": "Annex.I.23.l",
+        "absence_claim": true,
+        "dropped": false,
+        "detail": "not addressed elsewhere",
+        "proof": "",
+        "claim": "The intended use section does not specify the sterilisation method for the single‑use sterile device, as required by the MDR."
+      },
+      {
+        "passage": "CER.2.10",
+        "clause": "Annex.I.23.l",
+        "absence_claim": true,
+        "dropped": false,
+        "detail": "not addressed elsewhere",
+        "proof": "",
+        "claim": "Missing indication of the sterilisation method for the sterile device"
+      },
+      {
+        "passage": "CER.2.10",
+        "clause": "Annex.I.23.l#1",
+        "absence_claim": true,
+        "dropped": false,
+        "detail": "not addressed elsewhere",
+        "proof": "",
+        "claim": "Missing instructions for damaged or unintentionally opened sterile packaging"
+      },
+      {
+        "passage": "CER.2.10",
+        "clause": "Annex.I.11.c",
+        "absence_claim": true,
+        "dropped": false,
+        "detail": "not addressed elsewhere",
+        "proof": "",
+        "claim": "No statement addressing microbial leakage reduction during use"
+      },
+      {
+        "passage": "CER.2.12",
+        "clause": "Annex.I.23.s#1",
+        "absence_claim": true,
+        "dropped": false,
+        "detail": "not addressed elsewhere",
+        "proof": "",
+        "claim": "The intended patient population description does not provide the required information on warnings, precautions, contraindications, measures to be taken and limitations of use for the device."
+      },
+      {
+        "passage": "CER.2.13",
+        "clause": "Annex.I.23.q",
+        "absence_claim": true,
+        "dropped": true,
+        "detail": "addressed in CER.4.2.2",
+        "proof": "The Double J Stent (Short Term) is classified as a Class IIa medical device in accordance with the classification rules set out in Annex VIII of Regulation (EU) 2017/745",
+        "claim": "The CER does not contain the mandatory indication that the device is a medical device as required by Annex I.23.q"
+      },
+      {
+        "passage": "CER.2.19",
+        "clause": "Annex.XIV.A.3",
+        "absence_claim": true,
+        "dropped": false,
+        "detail": "reconciler error: BadRequestError",
+        "proof": "",
+        "claim": "The section mentions similar generic devices but does not provide the required technical, biological and clinical characteristic comparison to demonstrate equivalence as required by Annex XIV A.3."
+      },
+      {
+        "passage": "CER.3.6",
+        "clause": "Annex.XIV.A.3",
+        "absence_claim": true,
+        "dropped": true,
+        "detail": "addressed in CER.4.1",
+        "proof": "The route of evaluation involved comparing the subject device to an equivalent device with the same technological, biological, and clinical characteristics. Clinical data from the equivalent device, such as clinical trials, published literature, or post-market data, was reviewed to establish equivalence in safety and performance.",
+        "claim": "The report does not provide the required justification of equivalence for the alternative devices as required by Annex XIV.A.3, nor does it demonstrate that the technical, biological and clinical characteristics are sufficiently similar to preclude clinically significant differences."
+      },
+      {
+        "passage": "CER.4.3.2.1",
+        "clause": "Art.61.4",
+        "absence_claim": true,
+        "dropped": false,
+        "detail": "not addressed elsewhere",
+        "proof": "",
+        "claim": "The report states that no clinical investigation was performed based solely on MDR article 61, without demonstrating that an exemption under Art.61.4 applies."
+      }
+    ]
+  },
+  "audit_cap600.json": {
+    "before": {
+      "expected_total": 4,
+      "matched": 0,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "predicted_total": 15,
+      "clean_passages": 15,
+      "clean_passages_with_findings": 11,
+      "findings_on_clean": 15,
+      "false_positive_rate": 0.7333,
+      "hallucinated": 0,
+      "hallucination_rate": 0.0
+    },
+    "after": {
+      "expected_total": 4,
+      "matched": 0,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "predicted_total": 14,
+      "clean_passages": 15,
+      "clean_passages_with_findings": 10,
+      "findings_on_clean": 14,
+      "false_positive_rate": 0.6667,
+      "hallucinated": 0,
+      "hallucination_rate": 0.0
+    },
+    "decisions": [
+      {
+        "passage": "CER.2.1",
+        "clause": "Annex.XIV.A.1.a",
+        "absence_claim": true,
+        "dropped": false,
+        "detail": "not addressed elsewhere",
+        "proof": "",
+        "claim": "The clinical evaluation plan does not specify the intended purpose of the device as required"
+      },
+      {
+        "passage": "CER.2.1",
+        "clause": "Annex.XIV.A.1.a",
+        "absence_claim": true,
+        "dropped": false,
+        "detail": "not addressed elsewhere",
+        "proof": "",
+        "claim": "The clinical evaluation plan does not identify the intended target groups, indications or contraindications"
+      },
+      {
+        "passage": "CER.2.1",
+        "clause": "Annex.XIV.A.1.a",
+        "absence_claim": true,
+        "dropped": false,
+        "detail": "not addressed elsewhere",
+        "proof": "",
+        "claim": "The clinical evaluation plan lacks a detailed description of intended clinical benefits and outcome parameters"
+      },
+      {
+        "passage": "CER.2.2",
+        "clause": "Annex.VI.A.1",
+        "absence_claim": true,
+        "dropped": true,
+        "detail": "addressed in CER.2.3",
+        "proof": "Table 5: Authorized Representative Details Name:: SRN:; CMC Medical Device & Drugs S.L.: ES-AR-000000293. Name:: Address:; CMC Medical Device & Drugs S.L.: C/ Horacio Lengo N° 18 CP 29006, Malaga-Spain. Name:: Email:; CMC Medical Device & Drugs S.L.: Info@cmcmedicaldevices.es. Name:: Phone:; CMC Medical Device & Drugs S.L.: +34951214054.",
+        "claim": "The PRRC entry lacks required address and complete contact details"
+      },
+      {
+        "passage": "CER.2.4",
+        "clause": "Annex.I.23.s#1",
+        "absence_claim": true,
+        "dropped": false,
+        "detail": "not addressed elsewhere",
+        "proof": "",
+        "claim": "The device description does not provide the user/patient with required warnings, precautions, contraindications, measures to be taken and limitations of use as required by Annex I.23.s#1"
+      },
+      {
+        "passage": "CER.2.6",
+        "clause": "Annex.I.10.h",
+        "absence_claim": true,
+        "dropped": false,
+        "detail": "not addressed elsewhere",
+        "proof": "",
+        "claim": "The CER does not provide confirmation that the device meets defined chemical and/or physical specifications as required by Annex I.10.h"
+      },
+      {
+        "passage": "CER.2.7#1",
+        "clause": "Annex.I.10.h",
+        "absence_claim": true,
+        "dropped": false,
+        "detail": "not addressed elsewhere",
+        "proof": "",
+        "claim": "The report does not provide the confirmation that the device meets any defined chemical and/or physical specifications as required by Annex I 10 h."
+      },
+      {
+        "passage": "CER.2.7#2",
+        "clause": "Annex.I.23.s#1",
+        "absence_claim": true,
+        "dropped": false,
+        "detail": "not addressed elsewhere",
+        "proof": "",
+        "claim": "The CER section does not provide any information on warnings, precautions, contraindications, or limitations of use for the materials (e.g., polypropylene, PTFE, stainless steel) as required by Annex I.23.s"
+      },
+      {
+        "passage": "CER.2.8",
+        "clause": "Annex.I.23.s#1",
+        "absence_claim": true,
+        "dropped": false,
+        "detail": "not addressed elsewhere",
+        "proof": "",
+        "claim": "The section does not provide any information on warnings, precautions, contraindications, measures to be taken or limitations of use for the Double J Stent, as required by the MDR."
+      },
+      {
+        "passage": "CER.2.9",
+        "clause": "Annex.I.23.l",
+        "absence_claim": true,
+        "dropped": false,
+        "detail": "not addressed elsewhere",
+        "proof": "",
+        "claim": "The intended use description does not indicate the sterilisation method required for a sterile device"
+      },
+      {
+        "passage": "CER.2.10",
+        "clause": "Annex.I.23.l",
+        "absence_claim": true,
+        "dropped": false,
+        "detail": "not addressed elsewhere",
+        "proof": "",
+        "claim": "Missing indication of the sterile state and sterilisation method"
+      },
+      {
+        "passage": "CER.2.10",
+        "clause": "Annex.I.23.l#1",
+        "absence_claim": true,
+        "dropped": false,
+        "detail": "not addressed elsewhere",
+        "proof": "",
+        "claim": "Missing instructions for damaged or unintentionally opened sterile packaging"
+      },
+      {
+        "passage": "CER.2.10",
+        "clause": "Annex.I.11.c",
+        "absence_claim": false,
+        "dropped": false
+      },
+      {
+        "passage": "CER.2.12",
+        "clause": "Annex.I.23.s#1",
+        "absence_claim": true,
+        "dropped": false,
+        "detail": "not addressed elsewhere",
+        "proof": "",
+        "claim": "The intended patient population description does not provide the required information on warnings, precautions, contraindications, measures to be taken and limitations of use for the device."
+      },
+      {
+        "passage": "CER.2.13",
+        "clause": "Annex.I.23.s#1",
+        "absence_claim": true,
+        "dropped": false,
+        "detail": "not addressed elsewhere",
+        "proof": "",
+        "claim": "The section does not provide the user‑information required by Annex I.23.s#1, such as warnings, precautions, contraindications and limitations of use for the Double J Stent."
+      }
+    ]
+  }
+}
