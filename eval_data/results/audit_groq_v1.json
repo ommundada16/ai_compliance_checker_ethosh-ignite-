@@ -1,0 +1,735 @@
+{
+  "v1_retrieval": {
+    "scores": {
+      "expected_total": 4,
+      "matched": 0,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "predicted_total": 17,
+      "clean_passages": 15,
+      "clean_passages_with_findings": 10,
+      "findings_on_clean": 17,
+      "false_positive_rate": 0.6667,
+      "hallucinated": 0,
+      "hallucination_rate": 0.0
+    },
+    "readiness_score": 50.0,
+    "findings": 17,
+    "dropped": {},
+    "categories": {
+      "Regulatory Documentation": 13,
+      "Verification & Validation": 2,
+      "Safety": 1,
+      "Clinical Evaluation": 1
+    },
+    "errors": 0,
+    "judge_errors": 0,
+    "elapsed_s": 310.0,
+    "matched": [],
+    "missed": [
+      "CER.4.3.2.1 -> Art.61.4",
+      "CER.2.11 -> Annex.I.23",
+      "CER.2.19 -> Annex.II.1",
+      "CER.4.3.2.2#1 -> Art.83"
+    ],
+    "report": {
+      "document_name": "Clinical Evaluation Report",
+      "passages": [
+        {
+          "passage_id": "CER.2.1",
+          "section": "2.1",
+          "page": 11,
+          "findings": [
+            {
+              "violating_statement": "The identification section does not provide any information on the conformity assessment procedures, notified‑body resources or audit programme required by Annex VII 4 (a‑e).",
+              "source_quote": "The scope of this clinical evaluation includes the Double J Stent (Short Term), designed and manufactured by Biorad under the brand name DJS as mentioned below.",
+              "clause_id": "Annex.VII.4.a#2",
+              "category": "Regulatory Documentation",
+              "severity": "Medium",
+              "explanation": "Annex VII 4 (a) requires the notified body to assess documentation, define audit programmes, allocate responsibilities and qualified personnel. The CER section only lists the device name and variants and omits any reference to these conformity‑assessment requirements, indicating non‑compliance.",
+              "suggested_correction": "Add a paragraph stating that the conformity assessment procedures applicable to the Double J Stent (Short Term) have been identified, the notified body’s ability to assess the application has been confirmed, and that sufficient resources and an audit programme in line with Annex VII 4 (a‑e) are in place.",
+              "confidence": 0.92,
+              "passage_id": "CER.2.1",
+              "page": 11,
+              "quote_start": 0,
+              "quote_end": 160,
+              "clause_path": "Annex VII > (4) > (a)",
+              "grounding_score": 1.0,
+              "judged": false
+            }
+          ],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Annex.VII.4.c#1",
+            "Annex.VII.4.d#1",
+            "Annex.VII.4.e#1",
+            "Annex.VII.4.a#2",
+            "Annex.IX.2.e"
+          ],
+          "llm_provider": "groq",
+          "llm_model": "openai/gpt-oss-120b",
+          "latency_s": 1.4304397106170654,
+          "error": null
+        },
+        {
+          "passage_id": "CER.2.2",
+          "section": "2.2",
+          "page": 11,
+          "findings": [],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Annex.VI.C.6.a#1",
+            "Annex.VI.C.6.b#1",
+            "Annex.VI.C.6.a#2",
+            "Annex.VI.C.6.b#2",
+            "Annex.VI.C.6.b#3"
+          ],
+          "llm_provider": "groq",
+          "llm_model": "openai/gpt-oss-120b",
+          "latency_s": 0.610623836517334,
+          "error": null
+        },
+        {
+          "passage_id": "CER.2.3",
+          "section": "2.3",
+          "page": 12,
+          "findings": [
+            {
+              "violating_statement": "The report does not provide the detailed information on absorption, distribution, metabolism, excretion, local tolerance and toxicity required by Annex II 6.c#1 for devices that are introduced into the human body.",
+              "source_quote": "Table 4: Regulatory details Basic UDI-DI Codes: Double J Stent & Kit Blue (Short Term); 890551639TL. Basic UDI-DI Codes: Blue HC; 8905516101AW. ...",
+              "clause_id": "Annex.II.6.c#1",
+              "category": "Regulatory Documentation",
+              "severity": "High",
+              "explanation": "Annex II 6.c#1 mandates inclusion of study protocols and data summaries for such devices. The administrative section only lists identifiers and certificates and contains no such clinical or pre‑clinical data, constituting a breach.",
+              "suggested_correction": "Add a dedicated subsection that includes the complete test protocols, methods of data analysis, and summaries of results for absorption, distribution, metabolism, excretion, local tolerance and toxicity studies as required.",
+              "confidence": 0.93,
+              "passage_id": "CER.2.3",
+              "page": 12,
+              "quote_start": 0,
+              "quote_end": 147,
+              "clause_path": "Annex II > (6) > (c)",
+              "grounding_score": 0.9795918367346939,
+              "judged": false
+            },
+            {
+              "violating_statement": "The report lacks any justification concerning the presence of CMR or endocrine‑disrupting substances as required by Annex II 6.d#1.",
+              "source_quote": "Table 4: Regulatory details Basic UDI-DI Codes: Double J Stent & Kit Blue (Short Term); 890551639TL. Basic UDI-DI Codes: Blue HC; 8905516101AW. ...",
+              "clause_id": "Annex.II.6.d#1",
+              "category": "Regulatory Documentation",
+              "severity": "Medium",
+              "explanation": "Annex II 6.d#1 requires a justification for CMR or endocrine‑disrupting substances. No such justification is present in the administrative particulars.",
+              "suggested_correction": "Include a justification statement, referencing the relevant sections of Annex I, that explains why the device does or does not contain CMR or endocrine‑disrupting substances.",
+              "confidence": 0.88,
+              "passage_id": "CER.2.3",
+              "page": 12,
+              "quote_start": 0,
+              "quote_end": 147,
+              "clause_path": "Annex II > (6) > (d)",
+              "grounding_score": 0.9795918367346939,
+              "judged": false
+            },
+            {
+              "violating_statement": "No description of the environmental conditions, sterilisation methods, validation reports or bioburden/pyrogen testing required by Annex II 6.e is provided.",
+              "source_quote": "Table 4: Regulatory details Basic UDI‑DI Codes: Double J Stent & Kit Blue (Short Term); 890551639TL. ...",
+              "clause_id": "Annex.II.6.e",
+              "category": "Verification & Validation",
+              "severity": "High",
+              "explanation": "Annex II 6.e mandates detailed information on manufacturing environment and sterilisation validation for sterile devices. The section only lists regulatory identifiers and does not address these requirements.",
+              "suggested_correction": "Add a subsection describing the manufacturing environmental conditions, sterilisation methods, and attach validation reports covering bioburden, pyrogen and sterilant residue testing.",
+              "confidence": 0.91,
+              "passage_id": "CER.2.3",
+              "page": 12,
+              "quote_start": 0,
+              "quote_end": 104,
+              "clause_path": "Annex II > (6) > (e)",
+              "grounding_score": 0.9615384615384616,
+              "judged": false
+            },
+            {
+              "violating_statement": "The report does not contain a description of methods used to ensure measurement accuracy as required by Annex II 6.f.",
+              "source_quote": "Table 4: Regulatory details Basic UDI‑DI Codes: Double J Stent & Kit Blue (Short Term); 890551639TL. ...",
+              "clause_id": "Annex.II.6.f",
+              "category": "Verification & Validation",
+              "severity": "Low",
+              "explanation": "Annex II 6.f applies to devices with a measuring function. No information on measurement accuracy methods is present, indicating non‑compliance if the device has such a function.",
+              "suggested_correction": "If the device includes a measuring function, provide a description of the accuracy verification methods and results; otherwise, state that the device does not have a measuring function.",
+              "confidence": 0.85,
+              "passage_id": "CER.2.3",
+              "page": 12,
+              "quote_start": 0,
+              "quote_end": 104,
+              "clause_path": "Annex II > (6) > (f)",
+              "grounding_score": 0.9615384615384616,
+              "judged": false
+            }
+          ],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Annex.II.6.c#1",
+            "Annex.II.6.d#1",
+            "Annex.II.6.e",
+            "Annex.II.6.f",
+            "Annex.II.6.g"
+          ],
+          "llm_provider": "groq",
+          "llm_model": "openai/gpt-oss-120b",
+          "latency_s": 2.59208345413208,
+          "error": null
+        },
+        {
+          "passage_id": "CER.2.4",
+          "section": "2.4",
+          "page": 14,
+          "findings": [
+            {
+              "violating_statement": "Manufacturer name, registered trade name or trademark and business address are not provided in the device description",
+              "source_quote": "Double J Stent is used for treatment of the upper urinary tract are implantable devices that support the flow of the urine from the kidneys to the bladder.",
+              "clause_id": "Annex.I.23.c#1",
+              "category": "Regulatory Documentation",
+              "severity": "High",
+              "explanation": "Annex I 23(c) requires the name, registered trade name or trademark of the manufacturer and the address of its registered place of business, which are absent from the description.",
+              "suggested_correction": "Include the manufacturer's name, registered trade name or trademark and the full address of its registered place of business in the device description.",
+              "confidence": 0.95,
+              "passage_id": "CER.2.4",
+              "page": 14,
+              "quote_start": 0,
+              "quote_end": 155,
+              "clause_path": "Annex I > (23) > (c)",
+              "grounding_score": 1.0,
+              "judged": false
+            },
+            {
+              "violating_statement": "Information about an authorised representative is missing, which is required if the manufacturer is located outside the EU",
+              "source_quote": "Double J Stent is used for treatment of the upper urinary tract are implantable devices that support the flow of the urine from the kidneys to the bladder.",
+              "clause_id": "Annex.I.23.d#1",
+              "category": "Regulatory Documentation",
+              "severity": "Medium",
+              "explanation": "Annex I 23(d) mandates that when the manufacturer’s registered place of business is outside the Union, the name and address of the authorised representative must be provided; the current text does not contain this information.",
+              "suggested_correction": "Add the name and address of the authorised representative when the manufacturer is based outside the EU.",
+              "confidence": 0.85,
+              "passage_id": "CER.2.4",
+              "page": 14,
+              "quote_start": 0,
+              "quote_end": 155,
+              "clause_path": "Annex I > (23) > (d)",
+              "grounding_score": 1.0,
+              "judged": false
+            }
+          ],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Annex.I.23.b#1",
+            "Annex.I.23.c#1",
+            "Annex.I.23.d#1",
+            "Annex.I.23.e#1",
+            "Annex.I.23.f#1"
+          ],
+          "llm_provider": "groq",
+          "llm_model": "openai/gpt-oss-120b",
+          "latency_s": 58.935978174209595,
+          "error": null
+        },
+        {
+          "passage_id": "CER.2.5",
+          "section": "2.5",
+          "page": 14,
+          "findings": [
+            {
+              "violating_statement": "The CER section does not provide the device identification details, manufacturer name and address, or authorised representative information required by Annex I.23.b, Annex I.23.c and Annex I.23.d.",
+              "source_quote": "The Double J Stent (Short Term) is classified as a Class IIa medical device under Regulation (EU) 2017/745.",
+              "clause_id": "Annex.I.23.b#1",
+              "category": "Regulatory Documentation",
+              "severity": "Medium",
+              "explanation": "Annex I.23.b requires details necessary for a user to identify the device, its packaging contents and intended purpose, which are not presented in the section. Annex I.23.c requires the name and address of the manufacturer, and Annex I.23.d requires the authorised representative details when the manufacturer is outside the Union. These mandatory labeling elements are absent, constituting a documentation non‑compliance.",
+              "suggested_correction": "Include a statement such as: \"Device name: Double J Stent (Short Term); Model/Version: ...; Intended purpose: ...; Manufacturer: XYZ Ltd., 123 Street, City, Country; If applicable, Authorised Representative: ABC Ltd., 456 Avenue, EU Country.\"",
+              "confidence": 0.95,
+              "passage_id": "CER.2.5",
+              "page": 14,
+              "quote_start": 756,
+              "quote_end": 863,
+              "clause_path": "Annex I > (23) > (b)",
+              "grounding_score": 0.98,
+              "judged": false
+            }
+          ],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Annex.I.23.b#1",
+            "Annex.I.23.c#1",
+            "Annex.I.23.d#1",
+            "Annex.I.23.e#1",
+            "Annex.I.23.f#1"
+          ],
+          "llm_provider": "groq",
+          "llm_model": "openai/gpt-oss-120b",
+          "latency_s": 1.1130921840667725,
+          "error": null
+        },
+        {
+          "passage_id": "CER.2.6",
+          "section": "2.6",
+          "page": 15,
+          "findings": [
+            {
+              "violating_statement": "The technical specifications do not provide any information on conformity assessment required before placing the device on the market, which is mandatory under MDR Article 52.1.",
+              "source_quote": "MRI Compatibility; Specifications: Not specified in Technical File (no MR safety claim declared).",
+              "clause_id": "Art.52.1",
+              "category": "Regulatory Documentation",
+              "severity": "Medium",
+              "explanation": "Article 52.1 requires manufacturers to undertake an assessment of conformity of the device prior to market placement. The CER section lacks any statement or evidence that such an assessment has been performed, and even notes that MRI safety information is not specified, indicating incomplete conformity documentation.",
+              "suggested_correction": "Include a statement confirming that a conformity assessment has been completed in accordance with Annex IX–XI, and provide the relevant MRI safety classification and supporting test results.",
+              "confidence": 0.92,
+              "passage_id": "CER.2.6",
+              "page": 15,
+              "quote_start": 1220,
+              "quote_end": 1317,
+              "clause_path": "Chapter V > Article 52 > (1)",
+              "grounding_score": 1.0,
+              "judged": false
+            }
+          ],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Art.51.4",
+            "Art.51.5",
+            "Art.51.6",
+            "Art.52.1",
+            "Art.52.2"
+          ],
+          "llm_provider": "groq",
+          "llm_model": "openai/gpt-oss-120b",
+          "latency_s": 1.3827624320983887,
+          "error": null
+        },
+        {
+          "passage_id": "CER.2.7#1",
+          "section": "2.7",
+          "page": 16,
+          "findings": [],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Art.123.3.d",
+            "Art.123.3.e",
+            "Art.123.3.f",
+            "Art.123.3.g",
+            "Art.123.3.h"
+          ],
+          "llm_provider": "groq",
+          "llm_model": "openai/gpt-oss-120b",
+          "latency_s": 58.52378797531128,
+          "error": null
+        },
+        {
+          "passage_id": "CER.2.7#2",
+          "section": "2.7",
+          "page": 16,
+          "findings": [
+            {
+              "violating_statement": "The report does not provide a clear specification of the device's intended purpose including indications, contra‑indications, patient target group and intended users as required.",
+              "source_quote": "Devices that support the flow of the urine from the kidneys to the bladder. These are made available with tapered ends to allow for ease of introduction over a compatible guidewire.",
+              "clause_id": "Annex.I.23.b#3",
+              "category": "Regulatory Documentation",
+              "severity": "High",
+              "explanation": "Annex I 23.b requires a clear specification of the intended purpose, indications, contra‑indications, patient groups and intended users. The excerpt only describes a generic function and lacks explicit statements of indications, contra‑indications, target patient population and user categories, thus non‑compliant.",
+              "suggested_correction": "Add a dedicated section stating: \"Intended purpose: to provide temporary urinary drainage in adult patients with ureteral obstruction. Indications: ... Contra‑indications: ... Target patient group: adults requiring short‑term stenting (60 min to 30 days). Intended users: urologists and trained healthcare professionals. \"",
+              "confidence": 0.92,
+              "passage_id": "CER.2.7#2",
+              "page": 16,
+              "quote_start": 79,
+              "quote_end": 260,
+              "clause_path": "Annex I > (23) > (b)",
+              "grounding_score": 0.988950276243094,
+              "judged": false
+            },
+            {
+              "violating_statement": "The description of accessories does not give healthcare professionals sufficient information to verify suitability or to select the appropriate accessories and software.",
+              "source_quote": "Umbilical cord clamp use to clamp or hold the pusher and Double J Stents or ureteral stents during insertion of stents over a guidewire (all category).",
+              "clause_id": "Annex.I.23.f#3",
+              "category": "Safety",
+              "severity": "Medium",
+              "explanation": "Annex I 23.f requires information enabling the healthcare professional to verify if the device is suitable and to select corresponding software and accessories. The current text merely describes the function of the clamp without specifying compatibility criteria, sizing, or selection guidance, thus violating the clause.",
+              "suggested_correction": "Include detailed selection criteria, e.g., \"The umbilical cord clamp is compatible with pusher sizes 5‑10 Fr, intended for use with Double J Stents of length 24‑30 cm. No software integration is required.\"",
+              "confidence": 0.88,
+              "passage_id": "CER.2.7#2",
+              "page": 16,
+              "quote_start": 884,
+              "quote_end": 1035,
+              "clause_path": "Annex I > (23) > (f)",
+              "grounding_score": 1.0,
+              "judged": false
+            }
+          ],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Annex.I.23.a#3",
+            "Annex.I.23.b#3",
+            "Annex.I.23.c#3",
+            "Annex.I.23.d#3",
+            "Annex.I.23.f#3"
+          ],
+          "llm_provider": "groq",
+          "llm_model": "openai/gpt-oss-120b",
+          "latency_s": 2.6718802452087402,
+          "error": null
+        },
+        {
+          "passage_id": "CER.2.8",
+          "section": "2.8",
+          "page": 21,
+          "findings": [
+            {
+              "violating_statement": "The report does not provide the required specification of clinical benefits expected from the device as required by Annex I 23.c",
+              "source_quote": "The Double J Stent (Short Term) is a passive, implantable ureteral stent intended to support urine flow from the kidney to the bladder in cases of ureteral obstruction or impaired drainage.",
+              "clause_id": "Annex.I.23.c#3",
+              "category": "Regulatory Documentation",
+              "severity": "Medium",
+              "explanation": "Annex I 23.c mandates a description of the clinical benefits to be expected where applicable. The section only describes the mechanism of action and intended use, but omits any statement of the clinical benefit such as improved drainage outcomes or reduced complications.",
+              "suggested_correction": "Add a statement such as: \"The clinical benefit of the Double J Stent is to provide immediate restoration of urinary drainage, reducing pain and risk of renal damage associated with ureteral obstruction, and to facilitate patient recovery until definitive treatment can be performed.\"",
+              "confidence": 0.95,
+              "passage_id": "CER.2.8",
+              "page": 21,
+              "quote_start": 0,
+              "quote_end": 189,
+              "clause_path": "Annex I > (23) > (c)",
+              "grounding_score": 1.0,
+              "judged": false
+            },
+            {
+              "violating_statement": "The report lacks a complete intended purpose specification, including contra‑indications, patient target group and intended users, as required by Annex I 23.b",
+              "source_quote": "The Double J Stent (Short Term) is a passive, implantable ureteral stent intended to support urine flow from the kidney to the bladder in cases of ureteral obstruction or impaired drainage.",
+              "clause_id": "Annex.I.23.b#3",
+              "category": "Regulatory Documentation",
+              "severity": "Medium",
+              "explanation": "Annex I 23.b requires the device's intended purpose to be clearly specified with indications, contra‑indications, patient target groups and intended users. The section only states the general intended purpose and indications, but does not list contra‑indications, the specific patient population (e.g., adult patients with obstructive uropathy) or the intended users (e.g., urologists, interventional radiologists).",
+              "suggested_correction": "Expand the intended purpose description to include: \"Contra‑indications: known allergy to device material, active urinary infection, non‑obstructive hydronephrosis. Target patient group: adult patients requiring temporary urinary drainage. Intended users: qualified urologists or interventional radiologists trained in ureteral stent placement.\"",
+              "confidence": 0.93,
+              "passage_id": "CER.2.8",
+              "page": 21,
+              "quote_start": 0,
+              "quote_end": 189,
+              "clause_path": "Annex I > (23) > (b)",
+              "grounding_score": 1.0,
+              "judged": false
+            }
+          ],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Annex.I.23.a#3",
+            "Annex.I.23.b#3",
+            "Annex.I.23.c#3",
+            "Annex.I.23.d#3",
+            "Annex.I.23.f#3"
+          ],
+          "llm_provider": "groq",
+          "llm_model": "openai/gpt-oss-120b",
+          "latency_s": 1.8403208255767822,
+          "error": null
+        },
+        {
+          "passage_id": "CER.2.9",
+          "section": "2.9",
+          "page": 22,
+          "findings": [
+            {
+              "violating_statement": "The CER section does not provide any information about labeling or instructions for use required by the MDR.",
+              "source_quote": "This is a single use sterile device which is used for internal drainage from Kidney to Bladder in medical conditions like improper urine drainage, calculi in ureter, hydronephrosis, oxalate calculi, pyeloplasty with UPJ Obstruction, residual renal calculus, ureteral stricture.",
+              "clause_id": "Annex.I.23",
+              "category": "Regulatory Documentation",
+              "severity": "Medium",
+              "explanation": "Annex I 23.1 requires that each device be accompanied by information needed to identify the device and its manufacturer, and any safety and performance information relevant to the user. The CER excerpt provides only a description of intended use and does not include any labeling or instructions for use, thus failing to meet this requirement.",
+              "suggested_correction": "Include a section detailing the label content and instructions for use, specifying device identification, manufacturer details, safety information, and performance data as required by Annex I 23.1.",
+              "confidence": 0.92,
+              "passage_id": "CER.2.9",
+              "page": 22,
+              "quote_start": 0,
+              "quote_end": 277,
+              "clause_path": "Annex I > (23)",
+              "grounding_score": 1.0,
+              "judged": false
+            }
+          ],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Annex.I.22",
+            "Annex.I.23",
+            "Annex.I.23.a",
+            "Annex.I.23.b",
+            "Annex.I.23.c"
+          ],
+          "llm_provider": "groq",
+          "llm_model": "openai/gpt-oss-120b",
+          "latency_s": 57.19668006896973,
+          "error": null
+        },
+        {
+          "passage_id": "CER.2.10",
+          "section": "2.10",
+          "page": 23,
+          "findings": [
+            {
+              "violating_statement": "The intended purpose is not fully specified; indications, contraindications, patient target group and intended users are missing.",
+              "source_quote": "This is a single use sterile device used for internal drainage from Kidney to Bladder",
+              "clause_id": "Annex.I.23.b#3",
+              "category": "Regulatory Documentation",
+              "severity": "High",
+              "explanation": "Annex I 23(b) requires a clear specification of indications, contraindications, patient target group and intended users, which are not provided in the excerpt.",
+              "suggested_correction": "The device is intended for single‑use sterile internal drainage from the kidney to the bladder in adult patients with obstructive uropathy, contraindicated in patients with active urinary tract infection, and intended to be used by trained urologists or interventional radiologists.",
+              "confidence": 0.95,
+              "passage_id": "CER.2.10",
+              "page": 23,
+              "quote_start": 0,
+              "quote_end": 85,
+              "clause_path": "Annex I > (23) > (b)",
+              "grounding_score": 1.0,
+              "judged": false
+            },
+            {
+              "violating_statement": "No clinical benefits are described, which are required when applicable.",
+              "source_quote": "This is a single use sterile device used for internal drainage from Kidney to Bladder",
+              "clause_id": "Annex.I.23.c#3",
+              "category": "Clinical Evaluation",
+              "severity": "Medium",
+              "explanation": "Annex I 23(c) mandates a specification of the clinical benefits to be expected; the section provides no such information.",
+              "suggested_correction": "The device is expected to provide rapid relief of urinary obstruction, reduce the risk of renal damage, and improve patient quality of life by restoring normal urine flow.",
+              "confidence": 0.9,
+              "passage_id": "CER.2.10",
+              "page": 23,
+              "quote_start": 0,
+              "quote_end": 85,
+              "clause_path": "Annex I > (23) > (c)",
+              "grounding_score": 1.0,
+              "judged": false
+            }
+          ],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Annex.I.23.a#3",
+            "Annex.I.23.b#3",
+            "Annex.I.23.c#3",
+            "Annex.I.23.d#3",
+            "Annex.I.23.f#3"
+          ],
+          "llm_provider": "groq",
+          "llm_model": "openai/gpt-oss-120b",
+          "latency_s": 1.374067783355713,
+          "error": null
+        },
+        {
+          "passage_id": "CER.2.11",
+          "section": "2.11",
+          "page": 23,
+          "findings": [],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Art.70.3",
+            "Art.70.4",
+            "Art.70.5",
+            "Art.70.6",
+            "Art.70.7"
+          ],
+          "llm_provider": "groq",
+          "llm_model": "openai/gpt-oss-120b",
+          "latency_s": 0.7749688625335693,
+          "error": null
+        },
+        {
+          "passage_id": "CER.2.12",
+          "section": "2.12",
+          "page": 23,
+          "findings": [
+            {
+              "violating_statement": "The intended purpose of the device is not clearly stated as required for user identification and labeling",
+              "source_quote": "Double J Stent (Short term) is manufactured to meet requirements of medical conditions like Improper urine drainage, calculi in ureter, hydronephrosis, oxalate calculi, pyeloplasty with UPJ Obstruction, residual renal calculus, ureteral stricture.",
+              "clause_id": "Annex.I.23.b#1",
+              "category": "Regulatory Documentation",
+              "severity": "Medium",
+              "explanation": "Annex I 23(b) requires the intended purpose of the device to be clearly communicated to the user. The CER section only lists medical conditions and does not explicitly state the device's intended purpose, which is a regulatory documentation gap.",
+              "suggested_correction": "Include a clear statement of the intended purpose, e.g., \"The Double J Stent (Short term) is intended for temporary drainage of urine in patients with ureteral obstruction or postoperative ureteral healing.\"",
+              "confidence": 0.9,
+              "passage_id": "CER.2.12",
+              "page": 23,
+              "quote_start": 0,
+              "quote_end": 247,
+              "clause_path": "Annex I > (23) > (b)",
+              "grounding_score": 1.0,
+              "judged": false
+            }
+          ],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Annex.VII.4.c#1",
+            "Annex.VII.4.d#1",
+            "Annex.VII.4.e#1",
+            "Annex.VII.4.a#2",
+            "Annex.I.23.b#1"
+          ],
+          "llm_provider": "groq",
+          "llm_model": "openai/gpt-oss-120b",
+          "latency_s": 2.605429172515869,
+          "error": null
+        },
+        {
+          "passage_id": "CER.2.13",
+          "section": "2.13",
+          "page": 23,
+          "findings": [],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Annex.I.23.a#3",
+            "Annex.I.23.b#3",
+            "Annex.I.23.c#3",
+            "Annex.I.23.d#3",
+            "Annex.I.23.f#3"
+          ],
+          "llm_provider": "groq",
+          "llm_model": "openai/gpt-oss-120b",
+          "latency_s": 56.41923642158508,
+          "error": null
+        },
+        {
+          "passage_id": "CER.2.19",
+          "section": "2.19",
+          "page": 26,
+          "findings": [],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Art.57.1.h",
+            "Art.57.1.i",
+            "Art.57.2",
+            "Art.58.1",
+            "Art.58.1.a"
+          ],
+          "llm_provider": "groq",
+          "llm_model": "openai/gpt-oss-120b",
+          "latency_s": 0.5099029541015625,
+          "error": null
+        },
+        {
+          "passage_id": "CER.3.3",
+          "section": "3.3",
+          "page": 31,
+          "findings": [],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Art.57.1.h",
+            "Art.57.1.i",
+            "Art.57.2",
+            "Art.58.1",
+            "Art.58.1.a"
+          ],
+          "llm_provider": "groq",
+          "llm_model": "openai/gpt-oss-120b",
+          "latency_s": 1.5374274253845215,
+          "error": null
+        },
+        {
+          "passage_id": "CER.3.6",
+          "section": "3.6",
+          "page": 34,
+          "findings": [],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Art.57.1.h",
+            "Art.57.1.i",
+            "Art.57.2",
+            "Art.58.1",
+            "Art.58.1.a"
+          ],
+          "llm_provider": "groq",
+          "llm_model": "openai/gpt-oss-120b",
+          "latency_s": 2.763916254043579,
+          "error": null
+        },
+        {
+          "passage_id": "CER.4.3.2.1",
+          "section": "4.3.2.1",
+          "page": 53,
+          "findings": [],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Annex.XI.A.10",
+            "Annex.XI.B.11",
+            "Annex.XI.B.12",
+            "Annex.XI.B.13",
+            "Annex.XI.B.14"
+          ],
+          "llm_provider": "groq",
+          "llm_model": "openai/gpt-oss-120b",
+          "latency_s": 56.847851514816284,
+          "error": null
+        },
+        {
+          "passage_id": "CER.4.3.2.2#1",
+          "section": "4.3.2.2",
+          "page": 53,
+          "findings": [],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Annex.II.6.c#1",
+            "Annex.II.6.d#1",
+            "Annex.II.6.e",
+            "Annex.II.6.f",
+            "Annex.II.6.g"
+          ],
+          "llm_provider": "groq",
+          "llm_model": "openai/gpt-oss-120b",
+          "latency_s": 0.8682317733764648,
+          "error": null
+        }
+      ],
+      "readiness_score": 50.0,
+      "config": {}
+    },
+    "repeats": [
+      {
+        "scores": {
+          "expected_total": 4,
+          "matched": 0,
+          "recall": 0.0,
+          "precision": 0.0,
+          "f1": 0.0,
+          "predicted_total": 17,
+          "clean_passages": 15,
+          "clean_passages_with_findings": 10,
+          "findings_on_clean": 17,
+          "false_positive_rate": 0.6667,
+          "hallucinated": 0,
+          "hallucination_rate": 0.0
+        },
+        "findings": 17,
+        "dropped": {},
+        "elapsed_s": 310.0,
+        "matched": []
+      }
+    ],
+    "summary": {
+      "recall": {
+        "mean": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "precision": {
+        "mean": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "f1": {
+        "mean": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "false_positive_rate": {
+        "mean": 0.6667,
+        "min": 0.6667,
+        "max": 0.6667
+      },
+      "hallucination_rate": {
+        "mean": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      }
+    },
+    "contaminated_runs": 0
+  }
+}

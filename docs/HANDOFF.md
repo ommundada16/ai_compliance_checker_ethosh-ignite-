@@ -446,6 +446,31 @@ Rules for reading the results:
 - When done, merge the JSON files into `eval_data/results/audit_eval.json`
   (same shape) and run `python tools/build_comparison_report.py`.
 
+### Groq results so far (2026-10-02, `gpt-oss-120b`, judge `gpt-oss-20b`, no contamination)
+
+One run each, so these are samples. `eval_data/results/audit_groq_v1.json`,
+`audit_groq_title.json`, `audit_groq_noguards.json`.
+
+| Config | Findings | Recall | FP rate | Targets retrieved (of 4) | Hallucination |
+|---|---|---|---|---|---|
+| v1_retrieval | 17 | 0.00 | 0.67 | **0** | 0.00 |
+| v2_no_guards | 21 | 0.25 | 0.80 | 2 | 0.00 |
+| v2_title | 15 | 0.00 | 0.53 | **2** (CER.2.11, CER.4.3.2.1) | 0.00 |
+| v2_full (earlier, 3 samples) | 15-19 | 0.25, 0.25, 0.00 | 0.53, 0.73, 0.73 | 2 | 0.00 |
+
+What this supports: with v1's retrieval the correct clause never reaches the model
+for any of the four known violations, so recall is capped at zero; v2 retrieves two
+of four. What it does **not** support: any claim that title-in-query changed audit
+recall or FP rate. `v2_title` retrieved the right clause for CER.4.3.2.1 and
+CER.2.11 and the model still reported neither (a reasoning miss), whereas `v2_full`
+found CER.4.3.2.1 in two of three samples. 0/4 vs 1/4 is one finding, inside the
+run-to-run spread. `v2_no_guards` (no guardrails, no judge) reported 21 findings and an FP rate of
+0.80, with the same single true positive and still **zero hallucinations**, so on
+this model and set the guardrails' measured value is fewer false positives, not
+fewer fabrications; the 0.80 vs 0.53-0.73 gap for the guarded runs is again within
+sample spread, so it is suggestive only. Remaining: `v2_reconcile`, optionally
+`v2_context` (both call the 20b judge, so check that budget first).
+
 ### Deliberately skipped (and why)
 
 - **Step 10, merging LLM-proposed labels.** It needs ~68 passages x 2 stages of
