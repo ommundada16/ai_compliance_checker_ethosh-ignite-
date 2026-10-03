@@ -157,11 +157,15 @@ reader should ask:
   isolation, so a section that defers a topic to another section is reported as
   missing it. A cross-section reconciliation step removed 1–3 findings per run
   without losing a true one — helpful, not a fix.
-- **A v1-vs-v2 comparison of the audit does not exist yet.** Only `v2_full` has
-  audit numbers. The remaining rows need Groq runs that the free tier's
-  200,000-token daily cap spreads over several days; the exact commands are in
-  `docs/HANDOFF.md`. The retrieval comparison above needs no LLM and is
-  unaffected.
+- **The audit ablation is one run per row, so most differences are noise.** All
+  six configurations have been run on the same model (see `docs/COMPARISON.md`).
+  What it supports: v1's retrieval never surfaces the correct clause for any of
+  the four known violations (0 of 4, against 2 of 4 for every v2 row), so v1
+  cannot find them. What it does not support: any claim that the title query,
+  guardrails or reconciliation moved audit recall or false-positive rate, since
+  the same configuration has scored 0.53 and 0.73 on different runs. The prompt
+  that tells the model it is reading one section (lowest FP rate, 0.40) was
+  written after reading errors on this same set, so it is a development score.
 - **Hybrid search made things worse** at low k, and is kept in the ablation
   precisely because it is a negative result. BM25 assumes short keyword
   queries; these are 250-word passages, so the sparse arm matches common legal

@@ -1,0 +1,761 @@
+{
+  "v2_reconcile": {
+    "scores": {
+      "expected_total": 4,
+      "matched": 1,
+      "recall": 0.25,
+      "precision": 0.0667,
+      "f1": 0.1053,
+      "predicted_total": 15,
+      "clean_passages": 15,
+      "clean_passages_with_findings": 10,
+      "findings_on_clean": 12,
+      "false_positive_rate": 0.6667,
+      "hallucinated": 0,
+      "hallucination_rate": 0.0
+    },
+    "readiness_score": 25.0,
+    "findings": 15,
+    "dropped": {
+      "quote not found in the source passage": 1,
+      "second model did not agree the finding is supported": 1,
+      "requirement is satisfied in another section of the document": 1
+    },
+    "categories": {
+      "Regulatory Documentation": 7,
+      "Safety": 3,
+      "Verification & Validation": 1,
+      "Clinical Evaluation": 2,
+      "Clinical Investigation": 1,
+      "Post Market Surveillance": 1
+    },
+    "errors": 0,
+    "judge_errors": 0,
+    "elapsed_s": 446.6,
+    "matched": [
+      "CER.4.3.2.1 -> Art.61.4"
+    ],
+    "missed": [
+      "CER.2.11 -> Annex.I.23",
+      "CER.2.19 -> Annex.II.1",
+      "CER.4.3.2.2#1 -> Art.83"
+    ],
+    "report": {
+      "document_name": "Clinical Evaluation Report",
+      "passages": [
+        {
+          "passage_id": "CER.2.1",
+          "section": "2.1",
+          "page": 11,
+          "findings": [],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Annex.XIV.B.6.f",
+            "Annex.XIV.A.3",
+            "Annex.I.23.a#1",
+            "Annex.IX.2.c",
+            "Annex.XIII.1"
+          ],
+          "llm_provider": "groq",
+          "llm_model": "openai/gpt-oss-120b",
+          "latency_s": 0.9583699703216553,
+          "error": null
+        },
+        {
+          "passage_id": "CER.2.2",
+          "section": "2.2",
+          "page": 11,
+          "findings": [
+            {
+              "violating_statement": "The manufacturer’s name is not provided; only address and contact details are listed, which does not satisfy the requirement to state both name and address of the manufacturer.",
+              "source_quote": "Address: Phone; Survey No.: 48/3 & 48/7, Pashan Sus Road, Sus Village, Taluka Mulshi, Pune-411021 Maharashtra, INDIA.: Tel.: +91-20-3091-2000, Fax: +91-20-3091-2050. Email; Survey No.: 48/3 & 48/7, Pashan Sus Road, Sus Village, Taluka Mulshi, Pune-411021 Maharashtra, INDIA.: pune@bioradmedisys.com. Website; Survey No.: 48/3 & 48/7, Pashan Sus Road, Sus Village, Taluka Mulshi, Pune-411021 Maharashtra, INDIA.: www.biorad-medisys.com. Single Registration Number; Survey No.: 48/3 & 48/7, Pashan Sus Road, Sus Village, Taluka Mulshi, Pune-411021 Maharashtra, INDIA.: IN-MF-000013050. (SRN):",
+              "clause_id": "Annex.XII.2#1",
+              "category": "Regulatory Documentation",
+              "severity": "Medium",
+              "explanation": "Annex XII.2#1 mandates that the CER include the name and address of the manufacturer. The excerpt only shows address and contact information; the manufacturer's legal name is absent, breaching the clause.",
+              "suggested_correction": "Add the manufacturer's legal name before the address, e.g., \"Manufacturer Name: BioRad Medisys Ltd. Address: Survey No.: 48/3 & 48/7, Pashan Sus Road, ...\"",
+              "confidence": 0.97,
+              "passage_id": "CER.2.2",
+              "page": 11,
+              "quote_start": 195,
+              "quote_end": 785,
+              "clause_path": "Annex XII > (2)",
+              "grounding_score": 1.0,
+              "judged": true
+            }
+          ],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Annex.XII.2#1",
+            "Annex.VI.B.5",
+            "Annex.IV.1",
+            "Annex.I.23.c#1",
+            "Annex.XIII.1"
+          ],
+          "llm_provider": "groq",
+          "llm_model": "openai/gpt-oss-120b",
+          "latency_s": 2.887593984603882,
+          "error": null
+        },
+        {
+          "passage_id": "CER.2.3",
+          "section": "2.3",
+          "page": 12,
+          "findings": [
+            {
+              "violating_statement": "The administrative particulars list only the Basic UDI‑DI codes for the devices and do not provide the UDI‑PI (e.g., lot or serial number) required for implantable devices.",
+              "source_quote": "Basic UDI-DI Codes: Double J Stent & Kit Blue (Short Term); 890551639TL. Basic UDI-DI Codes: Blue HC; 8905516101AW. Basic UDI-DI Codes: Blue Set; 890551640T5. Basic UDI-DI Codes: Blue Set HC; 8905516100AV. Basic UDI-DI Codes: Double J Stent & Kit White (Short Term); 890551641T7. Basic UDI-DI Codes: White HC; 8905516107BA. Basic UDI-DI Codes: White Set; 890551642T9. Basic UDI-DI Codes: White Set HC; 8905516108BC.",
+              "clause_id": "Annex.VI.C.6.b",
+              "category": "Regulatory Documentation",
+              "severity": "High",
+              "explanation": "Annex VI C 6(b) requires that for implantable devices the UDI‑PI, which includes the lot or serial number, be defined and identifiable prior to implantation. The CER only lists the UDI‑DI values and omits any UDI‑PI information, thus the requirement is not met.",
+              "suggested_correction": "Add a column or statement providing the UDI‑PI (lot/serial number) for each listed device, e.g., \"Basic UDI‑DI: 890551639TL; UDI‑PI (Lot/Serial): 2023‑001\" for each entry.",
+              "confidence": 0.97,
+              "passage_id": "CER.2.3",
+              "page": 12,
+              "quote_start": 28,
+              "quote_end": 443,
+              "clause_path": "Annex VI > Part C > (6) > (b)",
+              "grounding_score": 1.0,
+              "judged": true
+            }
+          ],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Annex.VI.C.6.b",
+            "Art.118",
+            "Art.4.1",
+            "Annex.IX.4",
+            "Annex.VII.4.e#1"
+          ],
+          "llm_provider": "groq",
+          "llm_model": "openai/gpt-oss-120b",
+          "latency_s": 2.327755928039551,
+          "error": null
+        },
+        {
+          "passage_id": "CER.2.4",
+          "section": "2.4",
+          "page": 14,
+          "findings": [
+            {
+              "violating_statement": "The device description does not provide the required identification and description of the device, including intended purpose, risk classification, design and manufacturing details as required by Annex XV 2.1.",
+              "source_quote": "Double J Stent is used for treatment of the upper urinary tract are implantable devices that support the flow of the urine from the kidneys to the bladder. Double J Stents can be used short-term for up to 30 days, or long-term for several months depending on the cause and course of treatment.",
+              "clause_id": "Annex.XV.2#1",
+              "category": "Regulatory Documentation",
+              "severity": "Medium",
+              "explanation": "Annex XV 2.1 mandates that the investigator's brochure (and thus the clinical evaluation report) contain a full identification and description of the device, including intended purpose, risk class, design and manufacturing information. The provided section only gives a brief functional description and lacks these mandatory details, constituting non‑compliance.",
+              "suggested_correction": "Include a detailed device description covering: intended purpose, risk classification and applicable classification rule, design features, materials, manufacturing process, and reference to previous generations, e.g., \"The Double‑J ureteral stent is a Class IIb implantable device intended for temporary urinary drainage. It is made of medical‑grade polyurethane with a PTFE/Hydrophilic coated guidewire, manufactured by extrusion and laser cutting, and conforms to the design specifications of ISO 10993‑1...\"",
+              "confidence": 0.93,
+              "passage_id": "CER.2.4",
+              "page": 14,
+              "quote_start": 0,
+              "quote_end": 293,
+              "clause_path": "Annex XV > (2)",
+              "grounding_score": 1.0,
+              "judged": true
+            }
+          ],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Annex.XV.2#1",
+            "Annex.II.6.a#1",
+            "Art.123.3.f",
+            "Annex.VI.A.2",
+            "Annex.I.23.s#1"
+          ],
+          "llm_provider": "groq",
+          "llm_model": "openai/gpt-oss-120b",
+          "latency_s": 59.97572350502014,
+          "error": null
+        },
+        {
+          "passage_id": "CER.2.5",
+          "section": "2.5",
+          "page": 14,
+          "findings": [],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Annex.VIII.4",
+            "Annex.VIII.7",
+            "Annex.VIII",
+            "Annex.VIII.5",
+            "Art.1.3"
+          ],
+          "llm_provider": "groq",
+          "llm_model": "openai/gpt-oss-120b",
+          "latency_s": 0.622675895690918,
+          "error": null
+        },
+        {
+          "passage_id": "CER.2.6",
+          "section": "2.6",
+          "page": 15,
+          "findings": [
+            {
+              "violating_statement": "Biocompatibility information does not identify all materials in direct or indirect contact with the patient as required.",
+              "source_quote": "Biocompatibility; Specifications: Evaluated in accordance with ISO 10993 series; passed Cytotoxicity, Intracutaneous Reactivity, and Skin Sensitization testing.",
+              "clause_id": "Annex.II.6.b",
+              "category": "Safety",
+              "severity": "High",
+              "explanation": "Annex.II.6.b mandates detailed information on biocompatibility, including identification of all materials in direct or indirect contact with the patient. The CER only states that testing was performed, without listing the materials (e.g., polyurethane, polypropylene, stainless steel, nitinol).",
+              "suggested_correction": "Add a complete list of all materials in contact with the patient (e.g., Stent: Polyurethane; Pusher: Polypropylene; Guidewire: SS 304 with PTFE coating / Nitinol with hydrophilic coating) and reference the corresponding biocompatibility test results for each material.",
+              "confidence": 0.96,
+              "passage_id": "CER.2.6",
+              "page": 15,
+              "quote_start": 2463,
+              "quote_end": 2623,
+              "clause_path": "Annex II > (6) > (b)",
+              "grounding_score": 1.0,
+              "judged": true
+            },
+            {
+              "violating_statement": "The report does not provide evidence that the device is delivered sterile or that packaging maintains sterility, as required for sterile devices.",
+              "source_quote": "Sterilization Method; Specifications: Ethylene Oxide (EtO) sterilized.",
+              "clause_id": "Annex.I.11.d",
+              "category": "Regulatory Documentation",
+              "severity": "Medium",
+              "explanation": "Annex.I.11.d requires that devices delivered in a sterile state be designed, manufactured, packaged, and sterilised by validated methods, and that packaging integrity be ensured. The CER only mentions the sterilisation method but lacks any statement on sterile packaging, validation of the sterilisation process, or packaging integrity verification.",
+              "suggested_correction": "Include documentation that the EtO sterilisation process is validated, describe the sterile packaging system, and confirm that packaging integrity is verified and maintained until point of use.",
+              "confidence": 0.89,
+              "passage_id": "CER.2.6",
+              "page": 15,
+              "quote_start": 1329,
+              "quote_end": 1399,
+              "clause_path": "Annex I > (11) > (d)",
+              "grounding_score": 1.0,
+              "judged": true
+            }
+          ],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Annex.II.6.b",
+            "Annex.XIV.A.3",
+            "Annex.I.11.d",
+            "Annex.IX.2.c",
+            "Art.2"
+          ],
+          "llm_provider": "groq",
+          "llm_model": "openai/gpt-oss-120b",
+          "latency_s": 62.77491736412048,
+          "error": null
+        },
+        {
+          "passage_id": "CER.2.7#1",
+          "section": "2.7",
+          "page": 16,
+          "findings": [
+            {
+              "violating_statement": "The report does not provide evidence that the compatibility between the different parts of the device (stent, string, sheath, guidewire, clamp) has been assessed as required by Annex I 10 c.",
+              "source_quote": "The combination of polyurethane for the stent body and polypropylene-based accessory components ensures flexibility, mechanical strength, chemical resistance, and compatibility with Ethylene Oxide (EtO) sterilization, thereby supporting the safety and performance of the Double J Stent (Short Term) for its intended use.",
+              "clause_id": "Annex.I.10.c",
+              "category": "Safety",
+              "severity": "Medium",
+              "explanation": "Annex I 10 c mandates verification of the compatibility between the different parts of a device consisting of more than one implantable part. The CER only states general material properties and sterilisation compatibility, but does not document any testing or analysis of the mechanical, chemical or biological interaction between the individual components when assembled.",
+              "suggested_correction": "Include a statement such as: \"Compatibility between the polyurethane stent body and the polypropylene accessories (string, sheath, pusher, clamp) has been demonstrated through mechanical interaction testing and chemical leachate analysis, confirming no adverse effects when the device is assembled and used as intended.\"",
+              "confidence": 0.92,
+              "passage_id": "CER.2.7#1",
+              "page": 16,
+              "quote_start": 1460,
+              "quote_end": 1780,
+              "clause_path": "Annex I > (10) > (c)",
+              "grounding_score": 1.0,
+              "judged": true
+            },
+            {
+              "violating_statement": "The report lacks confirmation that the device meets defined chemical and physical specifications as required by Annex I 10 h.",
+              "source_quote": "The materials selected for device construction are widely used in urological medical devices and are suitable for short-term internal use. The device materials have undergone biological safety evaluation in accordance with the ISO 10993 series to ensure biocompatibility for their intended duration and type of contact.",
+              "clause_id": "Annex.I.10.h",
+              "category": "Verification & Validation",
+              "severity": "Low",
+              "explanation": "Annex I 10 h requires confirmation that the device meets any defined chemical and/or physical specifications. While biocompatibility testing is mentioned, the CER does not provide the actual chemical/physical specification limits (e.g., tensile strength, elongation, leachable limits) nor evidence that the device meets them.",
+              "suggested_correction": "Add a table or narrative specifying the critical chemical and physical parameters (e.g., tensile strength, modulus, leachable limits) for each material and cite the test results confirming compliance.",
+              "confidence": 0.88,
+              "passage_id": "CER.2.7#1",
+              "page": 16,
+              "quote_start": 1140,
+              "quote_end": 1459,
+              "clause_path": "Annex I > (10) > (h)",
+              "grounding_score": 1.0,
+              "judged": true
+            }
+          ],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Annex.II.6.a#1",
+            "Annex.IX.5.a#1",
+            "Annex.I.10.c",
+            "Art.1.8",
+            "Annex.I.10.h"
+          ],
+          "llm_provider": "groq",
+          "llm_model": "openai/gpt-oss-120b",
+          "latency_s": 60.29315948486328,
+          "error": null
+        },
+        {
+          "passage_id": "CER.2.7#2",
+          "section": "2.7",
+          "page": 16,
+          "findings": [
+            {
+              "violating_statement": "The report does not demonstrate the required compatibility assessment between the different parts of the device (e.g., pusher, guidewire, stent) as mandated by Annex I 10 c.",
+              "source_quote": "Pusher (introducer sheath) with/without Radiopaque pusher and guidewire connected as a unit which allows for manipulation or push the stents to accurate position over a compatible guidewire",
+              "clause_id": "Annex.I.10.c",
+              "category": "Safety",
+              "severity": "Medium",
+              "explanation": "Annex I 10 c requires the CER to address the compatibility between the different parts of a device consisting of more than one implantable part. The section merely describes the components without any evaluation of their mutual compatibility, constituting a compliance gap.",
+              "suggested_correction": "Include a detailed compatibility assessment describing material interactions, mechanical fit, and functional integration between the pusher, guidewire, and Double J stent, referencing relevant test data or standards.",
+              "confidence": 0.78,
+              "passage_id": "CER.2.7#2",
+              "page": 16,
+              "quote_start": 1071,
+              "quote_end": 1260,
+              "clause_path": "Annex I > (10) > (c)",
+              "grounding_score": 1.0,
+              "judged": true
+            }
+          ],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Annex.VI.C.3",
+            "Annex.I.12",
+            "Annex.I.10.c",
+            "Annex.I.10.h",
+            "Annex.VI.A.2"
+          ],
+          "llm_provider": "groq",
+          "llm_model": "openai/gpt-oss-120b",
+          "latency_s": 2.234198808670044,
+          "error": null
+        },
+        {
+          "passage_id": "CER.2.8",
+          "section": "2.8",
+          "page": 21,
+          "findings": [],
+          "dropped": [
+            {
+              "reason": "quote not found in the source passage",
+              "detail": "The mechanism of action is mechanical and is based on the following: 1. Internal Urinary D",
+              "raw": {
+                "violating_statement": "The description of the mechanism of action lacks scientific demonstration of the principles of operation and mode of action as required by Annex.II.1.d.",
+                "source_quote": "The mechanism of action is mechanical and is based on the following: 1. Internal Urinary Drainage ... 5. Temporary Support Function",
+                "clause_id": "[Annex.II.1.d]",
+                "category": "Clinical Evaluation",
+                "severity": "Medium",
+                "explanation": "Annex.II.1.d mandates that the principles of operation and mode of action be scientifically demonstrated where necessary. The CER section only provides a narrative description without citing any scientific data or studies supporting the mechanical action of the stent.",
+                "suggested_correction": "Include references to pre‑clinical or clinical studies that experimentally confirm the mechanical drainage function of the Double J stent, e.g., bench‑testing results, in‑vivo flow studies, or published literature demonstrating its efficacy and safety.",
+                "confidence": 0.92
+              }
+            }
+          ],
+          "retrieved_clauses": [
+            "Annex.II.1.d",
+            "Art.2.i.iv",
+            "Art.74.1",
+            "Annex.XIV.A.3",
+            "Annex.I.18"
+          ],
+          "llm_provider": "groq",
+          "llm_model": "openai/gpt-oss-120b",
+          "latency_s": 1.179995059967041,
+          "error": null
+        },
+        {
+          "passage_id": "CER.2.9",
+          "section": "2.9",
+          "page": 22,
+          "findings": [
+            {
+              "violating_statement": "The report does not specify the sterilisation method for the sterile device as required",
+              "source_quote": "single use sterile device",
+              "clause_id": "Annex.I.23.l",
+              "category": "Regulatory Documentation",
+              "severity": "Medium",
+              "explanation": "Annex I.23.l mandates that if the device is supplied sterile, the CER must indicate its sterile state and the sterilisation method. The section only states the device is sterile but provides no method details, breaching this requirement.",
+              "suggested_correction": "Include a statement such as: \"The device is supplied sterile, sterilised by gamma irradiation (25 kGy) according to validated ISO 11137 procedures.\"",
+              "confidence": 0.95,
+              "passage_id": "CER.2.9",
+              "page": 22,
+              "quote_start": 10,
+              "quote_end": 35,
+              "clause_path": "Annex I > (23) > (l)",
+              "grounding_score": 1.0,
+              "judged": true
+            }
+          ],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Annex.I.23.l",
+            "Annex.I.23.n",
+            "Annex.II.6.a#1",
+            "Art.32.2.b",
+            "Annex.II.6.e"
+          ],
+          "llm_provider": "groq",
+          "llm_model": "openai/gpt-oss-120b",
+          "latency_s": 56.667829751968384,
+          "error": null
+        },
+        {
+          "passage_id": "CER.2.10",
+          "section": "2.10",
+          "page": 23,
+          "findings": [
+            {
+              "violating_statement": "The report does not specify the sterilisation method for the sterile device, as required by Annex I > (23) > (l).",
+              "source_quote": "This is a single use sterile device used for internal drainage from Kidney to Bladder",
+              "clause_id": "Annex.I.23.l",
+              "category": "Regulatory Documentation",
+              "severity": "Medium",
+              "explanation": "Annex I (23)(l) mandates that when a device is supplied sterile, the indication must include the sterilisation method. The CER only states the device is sterile but omits the method.",
+              "suggested_correction": "This is a single‑use sterile device, sterilised by [insert sterilisation method, e.g., ethylene oxide], used for internal drainage from kidney to bladder.",
+              "confidence": 0.9,
+              "passage_id": "CER.2.10",
+              "page": 23,
+              "quote_start": 0,
+              "quote_end": 85,
+              "clause_path": "Annex I > (23) > (l)",
+              "grounding_score": 1.0,
+              "judged": true
+            }
+          ],
+          "dropped": [
+            {
+              "reason": "second model did not agree the finding is supported",
+              "detail": "",
+              "raw": {
+                "violating_statement": "The report lacks an explicit statement that the product is a medical device, as required by Annex I > (23) > (q).",
+                "source_quote": "This is a single use sterile device used for internal drainage from Kidney to Bladder",
+                "clause_id": "[Annex.I.23.q]",
+                "category": "Regulatory Documentation",
+                "severity": "Low",
+                "explanation": "Annex I (23)(q) requires an indication that the device is a medical device. The current text does not contain such an indication.",
+                "suggested_correction": "This is a single‑use sterile medical device used for internal drainage from kidney to bladder.",
+                "confidence": 0.9
+              }
+            }
+          ],
+          "retrieved_clauses": [
+            "Annex.I.23.l",
+            "Annex.I.23.n",
+            "Annex.I.23.o",
+            "Annex.I.23.p#1",
+            "Annex.I.23.q"
+          ],
+          "llm_provider": "groq",
+          "llm_model": "openai/gpt-oss-120b",
+          "latency_s": 5.0859458446502686,
+          "error": null
+        },
+        {
+          "passage_id": "CER.2.11",
+          "section": "2.11",
+          "page": 23,
+          "findings": [],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Annex.XV.2#1",
+            "Annex.I.23.s#1",
+            "Annex.I.14.g",
+            "Art.32.2.b",
+            "Art.2"
+          ],
+          "llm_provider": "groq",
+          "llm_model": "openai/gpt-oss-120b",
+          "latency_s": 0.7615981101989746,
+          "error": null
+        },
+        {
+          "passage_id": "CER.2.12",
+          "section": "2.12",
+          "page": 23,
+          "findings": [
+            {
+              "violating_statement": "The intended patient population description omits required patient selection criteria, contraindications and warnings",
+              "source_quote": "Double J Stent (Short term) is manufactured to meet requirements of medical conditions like Improper urine drainage, calculi in ureter, hydronephrosis, oxalate calculi, pyeloplasty with UPJ Obstruction, residual renal calculus, ureteral stricture.",
+              "clause_id": "Annex.II.1.c",
+              "category": "Clinical Evaluation",
+              "severity": "Medium",
+              "explanation": "Annex.II.1.c mandates that the CER include the intended patient population together with considerations such as patient selection criteria, indications, contra‑indications and warnings. The provided text lists medical conditions and a generic adult population but does not specify any selection criteria, contraindications or warnings, thus breaching the clause.",
+              "suggested_correction": "Add a subsection that details patient selection criteria (e.g., age range, renal function thresholds), explicit contraindications (e.g., active urinary infection, known allergy to device materials), and relevant warnings (e.g., risk of migration, need for imaging follow‑up).",
+              "confidence": 0.95,
+              "passage_id": "CER.2.12",
+              "page": 23,
+              "quote_start": 0,
+              "quote_end": 247,
+              "clause_path": "Annex II > (1) > (c)",
+              "grounding_score": 1.0,
+              "judged": true
+            }
+          ],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Annex.II.1.c",
+            "Art.2.i.iv",
+            "Annex.I.1",
+            "Art.1.3",
+            "Annex.I.23.s#1"
+          ],
+          "llm_provider": "groq",
+          "llm_model": "openai/gpt-oss-120b",
+          "latency_s": 55.30992031097412,
+          "error": null
+        },
+        {
+          "passage_id": "CER.2.13",
+          "section": "2.13",
+          "page": 23,
+          "findings": [],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Annex.I.1",
+            "Annex.XIII.1",
+            "Annex.I.14.g",
+            "Annex.I.22",
+            "Art.2.c#2"
+          ],
+          "llm_provider": "groq",
+          "llm_model": "openai/gpt-oss-120b",
+          "latency_s": 5.892334222793579,
+          "error": null
+        },
+        {
+          "passage_id": "CER.2.19",
+          "section": "2.19",
+          "page": 26,
+          "findings": [],
+          "dropped": [
+            {
+              "reason": "requirement is satisfied in another section of the document",
+              "detail": "addressed in CER.4.1: The conformity with GSPRs was demonstrated in accordance with Article 61(3) of the EU MDR 2017/745 regulation, by provin",
+              "raw": {
+                "violating_statement": "The report does not provide the required justification of equivalence to a predicate device as required by Annex XIV.A.3, nor does it demonstrate that the technical, biological and clinical characteristics are sufficiently similar to preclude clinically significant differences.",
+                "source_quote": "The Double J Stent/Kit (Long Term) is a first-generation device. However, similar generic devices have been on the market for some time and have well-established technology (WET)",
+                "clause_id": "[Annex.XIV.A.3]",
+                "category": "Equivalence",
+                "severity": "Medium",
+                "explanation": "Annex XIV.A.3 mandates that a clinical evaluation based on equivalence must detail and justify similarity in technical, biological and clinical characteristics. The CER only mentions the existence of similar generic devices without providing the detailed comparative analysis required.",
+                "suggested_correction": "Include a detailed equivalence justification that compares the Double J Stent/Kit to the referenced generic devices, covering design, materials, intended use, clinical condition, performance requirements, and evidence that no clinically significant differences exist.",
+                "confidence": 0.97
+              }
+            }
+          ],
+          "retrieved_clauses": [
+            "Annex.XIV.A.3",
+            "Art.2",
+            "Annex.VI.A.2",
+            "Art.2.c#1",
+            "Annex.I.10.d#1"
+          ],
+          "llm_provider": "groq",
+          "llm_model": "openai/gpt-oss-120b",
+          "latency_s": 3.5465807914733887,
+          "error": null
+        },
+        {
+          "passage_id": "CER.3.3",
+          "section": "3.3",
+          "page": 31,
+          "findings": [
+            {
+              "violating_statement": "The clinical background section does not present both favourable and unfavourable clinical data as required for the clinical evaluation report.",
+              "source_quote": "The included scientific articles collectively describe the medical condition addressed by the device, outlining its pathophysiology, clinical presentation, and epidemiological relevance.",
+              "clause_id": "Annex.XIV.A.4",
+              "category": "Clinical Evaluation",
+              "severity": "Medium",
+              "explanation": "Annex XIV Part A 4 mandates that both favourable and unfavourable data considered in the clinical evaluation be included in the technical documentation. The provided section only summarises the condition and mentions benefits and limitations of existing stents but does not explicitly present any unfavourable data related to the device under evaluation.",
+              "suggested_correction": "Include a balanced summary of both favourable and unfavourable clinical evidence from the literature, e.g., \"While studies show that ureteral stents are effective in maintaining patency, several publications report significant stent‑related morbidity, including pain and reduced quality of life, highlighting limitations of current solutions.\"",
+              "confidence": 0.92,
+              "passage_id": "CER.3.3",
+              "page": 31,
+              "quote_start": 0,
+              "quote_end": 186,
+              "clause_path": "Annex XIV > Part A > (4)",
+              "grounding_score": 1.0,
+              "judged": true
+            }
+          ],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Annex.XIV.A.4",
+            "Art.2",
+            "Annex.XV.7",
+            "Art.61.11",
+            "Annex.XV.4"
+          ],
+          "llm_provider": "groq",
+          "llm_model": "openai/gpt-oss-120b",
+          "latency_s": 61.44990062713623,
+          "error": null
+        },
+        {
+          "passage_id": "CER.3.6",
+          "section": "3.6",
+          "page": 34,
+          "findings": [],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Art.61.3.c",
+            "Art.63.2.i.iv",
+            "Annex.I.23.s#1",
+            "Annex.XIV.A.1.a",
+            "Art.88.1"
+          ],
+          "llm_provider": "groq",
+          "llm_model": "openai/gpt-oss-120b",
+          "latency_s": 0.6480128765106201,
+          "error": null
+        },
+        {
+          "passage_id": "CER.4.3.2.1",
+          "section": "4.3.2.1",
+          "page": 53,
+          "findings": [
+            {
+              "violating_statement": "The claim that no clinical investigation was performed based solely on routine clinical use is not justified under MDR Article 61.4, which requires a clinical investigation for implantable devices unless specific equivalence exceptions are met, which are not demonstrated here.",
+              "source_quote": "Hence, according to MDR article 61, no clinical investigation was performed.",
+              "clause_id": "Art.61.4",
+              "category": "Clinical Investigation",
+              "severity": "High",
+              "explanation": "Article 61.4 mandates clinical investigations for implantable devices unless the device is a modified version proven equivalent to a marketed device and endorsed by the notified body. The CER provides no evidence of such equivalence assessment or notified body endorsement, making the statement non‑compliant.",
+              "suggested_correction": "Include a justification that the device meets one of the exceptions in Article 61.4 (e.g., proven equivalence to a marketed device with notified body endorsement) or conduct and document a clinical investigation as required.",
+              "confidence": 0.95,
+              "passage_id": "CER.4.3.2.1",
+              "page": 53,
+              "quote_start": 205,
+              "quote_end": 281,
+              "clause_path": "Chapter VI > Article 61 > (4)",
+              "grounding_score": 1.0,
+              "judged": true
+            }
+          ],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Annex.I.23.f#2",
+            "Annex.I.23.q",
+            "Art.61.4",
+            "Art.120.11",
+            "Annex.XV.7"
+          ],
+          "llm_provider": "groq",
+          "llm_model": "openai/gpt-oss-120b",
+          "latency_s": 2.1795082092285156,
+          "error": null
+        },
+        {
+          "passage_id": "CER.4.3.2.2#1",
+          "section": "4.3.2.2",
+          "page": 53,
+          "findings": [
+            {
+              "violating_statement": "The report does not describe a proactive and systematic post‑market surveillance (PMS) process, indicators, thresholds, or methods for continuous benefit‑risk reassessment as required by the PMS plan.",
+              "source_quote": "The device is marketed in India. The following data sources were utilised to collect relevant post‑marketing data to support clinical safety and performance.",
+              "clause_id": "Annex.III.b",
+              "category": "Post Market Surveillance",
+              "severity": "High",
+              "explanation": "Annex III.b mandates that the PMS plan must cover a proactive systematic process, suitable indicators, threshold values and methods to assess collected data. The CER only lists data sources without describing the required systematic process or assessment methods, thus breaching the clause.",
+              "suggested_correction": "Add a detailed description of the PMS plan, including the systematic data‑collection process, defined performance indicators, threshold values, and the methods used to analyse and reassess the benefit‑risk balance.",
+              "confidence": 0.92,
+              "passage_id": "CER.4.3.2.2#1",
+              "page": 53,
+              "quote_start": 0,
+              "quote_end": 157,
+              "clause_path": "Annex III > (b)",
+              "grounding_score": 0.9936305732484076,
+              "judged": true
+            },
+            {
+              "violating_statement": "No periodic safety update report (PSUR) or evidence of annual updates to the clinical evaluation documentation is provided, contrary to Article 86.1 and Article 61.11 requirements.",
+              "source_quote": "A total number of 250 patients were treated during this process. However, 8 incidents of complications related to the application of the device was reported by those professionals:",
+              "clause_id": "Art.86.1",
+              "category": "Regulatory Documentation",
+              "severity": "Medium",
+              "explanation": "Article 86.1 requires a PSUR summarising PMS data and corrective actions, and Article 61.11 requires the clinical evaluation to be updated throughout the device life‑cycle with PMS and PMCF data. The CER excerpt provides incident numbers but no PSUR, no summary of analyses, nor any corrective actions, indicating non‑compliance.",
+              "suggested_correction": "Include a PSUR that summarises the post‑market data, analyses the incidents, outlines any preventive or corrective actions taken, and ensure the clinical evaluation documentation is updated accordingly.",
+              "confidence": 0.88,
+              "passage_id": "CER.4.3.2.2#1",
+              "page": 53,
+              "quote_start": 1795,
+              "quote_end": 1975,
+              "clause_path": "Chapter VII > Article 86 > (1)",
+              "grounding_score": 1.0,
+              "judged": true
+            }
+          ],
+          "dropped": [],
+          "retrieved_clauses": [
+            "Annex.IX.3",
+            "Annex.III.b",
+            "Art.61.11",
+            "Annex.VII.4.b#2",
+            "Art.86.1"
+          ],
+          "llm_provider": "groq",
+          "llm_model": "openai/gpt-oss-120b",
+          "latency_s": 61.828803300857544,
+          "error": null
+        }
+      ],
+      "readiness_score": 25.0,
+      "config": {}
+    },
+    "repeats": [
+      {
+        "scores": {
+          "expected_total": 4,
+          "matched": 1,
+          "recall": 0.25,
+          "precision": 0.0667,
+          "f1": 0.1053,
+          "predicted_total": 15,
+          "clean_passages": 15,
+          "clean_passages_with_findings": 10,
+          "findings_on_clean": 12,
+          "false_positive_rate": 0.6667,
+          "hallucinated": 0,
+          "hallucination_rate": 0.0
+        },
+        "findings": 15,
+        "dropped": {
+          "quote not found in the source passage": 1,
+          "second model did not agree the finding is supported": 1,
+          "requirement is satisfied in another section of the document": 1
+        },
+        "elapsed_s": 446.6,
+        "matched": [
+          "CER.4.3.2.1 -> Art.61.4"
+        ]
+      }
+    ],
+    "summary": {
+      "recall": {
+        "mean": 0.25,
+        "min": 0.25,
+        "max": 0.25
+      },
+      "precision": {
+        "mean": 0.0667,
+        "min": 0.0667,
+        "max": 0.0667
+      },
+      "f1": {
+        "mean": 0.1053,
+        "min": 0.1053,
+        "max": 0.1053
+      },
+      "false_positive_rate": {
+        "mean": 0.6667,
+        "min": 0.6667,
+        "max": 0.6667
+      },
+      "hallucination_rate": {
+        "mean": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      }
+    },
+    "contaminated_runs": 0
+  }
+}
