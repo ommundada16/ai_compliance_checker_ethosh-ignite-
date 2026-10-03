@@ -70,7 +70,44 @@ reviewer can trust the output.
 
 | System | Findings | Recall | Precision | F1 | FP rate | Hallucination |
 |---|---|---|---|---|---|---|
+| v1 retrieval | 17 | 0.000 | 0.000 | 0.000 | 0.667 | 0.000 |
+| v2 no guards | 21 | 0.250 | 0.048 | 0.080 | 0.800 | 0.000 |
 | v2 full | 15 | 0.250 | 0.067 | 0.105 | 0.533 | 0.000 |
+| v2 title | 15 | 0.000 | 0.000 | 0.000 | 0.533 | 0.000 |
+| v2 reconcile | 15 | 0.250 | 0.067 | 0.105 | 0.667 | 0.000 |
+| v2 context | 10 | 0.250 | 0.100 | 0.143 | 0.400 | 0.000 |
+
+Each row differs from the one above by one change (`v2 full` + section title in
+the query = `v2 title`, + cross-section reconciliation = `v2 reconcile`, + a
+prompt that says the model is reading one section = `v2 context`). Same
+generator (`gpt-oss-120b`) and judge (`gpt-oss-20b`) throughout, so a row-to-row
+difference is not a model difference. Every run was clean (no errored passages,
+no failed judge calls).
+
+**How to read this table — it is one run per row.** The same `v2 full`
+configuration scored an FP rate of 0.53, 0.73 and 0.73 and recall of 0.25, 0.25
+and 0.00 on three runs (the row shows the first). With four known violations,
+recall moves in steps of 0.25, and with fifteen clean passages the FP rate moves
+in steps of 0.067. So:
+
+- **Supported:** `v1 retrieval` finds nothing because its retrieval never
+  surfaces the correct clause for any of the four known violations (0 of 4
+  retrieved, against 2 of 4 for every v2 row). That is a retrieval ceiling, not a
+  sampling accident, and it is the audit-level confirmation of the retrieval
+  result above.
+- **Not supported:** that the title query, the guardrails or reconciliation moved
+  audit recall or FP rate. `v2 reconcile` shows a *higher* FP rate than `v2
+  full`, which cannot be an effect of a filter that only removes findings; it is
+  a different sample. The clean measurement of reconciliation is the offline
+  replay over stored runs (1-3 findings removed per run, no true positive lost).
+- **Suggestive only:** `v2 context` has the lowest FP rate seen (0.40) and the
+  fewest findings (10), still with the same single true positive and zero
+  hallucinations. Its prompt was written after reading the model's errors on
+  this very set, so this is a development-set score, and it may be suppressing
+  findings rather than sharpening them. It needs a held-out set before anyone
+  should cite it.
+- Hallucination is 0.000 in every row, including `v2 no guards`, so on this model
+  and set the guardrails buy fewer false positives, not fewer fabrications.
 
 ### Where the audit actually fails
 
