@@ -384,7 +384,7 @@ comparison at all** — fair or otherwise. That is the gap, not the model choice
 | 4 | Document-level reconciliation | **DONE**, measured offline, modest (§1b) |
 | 5 | Tell the model what it is reading | **BUILT** (`document_context`), **not yet measured end-to-end** (§1d) |
 | 7 | Retrieval misses | **PARTLY DONE** — section-title query adopted (§1c); `CER.2.19` is a parsing defect, left as is |
-| 8 | Reranker latency | Measured 8.2 s/query with free RAM (14 s was under memory pressure); pool-size test not run |
+| 8 | Reranker latency | **DONE, negative result**: a smaller candidate pool is faster but loses quality; shipped pool of 25 kept (§1h). 8.2 s/query with free RAM (14 s was under memory pressure) |
 | 2, 6 | Audit ablation on Groq (`v1_retrieval`, `v2_no_guards`, `v2_title`, `v2_reconcile`, `v2_context`) | **DONE 2026-10-02/03**, all clean, merged into `audit_eval.json` and `COMPARISON.md`; one run per row, so noise-limited (see "Groq results") |
 | 3 | Groq vs local for evaluation | **DECIDED** — Groq for reported numbers, local only as a dry run (§1e) |
 | 9 | UI check in a browser | see the end of this file for its status |
@@ -571,6 +571,28 @@ regenerating over it deleted 46 lines. The script now writes
 `docs/COMPARISON.generated.md` (git-ignored) and leaves `COMPARISON.md` alone unless
 given `--overwrite`. After the Groq runs, diff the two files and merge the new audit
 table by hand.
+
+### 1h. RESULT (2026-10-03): shrinking the reranker pool is not free — kept a negative result
+
+Rule fixed before the run: adopt a smaller candidate pool only if it is at least 40%
+faster AND scope recall and nDCG each fall by no more than 0.01. All 75 gold
+passages, k = 5, title query, `eval_data/results/v2_rerank_pool10.json`,
+`v2_rerank_pool15.json` (pool 25 from `v2_query_ablation.json`). Retrieval is
+deterministic, so the quality figures are not sampling noise.
+
+| Pool | ms / query | Faster | Scope recall | nDCG | MRR | Context precision |
+|---|---|---|---|---|---|---|
+| **25 (shipped)** | 8,209 | - | **0.227** | **0.211** | **0.280** | **0.213** |
+| 15 | 4,241 | 48% | 0.187 (-0.040) | 0.175 (-0.037) | 0.228 | 0.179 |
+| 10 | 2,698 | 67% | 0.191 (-0.036) | 0.183 (-0.028) | 0.269 | 0.160 |
+
+**Neither passes**, so the pool stays at 25. The first-stage ranking is weak enough
+that the right clause often sits between ranks 11 and 25 and only the cross-encoder
+can lift it; cutting the pool throws those away. Latency is a real cost (8 s/query,
+fine for batch, too slow for typing) but it is the price of the quality gain. If
+interactive speed is needed, the untested options are a lighter reranker
+(`jinaai/jina-reranker-v1-turbo-en`, 0.15 GB vs 1.04 GB) or an int8 build; both must
+be judged by the same rule. The API's `rerank` flag already allows turning it off.
 
 ### Older list (kept for reference; see the status board above)
 
