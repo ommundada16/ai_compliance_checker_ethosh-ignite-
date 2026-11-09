@@ -1,6 +1,6 @@
 # Optional. The project does NOT need Docker.
 #
-# eval_data/qdrant_local holds an embedded Qdrant index that runs in-process,
+# v2/qdrant_local holds an embedded Qdrant index that runs in-process,
 # and on a 16 GB laptop that is worth roughly 2 GB of RAM over running Docker
 # Desktop's WSL2 VM. Use this compose file when you want a real server -- for a
 # shared index, for concurrent readers, or to rehearse the deployed topology.
@@ -61,7 +61,7 @@ services:
       - "host.docker.internal:host-gateway"
     volumes:
       - ./eval_data:/app/eval_data:ro
-      - ./data:/app/data:ro
+      - ../data:/data:ro
 
 volumes:
   qdrant_storage:

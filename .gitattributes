@@ -23,5 +23,5 @@
 *.woff2 binary
 
 # Evaluation outputs are committed and diffed by humans; keep them readable.
-eval_data/**/*.json  text eol=lf
-eval_data/**/*.jsonl text eol=lf
+v2/eval_data/**/*.json  text eol=lf
+v2/eval_data/**/*.jsonl text eol=lf

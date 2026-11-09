@@ -1,4 +1,5 @@
 import json
+import os
 from collections import Counter
 
 from ingest import extract_text, chunk_text
@@ -6,10 +7,13 @@ from retriever import Retriever
 from auditor import audit_section, readiness_score
 from schema import AuditReport
 
+# The two source PDFs are shared with v2 and live at the repo root.
+_DATA_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data")
+
 
 def run(
-    protocol_path="data/source_file.pdf",
-    guideline_path="data/guideline.pdf",
+    protocol_path=os.path.join(_DATA_DIR, "source_file.pdf"),
+    guideline_path=os.path.join(_DATA_DIR, "guideline.pdf"),
     max_sections=5
 ):
 

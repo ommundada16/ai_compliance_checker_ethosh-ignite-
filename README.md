@@ -1,232 +1,116 @@
-# The Auditor
+# AI Compliance Checker — EU MDR Auditor
 
-Audits Clinical Evaluation Reports against **EU MDR 2017/745** with a RAG
-pipeline, and — the part that matters — **measures whether it actually works**.
+Audits a medical-device **Clinical Evaluation Report (CER)** against **EU MDR 2017/745** with an LLM
+and a retrieval (RAG) pipeline, and — the part that matters — **measures whether it actually works**.
 
-The regulation is the corpus (1320 clauses). A section of the document under
-audit is the query. That inversion of the usual RAG arrangement drives most of
-the design decisions below.
+The repo holds two generations of the same tool, side by side, so the improvement can be reproduced
+rather than asserted:
+
+| Folder | What it is | Stack | Status |
+|---|---|---|---|
+| [`v1/`](v1/README.md) | The original app. Upload a PDF, get findings highlighted in the text. | Streamlit, `sentence-transformers`, local Ollama | Frozen baseline |
+| [`v2/`](v2/README.md) | The rebuilt pipeline plus an evaluation harness that scores it against v1. | Qdrant, ONNX embeddings and reranker, Groq/Ollama, FastAPI, React | Current |
+| [`data/`](data/) | The two source documents both versions audit: the EU MDR (`guideline.pdf`) and a sample CER (`source_file.pdf`). | PDF | Shared |
+| [`docs/`](docs/) | Cross-version write-ups: measured comparison, engineering handoff, upgrade plan. | Markdown, PDF | Shared |
+
+```
+ai_compliance_checker/
+├─ v1/        original Streamlit app (app.py, auditor.py, ingest.py, retriever.py, ...)
+├─ v2/        src/  api/  frontend/  tools/  tests/  eval_data/  Dockerfile  pyproject.toml
+├─ data/      guideline.pdf  source_file.pdf
+├─ docs/      COMPARISON.md  HANDOFF.md  Auditor_v2_Upgrade_Plan.pdf
+└─ .github/   CI (lint + tests, gold-set integrity, frontend typecheck/build)
+```
 
 ---
 
-## The result in one table
+## The idea that shapes the design
 
-Retrieval quality at k = 5, identical frozen gold set, identical metric code:
+Normal RAG answers a short question from a document corpus. Here it is inverted: the **corpus is the
+regulation** (1,320 clauses) and the **query is a ~250-word section of the report being audited**.
+That changes what chunking, retrieval and "relevant" mean, and most of v2's design follows from it.
+
+## The result
+
+Retrieval quality at k = 5, on one frozen gold set with identical metric code:
 
 | Metric | v1 | v2 | change |
 |---|---|---|---|
-| Scope recall | 0.1133 | **0.2000** | **+76%** |
-| nDCG | 0.0634 | **0.1503** | **+137%** |
-| MRR | 0.0764 | **0.2278** | **+198%** |
-| Context precision | 0.0544 | **0.1440** | **+164%** |
-| Context words sent to the LLM | 4000 | **1456** | **−64%** |
+| Scope recall | 0.1133 | **0.2000** | +76% |
+| nDCG | 0.0634 | **0.1503** | +137% |
+| MRR | 0.0764 | **0.2278** | +198% |
+| Context precision | 0.0544 | **0.1440** | +164% |
+| Context words sent to the LLM | 4000 | **1456** | −64% |
 
-Better answers from a third of the context.
+Better retrieval from about a third of the context. Full tables, the ablation and the negative results
+are in [`docs/COMPARISON.md`](docs/COMPARISON.md).
 
-Percentages are computed from full precision, which is why four decimals are
-shown: rounding the metrics to three first and dividing those gives +138% and
-+200% instead. Same numbers, different order of operations — the raw values are
-in `eval_data/results/v2_ablation.json` if you want to check either way.
+## The finding the project is about
 
-One further retrieval change was made after this table, under a rule fixed
-before the run: prefixing the section title to the query. Over the same 75
-passages it lifts scope recall to **0.227** and nDCG to **0.211** with the
-reranker (`eval_data/results/v2_query_ablation.json`); using only the first 100
-words of the passage did not pass the rule and was not adopted.
+v1 scored 2.9% recall, which looked like a bug in the harness. It was investigated before being
+reported, and it was not one: `all-MiniLM-L6-v2` accepts only 256 word-pieces, so just the first ~106
+words of every 800-word chunk were ever encoded. Silently, with no error. **334 of 1,320 clauses**
+were ever embedded, which caps recall at **30.1%** whatever `k` is. v1's problem was never ranking:
+87% of the regulation it audited against was invisible to its retriever. v2 truncates no gold clause.
 
-Full numbers, including the ablation and the negative results:
-**[docs/COMPARISON.md](docs/COMPARISON.md)**
+## What this does not show
 
----
+Stated up front, because these are the first questions a careful reader should ask:
 
-## The finding the project is actually about
+- The audit gold set is small (4 authored violations, 15 clean passages), so audit recall is a lower
+  bound, not an estimate.
+- On it, the shipped configuration finds 1 of 4 known violations and flags 53–73% of clean passages
+  (the same settings gave both figures on different runs). **Zero findings were hallucinated.**
+- Retrieval labels are a hand-authored expert rubric, not verified by a regulatory professional.
+- Hybrid (dense + keyword) search made results *worse* here and is kept as a documented negative result.
 
-v1 scored 2.9% recall. That looked like a harness bug, so it was investigated
-before being reported. It was not a bug:
-
-> `all-MiniLM-L6-v2` accepts 256 word-pieces. Regulatory English runs well over
-> two pieces per word, so only **106 of every 800-word chunk** was ever encoded
-> — 13%. Silently. No error, no warning.
-
-Measured consequences:
-
-- **334 of 1320 clauses** were ever embedded at all
-- a hard **recall ceiling of 30.1%** — no value of `k` could beat it, because the
-  rest was not in the index in any form
-
-v1's problem was never ranking. **87% of the regulation it was auditing against
-was invisible to its retriever.** `measure_embedding_window()` proves this by
-binary-searching the shortest prefix whose embedding is *identical* to the full
-chunk's, and the result is written into the baseline JSON so the claim travels
-with the numbers.
-
-v2 truncates **zero** gold clauses.
-
----
-
-## Architecture
-
-```
-  PDF
-   |
-   +-- PARSE      layout-aware; tables rendered as "header: value" rows
-   |              (flattened, a table reads "Categor Characteris Device 1...")
-   |
-   +-- CHUNK      clause-level units with hierarchical IDs (Art.61.3.a)
-   |
-   +-- EMBED      bge-base-en-v1.5 dense + BM25 sparse, ONNX on CPU
-   |
-   +-- INDEX      Qdrant, named vectors, persisted
-                    |
-  Query (a CER section)
-   |
-   +-- HYBRID     dense + sparse, fused with RRF
-   +-- RERANK     bge-reranker-base cross-encoder, top-25 -> top-5
-   |
-   +-- AUDIT      LLM with clause IDs it must cite
-   |
-   +-- GUARDRAILS schema -> abstention -> citation check -> grounding -> judge
-   |
-   +-- FastAPI --SSE--> React
-```
-
-The GPU budget is 4 GB and it belongs to the LLM, so embedding and reranking run
-on CPU via ONNX. There is no torch in the v2 dependency set.
+The complete list is in [`v2/README.md`](v2/README.md#what-this-does-not-show).
 
 ---
 
 ## Quick start
 
+The two versions have **separate dependencies** (v1 needs PyTorch via `sentence-transformers`; v2
+deliberately has none), so give each its own virtual environment and run commands from its folder.
+
+**v2 (current)**
+
 ```bash
+cd v2
 python -m venv .venv && .venv/Scripts/activate      # or source .venv/bin/activate
 pip install -r requirements-dev.txt
 cp .env.example .env                                 # add a GROQ_API_KEY, or use Ollama
+python tools/score_v2.py --reindex                   # build the index and score retrieval
+uvicorn api.main:app --reload                        # http://localhost:8000/docs
+cd frontend && npm install && npm run dev
+pytest                                               # 198 tests
 ```
 
-Qdrant runs **embedded by default** — no Docker required. `docker-compose.yml`
-is there for when you want a real server.
+**v1 (original app)**
 
 ```bash
-python tools/score_v2.py --reindex     # build the index and score retrieval
-uvicorn api.main:app --reload          # http://localhost:8000/docs
-cd frontend && npm install && npm run dev
+cd v1
+python -m venv venv && venv\Scripts\activate
+pip install -r requirements.txt
+ollama pull llama3.2:3b
+cp .env.example .env
+streamlit run app.py
 ```
 
----
+Step-by-step detail, including Docker and Ollama setup, is in each folder's README.
 
-## Evaluation
+## Where to read next
 
-Three layers, because they fail independently.
+| If you want to... | Read |
+|---|---|
+| Understand the architecture and guardrails | [`v2/README.md`](v2/README.md) |
+| See the v1 → v2 numbers and ablations | [`docs/COMPARISON.md`](docs/COMPARISON.md) |
+| Continue the work: state, failures, next steps, how to reproduce every number | [`docs/HANDOFF.md`](docs/HANDOFF.md) |
+| Run or understand the original app | [`v1/README.md`](v1/README.md) |
 
-| Layer | Metrics | Question |
-|---|---|---|
-| Retrieval | Scope recall, nDCG, MRR, MAP, context precision | Did the right clauses come back, high up? |
-| Audit | Recall, precision, F1, **false-positive rate**, hallucination rate | Were the right violations reported, and only those? |
-| Systems | p50/p95 latency, context words, index time | Is it usable and affordable? |
+## Continuous integration
 
-The gold set is **frozen**: 1320 clauses, 75 passages, an expert MDR mapping
-authored from the regulation, and graded relevance (primary / secondary).
-
-CI **rebuilds the gold set from the source PDFs on every push and fails if a
-single byte differs.** The artefacts are frozen but the parser is live code; a
-cleaning tweak silently redefines what a clause *is* while the labels keep
-pointing at the old IDs. Nothing would break — the numbers would just quietly
-stop meaning what they did.
-
----
-
-## What this does **not** show
-
-Stated here rather than buried, because these are the first questions a careful
-reader should ask:
-
-- **The audit gold set is not exhaustive.** Four authored violations, fifteen
-  clean passages. Audit recall is a lower bound, not an estimate.
-- **"Clean" means a reviewer would not expect a finding**, not "provably
-  compliant".
-- **Retrieval labels are a hand-authored expert rubric**, not verified by a
-  regulatory professional. An LLM cross-check tool exists
-  (`tools/propose_labels_llm.py`) but its proposals were deliberately **not**
-  merged: doing so would change the frozen gold set and every score computed
-  against it.
-- **The audit itself is weak, and stated as weak.** On the 19-passage audit set
-  the shipped configuration finds 1 of 4 known violations and flags 53–73% of
-  clean passages (the same settings gave both figures on different runs, so a
-  single run is a sample, not a measurement). Zero findings were hallucinated.
-  The false positives are largely architectural: each passage is audited in
-  isolation, so a section that defers a topic to another section is reported as
-  missing it. A cross-section reconciliation step removed 1–3 findings per run
-  without losing a true one — helpful, not a fix.
-- **The audit ablation is one run per row, so most differences are noise.** All
-  six configurations have been run on the same model (see `docs/COMPARISON.md`).
-  What it supports: v1's retrieval never surfaces the correct clause for any of
-  the four known violations (0 of 4, against 2 of 4 for every v2 row), so v1
-  cannot find them. What it does not support: any claim that the title query,
-  guardrails or reconciliation moved audit recall or false-positive rate, since
-  the same configuration has scored 0.53 and 0.73 on different runs. The prompt
-  that tells the model it is reading one section (lowest FP rate, 0.40) was
-  written after reading errors on this same set, so it is a development score.
-- **Hybrid search made things worse** at low k, and is kept in the ablation
-  precisely because it is a negative result. BM25 assumes short keyword
-  queries; these are 250-word passages, so the sparse arm matches common legal
-  vocabulary and injects noise that fusion then rewards for "agreement".
-- **Absolute numbers are low.** Picking 2–3 governing provisions out of 1320
-  into a top-5 is genuinely hard. The *relative* improvement is the claim.
-
----
-
-## Guardrails
-
-Cheapest first, so the expensive judge only sees findings that are already
-grounded and correctly cited. Every rejection records a typed reason, because
-the distribution of those reasons says which failure mode the model actually
-has — and whether a guardrail removes more false positives than true ones.
-
-| Guardrail | v1 | v2 |
-|---|---|---|
-| Schema | Categories listed in the prompt only | Enforced enums |
-| Abstention | None | Confidence threshold |
-| Citation | Free text | Must be a clause that was **retrieved** |
-| Grounding | First 40 characters, substring | Character spans: exact → whitespace → bounded fuzzy |
-| Judge | None | A **different** model verifies |
-| Injection | None | The PDF is untrusted input |
-
-The citation check matters most. The model cannot have read a clause it was
-never shown, so a citation outside the retrieved set comes from training data
-rather than from the regulation in front of it — the failure mode most likely
-to look convincing and be wrong. v1 could not detect it at all.
-
----
-
-## Layout
-
-```
-src/auditor/
-  parsing/      MDR and CER structural parsers (shared with the gold set)
-  chunking      clause-level, in parsing/
-  embedding.py  dense + sparse, ONNX on CPU
-  retrieval/    Qdrant store, RRF fusion, cross-encoder rerank
-  llm/          provider interface: Groq, Ollama, failover
-  audit/        schema, prompts, guardrails, pipeline
-  evaluation/   metrics, gold-set resolution, audit scoring
-  baselines/    frozen v1, kept runnable so v2 has something to beat
-api/            FastAPI, SSE streaming
-frontend/       React + Vite + TypeScript
-tools/          gold-set builders and scoring scripts
-tests/          198 tests, all passing (two are integration tests that need the local index)
-```
-
----
-
-## A note on running this locally
-
-The LLM provider is pluggable on purpose. With `GROQ_API_KEY` set, inference
-happens remotely and the local footprint is ~2 GB. Running `llama3.1:8b`
-locally instead adds ~3.5 GB, and a 4.92 GB model does not fit in 4 GB of VRAM,
-so it spills into RAM.
-
-The evaluation scripts print a resource plan before they start and abort
-cleanly if free memory drops below a floor. That is not defensive
-over-engineering: three of these jobs left running at once exhausted a 16 GB
-machine, sent Windows into swap, and froze the desktop. A batch job that cannot
-finish should stop and say so.
+`.github/workflows/ci.yml` runs three jobs on every push: lint and tests; **gold-set integrity**, which
+rebuilds the frozen evaluation set from the source PDFs and fails if a single byte differs (the parser
+is live code, so a cleaning tweak could silently change what a "clause" is while the labels keep
+pointing at the old IDs); and a frontend typecheck and build.

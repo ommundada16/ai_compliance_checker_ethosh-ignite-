@@ -17,8 +17,9 @@ from datetime import UTC, datetime
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
+REPO_ROOT = PROJECT_ROOT.parent
 RESULTS = PROJECT_ROOT / "eval_data" / "results"
-OUT = PROJECT_ROOT / "docs" / "COMPARISON.md"
+OUT = REPO_ROOT / "docs" / "COMPARISON.md"
 
 
 def load(name: str) -> dict | None:
@@ -62,10 +63,10 @@ def main() -> int:
 
     add("# The Auditor — v1 vs v2")
     add("")
-    add(f"_Generated {datetime.now(UTC):%Y-%m-%d} by `tools/build_comparison_report.py`._")
+    add(f"_Generated {datetime.now(UTC):%Y-%m-%d} by `v2/tools/build_comparison_report.py`._")
     add("")
-    add("Every number below is read from `eval_data/results/*.json`, each of which")
-    add("is produced by a script in `tools/`. Nothing here is typed by hand.")
+    add("Every number below is read from `v2/eval_data/results/*.json`, each of which")
+    add("is produced by a script in `v2/tools/`. Nothing here is typed by hand.")
     add("")
 
     # --- what changed ---
@@ -236,6 +237,7 @@ def main() -> int:
     add("## Reproducing this")
     add("")
     add("```bash")
+    add("cd v2")
     add("python tools/build_clause_corpus.py       # 1320 MDR clauses")
     add("python tools/build_protocol_passages.py   # 75 CER passages")
     add("python tools/build_gold_retrieval.py      # graded labels")
@@ -254,7 +256,7 @@ def main() -> int:
     target = OUT if "--overwrite" in sys.argv else OUT.with_name("COMPARISON.generated.md")
     target.parent.mkdir(parents=True, exist_ok=True)
     target.write_text("\n".join(lines) + "\n", encoding="utf-8")
-    print(f"wrote {target.relative_to(PROJECT_ROOT)} ({len(lines)} lines)")
+    print(f"wrote {target.relative_to(REPO_ROOT)} ({len(lines)} lines)")
     if target != OUT:
         print("COMPARISON.md left untouched (it holds hand-written sections); "
               "diff the two and merge, or pass --overwrite")

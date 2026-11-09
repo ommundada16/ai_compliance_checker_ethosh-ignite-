@@ -18,7 +18,7 @@ report.json
 
 # --- v2 artefacts ---
 # Model weights, vector storage and run outputs are all reproducible.
-# Evaluation RESULTS are committed on purpose (see eval_data/), because the
+# Evaluation RESULTS are committed on purpose (see v2/eval_data/), because the
 # whole point of this project is that the numbers are auditable.
 .fastembed_cache/
 qdrant_storage/
@@ -33,8 +33,8 @@ data/*
 
 # --- frontend ---
 node_modules/
-frontend/dist/
-frontend/.vite/
+v2/frontend/dist/
+v2/frontend/.vite/
 
 # --- os / editor ---
 .DS_Store
@@ -43,16 +43,16 @@ Thumbs.db
 .vscode/
 
 # derived cache, rebuilt on demand from clauses.jsonl + the PDF
-eval_data/.span_cache.json
+v2/eval_data/.span_cache.json
 
-# written at the end of a full tools/propose_labels_llm.py run; committed only
+# written at the end of a full v2/tools/propose_labels_llm.py run; committed only
 # when complete, never as a partial smoke-test result
-eval_data/llm_proposals.jsonl
+v2/eval_data/llm_proposals.jsonl
 
-# embedded qdrant index, rebuilt by tools/score_v2.py --reindex
+# embedded qdrant index, rebuilt by v2/tools/score_v2.py --reindex
 qdrant_local/
 
 # --- regenerable ---
-eval_data/.retrieval_cache.json
-frontend/*.tsbuildinfo
+v2/eval_data/.retrieval_cache.json
+v2/frontend/*.tsbuildinfo
 docs/COMPARISON.generated.md

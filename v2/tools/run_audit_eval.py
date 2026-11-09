@@ -52,6 +52,7 @@ from dataclasses import asdict, dataclass
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
+DATA_DIR = PROJECT_ROOT.parent / "data"   # shared source PDFs sit at the repo root, beside v1/ and v2/
 sys.path.insert(0, str(PROJECT_ROOT / "src"))
 sys.path.insert(0, str(PROJECT_ROOT / "tools"))
 
@@ -367,7 +368,7 @@ def main() -> int:
     live: dict[str, object] = {}
     if "v1" in missing_families:
         print("building v1 retriever ...")
-        text = extract_text_v1(PROJECT_ROOT / "data" / "guideline.pdf")
+        text = extract_text_v1(DATA_DIR / "guideline.pdf")
         v1_chunks = chunk_text_v1(text)
         cached_spans = json.loads(SPAN_CACHE.read_text(encoding="utf-8"))
         spans = [ClauseSpan(**s) for s in cached_spans["spans"]]

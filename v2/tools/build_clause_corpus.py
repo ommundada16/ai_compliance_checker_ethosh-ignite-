@@ -17,6 +17,7 @@ from dataclasses import asdict
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
+DATA_DIR = PROJECT_ROOT.parent / "data"   # shared source PDFs sit at the repo root, beside v1/ and v2/
 sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
 from auditor.parsing.mdr import FIRST_BODY_PAGE, build  # noqa: E402
@@ -36,7 +37,7 @@ def rel(path: Path) -> str:
 
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("--pdf", type=Path, default=PROJECT_ROOT / "data" / "guideline.pdf")
+    ap.add_argument("--pdf", type=Path, default=DATA_DIR / "guideline.pdf")
     ap.add_argument("--out", type=Path, default=PROJECT_ROOT / "eval_data" / "clauses.jsonl")
     ap.add_argument("--first-page", type=int, default=FIRST_BODY_PAGE)
     ap.add_argument("--min-words", type=int, default=8,

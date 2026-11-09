@@ -3,7 +3,7 @@
 #
 # Deliberately NO torch / sentence-transformers. Embedding and reranking run
 # through fastembed (ONNX Runtime, CPU) because the dev machine has only 4 GB
-# of VRAM and that budget is reserved for the LLM. See docs/ARCHITECTURE.md.
+# of VRAM and that budget is reserved for the LLM. See ../docs/HANDOFF.md.
 # ---------------------------------------------------------------------------
 
 # --- core ---

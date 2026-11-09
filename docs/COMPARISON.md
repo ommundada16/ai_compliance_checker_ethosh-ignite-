@@ -1,9 +1,9 @@
 # The Auditor — v1 vs v2
 
-_Generated 2026-09-25 by `tools/build_comparison_report.py`._
+_Generated 2026-09-25 by `v2/tools/build_comparison_report.py`._
 
-Every number below is read from `eval_data/results/*.json`, each of which
-is produced by a script in `tools/`. Nothing here is typed by hand.
+Every number below is read from `v2/eval_data/results/*.json`, each of which
+is produced by a script in `v2/tools/`. Nothing here is typed by hand.
 
 ## What changed
 
@@ -151,13 +151,13 @@ Three fixes follow directly, in order of expected value:
    worth knowing, and is why the threshold is not the first fix.
 
 **Update 2026-09-25.** Fix 1 was built and measured by replaying it over three
-stored audit runs (`eval_data/results/reconcile_offline.json`): it dropped 1-3
+stored audit runs (`v2/eval_data/results/reconcile_offline.json`): it dropped 1-3
 findings per run, lowered the FP rate by 0.06-0.13 (e.g. 0.73 to 0.60) and lost
 no true positive - a real but small effect, not the collapse predicted above.
 Most surviving false positives apply label/IFU requirements to a CER section,
 which fix 2 (an opt-in `document_context` prompt, not yet measured end to end)
 targets. Prefixing the section title to the retrieval query also lifted scope
-recall to 0.227 and nDCG to 0.211 (`eval_data/results/v2_query_ablation.json`).
+recall to 0.227 and nDCG to 0.211 (`v2/eval_data/results/v2_query_ablation.json`).
 See `docs/HANDOFF.md` for the remaining Groq-gated runs.
 
 The guardrails are working as designed: hallucination rate is **0.000**, and
@@ -197,6 +197,7 @@ cross-encoder spends real compute only on those.
 ## Reproducing this
 
 ```bash
+cd v2
 python tools/build_clause_corpus.py       # 1320 MDR clauses
 python tools/build_protocol_passages.py   # 75 CER passages
 python tools/build_gold_retrieval.py      # graded labels

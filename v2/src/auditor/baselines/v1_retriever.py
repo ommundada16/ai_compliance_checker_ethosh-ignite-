@@ -1,8 +1,8 @@
 """Faithful reimplementation of the v1 retrieval path.
 
 v1 is the measurement baseline, so it has to be reproducible for as long as the
-comparison is quoted. The original lives at the repository root (ingest.py,
-retriever.py) and still runs; this module reproduces its ALGORITHM inside the
+comparison is quoted. The original lives in the sibling v1/ folder (v1/ingest.py,
+v1/retriever.py) and still runs; this module reproduces its ALGORITHM inside the
 v2 environment so both systems can be scored by one harness, in one process,
 against one gold set.
 

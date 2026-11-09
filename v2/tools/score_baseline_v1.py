@@ -25,6 +25,7 @@ import time
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
+DATA_DIR = PROJECT_ROOT.parent / "data"   # shared source PDFs sit at the repo root, beside v1/ and v2/
 sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
 from auditor.baselines.coverage import (  # noqa: E402
@@ -108,7 +109,7 @@ def main() -> int:
     started = time.time()
 
     print("[1/5] extracting guideline text the way v1 did ...")
-    guideline_text = extract_text_v1(PROJECT_ROOT / "data" / "guideline.pdf")
+    guideline_text = extract_text_v1(DATA_DIR / "guideline.pdf")
     chunks = chunk_text_v1(guideline_text)
     total_words = len(guideline_text.split())
     print(f"      {total_words:,} words -> {len(chunks)} chunks "

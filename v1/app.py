@@ -1355,7 +1355,7 @@ if st.session_state.current_screen == "home":
                 update_status("Analyzing guidelines...", time_estimate, audit_steps, 0.3)
                 
                 # Step 2: Retrieve from system default guideline
-                guideline_path = os.path.join(BASE_DIR, "data", "guideline.pdf")
+                guideline_path = os.path.join(BASE_DIR, "..", "data", "guideline.pdf")
                 if not os.path.exists(guideline_path):
                     status_placeholder.empty()
                     progress_bar.empty()

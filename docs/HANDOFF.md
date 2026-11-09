@@ -7,6 +7,12 @@ Every number is read from a committed file; none is estimated.
 **Branch:** `main` · **Commits:** see `git log` (this session's work is committed locally, not pushed) · **Tests:** 198 collected, 198 passing · **Lint:** clean · **Frontend:** typechecks and builds
 **Last updated:** 2026-09-25 (end of session)
 
+> **Repository layout (since 2026-11-09).** The repo is split into `v1/` (the original
+> Streamlit app, kept as the frozen baseline) and `v2/` (everything this document
+> describes). Shared inputs sit at the repo root: `data/` (the two source PDFs) and
+> `docs/` (this file and `COMPARISON.md`). File paths below are written from the repo
+> root; shell commands in code blocks are run from inside `v2/`.
+
 ---
 
 ## 1. GOAL
@@ -121,7 +127,7 @@ At 800 words: **0.111 vs 0.019 — 5.8×**.
 
 10,228 lines of Python, 1,108 of TypeScript/CSS.
 
-### New — the v2 pipeline (`src/auditor/`)
+### New — the v2 pipeline (`v2/src/auditor/`)
 
 | File | Purpose |
 |---|---|
@@ -144,7 +150,7 @@ At 800 words: **0.111 vs 0.019 — 5.8×**.
 | `baselines/coverage.py` | Maps v1 chunks → clause IDs so v1 can be scored |
 | `resources.py` | Memory guard + resource plan |
 
-### New — gold set and scoring (`tools/`)
+### New — gold set and scoring (`v2/tools/`)
 
 `build_clause_corpus.py`, `build_protocol_passages.py`, `mdr_section_map.py`
 (the expert mapping), `build_gold_retrieval.py`, `audit_expectations.py`,
@@ -154,10 +160,10 @@ At 800 words: **0.111 vs 0.019 — 5.8×**.
 
 ### New — service and UI
 
-`api/main.py`, `api/deps.py`, `frontend/src/**` (App, PassageView,
+`v2/api/main.py`, `v2/api/deps.py`, `v2/frontend/src/**` (App, PassageView,
 MetricsPanel, SearchPanel, api.ts, styles.css)
 
-### New — tests (`tests/`, 198 collected, 198 passing)
+### New — tests (`v2/tests/`, 198 collected, 198 passing)
 
 `test_metrics.py`, `test_coverage.py`, `test_fusion_and_gold.py`,
 `test_guardrails.py`, `test_audit_metrics.py`, `test_llm_providers.py`,
@@ -167,11 +173,12 @@ MetricsPanel, SearchPanel, api.ts, styles.css)
 
 ### New — infra and docs
 
-`Dockerfile`, `docker-compose.yml`, `.github/workflows/ci.yml`,
-`.gitattributes`, `pyproject.toml`, `requirements{,-dev,-v1}.txt`,
-`README.md`, `docs/COMPARISON.md`, `docs/HANDOFF.md`
+`v2/Dockerfile`, `v2/docker-compose.yml`, `.github/workflows/ci.yml`,
+`.gitattributes`, `v2/pyproject.toml`, `v2/requirements{,-dev}.txt`,
+`v1/requirements.txt` (the frozen v1 pins), `README.md` (repo overview),
+`v1/README.md`, `v2/README.md`, `docs/COMPARISON.md`, `docs/HANDOFF.md`
 
-### Frozen artefacts (`eval_data/`, committed)
+### Frozen artefacts (`v2/eval_data/`, committed)
 
 `clauses.jsonl` (1,320), `passages.jsonl` (75), `gold_retrieval.jsonl` (75),
 `results/v1_baseline.json`, `results/v2_ablation.json`, `results/audit_eval.json`;
@@ -180,10 +187,10 @@ added 2026-09-25: `results/v2_query_ablation.json`, `results/reconcile_offline.j
 local-model dry runs and is **not reportable** (see its README). `.retrieval_cache.json`
 is regenerable and git-ignored
 
-### Untouched — v1, kept as the baseline
+### Untouched — v1, kept as the baseline (`v1/`)
 
-`app.py`, `auditor.py`, `ingest.py`, `retriever.py`, `run_audit.py`,
-`schema.py`, `report.py`. **Do not modify these.** They are the reference
+`v1/app.py`, `v1/auditor.py`, `v1/ingest.py`, `v1/retriever.py`, `v1/run_audit.py`,
+`v1/schema.py`, `v1/report.py`. **Do not modify these.** They are the reference
 point every comparison is made against.
 
 ---
@@ -336,8 +343,8 @@ The clauses over 250 words that were shown during the run:
 A reasonable objection: v1 originally ran on a local 8B model while v2 runs on
 Groq's 120B. Checked rather than assumed:
 
-**The retrieval comparison uses no LLM at all.** `tools/score_baseline_v1.py`
-and `tools/score_v2.py` contain zero LLM calls — verified by grep for
+**The retrieval comparison uses no LLM at all.** `v2/tools/score_baseline_v1.py`
+and `v2/tools/score_v2.py` contain zero LLM calls — verified by grep for
 `complete_json`, `GroqProvider`, `OllamaProvider`, `chat.completions`. Both are
 pure embedding retrieval over the same gold set with the same metric code.
 
@@ -364,7 +371,7 @@ comparison at all** — fair or otherwise. That is the gap, not the model choice
   of the context actually shown. The cost in recall is unmeasured (see 5.5).
 - **Only `v2_full` has audit numbers.** `v1_retrieval` and `v2_no_guards` have
   not been run, so the audit table has no ablation.
-- **LLM label cross-check not merged** — `tools/propose_labels_llm.py` works
+- **LLM label cross-check not merged** — `v2/tools/propose_labels_llm.py` works
   and is rate-limit-safe, but its output is not folded into the gold set.
 - **UI verified in a browser on 2026-09-25**, which found and fixed a real bug
   (see §1f). Section list, passage view, search, metrics and single-passage audit
@@ -420,7 +427,7 @@ EOF
 Run only when `Used` is below ~100,000 for the 120b and below ~120,000 for the 20b.
 A run that prints `CONTAMINATED` means the judge budget ran out part-way: discard
 it and rerun later. One config per call, in this order. The
-retrieval cache is already built (`eval_data/.retrieval_cache.json`), so no
+retrieval cache is already built (`v2/eval_data/.retrieval_cache.json`), so no
 retrieval models load:
 
 ```bash
@@ -443,12 +450,12 @@ Rules for reading the results:
   rate 0.53 and 0.73 on identical settings. Do not claim a difference between two
   rows unless it is larger than that spread; there are only 4 known violations,
   so recall moves in steps of 0.25.
-- When done, merge the JSON files into `eval_data/results/audit_eval.json`
-  (same shape) and run `python tools/build_comparison_report.py`.
+- When done, merge the JSON files into `v2/eval_data/results/audit_eval.json`
+  (same shape) and run `python v2/tools/build_comparison_report.py`.
 
 ### Groq results (2026-10-02 and 03, `gpt-oss-120b`, judge `gpt-oss-20b`, no contamination)
 
-One run each, so these are samples. `eval_data/results/audit_groq_v1.json`,
+One run each, so these are samples. `v2/eval_data/results/audit_groq_v1.json`,
 `audit_groq_title.json`, `audit_groq_noguards.json`.
 
 | Config | Findings | Recall | FP rate | Targets retrieved (of 4) | Hallucination |
@@ -477,7 +484,7 @@ measurement of reconciliation. `v2_context` has the lowest FP rate seen (0.40) a
 the fewest findings (10), still with the one true positive; because its prompt was
 written after reading the errors on this set it is a **development-set score**, and
 it needs a held-out set (or several samples) before it is cited. These rows are
-merged into `eval_data/results/audit_eval.json` (the original `v2_full` sample is
+merged into `v2/eval_data/results/audit_eval.json` (the original `v2_full` sample is
 kept) and the table in `docs/COMPARISON.md`. **Next, if continuing:** repeat each
 config 3x (`--repeats 3`, about 3 days of Groq budget) to turn samples into ranges,
 and build a held-out set before claiming anything for `v2_context`.
@@ -497,7 +504,7 @@ and build a held-out set before claiming anything for `v2_context`.
 
 Rule fixed **before** the run: adopt a query variant only if scope recall rises by
 at least 0.02 absolute and nDCG does not fall. All 75 gold passages, k = 5,
-`eval_data/results/v2_query_ablation.json`:
+`v2/eval_data/results/v2_query_ablation.json`:
 
 | System | Scope recall | nDCG | MRR | Context precision |
 |---|---|---|---|---|
@@ -534,7 +541,7 @@ matched 800-word budget: 0.111 -> 0.148.
   reconciler failures; `run_audit_eval.py` marks such runs `CONTAMINATED`.
 - **Eval tooling:** `--repeats` (mean and range), `--seed`, `--judge`,
   `--local-model`, `--precompute-only`, a retrieval cache
-  (`eval_data/.retrieval_cache.json`, verified identical to a real run on 19/19
+  (`v2/eval_data/.retrieval_cache.json`, verified identical to a real run on 19/19
   passages), results saved after every config, and a cumulative ablation chain
   `v1_retrieval -> v2_no_guards -> v2_full -> v2_title -> v2_reconcile -> v2_context`,
   one variable per row.
@@ -553,7 +560,7 @@ the memory guard stops runs unless Chrome and other heavy apps are closed. Run
 
 ### 1f. Bug found by the browser check (fixed)
 
-`api/deps.py` ignored `QDRANT_PATH` and always connected to a Qdrant **server**
+`v2/api/deps.py` ignored `QDRANT_PATH` and always connected to a Qdrant **server**
 on `localhost:6333`, although `.env.example`, `docker-compose.yml` and every
 evaluation tool use the embedded index. On the documented no-Docker setup the UI
 header said "vector store down" and search/audit could not work. It now defaults
@@ -566,7 +573,7 @@ the same time.
 ### 1g. Report generator no longer overwrites hand-written analysis
 
 `docs/COMPARISON.md` holds hand-written sections (the audit failure breakdown and the
-false-positive discussion) that `tools/build_comparison_report.py` never generated;
+false-positive discussion) that `v2/tools/build_comparison_report.py` never generated;
 regenerating over it deleted 46 lines. The script now writes
 `docs/COMPARISON.generated.md` (git-ignored) and leaves `COMPARISON.md` alone unless
 given `--overwrite`. After the Groq runs, diff the two files and merge the new audit
@@ -576,7 +583,7 @@ table by hand.
 
 Rule fixed before the run: adopt a smaller candidate pool only if it is at least 40%
 faster AND scope recall and nDCG each fall by no more than 0.01. All 75 gold
-passages, k = 5, title query, `eval_data/results/v2_rerank_pool10.json`,
+passages, k = 5, title query, `v2/eval_data/results/v2_rerank_pool10.json`,
 `v2_rerank_pool15.json` (pool 25 from `v2_query_ablation.json`). Retrieval is
 deterministic, so the quality figures are not sampling noise.
 
@@ -601,7 +608,7 @@ In descending order of value.
 ### 1. Measure what the 250-word clause cap costs
 
 Settle §5.5 with data instead of an assumption. Run the audit twice, changing
-only `MAX_CLAUSE_WORDS_IN_PROMPT` in `src/auditor/audit/pipeline.py`:
+only `MAX_CLAUSE_WORDS_IN_PROMPT` in `v2/src/auditor/audit/pipeline.py`:
 
 ```bash
 # baseline, current setting
@@ -638,19 +645,19 @@ violations, 1/4 vs 0/4 is one finding — within noise. The same v2_full/250
 config gave FP rate 0.533 earlier today and 0.733 in the re-run, so **a single
 audit run is not a stable measurement**. Any future audit comparison needs
 repeated runs (or temperature 0) before a difference is claimed. Files:
-`eval_data/results/audit_cap250.json`, `audit_cap600.json`.
+`v2/eval_data/results/audit_cap250.json`, `audit_cap600.json`.
 
 ### 1b. RESULT (2026-09-25): document-level reconciliation — built, measured, modest
 
-`src/auditor/audit/reconcile.py`. For a finding that asserts an *absence*
+`v2/src/auditor/audit/reconcile.py`. For a finding that asserts an *absence*
 ("does not specify...", "lacks...", "no evidence..."), the rest of the CER is
 searched (dense index over all 75 passages) and a second model is asked whether
 another section already satisfies the requirement. The verdict counts **only**
 if the model names a section it was shown *and* quotes text verifiably present
-in it; any error keeps the finding. 14 tests in `tests/test_reconcile.py`.
+in it; any error keeps the finding. 14 tests in `v2/tests/test_reconcile.py`.
 
-Measured **offline on three frozen first-pass runs** (`tools/eval_reconcile_offline.py`,
-`eval_data/results/reconcile_offline.json`). Replaying the filter over stored
+Measured **offline on three frozen first-pass runs** (`v2/tools/eval_reconcile_offline.py`,
+`v2/eval_data/results/reconcile_offline.json`). Replaying the filter over stored
 output holds the generator constant, which end-to-end A/B cannot: the audit is
 not bit-deterministic, and Groq's free tier caps `gpt-oss-120b` at 200,000
 tokens/day (one audit run costs about half), so repeated end-to-end runs were
@@ -756,6 +763,7 @@ Then re-run both scoring scripts, since the gold set will have changed.
 ## Reproducing every number
 
 ```bash
+cd v2
 python -m venv .venv && .venv/Scripts/activate
 pip install -r requirements-dev.txt
 cp .env.example .env            # add GROQ_API_KEY

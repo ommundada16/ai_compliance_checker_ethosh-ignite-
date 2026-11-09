@@ -22,8 +22,9 @@ from pathlib import Path
 import pytest
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-GUIDELINE = PROJECT_ROOT / "data" / "guideline.pdf"
-SOURCE = PROJECT_ROOT / "data" / "source_file.pdf"
+DATA_DIR = PROJECT_ROOT.parent / "data"   # shared source PDFs sit at the repo root, beside v1/ and v2/
+GUIDELINE = DATA_DIR / "guideline.pdf"
+SOURCE = DATA_DIR / "source_file.pdf"
 CLAUSES = PROJECT_ROOT / "eval_data" / "clauses.jsonl"
 PASSAGES = PROJECT_ROOT / "eval_data" / "passages.jsonl"
 
