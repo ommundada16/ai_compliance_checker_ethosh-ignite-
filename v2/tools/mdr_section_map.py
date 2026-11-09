@@ -38,7 +38,8 @@ PROVENANCE
 Labels derived from this file are tagged "expert_map". A separate pass
 (tools/propose_labels_llm.py) asks an independent strong model for candidates;
 where the two disagree, the disagreement is recorded rather than silently
-resolved. See eval_data/README.md for how conflicts are settled.
+resolved. The rules are in docs/HANDOFF.md under "Gold-set design decisions
+worth preserving": the LLM pass may only add secondary labels, never a primary one.
 """
 
 from __future__ import annotations
